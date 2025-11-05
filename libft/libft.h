@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:13:02 by achauvie          #+#    #+#             */
-/*   Updated: 2025/10/24 11:12:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/05 11:04:54 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -66,5 +67,11 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+int		ft_printf(const char *arg_s, ...)__attribute__((format(printf, 1, 2)));
+int		long_itoa(long int n);
+int		long_itoa_hex(long unsigned int n, char c);
+int		putchar_len(char c);
+int		putstr_len(char *s);
 
 #endif
