@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:15:32 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/06 16:25:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/06 19:26:38 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*get_buf_data(int fd, char *stash)
 	char		*buff;
 
 	buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!buff)
+	if (!buff || !stash)
 		return (NULL);
 	buffer = 1;
 	while (buffer > 0 && !ft_strchr(stash, '\n'))
@@ -43,29 +43,34 @@ static char	*get_new_stash(char *stash)
 	char	*cut;
 	size_t	i;
 
-	i = 0;
-	cut = NULL;
-	if (!stash)
+	if (!stash || !stash[0])
 		return (NULL);
-	while (stash[i])
-	{
-		if (stash[i] == '\n')
-		{
-			if (stash[i + 1])
-			{
-				cut = ft_strdup(&stash[i + 1]);
-				stash[i + 1] = '\0';
-			}
-			break ;
-		}
+	i = 0;
+	while (stash[i] && stash[i] != '\n')
 		i++;
-	}
+	if (!stash[i] || !stash[i + 1])
+		return (NULL);
+	cut = ft_strdup(&stash[i + 1]);
+	if (!cut)
+		return (NULL);
+	stash[i + 1] = '\0';
 	return (cut);
 }
 
 static char	*extract_line(char *stash)
 {
-	
+	size_t	i;
+	char	*line;
+
+	i = 0;
+	if (!stash || !stash[0])
+		return (NULL);
+	while (stash[i] && stash[i] != '\n')
+		i++;
+	if (stash[i] == '\n')
+		stash[i + 1] = '\0';
+	line = ft_strdup(stash);
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -76,8 +81,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (!stash)
+		stash = ft_calloc(1, sizeof(char));
 	stash = get_buf_data(fd, stash);
-	if(!stash)
+	if (!stash)
 		return (NULL);
 	tmp = get_new_stash(stash);
 	line = extract_line(stash);
@@ -85,46 +92,3 @@ char	*get_next_line(int fd)
 	stash = tmp;
 	return (line);
 }
-
-// int	main(void)
-// {
-// 	int	fd;
-// 	char *s;
-
-// 	fd = open("read_error.txt", O_RDONLY);
-// 	if (fd > -1)
-// 	{
-// 		s = get_next_line(fd);
-// 		printf("%s", s);
-// 		free(s);
-
-// 		s = get_next_line(fd);
-// 		printf("%s", s);
-// 		free(s);
-
-// 		// if (BUFFER_SIZE > 100) {
-// 		// 	char *temp;
-// 		// 	do {
-// 		// 		temp = get_next_line(fd);
-// 		// 		free(temp);
-// 		// 	} while (temp != NULL);
-// 		// }
-
-// 		s = get_next_line(fd);
-// 		printf("%s", s);
-// 		free(s);
-
-// 		s = get_next_line(fd);
-// 		printf("%s", s);
-// 		free(s);
-
-// 		s = get_next_line(fd);
-// 		printf("%s", s);
-// 		free(s);
-
-// 		s = get_next_line(fd);
-// 		printf("%s", s);
-// 		free(s);
-// 	}
-// 	close(fd);
-// }

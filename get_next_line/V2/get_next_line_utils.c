@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:15:50 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/05 16:30:25 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/06 19:02:57 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s2)
-		return (s1);
+		return (ft_strdup(s1));
 	s1_len = 0;
 	s2_len = 0;
 	while (s1[s1_len])
