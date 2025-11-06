@@ -6,43 +6,39 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:15:32 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/06 13:00:54 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/06 16:25:38 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-static char	*get_buf_data(int fd)
+static char	*get_buf_data(int fd, char *stash)
 {
 	long int	buffer;
-	char		*buf;
-	char		*str;
+	char		*buff;
 
-	buf = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!buf)
-		return (NULL);
-	str = ft_calloc(1, sizeof(char));
-	if (!str)
+	buff = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	if (!buff)
 		return (NULL);
 	buffer = 1;
-	while (buffer > 0 && !ft_strchr(buf, '\n'))
+	while (buffer > 0 && !ft_strchr(stash, '\n'))
 	{
-		buffer = read(fd, buf, BUFFER_SIZE);
+		buffer = read(fd, buff, BUFFER_SIZE);
 		if (buffer < 0)
 		{
-			free(buf);
-			free(str);
+			free(buff);
+			free(stash);
 			return (NULL);
 		}
-		buf[buffer] = '\0';
-		str = ft_strjoin(str, buf);
+		buff[buffer] = '\0';
+		stash = ft_strjoin(stash, buff);
 	}
-	free(buf);
-	return (str);
+	free(buff);
+	return (stash);
 }
 
-static char	*get_rest(char *stash)
+static char	*get_new_stash(char *stash)
 {
 	char	*cut;
 	size_t	i;
@@ -67,48 +63,26 @@ static char	*get_rest(char *stash)
 	return (cut);
 }
 
-static char	*extract_line(char **stash, char *line, int fd)
+static char	*extract_line(char *stash)
 {
-	char		*tmp;
-
-	tmp = NULL;
-	if (!*stash)
-		*stash = get_buf_data(fd);
-	if (*stash)
-	{
-		if (!ft_strchr(*stash, '\n'))
-		{
-			line = ft_strjoin(line, *stash);
-			free(*stash);
-			*stash = get_buf_data(fd);
-		}
-		tmp = get_rest(*stash);
-		line = ft_strjoin(line, *stash);
-		free(*stash);
-		*stash = tmp;
-	}
-	if (!*stash && line[0] == '\0')
-	{
-		free(line);
-		line = NULL;
-	}
-	return (line);
+	
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*stash = NULL;
 	char		*line;
+	char		*tmp;
 
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
-	{
-		stash = NULL;
 		return (NULL);
-	}
-	line = ft_calloc(1, sizeof(char));
-	if (!line)
+	stash = get_buf_data(fd, stash);
+	if(!stash)
 		return (NULL);
-	line = extract_line(&stash, line, fd);
+	tmp = get_new_stash(stash);
+	line = extract_line(stash);
+	free(stash);
+	stash = tmp;
 	return (line);
 }
 
@@ -128,13 +102,13 @@ char	*get_next_line(int fd)
 // 		printf("%s", s);
 // 		free(s);
 
-// 		if (BUFFER_SIZE > 100) {
-// 			char *temp;
-// 			do {
-// 				temp = get_next_line(fd);
-// 				free(temp);
-// 			} while (temp != NULL);
-// 		}
+// 		// if (BUFFER_SIZE > 100) {
+// 		// 	char *temp;
+// 		// 	do {
+// 		// 		temp = get_next_line(fd);
+// 		// 		free(temp);
+// 		// 	} while (temp != NULL);
+// 		// }
 
 // 		s = get_next_line(fd);
 // 		printf("%s", s);
