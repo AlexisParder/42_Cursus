@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:58 by achauvie          #+#    #+#             */
-/*   Updated: 2025/10/27 08:47:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/11 09:23:12 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= 0 && fd > -1)
-		write(fd, &c, 1);
+	write(fd, &c, 1);
 }

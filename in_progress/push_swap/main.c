@@ -6,14 +6,15 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/11 09:15:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/11 09:22:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char const *argv[])
+int main(int ac, char **av)
 {
-	/* code */
+	if (ac > 1)
+		ft_printf("%s\n", "test");
 	return 0;
 }
