@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/12 16:27:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/12 16:48:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		rrr(t_stack **a, t_stack **b);
 
 t_stack	*ps_lstlast(t_stack *lst);
 size_t	ps_lstsize(t_stack *lst);
+char	*ps_strjoin(char *s1, char *s2);
 // int	check_list(int *tab, int len, char **list);
 
 #endif
