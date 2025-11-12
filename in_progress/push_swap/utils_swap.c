@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:16:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/12 13:35:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/12 16:27:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ss(t_stack **a, t_stack **b)
 {
 	int	res_sa;
 	int	res_sb;
-	
+
 	res_sa = sa(a);
 	res_sb = sb(b);
 	if (res_sa == 0 && res_sb == 0)

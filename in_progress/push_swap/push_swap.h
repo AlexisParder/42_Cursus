@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/12 13:38:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/12 16:27:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-int	sa(t_stack **a);
-int	sb(t_stack **b);
-int	ss(t_stack **a, t_stack **b);
-int	pa(t_stack **a, t_stack **b);
-int	pb(t_stack **a, t_stack **b);
-int	ra(t_stack **a);
-int	rb(t_stack **b);
-int	rr(t_stack **a, t_stack **b);
-int	rra(t_stack **a);
-int	rrb(t_stack **b);
-int	rrr(t_stack **a, t_stack **b);
+int		sa(t_stack **a);
+int		sb(t_stack **b);
+int		ss(t_stack **a, t_stack **b);
+int		pa(t_stack **a, t_stack **b);
+int		pb(t_stack **a, t_stack **b);
+int		ra(t_stack **a);
+int		rb(t_stack **b);
+int		rr(t_stack **a, t_stack **b);
+int		rra(t_stack **a);
+int		rrb(t_stack **b);
+int		rrr(t_stack **a, t_stack **b);
 
 t_stack	*ps_lstlast(t_stack *lst);
 size_t	ps_lstsize(t_stack *lst);
