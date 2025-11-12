@@ -1,16 +1,20 @@
 NAME = push_swap
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-INC_FILES = -I libft.h \
-			push_swap.h \
-			libft.a
-SRC_FILES = main.c
+INC_FILES = -I push_swap.h
+SRC_FILES = main.c \
+			utils_push_swap.c \
+			utils_swap.c \
+			utils_push.c \
+ 			utils_rotation.c \
+ 			utils_rotation_rev.c \
+			utils_lst.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-		$(CC) $(CFLAGS) $(INC_FILES) -o $@ $^
+		$(CC) $(CFLAGS) $(INC_FILES) -o $@ $^ libft.a
 
 %.o : %.c
 		$(CC) $(CFLAGS) $(INC_FILES) -o $@ -c $<
