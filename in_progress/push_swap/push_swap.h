@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/12 16:48:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/13 10:49:26 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,14 @@ int		rr(t_stack **a, t_stack **b);
 int		rra(t_stack **a);
 int		rrb(t_stack **b);
 int		rrr(t_stack **a, t_stack **b);
+int		check_list(char **list);
+int		check_arg(char *arg);
 
-t_stack	*ps_lstlast(t_stack *lst);
-size_t	ps_lstsize(t_stack *lst);
 char	*ps_strjoin(char *s1, char *s2);
-// int	check_list(int *tab, int len, char **list);
+
+size_t	ps_stacksize(t_stack *lst);
+
+t_stack	*ps_stacklast(t_stack *lst);
+t_stack	*fill_stack(t_stack *stack, char **tab);
 
 #endif

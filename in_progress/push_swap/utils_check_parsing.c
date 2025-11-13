@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_push_swap.c                                  :+:      :+:    :+:   */
+/*   utils_check_parsing.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 09:51:19 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/12 17:07:44 by achauvie         ###   ########.fr       */
+/*   Created: 2025/11/13 09:46:05 by achauvie          #+#    #+#             */
+/*   Updated: 2025/11/13 10:44:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_dup(int *tab, int len)
+static int	find_dup(char **list)
 {
 	int	i;
 	int	k;
 
 	i = 0;
-	while (i <= len)
+	while (list[i])
 	{
 		k = i + 1;
-		while (k < len)
+		while (list[k])
 		{
-			if (tab[i] == tab[k])
+			if (list[i] == list[k])
 				return (1);
 			k++;
 		}
@@ -50,69 +50,32 @@ static int	arg_isdigit(char *arg)
 	return (1);
 }
 
-int	check_list(int *tab, int len, char **list)
+int	check_list(char **list)
 {
 	int	i;
 
 	i = 1;
-	while (tab && list[i] && i <= len)
+	while (list && list[i])
 	{
 		if (!arg_isdigit(list[i]))
 			return (0);
-		tab[i - 1] = ft_atoi(list[i]);
 		i++;
 	}
-	if (!tab || find_dup(tab, len))
+	if (find_dup(list))
 		return (0);
 	return (1);
 }
 
-static char	*ps_strcat(char *dest, char *src1, char *src2)
+int	check_arg(char *arg)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	while (src1[i])
+	while (arg && arg[i])
 	{
-		dest[i] = src1[i];
+		if (ft_isdigit(arg[i]))
+			return (1);
 		i++;
 	}
-	dest[i] = ' ';
-	i++;
-	while (src2[j])
-	{
-		dest[i + j] = src2[j];
-		j++;
-	}
-	dest[i + j] = '\0';
-	return (dest);
-}
-
-char	*ps_strjoin(char *s1, char *s2)
-{
-	int		s1_len;
-	int		s2_len;
-	char	*s3;
-
-	if (!s1 && !s2)
-		return (NULL);
-	if (!s1)
-	{
-		s3 = ft_strdup(s2);
-		return (s3);
-	}
-	s1_len = 0;
-	s2_len = 0;
-	while (s1[s1_len])
-		s1_len++;
-	while (s2[s2_len])
-		s2_len++;
-	s3 = ft_calloc((s1_len + s2_len + 1), sizeof(char));
-	if (!s3)
-		return (NULL);
-	ps_strcat(s3, s1, s2);
-	free(s1);
-	return (s3);
+	return (0);
 }

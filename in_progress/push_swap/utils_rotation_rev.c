@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:01:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/12 16:28:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/13 10:13:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	rra(t_stack **a)
 	if (!a || !*a || !(*a)->next)
 		return (0);
 	first = *a;
-	last = ps_lstlast(*a);
+	last = ps_stacklast(*a);
 	last->prev->next = NULL;
 	last->prev = NULL;
 	last->next = first;
@@ -37,7 +37,7 @@ int	rrb(t_stack **b)
 	if (!b || !*b || !(*b)->next)
 		return (0);
 	first = *b;
-	last = ps_lstlast(*b);
+	last = ps_stacklast(*b);
 	last->prev->next = NULL;
 	last->prev = NULL;
 	last->next = first;

@@ -3,12 +3,13 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INC_FILES = -I push_swap.h
 SRC_FILES = main.c \
-			utils_push_swap.c \
+			utils_str.c \
 			utils_swap.c \
 			utils_push.c \
  			utils_rotation.c \
  			utils_rotation_rev.c \
-			utils_lst.c
+			utils_stack.c \
+			utils_check_parsing.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)
