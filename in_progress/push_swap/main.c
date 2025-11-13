@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/13 15:51:01 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/13 17:02:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char **av)
 		}
 		// a = malloc(1000000*sizeof(t_stack));
 		a = NULL;
-		fill_stack(a, tab);
+		fill_stack(&a, tab);
 	}
 	else
 		ft_error();
