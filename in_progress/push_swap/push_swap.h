@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/13 10:49:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:16:24 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ char	*ps_strjoin(char *s1, char *s2);
 size_t	ps_stacksize(t_stack *lst);
 
 t_stack	*ps_stacklast(t_stack *lst);
-t_stack	*fill_stack(t_stack *stack, char **tab);
+void	fill_stack(t_stack *stack, char **tab);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:17:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/13 11:28:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:15:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ size_t	ps_stacksize(t_stack *lst)
 	return (i);
 }
 
-t_stack	*fill_stack(t_stack *stack, char **tab)
+#include <stdio.h>
+void	fill_stack(t_stack *stack, char **tab)
 {
 	size_t	i;
 	size_t	stack_sz;
@@ -42,15 +43,22 @@ t_stack	*fill_stack(t_stack *stack, char **tab)
 	i = 0;
 	while (tab && tab[i])
 	{
+		tmp = malloc(sizeof(t_stack));
+		stack_sz = ps_stacksize(stack);
 		tmp->index = 0; // faire une fonction pour calculer l'index
 		tmp->nbr = ft_atoi(tab[i]);
 		tmp->next = NULL;
-		tmp->prev = NULL;
-		
-		if (ps_stacksize(stack) > 0)
-			ps_stacklast(stack)->next = tmp;
+		if (stack_sz > 0)
+		{
+			stack_last = ps_stacklast(stack);
+			tmp->prev = stack_last;
+			stack_last->next = tmp;
+		}
 		else
-			stack = tmp;		
+			stack = tmp;
+		i++;	
+		free(tmp);
+		printf("%ld\n", stack_last->nbr);	
 	}
 	free(tab);
 }
