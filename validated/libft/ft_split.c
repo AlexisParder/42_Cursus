@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2025/10/27 08:38:44 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 13:32:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	size_substr(char const *s, unsigned int start, char sep)
+static int	size_substr(char const *s, unsigned int start, char sep)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	size_substr(char const *s, unsigned int start, char sep)
 	return (i);
 }
 
-int	count_set(char const *src, char set)
+static int	count_set(char const *src, char set)
 {
 	int	i;
 	int	count;
@@ -45,7 +45,7 @@ int	count_set(char const *src, char set)
 	return (count);
 }
 
-int	check_tab(char **tab, int k)
+static int	check_tab(char **tab, int k)
 {
 	int	i;
 

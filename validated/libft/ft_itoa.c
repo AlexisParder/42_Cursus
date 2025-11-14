@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:28 by achauvie          #+#    #+#             */
-/*   Updated: 2025/10/27 08:39:51 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 13:29:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_int(int n)
+static int	count_int(int n)
 {
 	int			i;
 	long int	nbr;
