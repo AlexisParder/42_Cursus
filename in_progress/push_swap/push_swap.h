@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/13 17:02:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:48:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ int		check_arg(char *arg);
 
 char	*ps_strjoin(char *s1, char *s2);
 
+void	fill_stack(t_stack **stack, char **list);
+void	assign_index(t_stack *stack);
+void	ft_error(void);
+void	free_stack(t_stack *stack);
+
 size_t	ps_stacksize(t_stack *lst);
 
 t_stack	*ps_stacklast(t_stack *lst);
-void	fill_stack(t_stack **stack, char **tab);
 
 #endif

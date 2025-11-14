@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:17:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/13 17:02:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 12:36:12 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,21 @@ size_t	ps_stacksize(t_stack *lst)
 	return (i);
 }
 
-#include <stdio.h>
-void	fill_stack(t_stack **stack, char **tab)
+void	fill_stack(t_stack **stack, char **list)
 {
 	size_t	i;
 	size_t	stack_sz;
 	t_stack	*tmp;
 	t_stack	*stack_last;
-	
+
 	i = 0;
-	while (tab && tab[i])
+	while (list && list[i])
 	{
 		tmp = malloc(sizeof(t_stack));
 		stack_sz = ps_stacksize(*stack);
-		tmp->index = 0; // faire une fonction pour calculer l'index
-		tmp->nbr = ft_atoi(tab[i]);
+		tmp->index = 0;
+		tmp->nbr = ft_atoi(list[i]);
+		tmp->prev = NULL;
 		tmp->next = NULL;
 		if (stack_sz > 0)
 		{
@@ -56,9 +56,15 @@ void	fill_stack(t_stack **stack, char **tab)
 		}
 		else
 			*stack = tmp;
-		i++;	
-		free(tmp);
-		printf("%ld\n", stack_last->nbr);	
+		i++;
 	}
-	free(tab);
+}
+
+void	free_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		free(stack->nbr);
+		stack = stack->next;
+	}
 }

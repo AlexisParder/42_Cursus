@@ -54,7 +54,7 @@ char	*ps_strjoin(char *s1, char *s2)
 		s1_len++;
 	while (s2[s2_len])
 		s2_len++;
-	s3 = ft_calloc((s1_len + s2_len + 1), sizeof(char));
+	s3 = ft_calloc((s1_len + s2_len + 2), sizeof(char));
 	if (!s3)
 		return (NULL);
 	ps_strcat_space(s3, s1, s2);

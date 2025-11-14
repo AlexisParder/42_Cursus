@@ -9,7 +9,9 @@ SRC_FILES = main.c \
  			utils_rotation.c \
  			utils_rotation_rev.c \
 			utils_stack.c \
-			utils_check_parsing.c
+			utils_check_parsing.c \
+			utils_global.c \
+			quick_sort.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:46:05 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/13 10:44:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 08:50:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 static int	find_dup(char **list)
 {
-	int	i;
-	int	k;
+	size_t		i;
+	size_t		k;
+	long int	a;
+	long int	b;
 
 	i = 0;
 	while (list[i])
 	{
 		k = i + 1;
+		a = ft_atoi(list[i]);
 		while (list[k])
 		{
-			if (list[i] == list[k])
+			b = ft_atoi(list[k]);
+			if (a == b)
 				return (1);
 			k++;
 		}
