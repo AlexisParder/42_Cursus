@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 13:16:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/12 16:27:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:56:48 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	sa(t_stack **a)
 	first->index = second->index;
 	second->nbr = tmp_nbr;
 	second->index = tmp_index;
+	write(1, "sa\n", 3);
 	return (1);
 }
 
@@ -49,17 +50,17 @@ int	sb(t_stack **b)
 	first->index = second->index;
 	second->nbr = tmp_nbr;
 	second->index = tmp_index;
+	write(1, "sb\n", 3);
 	return (1);
 }
 
-int	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	int	res_sa;
 	int	res_sb;
 
 	res_sa = sa(a);
 	res_sb = sb(b);
-	if (res_sa == 0 && res_sb == 0)
-		return (0);
-	return (1);
+	if (res_sa && res_sb)
+		write(1, "ss\n", 3);
 }

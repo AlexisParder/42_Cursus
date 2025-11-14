@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:43:53 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 14:04:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 17:02:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	quick_sort(long *list, int left, int right)
 {
-	size_t		i;
-	size_t		j;
+	size_t	i;
+	size_t	j;
 	long	k;
 	long	tmp;
 
@@ -50,7 +50,7 @@ static long	*calc_index(t_stack *stack, size_t stack_size)
 	if (!list_tmp)
 	{
 		free_stack(stack);
-		ft_error();	
+		ft_error();
 	}
 	i = 0;
 	while (i < stack_size)
@@ -60,7 +60,7 @@ static long	*calc_index(t_stack *stack, size_t stack_size)
 		i++;
 	}
 	quick_sort(list_tmp, 0, stack_size - 1);
-	return(list_tmp);
+	return (list_tmp);
 }
 
 void	assign_index(t_stack *stack)
@@ -68,7 +68,7 @@ void	assign_index(t_stack *stack)
 	size_t	i;
 	size_t	stack_size;
 	long	*list_tmp;
-	
+
 	stack_size = ps_stacksize(stack);
 	if (stack_size > 1)
 	{

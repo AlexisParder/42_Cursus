@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 12:48:15 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/14 16:58:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ typedef struct s_stack
 
 int		sa(t_stack **a);
 int		sb(t_stack **b);
-int		ss(t_stack **a, t_stack **b);
-int		pa(t_stack **a, t_stack **b);
-int		pb(t_stack **a, t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
 int		ra(t_stack **a);
 int		rb(t_stack **b);
-int		rr(t_stack **a, t_stack **b);
+void	rr(t_stack **a, t_stack **b);
 int		rra(t_stack **a);
 int		rrb(t_stack **b);
-int		rrr(t_stack **a, t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 int		check_list(char **list);
 int		check_arg(char *arg);
 
