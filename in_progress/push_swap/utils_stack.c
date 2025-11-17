@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:17:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 12:36:12 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/17 08:34:25 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	free_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		free(stack->nbr);
+		free(stack);
 		stack = stack->next;
 	}
 }

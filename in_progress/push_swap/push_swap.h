@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 16:58:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/17 14:11:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+typedef struct s_calc_move
+{
+	long	nbr;
+	size_t	nbr_move;
+}	t_calc_move;
 
 int		sa(t_stack **a);
 int		sb(t_stack **b);
@@ -43,6 +49,7 @@ void	fill_stack(t_stack **stack, char **list);
 void	assign_index(t_stack *stack);
 void	ft_error(void);
 void	free_stack(t_stack *stack);
+void	push_swap(t_stack *a);
 
 size_t	ps_stacksize(t_stack *lst);
 
