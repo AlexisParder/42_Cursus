@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_global.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/17 16:17:01 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/17 21:44:34 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static size_t	find_stack_max(t_stack *stack)
 		i++;
 		stack = stack->next;
 	}
-	return (i);
+	return (tmp_i);
 }
 
 static size_t	find_stack_min(t_stack *stack)
@@ -94,7 +94,7 @@ static size_t	find_stack_min(t_stack *stack)
 		i++;
 		stack = stack->next;
 	}
-	return (i);
+	return (tmp_i);
 }
 
 static t_calc_move *calc_move(t_stack *a, t_stack *b)
