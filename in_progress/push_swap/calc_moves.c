@@ -6,33 +6,37 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 09:14:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/18 10:24:05 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:46:56 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	calc_pos_b(t_stack *a, t_stack *b)
+size_t	calc_pos_b(t_stack *a, t_stack *b)
 {
 	size_t		pos_b;
 	size_t		max_in_b;
 	size_t		min_in_b;
 	t_stack		*tmp;
 
-	max_in_b = find_stack_max(b);
-	min_in_b = find_stack_min(b);
+	max_in_b = find_stack_max_value(b);
+	min_in_b = find_stack_min_value(b);
 	if (a->nbr > max_in_b)
-		pos_b = max_in_b;
-	else if (a->nbr < min_in_b)
-		pos_b = min_in_b;
-	else
 	{
-		tmp = b;
-		while (tmp->nbr > a->nbr && tmp->next->nbr < a->nbr)
-		{
-			pos_b++;
-			tmp = tmp->next;
-		}
+		pos_b = find_stack_max_pos(b);
+		return (pos_b);
+	}
+	else if (a->nbr < min_in_b)
+	{
+		pos_b = find_stack_min_pos(b);
+		return (pos_b);
+	}
+	while (b->next)
+	{
+		if (b->nbr > a->nbr && b->next->nbr < a->nbr)
+			return (pos_b + 1);
+		pos_b++;
+		tmp = tmp->next;
 	}
 	return (pos_b);
 }
@@ -92,7 +96,7 @@ t_calc_move	*calc_move(t_stack *a, t_stack *b)
 		tmp_move_real = get_mv(a, b, pos_a, pos_b);
 		if (pos_a == 0 || tmp_move_real < next_nbr->nbr_move)
 		{
-			next_nbr->nbr = a->nbr;
+			next_nbr->nbr = tmp_a->nbr;
 			next_nbr->nbr_move = tmp_move_real;
 		}
 		tmp_a = tmp_a->next;

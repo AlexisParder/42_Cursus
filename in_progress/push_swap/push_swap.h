@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/18 10:24:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:37:32 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ typedef struct s_calc_move
 	size_t	nbr_move;
 }	t_calc_move;
 
-int			sa(t_stack **a);
-int			sb(t_stack **b);
+int			sa(t_stack **a, int print);
+int			sb(t_stack **b, int print);
 void		ss(t_stack **a, t_stack **b);
 void		pa(t_stack **a, t_stack **b);
 void		pb(t_stack **a, t_stack **b);
-int			ra(t_stack **a);
-int			rb(t_stack **b);
+int			ra(t_stack **a, int print);
+int			rb(t_stack **b, int print);
 void		rr(t_stack **a, t_stack **b);
-int			rra(t_stack **a);
-int			rrb(t_stack **b);
+int			rra(t_stack **a, int print);
+int			rrb(t_stack **b, int print);
 void		rrr(t_stack **a, t_stack **b);
 int			check_list(char **list);
 int			check_arg(char *arg);
@@ -51,10 +51,14 @@ void		ft_error(void);
 void		free_stack(t_stack *stack);
 void		push_swap(t_stack *a);
 
+long		find_stack_max_value(t_stack *stack);
+long		find_stack_min_value(t_stack *stack);
+
 size_t		ps_stacksize(t_stack *lst);
-size_t		find_stack_max(t_stack *stack);
-size_t		find_stack_min(t_stack *stack);
+size_t		find_stack_max_pos(t_stack *stack);
+size_t		find_stack_min_pos(t_stack *stack);
 size_t		find_max(size_t a, size_t b);
+size_t		calc_pos_b(t_stack *a, t_stack *b);
 
 t_stack		*ps_stacklast(t_stack *lst);
 
