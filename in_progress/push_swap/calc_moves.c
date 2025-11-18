@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 09:14:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/18 13:46:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:53:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	calc_pos_b(t_stack *a, t_stack *b)
 		if (b->nbr > a->nbr && b->next->nbr < a->nbr)
 			return (pos_b + 1);
 		pos_b++;
-		tmp = tmp->next;
+		b = b->next;
 	}
 	return (pos_b);
 }
