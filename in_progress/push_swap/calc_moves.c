@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 09:14:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/18 13:53:39 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/18 14:06:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 size_t	calc_pos_b(t_stack *a, t_stack *b)
 {
 	size_t		pos_b;
-	size_t		max_in_b;
-	size_t		min_in_b;
+	long		max_in_b;
+	long		min_in_b;
 	t_stack		*tmp;
 
 	max_in_b = find_stack_max_value(b);
@@ -88,11 +88,11 @@ t_calc_move	*calc_move(t_stack *a, t_stack *b)
 	if (!next_nbr)
 		return (NULL);
 	pos_a = 0;
-	pos_b = calc_pos_b(a, b);
 	tmp_a = a;
 	tmp_move_real = 0;
 	while (tmp_a && tmp_move_real != 1)
 	{
+		pos_b = calc_pos_b(tmp_a, b);
 		tmp_move_real = get_mv(a, b, pos_a, pos_b);
 		if (pos_a == 0 || tmp_move_real < next_nbr->nbr_move)
 		{

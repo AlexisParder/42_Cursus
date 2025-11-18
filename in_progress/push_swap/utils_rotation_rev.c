@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:01:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 16:58:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/18 11:08:43 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rra(t_stack **a)
+int	rra(t_stack **a, int print)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -26,11 +26,12 @@ int	rra(t_stack **a)
 	last->next = first;
 	first->prev = last;
 	*a = last;
-	write(1, "rra\n", 3);
+	if (print)
+		write(1, "rra\n", 4);
 	return (1);
 }
 
-int	rrb(t_stack **b)
+int	rrb(t_stack **b, int print)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -44,7 +45,8 @@ int	rrb(t_stack **b)
 	last->next = first;
 	first->prev = last;
 	*b = last;
-	write(1, "rrb\n", 3);
+	if (print)
+		write(1, "rrb\n", 4);
 	return (1);
 }
 
@@ -53,8 +55,8 @@ void	rrr(t_stack **a, t_stack **b)
 	int	res_rra;
 	int	res_rrb;	
 
-	res_rra = rra(a);
-	res_rrb = rrb(b);
+	res_rra = rra(a, 0);
+	res_rrb = rrb(b, 0);
 	if (res_rra && res_rrb)
-		write(1, "rrr\n", 3);
+		write(1, "rrr\n", 4);
 }
