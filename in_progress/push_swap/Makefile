@@ -11,7 +11,9 @@ SRC_FILES = main.c \
 			utils_stack.c \
 			utils_check_parsing.c \
 			utils_global.c \
-			quick_sort.c
+			quick_sort.c \
+			calc_moves.c \
+			utils_calc_moves.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)
