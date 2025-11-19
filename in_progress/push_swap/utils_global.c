@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/19 14:32:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:12:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	ft_error(void)
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
-
 #include <stdio.h>
-
 void	debug_print_stack(t_stack *stack)
 {
 	t_stack	*current;
@@ -30,6 +28,33 @@ void	debug_print_stack(t_stack *stack)
 		printf("Nbr: %ld\n", current->nbr);
 		current = current->next;
 	}
+}
+
+static void	sort_size_3(t_stack **a)
+{
+	long	nbr1;
+	long	nbr2;
+	long	nbr3;
+
+	nbr1 = (*a)->nbr;
+	nbr2 = (*a)->next->nbr;
+	nbr3 = (*a)->next->next->nbr;
+	if (nbr1 > nbr2 && nbr2 < nbr3 && nbr1 < nbr3)
+		sa(a, 1);
+	else if (nbr1 > nbr2 && nbr2 > nbr3)
+	{
+		sa(a, 1);
+		rra(a, 1);
+	}
+	else if (nbr1 > nbr2 && nbr2 < nbr3 && nbr1 > nbr3)
+		ra(a, 1);
+	else if (nbr1 < nbr2 && nbr2 > nbr3 && nbr1 < nbr3)
+	{
+		sa(a, 1);
+		ra(a, 1);
+	}
+	else if (nbr1 < nbr2 && nbr2 > nbr3 && nbr1 > nbr3)
+		rra(a, 1);
 }
 
 void	push_swap(t_stack *a)
@@ -49,6 +74,7 @@ void	push_swap(t_stack *a)
 		free(next_nbr);
 		size_a = ps_stacksize(a);
 	}
+	sort_size_3(&a);
 	// DEBUG
 	ft_printf("\n\nSTACK A\n");
 	debug_print_stack(a);
