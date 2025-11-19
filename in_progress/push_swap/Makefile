@@ -13,7 +13,8 @@ SRC_FILES = main.c \
 			utils_global.c \
 			quick_sort.c \
 			calc_moves.c \
-			utils_calc_moves.c
+			utils_calc_moves.c \
+			make_moves.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)

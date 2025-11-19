@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 09:14:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/18 14:06:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:32:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,27 @@ size_t	calc_pos_b(t_stack *a, t_stack *b)
 	size_t		pos_b;
 	long		max_in_b;
 	long		min_in_b;
-	t_stack		*tmp;
+	t_stack		*tmp_b;
 
+	if (!b)
+		return (0);
+	pos_b = 0;
 	max_in_b = find_stack_max_value(b);
 	min_in_b = find_stack_min_value(b);
-	if (a->nbr > max_in_b)
+	if (a->nbr > max_in_b || a->nbr < min_in_b)
 	{
 		pos_b = find_stack_max_pos(b);
 		return (pos_b);
 	}
-	else if (a->nbr < min_in_b)
+	tmp_b = b;
+	while (tmp_b)
 	{
-		pos_b = find_stack_min_pos(b);
-		return (pos_b);
-	}
-	while (b->next)
-	{
-		if (b->nbr > a->nbr && b->next->nbr < a->nbr)
+		if (tmp_b->next && tmp_b->nbr > a->nbr && tmp_b->next->nbr < a->nbr)
 			return (pos_b + 1);
 		pos_b++;
-		b = b->next;
+		tmp_b = tmp_b->next;
 	}
-	return (pos_b);
+	return (0);
 }
 
 static size_t	calc_tmp_move(size_t pos, size_t size)
@@ -76,15 +75,15 @@ static size_t	get_mv(t_stack *a, t_stack *b, size_t pos_a, size_t pos_b)
 	return (tmp_move_real);
 }
 
-t_calc_move	*calc_move(t_stack *a, t_stack *b)
+t_calc_mv	*calc_move(t_stack *a, t_stack *b)
 {
-	t_calc_move	*next_nbr;
+	t_calc_mv	*next_nbr;
 	size_t		pos_a;
 	size_t		pos_b;
 	size_t		tmp_move_real;
 	t_stack		*tmp_a;
 
-	next_nbr = ft_calloc(1, sizeof(t_calc_move));
+	next_nbr = ft_calloc(1, sizeof(t_calc_mv));
 	if (!next_nbr)
 		return (NULL);
 	pos_a = 0;

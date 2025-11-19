@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/18 14:05:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/19 14:32:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_calc_move
 {
 	long	nbr;
 	size_t	nbr_move;
-}	t_calc_move;
+}	t_calc_mv;
 
 int			sa(t_stack **a, int print);
 int			sb(t_stack **b, int print);
@@ -50,6 +50,7 @@ void		assign_index(t_stack *stack);
 void		ft_error(void);
 void		free_stack(t_stack *stack);
 void		push_swap(t_stack *a);
+void		make_moves(t_stack **a, t_stack **b, t_calc_mv *next_nbr);
 
 long		find_stack_max_value(t_stack *stack);
 long		find_stack_min_value(t_stack *stack);
@@ -62,6 +63,6 @@ size_t		calc_pos_b(t_stack *a, t_stack *b);
 
 t_stack		*ps_stacklast(t_stack *lst);
 
-t_calc_move	*calc_move(t_stack *a, t_stack *b);
+t_calc_mv	*calc_move(t_stack *a, t_stack *b);
 
 #endif
