@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/20 11:09:42 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/20 15:06:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,33 +38,6 @@ void	debug_print_stack(t_stack *a, t_stack *b)
 	}
 }
 
-static void	sort_size_3(t_stack **a)
-{
-	long	nbr1;
-	long	nbr2;
-	long	nbr3;
-
-	nbr1 = (*a)->nbr;
-	nbr2 = (*a)->next->nbr;
-	nbr3 = (*a)->next->next->nbr;
-	if (nbr1 > nbr2 && nbr2 < nbr3 && nbr1 < nbr3)
-		sa(a, 1);
-	else if (nbr1 > nbr2 && nbr2 > nbr3)
-	{
-		sa(a, 1);
-		rra(a, 1);
-	}
-	else if (nbr1 > nbr2 && nbr2 < nbr3 && nbr1 > nbr3)
-		ra(a, 1);
-	else if (nbr1 < nbr2 && nbr2 > nbr3 && nbr1 < nbr3)
-	{
-		sa(a, 1);
-		ra(a, 1);
-	}
-	else if (nbr1 < nbr2 && nbr2 > nbr3 && nbr1 > nbr3)
-		rra(a, 1);
-}
-
 /**
  * FIXME:
  * Ne fonctionne pas tout le temps
@@ -72,7 +45,7 @@ static void	sort_size_3(t_stack **a)
  * - Stack A bien triée, ordre croissant
  * - Stack B bien triée, ordre décroissant
  */
-static void	order_stack(t_stack **a, t_stack **b)
+void	fill_sorted_a(t_stack **a, t_stack **b)
 {
 	size_t pos_max_a;
 	size_t pos_min_a;
@@ -113,7 +86,7 @@ static void	order_stack(t_stack **a, t_stack **b)
 	}
 }
 
-static void	check_order_b(t_stack **b)
+static void	last_sort_b(t_stack **b)
 {
 	size_t	size_b;
 	size_t	pos_max_b;
@@ -150,13 +123,13 @@ void	push_swap(t_stack *a)
 		size_a = ps_stacksize(a);
 	}
 	sort_size_3(&a);
-	check_order_b(&b);
+	last_sort_b(&b);
 	// debug_print_stack(a, b);
 	while (size_b > 0)
 	{
-		order_stack(&a, &b);
+		fill_sorted_a(&a, &b);
 		size_b = ps_stacksize(b);
 	}
 	// debug_print_stack(a, b);
-	// check_order_a(&a);
+	// check_sort_a(&a);
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/19 14:32:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/20 14:48:48 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ void		ft_error(void);
 void		free_stack(t_stack *stack);
 void		push_swap(t_stack *a);
 void		make_moves(t_stack **a, t_stack **b, t_calc_mv *next_nbr);
+void		sort_size_2(t_stack **a);
+void		sort_size_3(t_stack **a);
+void		sort_size_5(t_stack **a);
+void		fill_sorted_a(t_stack **a, t_stack **b);
 
 long		find_stack_max_value(t_stack *stack);
 long		find_stack_min_value(t_stack *stack);

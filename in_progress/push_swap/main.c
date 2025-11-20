@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/20 09:17:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/20 13:54:31 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,32 @@ static char	**ps_parsing(int len, char **av)
 	return (list);
 }
 
+static void	select_sort(t_stack *a)
+{
+	size_t	size_a;
+
+	size_a = ps_stacksize(a);
+	if (size_a == 2)
+		sort_size_2(&a);
+	else if (size_a == 3)
+		sort_size_3(&a);
+	else if (size_a == 4 || size_a == 5)
+		sort_size_5(&a);
+	else if (size_a > 5)
+		push_swap(a);
+}
+
+static int	is_sorted(t_stack *stack)
+{
+	while (stack)
+	{
+		if (stack->next && stack->nbr > stack->next->nbr)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	char	**list;
@@ -67,8 +93,9 @@ int	main(int ac, char **av)
 		a = NULL;
 		fill_stack(&a, list);
 		free_list(list);
+		if (!is_sorted(a))
+			select_sort(a);
 		// assign_index(a);
-		push_swap(a);
 	}
 	return (0);
 }
