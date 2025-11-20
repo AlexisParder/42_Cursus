@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:31:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/20 14:48:48 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/20 15:49:59 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,5 @@ void	sort_size_5(t_stack **a)
 		fill_sorted_a(a, &b);
 		size_b = ps_stacksize(b);
 	}
+	debug_print_stack(*a, b);
 }
