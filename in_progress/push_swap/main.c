@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/17 14:11:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/20 09:17:56 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,5 @@ int	main(int ac, char **av)
 		// assign_index(a);
 		push_swap(a);
 	}
-	else
-		exit(EXIT_SUCCESS);
 	return (0);
 }

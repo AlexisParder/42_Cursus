@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/19 16:38:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/20 11:09:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,22 @@ void	ft_error(void)
 	exit(EXIT_FAILURE);
 }
 #include <stdio.h>
-void	debug_print_stack(t_stack *stack)
+void	debug_print_stack(t_stack *a, t_stack *b)
 {
 	t_stack	*current;
 
-	current = stack;
+	current = a;
+	printf("\n\nSTACK A\n");
 	while (current != NULL)
 	{
-		printf("Nbr: %ld\n", current->nbr);
+		printf("%ld\n", current->nbr);
+		current = current->next;
+	}
+	current = b;
+	printf("STACK B\n");
+	while (current != NULL)
+	{
+		printf("%ld\n", current->nbr);
 		current = current->next;
 	}
 }
@@ -57,35 +65,70 @@ static void	sort_size_3(t_stack **a)
 		rra(a, 1);
 }
 
+/**
+ * FIXME:
+ * Ne fonctionne pas tout le temps
+ * En moyenne, 2-3 elements sont mal placés
+ * - Stack A bien triée, ordre croissant
+ * - Stack B bien triée, ordre décroissant
+ */
 static void	order_stack(t_stack **a, t_stack **b)
 {
-	size_t max_a_pos;
+	size_t pos_max_a;
+	size_t pos_min_a;
+	size_t size_a;
 
-	max_a_pos = find_stack_max_pos(*a);
+	pos_max_a = find_stack_max_pos(*a);
+	pos_min_a = find_stack_min_pos(*a);
+	size_a = ps_stacksize(*a);
 	if ((*a)->nbr > (*b)->nbr)
 	{
 		if ((*b)->nbr < find_stack_min_value(*a))
 		{
-			while (find_stack_min_pos(*a) != 0)
-				rra(a, 1);
+			while (pos_min_a != 0)
+			{
+				if (pos_min_a < size_a / 2)
+					ra(a, 1);
+				else
+					rra(a, 1);
+				pos_min_a = find_stack_min_pos(*a);
+			}
 		}
 		pa(a, b);
 	}
 	else
 	{
-		while (max_a_pos != 0)
+		if ((*b)->nbr < find_stack_max_value(*a))
 		{
-			rra(a, 1);
-			max_a_pos = find_stack_max_pos(*a);
+			while (pos_max_a != 0)
+			{
+				if (pos_max_a < size_a / 2)
+					ra(a, 1);
+				else
+					rra(a, 1);
+				pos_max_a = find_stack_max_pos(*a);
+			}
 		}
 		pa(a, b);
 	}
 }
 
-// static void	check_order(t_stack **a)
-// {
-	
-// }
+static void	check_order_b(t_stack **b)
+{
+	size_t	size_b;
+	size_t	pos_max_b;
+
+	size_b = ps_stacksize(*b);
+	pos_max_b = find_stack_max_pos(*b);
+	while (pos_max_b != 0)
+	{
+		if (pos_max_b < size_b / 2)
+			rb(b, 1);
+		else
+			rrb(b, 1);
+		pos_max_b = find_stack_max_pos(*b);
+	}
+}
 
 void	push_swap(t_stack *a)
 {
@@ -107,10 +150,13 @@ void	push_swap(t_stack *a)
 		size_a = ps_stacksize(a);
 	}
 	sort_size_3(&a);
+	check_order_b(&b);
+	// debug_print_stack(a, b);
 	while (size_b > 0)
 	{
 		order_stack(&a, &b);
 		size_b = ps_stacksize(b);
 	}
-	// check_order(&a);
+	// debug_print_stack(a, b);
+	// check_order_a(&a);
 }
