@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/20 16:21:04 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/21 09:13:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	debug_print_stack(t_stack *a, t_stack *b)
 /**
  * FIXME:
  * Ne fonctionne pas tout le temps
- * En moyenne, 2-3 elements sont mal placés
  * - Stack A bien triée, ordre croissant
  * - Stack B bien triée, ordre décroissant
  */
