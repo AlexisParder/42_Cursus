@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:13:02 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 08:57:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/21 14:15:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -73,5 +77,11 @@ int		long_itoa(long int n);
 int		long_itoa_hex(long unsigned int n, char c);
 int		putchar_len(char c);
 int		putstr_len(char *s);
+
+char	*get_next_line(int fd);
+char	*get_next_line_multiplefd(int fd);
+char	*gnl_strjoin(char *s1, char *s2);
+char	*gnl_strchr(const char *s, int c);
+char	*gnl_strdup(const char *s);
 
 #endif

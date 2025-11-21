@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 08:31:38 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/21 14:12:38 by achauvie         ###   ########.fr       */
+/*   Created: 2025/10/28 13:15:32 by achauvie          #+#    #+#             */
+/*   Updated: 2025/11/21 14:14:59 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*get_next_line_multiplefd(int fd)
 {
-	void	*ptr;
+	static char	*stash[1024];
+	char		*line;
+	char		*tmp;
 
-	if (size != 0 && (nmemb * size) / size != nmemb)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (!ptr)
+	if (!stash[fd])
+		stash[fd] = ft_calloc(1, sizeof(char));
+	stash[fd] = get_buf_data(fd, stash[fd]);
+	if (!stash[fd])
 		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	tmp = get_new_stash(stash[fd]);
+	line = extract_line(stash[fd]);
+	free(stash[fd]);
+	stash[fd] = tmp;
+	return (line);
 }
