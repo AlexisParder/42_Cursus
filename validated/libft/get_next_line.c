@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:15:32 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/21 14:11:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/21 14:16:35 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*get_buf_data(int fd, char *stash)
+char	*get_buf_data(int fd, char *stash)
 {
 	long int	buffer;
 	char		*buff;
@@ -37,7 +37,7 @@ static char	*get_buf_data(int fd, char *stash)
 	return (stash);
 }
 
-static char	*get_new_stash(char *stash)
+char	*get_new_stash(char *stash)
 {
 	char	*cut;
 	size_t	i;
@@ -56,7 +56,7 @@ static char	*get_new_stash(char *stash)
 	return (cut);
 }
 
-static char	*extract_line(char *stash)
+char	*extract_line(char *stash)
 {
 	size_t	i;
 	char	*line;

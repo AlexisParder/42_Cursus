@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:13:02 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 13:54:24 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/21 14:16:56 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -52,10 +56,35 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 int		ft_printf(const char *arg_s, ...)__attribute__((format(printf, 1, 2)));
 int		long_itoa(long int n);
 int		long_itoa_hex(long unsigned int n, char c);
 int		putchar_len(char c);
 int		putstr_len(char *s);
+
+char	*get_next_line(int fd);
+char	*get_next_line_multiplefd(int fd);
+char	*gnl_strjoin(char *s1, char *s2);
+char	*gnl_strchr(const char *s, int c);
+char	*gnl_strdup(const char *s);
+char	*get_buf_data(int fd, char *stash);
+char	*get_new_stash(char *stash);
+char	*extract_line(char *stash);
 
 #endif
