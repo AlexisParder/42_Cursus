@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_global.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/21 14:24:08 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/23 12:21:47 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,51 +38,74 @@ void	debug_print_stack(t_stack *a, t_stack *b)
 	}
 }
 
-/**
- * FIXME:
- * Ne fonctionne pas tout le temps
- * - Stack A bien triée, ordre croissant
- * - Stack B bien triée, ordre décroissant
- */
+long find_best_target_val(t_stack *a, long b_val)
+{
+    long    target_val;
+    t_stack *tmp;
+    int     found_target;
+
+    tmp = a;
+    target_val = 0;
+    found_target = 0;
+    while (tmp)
+    {
+        if (tmp->nbr > b_val)
+        {
+            if (found_target == 0 || tmp->nbr < target_val)
+            {
+                target_val = tmp->nbr;
+                found_target = 1;
+            }
+        }
+        tmp = tmp->next;
+    }
+    if (found_target == 0)
+        return (0);
+    return (target_val);
+}
+
+size_t find_insertion_target_pos(t_stack *a, long b_val)
+{
+    long    target_val;
+    size_t  pos;
+
+    if (!a)
+        return (0);
+    target_val = find_best_target_val(a, b_val);
+    if (target_val == 0)
+        pos = find_stack_min_pos(a);
+    else
+        pos = find_pos(target_val, a);
+    return (pos);
+}
+
 void	fill_sorted_a(t_stack **a, t_stack **b)
 {
-	size_t pos_max_a;
-	size_t pos_min_a;
-	size_t size_a;
+	size_t  target_pos;
+    size_t  size_a;
+    long    b_val;
 
-	pos_max_a = find_stack_max_pos(*a);
-	pos_min_a = find_stack_min_pos(*a);
-	size_a = ps_stacksize(*a);
-	if ((*a)->nbr > (*b)->nbr)
-	{
-		if ((*b)->nbr < find_stack_min_value(*a))
-		{
-			while (pos_min_a != 0)
-			{
-				if (pos_min_a < size_a / 2)
-					ra(a, 1);
-				else
-					rra(a, 1);
-				pos_min_a = find_stack_min_pos(*a);
-			}
-		}
-		pa(a, b);
-	}
-	else
-	{
-		if ((*b)->nbr < find_stack_max_value(*a))
-		{
-			while (pos_max_a != 0)
-			{
-				if (pos_max_a < size_a / 2)
-					ra(a, 1);
-				else
-					rra(a, 1);
-				pos_max_a = find_stack_max_pos(*a);
-			}
-		}
-		pa(a, b);
-	}
+    if (!*b)
+        return;
+    b_val = (*b)->nbr;
+    size_a = ps_stacksize(*a);
+    target_pos = find_insertion_target_pos(*a, b_val);
+    while (target_pos != 0)
+    {
+        if (target_pos <= size_a / 2)
+            ra(a, 1);
+        else
+            rra(a, 1);
+        if (target_pos <= size_a / 2)
+            target_pos--;
+        else
+            target_pos++;
+        
+        if (target_pos == size_a)
+            target_pos = 0; 
+        size_a = ps_stacksize(*a);
+    }
+    pa(a, b);
 }
 
 static void	last_sort_b(t_stack **b)

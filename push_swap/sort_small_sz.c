@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_small_sz.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:31:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/21 11:01:10 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/23 12:00:11 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ void	sort_size_5(t_stack **a)
 		fill_sorted_a(a, &b);
 		size_b = ps_stacksize(b);
 	}
-	debug_print_stack(*a, b);
+	// debug_print_stack(*a, b);
 }

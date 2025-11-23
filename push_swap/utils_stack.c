@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:17:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/17 08:34:25 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/23 12:01:45 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ void	fill_stack(t_stack **stack, char **list)
 
 void	free_stack(t_stack *stack)
 {
-	while (stack)
-	{
-		free(stack);
-		stack = stack->next;
-	}
+	(void)stack; //tmp
+	// while (stack)
+	// {
+	// 	free(stack);
+	// 	stack = stack->next;
+	// }
 }

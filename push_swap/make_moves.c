@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   make_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:14:04 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/19 14:38:02 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/23 11:52:31 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	find_pos(long nbr_search, t_stack *stack)
+size_t	find_pos(long nbr_search, t_stack *stack)
 {
 	size_t	i;
 

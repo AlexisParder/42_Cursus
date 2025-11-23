@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/20 14:48:48 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/23 11:53:15 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ size_t		find_stack_max_pos(t_stack *stack);
 size_t		find_stack_min_pos(t_stack *stack);
 size_t		find_max(size_t a, size_t b);
 size_t		calc_pos_b(t_stack *a, t_stack *b);
+size_t		find_pos(long nbr_search, t_stack *stack);
 
 t_stack		*ps_stacklast(t_stack *lst);
 
