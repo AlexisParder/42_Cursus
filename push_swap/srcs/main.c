@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/20 13:54:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:27:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	free_list(char **list)
 {
@@ -95,7 +95,6 @@ int	main(int ac, char **av)
 		free_list(list);
 		if (!is_sorted(a))
 			select_sort(a);
-		// assign_index(a);
 	}
 	return (0);
 }

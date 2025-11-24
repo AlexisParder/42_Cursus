@@ -1,35 +1,38 @@
 NAME = push_swap
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-INC_FILES = -I push_swap.h
-SRC_FILES = main.c \
-			utils_str.c \
-			utils_swap.c \
-			utils_push.c \
- 			utils_rotation.c \
- 			utils_rotation_rev.c \
-			utils_stack.c \
-			utils_check_parsing.c \
-			utils_global.c \
-			quick_sort.c \
-			calc_moves.c \
-			utils_calc_moves.c \
-			make_moves.c
+INC_DIR = -I includes/
+SRC_DIR = srcs/
+SRC_FILES = $(SRC_DIR)main.c \
+			$(SRC_DIR)calc_moves.c \
+			$(SRC_DIR)make_moves.c \
+			$(SRC_DIR)utils_str.c \
+			$(SRC_DIR)utils_swap.c \
+			$(SRC_DIR)utils_push.c \
+ 			$(SRC_DIR)utils_rotation.c \
+ 			$(SRC_DIR)utils_rotation_rev.c \
+			$(SRC_DIR)utils_stack.c \
+			$(SRC_DIR)utils_check_parsing.c \
+			$(SRC_DIR)utils_global.c \
+			$(SRC_DIR)utils_calc_moves.c \
+			$(SRC_DIR)utils_sort.c
+LIBS_DIR = libs/
+LIBS_FILES = $(LIBS_DIR)libft.a
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-		$(CC) $(CFLAGS) $(INC_FILES) -o $@ $^ libft.a
+		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS_FILES)
 
 %.o : %.c
-		$(CC) $(CFLAGS) $(INC_FILES) -o $@ -c $<
+		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ -c $<
 
 clean:
-		rm -rf $(OBJ_FILES)
+		@rm -rf $(OBJ_FILES)
 
 fclean: clean
-		rm -rf $(NAME)
+		@rm -rf $(NAME)
 
 re: fclean all
 

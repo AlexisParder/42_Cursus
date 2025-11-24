@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 09:16:00 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/21 14:22:13 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:27:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 size_t	find_stack_max_pos(t_stack *stack)
 {

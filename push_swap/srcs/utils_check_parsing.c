@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:46:05 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/20 14:10:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:27:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	find_dup(char **list)
 {

@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:01:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/18 11:08:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/24 12:27:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	rra(t_stack **a, int print)
 {
@@ -27,7 +27,7 @@ int	rra(t_stack **a, int print)
 	first->prev = last;
 	*a = last;
 	if (print)
-		write(1, "rra\n", 4);
+		ft_printf("rra\n");
 	return (1);
 }
 
@@ -46,7 +46,7 @@ int	rrb(t_stack **b, int print)
 	first->prev = last;
 	*b = last;
 	if (print)
-		write(1, "rrb\n", 4);
+		ft_printf("rrb\n");
 	return (1);
 }
 
@@ -58,5 +58,5 @@ void	rrr(t_stack **a, t_stack **b)
 	res_rra = rra(a, 0);
 	res_rrb = rrb(b, 0);
 	if (res_rra && res_rrb)
-		write(1, "rrr\n", 4);
+		ft_printf("rrr\n");
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small_sz.c                                    :+:      :+:    :+:   */
+/*   utils_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:31:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/23 12:00:11 by alexis           ###   ########.fr       */
+/*   Updated: 2025/11/24 12:43:43 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_size_2(t_stack **a)
 {
@@ -55,7 +55,7 @@ void	sort_size_5(t_stack **a)
 	t_stack	*b;
 	size_t	size_a;
 	size_t	size_b;
-	
+
 	b = NULL;
 	pb(a, &b);
 	pb(a, &b);
@@ -75,5 +75,38 @@ void	sort_size_5(t_stack **a)
 		fill_sorted_a(a, &b);
 		size_b = ps_stacksize(b);
 	}
-	// debug_print_stack(*a, b);
+}
+
+void	last_sort_b(t_stack **b)
+{
+	size_t	size_b;
+	size_t	pos_max_b;
+
+	size_b = ps_stacksize(*b);
+	pos_max_b = find_stack_max_pos(*b);
+	while (pos_max_b != 0)
+	{
+		if (pos_max_b < size_b / 2)
+			rb(b, 1);
+		else
+			rrb(b, 1);
+		pos_max_b = find_stack_max_pos(*b);
+	}
+}
+
+void	last_sort_a(t_stack **a)
+{
+	size_t	size_a;
+	size_t	pos_min_a;
+
+	size_a = ps_stacksize(*a);
+	pos_min_a = find_stack_min_pos(*a);
+	while (pos_min_a != 0)
+	{
+		if (pos_min_a < size_a / 2)
+			ra(a, 1);
+		else
+			rra(a, 1);
+		pos_min_a = find_stack_min_pos(*a);
+	}
 }
