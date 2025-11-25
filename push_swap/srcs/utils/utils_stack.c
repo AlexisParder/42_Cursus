@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:17:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/25 11:31:32 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/25 13:53:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	fill_stack(t_stack **stack, char **list)
 	{
 		tmp = malloc(sizeof(t_stack));
 		if (!tmp)
-			free_stack(stack, 1);
+			return ;
 		stack_sz = ps_stacksize(*stack);
 		tmp->nbr = ft_atoi(list[i]);
 		tmp->prev = NULL;

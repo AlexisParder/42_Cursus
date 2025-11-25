@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/25 10:09:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:11:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(int ac, char **av)
 		a = NULL;
 		fill_stack(&a, list);
 		free_list(list);
-		if (!is_sorted(a))
+		if (a && !is_sorted(a))
 			select_sort(a);
 		free_stack(&a, 0);
 	}

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:57 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/25 09:53:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:11:46 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void		fill_sorted_a(t_stack **a, t_stack **b);
 void		last_sort_a(t_stack **a);
 void		last_sort_b(t_stack **b);
 void		free_stack(t_stack **stack, int exit_program);
-
 
 char		*ps_strjoin(char *s1, char *s2);
 

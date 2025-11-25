@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:31:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/25 10:10:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:07:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,7 @@ void	sort_size_5(t_stack **a)
 	if (b->nbr < b->next->nbr)
 		sb(&b, 1);
 	if (size_a == 2)
-	{
-		if ((*a)->nbr > (*a)->next->nbr)
-			sa(a, 1);
-	}
+		sort_size_2(a);
 	else
 		sort_size_3(a);
 	size_b = ps_stacksize(b);
