@@ -1,5 +1,4 @@
 push_swap-testeur-max
 *.out
 *.o
-visualizer-push-swap
 push_swap

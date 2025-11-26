@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:17:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/25 13:53:36 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/26 10:02:43 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@ size_t	ps_stacksize(t_stack *lst)
 	return (i);
 }
 
-void free_stack(t_stack **stack, int exit_program)
+void	free_stack(t_stack **stack, int exit_program)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    while (*stack)
-    {
-        tmp = (*stack)->next;
-        free(*stack);
-        *stack = tmp;
-    }
-    if (exit_program)
-        exit(EXIT_FAILURE);
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	if (exit_program)
+		exit(EXIT_FAILURE);
 }
 
 void	fill_stack(t_stack **stack, char **list)
