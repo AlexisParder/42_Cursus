@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:46:05 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/24 12:27:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:30:44 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	check_list(char **list)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (list && list[i])
 	{
 		if (!arg_isdigit(list[i]))
@@ -82,4 +82,17 @@ int	check_arg(char *arg)
 		i++;
 	}
 	return (0);
+}
+
+void	free_list(char **list)
+{
+	size_t	i;
+
+	i = 0;
+	while (list && list[i])
+	{
+		free(list[i]);
+		i++;
+	}
+	free(list);
 }

@@ -6,24 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/25 15:11:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:31:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static void	free_list(char **list)
-{
-	size_t	i;
-
-	i = 0;
-	while (list && list[i])
-	{
-		free(list[i]);
-		i++;
-	}
-	free(list);
-}
 
 static char	**ps_parsing(int len, char **av)
 {
@@ -38,31 +25,33 @@ static char	**ps_parsing(int len, char **av)
 		if (!check_arg(av[i]))
 		{
 			free(tmp_str);
-			ft_error();
+			return (NULL);
 		}
 		tmp_str = ps_strjoin(tmp_str, av[i]);
+		if (!tmp_str)
+			return (NULL);
 		i++;
 	}
 	list = ft_split(tmp_str, ' ');
 	free(tmp_str);
 	if (!list)
-		ft_error();
+		return (NULL);
 	return (list);
 }
 
-static void	select_sort(t_stack *a)
+static void	select_sort(t_stack **a, t_stack **b)
 {
 	size_t	size_a;
 
-	size_a = ps_stacksize(a);
+	size_a = ps_stacksize(*a);
 	if (size_a == 2)
-		sort_size_2(&a);
+		sort_size_2(a);
 	else if (size_a == 3)
-		sort_size_3(&a);
+		sort_size_3(a);
 	else if (size_a == 4 || size_a == 5)
-		sort_size_5(&a);
+		sort_size_5(a, b);
 	else if (size_a > 5)
-		push_swap(a);
+		push_swap(a, b);
 }
 
 static int	is_sorted(t_stack *stack)
@@ -76,10 +65,31 @@ static int	is_sorted(t_stack *stack)
 	return (1);
 }
 
+static void	start_push_swap(char **list)
+{
+	int		err_fill;
+	t_stack	*a;
+	t_stack	*b;
+
+	a = NULL;
+	b = NULL;
+	err_fill = fill_stack(&a, list);
+	free_list(list);
+	if (err_fill)
+	{
+		free_stack(&a);
+		free_stack(&b);
+		ft_error();
+	}
+	if (a && !is_sorted(a))
+		select_sort(&a, &b);
+	free_stack(&a);
+	free_stack(&b);
+}
+
 int	main(int ac, char **av)
 {
 	char	**list;
-	t_stack	*a;
 
 	if (ac > 1)
 	{
@@ -90,12 +100,7 @@ int	main(int ac, char **av)
 			free_list(list);
 			ft_error();
 		}
-		a = NULL;
-		fill_stack(&a, list);
-		free_list(list);
-		if (a && !is_sorted(a))
-			select_sort(a);
-		free_stack(&a, 0);
+		start_push_swap(list);
 	}
 	return (0);
 }

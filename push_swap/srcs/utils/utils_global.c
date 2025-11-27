@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/26 09:58:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:16:20 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,31 +87,31 @@ void	fill_sorted_a(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
-void	push_swap(t_stack *a)
+void	push_swap(t_stack **a, t_stack **b)
 {
-	t_stack		*b;
 	t_calc_mv	*next_nbr;
 	size_t		size_a;
 	size_t		size_b;
 
-	b = NULL;
-	pb(&a, &b);
-	pb(&a, &b);
-	size_a = ps_stacksize(a);
-	size_b = ps_stacksize(b);
+	pb(a, b);
+	pb(a, b);
+	size_a = ps_stacksize(*a);
+	size_b = ps_stacksize(*b);
 	while (size_a > 3)
 	{
-		next_nbr = calc_move(a, b);
-		make_moves(&a, &b, next_nbr);
+		next_nbr = calc_move(*a, *b);
+		if (!next_nbr)
+			return ;
+		make_moves(a, b, next_nbr);
 		free(next_nbr);
-		size_a = ps_stacksize(a);
+		size_a = ps_stacksize(*a);
 	}
-	sort_size_3(&a);
-	last_sort_b(&b);
+	sort_size_3(a);
+	last_sort_b(b);
 	while (size_b > 0)
 	{
-		fill_sorted_a(&a, &b);
-		size_b = ps_stacksize(b);
+		fill_sorted_a(a, b);
+		size_b = ps_stacksize(*b);
 	}
-	last_sort_a(&a);
+	last_sort_a(a);
 }

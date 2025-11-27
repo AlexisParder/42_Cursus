@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:31:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/26 09:59:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/27 12:56:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,25 @@ void	sort_size_3(t_stack **a)
 		rra(a, 1);
 }
 
-void	sort_size_5(t_stack **a)
+void	sort_size_5(t_stack **a, t_stack **b)
 {
-	t_stack	*b;
 	size_t	size_a;
 	size_t	size_b;
 
-	b = NULL;
-	pb(a, &b);
-	pb(a, &b);
+	pb(a, b);
+	pb(a, b);
 	size_a = ps_stacksize(*a);
-	if (b->nbr < b->next->nbr)
-		sb(&b, 1);
+	if ((*b)->nbr < (*b)->next->nbr)
+		sb(b, 1);
 	if (size_a == 2)
 		sort_size_2(a);
 	else
 		sort_size_3(a);
-	size_b = ps_stacksize(b);
+	size_b = ps_stacksize(*b);
 	while (size_b > 0)
 	{
-		fill_sorted_a(a, &b);
-		size_b = ps_stacksize(b);
+		fill_sorted_a(a, b);
+		size_b = ps_stacksize(*b);
 	}
 	last_sort_a(a);
 }
