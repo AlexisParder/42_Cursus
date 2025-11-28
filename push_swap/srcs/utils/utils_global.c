@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/27 15:16:20 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:09:24 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,44 +18,39 @@ void	ft_error(void)
 	exit(EXIT_FAILURE);
 }
 
-long	find_best_target_val(t_stack *a, long b_val)
+static t_stack	*find_best_target(t_stack *a, long b_val)
 {
-	long	target_val;
+	t_stack	*target;
 	t_stack	*tmp;
-	int		found_target;
 
 	tmp = a;
-	target_val = 0;
-	found_target = 0;
+	target = NULL;
 	while (tmp)
 	{
 		if (tmp->nbr > b_val)
 		{
-			if (found_target == 0 || tmp->nbr < target_val)
+			if (!target || tmp->nbr < target->nbr)
 			{
-				target_val = tmp->nbr;
-				found_target = 1;
+				target = tmp;
 			}
 		}
 		tmp = tmp->next;
 	}
-	if (found_target == 0)
-		return (0);
-	return (target_val);
+	return (target);
 }
 
 size_t	find_insertion_target_pos(t_stack *a, long b_val)
 {
-	long	target_val;
+	t_stack	*target;
 	size_t	pos;
 
 	if (!a)
 		return (0);
-	target_val = find_best_target_val(a, b_val);
-	if (target_val == 0)
+	target = find_best_target(a, b_val);
+	if (!target)
 		pos = find_stack_min_pos(a);
 	else
-		pos = find_pos(target_val, a);
+		pos = find_pos(target->nbr, a);
 	return (pos);
 }
 
