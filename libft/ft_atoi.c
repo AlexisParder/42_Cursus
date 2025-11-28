@@ -6,15 +6,17 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:26:33 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 08:57:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:57:17 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	nb;
-	int	sign;
+	size_t	i;
+	long	nb;
+	long	sign;
 
 	i = 0;
 	nb = 0;

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:15:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/28 09:08:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:42:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	main(int ac, char **av)
 	{
 		ac--;
 		list = ps_parsing(ac, av);
-		if (!check_list(list))
+		if (!list || !check_list(list))
 		{
 			free_list(list);
 			ft_error();
