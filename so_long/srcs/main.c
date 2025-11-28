@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/28 16:36:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/28 17:11:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,16 @@ void	creates_images(t_mlx_data mlx_data, char *map_name)
 	if (!map_name)
 	{
 		perror("Error: invalid map name");
-		// Metter une fonction pour tout detruire avant d'arreter
+		// Mettre une fonction pour tout detruire avant d'arreter
 		exit(EXIT_FAILURE);
 	}
 	mlx_data.imgs = malloc(1000000); // TEMPORAIRE
-
 	map_fd = ft_strjoin("./maps/", map_name);
 	fd = open(map_fd, O_RDONLY);
 	if (fd < 0)
 	{
 		perror("Error: map does not exist");
-		// Metter une fonction pour tout detruire avant d'arreter
+		// Mettre une fonction pour tout detruire avant d'arreter
 		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd);
