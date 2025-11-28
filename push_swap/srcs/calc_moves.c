@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 09:14:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/24 12:27:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/28 10:32:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include <push_swap.h>
 
 size_t	calc_pos_b(t_stack *a, t_stack *b)
 {
