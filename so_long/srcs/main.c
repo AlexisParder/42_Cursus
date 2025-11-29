@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/28 17:11:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/11/29 12:52:26 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ char	*manage_texture(char type, size_t pos_x, size_t	pos_y)
 	(void)pos_x;
 	(void)pos_y;
 	if (type == 1)
-		return ("./textures/wall_l_r.png");
+		return ("./textures/walls/wall_l_r.png");
 	else if (type == 'E')
 		return ("./textures/exit.png");
 	else if (type == 'C')
 		return ("./textures/collectible.png");
 	else if (type == 'P')
 		return ("./textures/player.png");
-	return ("./textures/path_all.png");
+	return ("./textures/paths/path_all.png");
 	//
 }
 
