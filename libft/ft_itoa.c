@@ -6,19 +6,17 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:28 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/14 13:29:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:28:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_int(int n)
+static size_t	count_int(long nbr)
 {
-	int			i;
-	long int	nbr;
+	size_t	i;
 
 	i = 1;
-	nbr = n;
 	if (nbr < 0)
 		i++;
 	while (nbr / 10)
@@ -29,14 +27,12 @@ static int	count_int(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long nbr)
 {
-	int			size_int;
-	char		*str;
-	long int	nbr;
+	size_t	size_int;
+	char	*str;
 
-	nbr = n;
-	size_int = count_int(n);
+	size_int = count_int(nbr);
 	str = malloc((size_int + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   utils_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 09:40:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 08:40:04 by achauvie         ###   ########.fr       */
+/*   Created: 2025/12/01 08:40:18 by achauvie          #+#    #+#             */
+/*   Updated: 2025/12/01 08:41:53 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <so_long.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*sl_strjoin(char *s1, char *s2)
 {
 	int		s1_len;
 	int		s2_len;
@@ -34,5 +34,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	ft_strlcpy(s3, s1, s1_len + 1);
 	ft_strlcat(s3, s2, s1_len + s2_len);
+	free (s1);
 	return (s3);
 }

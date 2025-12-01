@@ -4,6 +4,8 @@ CFLAGS = -Wall -Wextra -Werror
 INC_DIR = -I includes/ -I libs/MacroLibX/includes
 SRC_DIR = srcs/
 SRC_FILES = $(SRC_DIR)main.c \
+			$(SRC_DIR)utils/utils_str.c \
+			$(SRC_DIR)utils/utils_map.c \
 			$(SRC_DIR)utils/utils_imgs.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
