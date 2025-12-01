@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 15:27:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:54:53 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,8 @@ int main(int ac, char **av)
 	mlx_data.map.x_max = get_max_x(mlx_data.map.map);
 	mlx_data.map.y_max = get_max_y(mlx_data.map.map);
 	mlx_data.map.total_loots = get_total_loots(mlx_data.map.map);
+	mlx_data.imgs = NULL;
+	mlx_data.loots = NULL;
 	mlx_data.player = NULL;
 	creates_images(&mlx_data, &mlx_data.map);
 	mlx_loop(mlx_data.mlx);
