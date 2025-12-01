@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 13:20:35 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/01 15:37:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,31 @@ typedef struct s_mlx_data
 	mlx_window		win;
 	mlx_context		mlx;
 	t_img_data		*imgs;
+	t_img_data		*loots;
 	t_player_data	*player;
 	t_map_data		map;
 }	t_mlx_data;
+
+int			check_move(t_mlx_data *mlx_data, char move);
+int			is_case_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
+
+void		add_img_player(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y);
+void		add_img_loots(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y);
+void		add_image(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y);
+void		make_move_r(t_mlx_data *mlx_data);
+void		make_move_l(t_mlx_data *mlx_data);
+void		make_move_t(t_mlx_data *mlx_data);
+void		make_move_d(t_mlx_data *mlx_data);
+void		remove_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
 
 char		*sl_strjoin(char *s1, char *s2);
 
 size_t		sl_imgs_size(t_img_data *lst);
 size_t		get_max_x(char **map);
 size_t		get_max_y(char **map);
+size_t		get_total_loots(char **map);
 
 t_img_data	*sl_imgs_last(t_img_data *lst);
 t_img_data	*sl_img_at_pos(t_img_data **lst, size_t pos_x, size_t pos_y);
-
 
 #endif
