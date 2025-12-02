@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 09:11:18 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 09:49:34 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,13 @@ int main(int ac, char **av)
 		perror("Error: invalid format: './so_long <map name>'");
 		return (1);
 	}
+	mlx_data.map.map = read_map(av[1]);
+	mlx_data.map.x_max = get_max_x(mlx_data.map.map);
+	mlx_data.map.y_max = get_max_y(mlx_data.map.map);
+	mlx_data.map.total_loots = get_total_loots(mlx_data.map.map);
+	mlx_data.imgs = NULL;
+	mlx_data.loots = NULL;
+	mlx_data.player = NULL;
 	mlx_data.mlx = mlx_init();
 	mlx_window_create_info info = { 0 };
 	info.title = "so_long";
@@ -163,13 +170,6 @@ int main(int ac, char **av)
 	mlx_data.win = mlx_new_window(mlx_data.mlx, &info);
 	mlx_on_event(mlx_data.mlx, mlx_data.win, MLX_KEYDOWN, key_hook, &mlx_data);
 	mlx_on_event(mlx_data.mlx, mlx_data.win, MLX_WINDOW_EVENT, win_hook, &mlx_data);
-	mlx_data.map.map = read_map(av[1]);
-	mlx_data.map.x_max = get_max_x(mlx_data.map.map);
-	mlx_data.map.y_max = get_max_y(mlx_data.map.map);
-	mlx_data.map.total_loots = get_total_loots(mlx_data.map.map);
-	mlx_data.imgs = NULL;
-	mlx_data.loots = NULL;
-	mlx_data.player = NULL;
 	creates_images(&mlx_data, &mlx_data.map);
 	mlx_loop(mlx_data.mlx);
     mlx_destroy_window(mlx_data.mlx, mlx_data.win);
