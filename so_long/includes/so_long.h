@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 11:35:15 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 14:59:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ typedef struct s_mlx_data
 
 int			check_move(t_mlx_data *mlx_data, char move);
 int			is_area_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
+int			check_map(t_map_data *map);
+int			is_search(char c, char *search);
 
 void		add_img_pl(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
 void		add_img_lt(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);

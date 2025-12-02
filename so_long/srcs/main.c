@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 11:40:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 13:23:34 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,16 @@ void key_hook(int key, void* param)
 	t_mlx_data	*mlx_data;
 
 	mlx_data = (t_mlx_data *)param;
-	ft_printf("%d\n", key);
     if (key == 41) // ECHAP
         mlx_loop_end((mlx_context)mlx_data->mlx);
 	else if (key == 7) // D
-	{
 		make_move(mlx_data, 'r');
-		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
-	}
 	else if (key == 26) // W
-	{
 		make_move(mlx_data, 't');
-		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
-	}
 	else if (key == 4) // A
-	{
 		make_move(mlx_data, 'l');
-		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
-	}
 	else if (key == 22) // S
-	{
 		make_move(mlx_data, 'd');
-		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
-	}
-	printf("NB LOOT COLLECTED = %zu / %zu\n", mlx_data->player->loot_collected, mlx_data->map.total_loots);
 }
 
 void win_hook(int key, void* param)
@@ -86,8 +72,8 @@ void	creates_images(t_mlx_data *mlx_data, t_map_data *map_data)
 	size_t	pos_y;
 	size_t	nb_imgs;
 
-	nb_imgs = (map_data->y_max * map_data->x_max) - map_data->total_loots;
-	(*mlx_data).imgs = ft_calloc(nb_imgs + 1, sizeof(t_img_data));
+	nb_imgs = ((map_data->y_max + 1) * (map_data->x_max + 1)) - map_data->total_loots;
+	(*mlx_data).imgs = ft_calloc(nb_imgs, sizeof(t_img_data));
 	(*mlx_data).loots = ft_calloc(map_data->total_loots + 1, sizeof(t_img_data));
 	pos_y = 0;
 	while ((*map_data).map[pos_y])
@@ -134,6 +120,7 @@ char	**read_map(char *map_name)
 void	destroy_images(t_mlx_data mlx_data, t_img_data **imgs)
 {
 	t_img_data *tmp;
+	(void)mlx_data;
 
 	if (!imgs)
 		return ;
@@ -160,6 +147,8 @@ int main(int ac, char **av)
 	mlx_data.map.x_max = get_max_x(mlx_data.map.map);
 	mlx_data.map.y_max = get_max_y(mlx_data.map.map);
 	mlx_data.map.total_loots = get_total_loots(mlx_data.map.map);
+	if (!check_map(&mlx_data.map))
+		return (1); // faire une fonction de clean;
 	mlx_data.imgs = NULL;
 	mlx_data.loots = NULL;
 	mlx_data.player = NULL;
@@ -174,9 +163,13 @@ int main(int ac, char **av)
 	mlx_on_event(mlx_data.mlx, mlx_data.win, MLX_WINDOW_EVENT, win_hook, &mlx_data);
 	creates_images(&mlx_data, &mlx_data.map);
 	mlx_loop(mlx_data.mlx);
+	// CLEAN
     mlx_destroy_window(mlx_data.mlx, mlx_data.win);
-	// Refaire la fonction pour supprimer toutes les images (imgs, loots, player.img)
 	destroy_images(mlx_data, &mlx_data.imgs);
+	destroy_images(mlx_data, &mlx_data.loots);
+	mlx_destroy_image(mlx_data.mlx, mlx_data.player->img);
+	free(mlx_data.player);
     mlx_destroy_context(mlx_data.mlx);
+	// 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 11:23:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:39:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	updt_area(t_mlx_data *mlx_data, size_t pos_x, size_t pos_y)
 	if (area_type == 'E')
 	{
 		if (mlx_data->player->loot_collected >= mlx_data->map.total_loots)
-			ft_printf("FINNN");
+			mlx_loop_end((mlx_context)mlx_data->mlx);
 		add_image(mlx_data, TEXTURE_EXIT, pos_x, pos_y);
 	}
 	else if (area_type == 'C')
@@ -82,5 +82,6 @@ void	make_move(t_mlx_data *mlx_data, char move)
 		updt_area(mlx_data, last_pos_x, last_pos_y);
 		updt_area(mlx_data, pos_x, pos_y);
 		updt_pl(mlx_data, pos_x, pos_y, move);
+		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
 	}
 }

@@ -6,6 +6,7 @@ SRC_DIR = srcs/
 SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)create_images.c \
 			$(SRC_DIR)make_moves.c \
+			$(SRC_DIR)check_map.c \
 			$(SRC_DIR)utils/utils_str.c \
 			$(SRC_DIR)utils/utils_move.c \
 			$(SRC_DIR)utils/utils_loot.c \
