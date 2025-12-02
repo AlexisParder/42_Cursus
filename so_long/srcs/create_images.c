@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 15:20:30 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 09:11:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	add_img_player(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y)
+void	add_img_pl(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y)
 {
 	long			x_calc;
 	long			y_calc;
@@ -33,14 +33,14 @@ void	add_img_player(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y)
 	}
 	tmp->nb_move = tmp_nb_move;
 	tmp->loot_collected = tmp_nb_loot;
-	tmp->img = mlx_new_image_from_file((*mlx_data).mlx, texture, &tmp->size, &tmp->size);
+	tmp->img = mlx_new_image_from_file((*mlx_data).mlx, txt, &tmp->size, &tmp->size);
 	(*mlx_data).player = tmp;
 	x_calc = tmp->pos_x * tmp->size;
 	y_calc = tmp->pos_y * tmp->size;
 	mlx_put_image_to_window((*mlx_data).mlx, (*mlx_data).win, tmp->img, x_calc, y_calc);
 }
 
-void	add_img_loots(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y)
+void	add_img_lt(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y)
 {
 	t_img_data **loots;
 	long int x_calc;
@@ -53,7 +53,7 @@ void	add_img_loots(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y)
 	tmp->size = 64;
 	tmp->pos_x = pos_x;
 	tmp->pos_y = pos_y;
-	tmp->img = mlx_new_image_from_file((*mlx_data).mlx, texture, &tmp->size, &tmp->size);
+	tmp->img = mlx_new_image_from_file((*mlx_data).mlx, txt, &tmp->size, &tmp->size);
 	tmp->img_prev = NULL;
 	tmp->img_next = NULL;
 	if (*loots)

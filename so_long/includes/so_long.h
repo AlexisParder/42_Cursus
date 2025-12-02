@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 15:37:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 09:16:26 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 # include <mlx_extended.h>
 # include <fcntl.h>
 # include <stdio.h>
+
+# define TEXTURE_PLAYER_R "./textures/player/player_r.png"
+# define TEXTURE_PLAYER_L "./textures/player/player_l.png"
+# define TEXTURE_PLAYER_T "./textures/player/player_t.png"
+# define TEXTURE_PLAYER_D "./textures/player/player_d.png"
+# define TEXTURE_PATH "./textures/path.png"
+# define TEXTURE_WALL "./textures/wall.png"
+# define TEXTURE_LOOT "./textures/collectible.png"
+# define TEXTURE_EXIT "./textures/exit.png"
 
 typedef struct s_img_data
 {
@@ -58,15 +67,12 @@ typedef struct s_mlx_data
 }	t_mlx_data;
 
 int			check_move(t_mlx_data *mlx_data, char move);
-int			is_case_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
+int			is_area_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
 
-void		add_img_player(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y);
-void		add_img_loots(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y);
-void		add_image(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y);
-void		make_move_r(t_mlx_data *mlx_data);
-void		make_move_l(t_mlx_data *mlx_data);
-void		make_move_t(t_mlx_data *mlx_data);
-void		make_move_d(t_mlx_data *mlx_data);
+void		add_img_pl(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
+void		add_img_lt(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
+void		add_image(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
+void		make_move(t_mlx_data *mlx_data, char move);
 void		remove_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
 
 char		*sl_strjoin(char *s1, char *s2);

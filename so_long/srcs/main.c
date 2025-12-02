@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 15:54:53 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 09:11:18 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ void key_hook(int key, void* param)
         mlx_loop_end((mlx_context)mlx_data->mlx);
 	else if (key == 7) // D
 	{
-		make_move_r(mlx_data);
+		make_move(mlx_data, 'r');
 		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
 	}
 	else if (key == 26) // W
 	{
-		make_move_t(mlx_data);
+		make_move(mlx_data, 't');
 		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
 	}
 	else if (key == 4) // A
 	{
-		make_move_l(mlx_data);
+		make_move(mlx_data, 'l');
 		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
 	}
 	else if (key == 22) // S
 	{
-		make_move_d(mlx_data);
+		make_move(mlx_data, 'd');
 		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
 	}
 	printf("NB LOOT COLLECTED = %zu / %zu\n", mlx_data->player->loot_collected, mlx_data->map.total_loots);
@@ -62,15 +62,15 @@ void 	manage_line(t_mlx_data *mlx_data, t_map_data *map_data, size_t pos_y)
 	while (line[i])
 	{
 		if (line[i] == '1')
-			add_image(mlx_data, "./textures/wall.png", i, pos_y);
+			add_image(mlx_data, TEXTURE_WALL, i, pos_y);
 		else if (line[i] == '0')
-			add_image(mlx_data, "./textures/path.png", i, pos_y);
+			add_image(mlx_data, TEXTURE_PATH, i, pos_y);
 		else if (line[i] == 'E')
-			add_image(mlx_data, "./textures/exit.png", i, pos_y);
+			add_image(mlx_data, TEXTURE_EXIT, i, pos_y);
 		else if (line[i] == 'P')
-			add_img_player(mlx_data, "./textures/player/player_r.png", i, pos_y);
+			add_img_pl(mlx_data, TEXTURE_PLAYER_R, i, pos_y);
 		else if (line[i] == 'C')
-			add_img_loots(mlx_data, "./textures/collectible.png", i, pos_y);
+			add_img_lt(mlx_data, TEXTURE_LOOT, i, pos_y);
 		else if (line[i] != '\n')
 		{
 			perror("Error: invalid map");

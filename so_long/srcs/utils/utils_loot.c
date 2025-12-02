@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:32:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 15:43:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 09:17:20 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-int	is_case_loot(t_img_data *lst, size_t pos_x, size_t pos_y)
+int	is_area_loot(t_img_data *lst, size_t pos_x, size_t pos_y)
 {
 	t_img_data	*img_at_pos;
 	
