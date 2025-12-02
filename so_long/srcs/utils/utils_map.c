@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:13:49 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 14:41:13 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:34:51 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,42 @@ size_t	get_total_loots(char **map)
 		while(map[i][j])
 		{
 			if (map[i][j] == 'C')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+static int	is_search(char c, char *search)
+{
+	size_t	i;
+
+	i = 0;
+	while (search[i])
+	{
+		if (c == search[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+size_t	count_type(char **map, char *search)
+{
+	size_t	i;
+	size_t	j;
+	size_t	count;
+
+	i = 0;
+	count = 0;
+	while (map && map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (is_search(map[i][j], search))
 				count++;
 			j++;
 		}

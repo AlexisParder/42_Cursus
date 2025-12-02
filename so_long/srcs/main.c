@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 09:49:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:40:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,11 @@ void 	manage_line(t_mlx_data *mlx_data, t_map_data *map_data, size_t pos_y)
 void	creates_images(t_mlx_data *mlx_data, t_map_data *map_data)
 {
 	size_t	pos_y;
+	size_t	nb_imgs;
 
-	(*mlx_data).imgs = ft_calloc(1000000, sizeof(t_img_data)); // TEMPORAIRE
-	(*mlx_data).loots = ft_calloc(1000000, sizeof(t_img_data)); // TEMPORAIRE
+	nb_imgs = (map_data->y_max * map_data->x_max) - map_data->total_loots;
+	(*mlx_data).imgs = ft_calloc(nb_imgs + 1, sizeof(t_img_data));
+	(*mlx_data).loots = ft_calloc(map_data->total_loots + 1, sizeof(t_img_data));
 	pos_y = 0;
 	while ((*map_data).map[pos_y])
 	{
@@ -102,7 +104,7 @@ char	**read_map(char *map_name)
 	char	*line;
 	char	*map_tmp;
 	char	**map;
-	
+
 	if (!map_name)
 	{
 		perror("Error: invalid map name");
@@ -163,7 +165,7 @@ int main(int ac, char **av)
 	mlx_data.player = NULL;
 	mlx_data.mlx = mlx_init();
 	mlx_window_create_info info = { 0 };
-	info.title = "so_long";
+	info.title = ft_strjoin("so_long - ", av[1]);
 	info.width = 1200;
 	info.height = 600;
 	info.is_resizable = true;

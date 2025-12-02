@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 09:16:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:35:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define TEXTURE_PLAYER_R "./textures/player/player_r.png"
-# define TEXTURE_PLAYER_L "./textures/player/player_l.png"
-# define TEXTURE_PLAYER_T "./textures/player/player_t.png"
-# define TEXTURE_PLAYER_D "./textures/player/player_d.png"
-# define TEXTURE_PATH "./textures/path.png"
-# define TEXTURE_WALL "./textures/wall.png"
-# define TEXTURE_LOOT "./textures/collectible.png"
-# define TEXTURE_EXIT "./textures/exit.png"
+# define TEXTURE_PLAYER_R 	"./textures/player/player_r.png"
+# define TEXTURE_PLAYER_L 	"./textures/player/player_l.png"
+# define TEXTURE_PLAYER_T 	"./textures/player/player_t.png"
+# define TEXTURE_PLAYER_D 	"./textures/player/player_d.png"
+# define TEXTURE_PATH 		"./textures/path.png"
+# define TEXTURE_WALL 		"./textures/wall.png"
+# define TEXTURE_LOOT 		"./textures/collectible.png"
+# define TEXTURE_EXIT 		"./textures/exit.png"
+# define IMG_SIZE 			64
 
 typedef struct s_img_data
 {
@@ -81,6 +82,7 @@ size_t		sl_imgs_size(t_img_data *lst);
 size_t		get_max_x(char **map);
 size_t		get_max_y(char **map);
 size_t		get_total_loots(char **map);
+size_t		count_type(char **map, char *search);
 
 t_img_data	*sl_imgs_last(t_img_data *lst);
 t_img_data	*sl_img_at_pos(t_img_data **lst, size_t pos_x, size_t pos_y);

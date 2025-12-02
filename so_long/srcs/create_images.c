@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 09:11:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:18:02 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	add_img_pl(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y)
 	size_t			tmp_nb_move;
 	size_t			tmp_nb_loot;
 
-	tmp = malloc(sizeof(t_player_data));
-	tmp->size = 64;
+	tmp = ft_calloc(1, sizeof(t_player_data));
+	tmp->size = IMG_SIZE;
 	tmp->pos_x = pos_x;
 	tmp->pos_y = pos_y;
 	tmp_nb_move = 0;
@@ -30,6 +30,7 @@ void	add_img_pl(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y)
 	{
 		tmp_nb_move = mlx_data->player->nb_move;
 		tmp_nb_loot = mlx_data->player->loot_collected;
+		free(mlx_data->player);
 	}
 	tmp->nb_move = tmp_nb_move;
 	tmp->loot_collected = tmp_nb_loot;
@@ -49,8 +50,8 @@ void	add_img_lt(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y)
 	t_img_data *img_last;
 
 	loots = &(*mlx_data).loots;
-	tmp = malloc(sizeof(t_img_data));
-	tmp->size = 64;
+	tmp = ft_calloc(1, sizeof(t_img_data));
+	tmp->size = IMG_SIZE;
 	tmp->pos_x = pos_x;
 	tmp->pos_y = pos_y;
 	tmp->img = mlx_new_image_from_file((*mlx_data).mlx, txt, &tmp->size, &tmp->size);
@@ -78,8 +79,8 @@ void	add_image(t_mlx_data *mlx_data, char *texture, int pos_x, int pos_y)
 	t_img_data *img_last;
 
 	imgs = &(*mlx_data).imgs;
-	tmp = malloc(sizeof(t_img_data));
-	tmp->size = 64;
+	tmp = ft_calloc(1, sizeof(t_img_data));
+	tmp->size = IMG_SIZE;
 	tmp->pos_x = pos_x;
 	tmp->pos_y = pos_y;
 	tmp->img = mlx_new_image_from_file((*mlx_data).mlx, texture, &tmp->size, &tmp->size);

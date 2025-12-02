@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 09:33:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/02 11:23:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void	updt_pl(t_mlx_data *mlx_data, size_t pos_x, size_t pos_y, char move)
 		texture = TEXTURE_PLAYER_T;
 	else
 		texture = TEXTURE_PLAYER_D;
-	mlx_destroy_image((*mlx_data).mlx, mlx_data->player->img);
 	add_img_pl(mlx_data,  texture, pos_x, pos_y);
 	mlx_data->player->nb_move++;
 }
