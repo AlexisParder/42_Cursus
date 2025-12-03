@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:46:05 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/28 10:32:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 12:42:56 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	check_arg(char *arg)
 	i = 0;
 	while (arg && arg[i])
 	{
+		if ((arg[i] == '+' || arg[i] == '-') && !ft_isdigit(arg[i+1]))
+			return (0);
 		if (ft_isdigit(arg[i]))
 			return (1);
 		i++;
