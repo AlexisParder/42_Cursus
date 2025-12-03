@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 14:03:44 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:15:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static char	**duplicate_map(t_map_data *map)
 {
 	char	**copy;
 	size_t	i;
-	
+
 	copy = ft_calloc(map->y_max, sizeof(char *));
 	if (!copy)
 	{
-		perror("Error\nFailure during allocation");		
+		perror("Error\nFailure during allocation");
 		return (NULL);
 	}
 	i = 0;
@@ -42,7 +42,7 @@ static char	**duplicate_map(t_map_data *map)
 		copy[i] = ft_strdup(map->map[i]);
 		if (!copy[i])
 		{
-			perror("Error\nFailure during allocation");	
+			perror("Error\nFailure during allocation");
 			free_tab(copy);
 			return (NULL);
 		}
@@ -71,12 +71,12 @@ static void	flood_fill(size_t x, size_t y, t_map_ck *map_cp)
 
 static t_player_data	*find_player(t_map_ck *map_cp)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	size_t			j;
 	t_player_data	*tmp_player;
 
 	i = 0;
-	while(map_cp->map[i])
+	while (map_cp->map[i])
 	{
 		j = 0;
 		while (map_cp->map[i][j])
@@ -85,7 +85,7 @@ static t_player_data	*find_player(t_map_ck *map_cp)
 			{
 				tmp_player = ft_calloc(1, sizeof(t_player_data));
 				if (!tmp_player)
-					return (NULL);					
+					return (NULL);
 				tmp_player->pos_x = j;
 				tmp_player->pos_y = i;
 				return (tmp_player);
