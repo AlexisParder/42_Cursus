@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 14:59:30 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 08:43:00 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@ typedef struct s_map_data
 	size_t	y_max;
 	size_t	total_loots;
 }	t_map_data;
+
+typedef struct s_check_map_data
+{
+	char	**map_copy;
+	int		exit_found;
+	int		loot_found;
+	size_t	total_loots;
+}	t_check_map_data;
 
 typedef struct s_mlx_data
 {
