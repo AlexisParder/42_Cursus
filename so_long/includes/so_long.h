@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 09:22:58 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:58:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define TEXTURE_PLAYER_D 	"./textures/player/player_d.png"
 # define TEXTURE_PATH 		"./textures/path.png"
 # define TEXTURE_WALL 		"./textures/wall.png"
-# define TEXTURE_LOOT 		"./textures/collectible.png"
+# define TEXTURE_LOOT 		"./textures/loot.png"
 # define TEXTURE_EXIT 		"./textures/exit.png"
 # define IMG_SIZE 			64
 
@@ -57,13 +57,12 @@ typedef struct s_map_data
 	size_t	total_loots;
 }	t_map_data;
 
-typedef struct s_check_map_data
+typedef struct s_map_ck
 {
-	char	**map_copy;
+	char	**map;
 	int		exit_found;
-	int		loot_found;
-	size_t	total_loots;
-}	t_check_map_data;
+	size_t	loot_found;
+}	t_map_ck;
 
 typedef struct s_mlx_data
 {
@@ -86,6 +85,7 @@ void		add_img_lt(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
 void		add_image(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
 void		make_move(t_mlx_data *mlx_data, char move);
 void		remove_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
+void		destroy_images(t_mlx_data *mlx_data, t_img_data **imgs);
 
 char		*sl_strjoin(char *s1, char *s2);
 

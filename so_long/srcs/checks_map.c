@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:23:15 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 09:22:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 09:43:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	check_type(t_map_data *map)
 	nb_player = count_type(map->map, "P");
 	if (nb_loot < 1)
 	{
-		perror("Error:\nThere must be at least one collectible on the map");
+		perror("Error:\nThere must be at least one loot on the map");
 		return (0);
 	}
 	if (nb_exit != 1)

@@ -6,14 +6,122 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 09:22:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 14:03:44 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
+static void	free_tab(char **tab)
+{
+	size_t	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+static char	**duplicate_map(t_map_data *map)
+{
+	char	**copy;
+	size_t	i;
+	
+	copy = ft_calloc(map->y_max, sizeof(char *));
+	if (!copy)
+	{
+		perror("Error\nFailure during allocation");		
+		return (NULL);
+	}
+	i = 0;
+	while (map->map[i])
+	{
+		copy[i] = ft_strdup(map->map[i]);
+		if (!copy[i])
+		{
+			perror("Error\nFailure during allocation");	
+			free_tab(copy);
+			return (NULL);
+		}
+		i++;
+	}
+	copy[i] = NULL;
+	return (copy);
+}
+
+static void	flood_fill(size_t x, size_t y, t_map_ck *map_cp)
+{
+	if (x < 0 || y < 0 || !map_cp || !map_cp->map[y] || !map_cp->map[y][x])
+		return ;
+	if (map_cp->map[y][x] == '1' || map_cp->map[y][x] == 'V')
+		return ;
+	if (map_cp->map[y][x] == 'E')
+		map_cp->exit_found = 1;
+	if (map_cp->map[y][x] == 'C')
+		map_cp->loot_found++;
+	map_cp->map[y][x] = 'V';
+	flood_fill(x + 1, y, map_cp);
+	flood_fill(x - 1, y, map_cp);
+	flood_fill(x, y + 1, map_cp);
+	flood_fill(x, y - 1, map_cp);
+}
+
+static t_player_data	*find_player(t_map_ck *map_cp)
+{
+	size_t	i;
+	size_t	j;
+	t_player_data	*tmp_player;
+
+	i = 0;
+	while(map_cp->map[i])
+	{
+		j = 0;
+		while (map_cp->map[i][j])
+		{
+			if (map_cp->map[i][j] == 'P')
+			{
+				tmp_player = ft_calloc(1, sizeof(t_player_data));
+				if (!tmp_player)
+					return (NULL);					
+				tmp_player->pos_x = j;
+				tmp_player->pos_y = i;
+				return (tmp_player);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}
+
 int	check_map_path(t_map_data *map)
 {
-	(void)map;
+	t_map_ck		map_copy;
+	t_player_data	*player;
+
+	map_copy.map = duplicate_map(map);
+	map_copy.exit_found = 0;
+	map_copy.loot_found = 0;
+	player = find_player(&map_copy);
+	if (!player)
+	{
+		perror("Error\nNo player found");
+		free_tab(map_copy.map);
+		return (0);
+	}
+	flood_fill(player->pos_x, player->pos_y, &map_copy);
+	free_tab(map_copy.map);
+	if (!map_copy.exit_found)
+		perror("Error\nNo valid path to exit");
+	else if (map_copy.loot_found != map->total_loots)
+		perror("Error\nCan't reach all loot");
+	if (!map_copy.exit_found || map_copy.loot_found != map->total_loots)
+	{
+		free(player);
+		return (0);
+	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 09:19:09 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 10:41:46 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,17 +119,16 @@ char	**read_map(char *map_name)
 	return (map);
 }
 
-void	destroy_images(t_mlx_data mlx_data, t_img_data **imgs)
+void	destroy_images(t_mlx_data *mlx_data, t_img_data **imgs)
 {
 	t_img_data *tmp;
-	(void)mlx_data;
 
 	if (!imgs)
 		return ;
 	while (*imgs)
 	{
 		tmp = (*imgs)->img_next;
-		mlx_destroy_image(mlx_data.mlx, (*imgs)->img);
+		mlx_destroy_image((*mlx_data).mlx, (*imgs)->img); // segfault
 		free(*imgs);
 		*imgs = tmp;
 	}
@@ -167,8 +166,8 @@ int main(int ac, char **av)
 	mlx_loop(mlx_data.mlx);
 	// CLEAN
     mlx_destroy_window(mlx_data.mlx, mlx_data.win);
-	destroy_images(mlx_data, &mlx_data.imgs);
-	destroy_images(mlx_data, &mlx_data.loots);
+	destroy_images(&mlx_data, &mlx_data.imgs);
+	destroy_images(&mlx_data, &mlx_data.loots);
 	mlx_destroy_image(mlx_data.mlx, mlx_data.player->img);
 	free(mlx_data.player);
     mlx_destroy_context(mlx_data.mlx);
