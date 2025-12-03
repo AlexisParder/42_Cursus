@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 13:23:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 09:19:09 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void 	manage_line(t_mlx_data *mlx_data, t_map_data *map_data, size_t pos_y)
 			add_img_lt(mlx_data, TEXTURE_LOOT, i, pos_y);
 		else if (line[i] != '\n')
 		{
-			perror("Error: invalid map");
+			perror("Error:\nInvalid map");
 			exit (EXIT_FAILURE);
 		}
 		i++;
@@ -93,7 +93,7 @@ char	**read_map(char *map_name)
 
 	if (!map_name)
 	{
-		perror("Error: invalid map name");
+		perror("Error:\nInvalid map name");
 		// Mettre une fonction pour tout detruire avant d'arreter
 		exit(EXIT_FAILURE);
 	}
@@ -101,7 +101,7 @@ char	**read_map(char *map_name)
 	fd = open(map_fd, O_RDONLY);
 	if (fd < 0)
 	{
-		perror("Error: map does not exist");
+		perror("Error:\nMap does not exist");
 		// Mettre une fonction pour tout detruire avant d'arreter
 		exit(EXIT_FAILURE);
 	}
@@ -114,6 +114,8 @@ char	**read_map(char *map_name)
 	}
 	map = ft_split(map_tmp, '\n');
 	close (fd);
+	free(map_fd);
+	free(map_tmp);
 	return (map);
 }
 
@@ -140,7 +142,7 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		perror("Error: invalid format: './so_long <map name>'");
+		perror("Error:\nInvalid format: './so_long <map_name.ber>'");
 		return (1);
 	}
 	mlx_data.map.map = read_map(av[1]);
