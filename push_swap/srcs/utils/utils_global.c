@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 12:35:26 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/28 10:32:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/04 09:33:21 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ static t_stack	*find_best_target(t_stack *a, long b_val)
 		if (tmp->nbr > b_val)
 		{
 			if (!target || tmp->nbr < target->nbr)
-			{
 				target = tmp;
-			}
 		}
 		tmp = tmp->next;
 	}
