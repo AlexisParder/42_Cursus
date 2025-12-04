@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:31:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/28 10:32:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/04 09:25:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	last_sort_b(t_stack **b)
 	pos_max_b = find_stack_max_pos(*b);
 	while (pos_max_b != 0)
 	{
-		if (pos_max_b < size_b / 2)
+		if (pos_max_b <= size_b / 2)
 			rb(b, 1);
 		else
 			rrb(b, 1);
@@ -99,7 +99,7 @@ void	last_sort_a(t_stack **a)
 	pos_min_a = find_stack_min_pos(*a);
 	while (pos_min_a != 0)
 	{
-		if (pos_min_a < size_a / 2)
+		if (pos_min_a <= size_a / 2)
 			ra(a, 1);
 		else
 			rra(a, 1);

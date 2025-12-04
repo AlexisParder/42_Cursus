@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 10:41:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:41:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,51 @@ void	destroy_images(t_mlx_data *mlx_data, t_img_data **imgs)
 	*imgs = NULL;
 }
 
+void	print_img_list_verbose(t_mlx_data *data)
+{
+	t_img_data	*tmp;
+	size_t		i = 0;
+
+	tmp = data->imgs;
+	printf("---- IMG LIST ----\n");
+	while (tmp)
+	{
+		printf("[%zu] node=%p  img=%p  pos=(%zu,%zu)  size=%d\n",
+			i,
+			(void *)tmp,
+			(void *)&tmp->img,
+			tmp->pos_x,
+			tmp->pos_y,
+			tmp->size
+		);
+		tmp = tmp->img_next;
+		i++;
+	}
+	tmp = data->loots;
+	printf("\n---- LOOTS LIST ----\n");
+	i = 0;
+	while (tmp)
+	{
+		printf("[%zu] node=%p  img=%p  pos=(%zu,%zu)  size=%d\n",
+			i,
+			(void *)tmp,
+			(void *)&tmp->img,
+			tmp->pos_x,
+			tmp->pos_y,
+			tmp->size
+		);
+		tmp = tmp->img_next;
+		i++;
+	}
+	printf("\n---- PLAYER ----\n");
+	printf("node=%p  img=%p  pos=(%zu,%zu)\n",
+		(void *)data->player,
+		(void *)&data->player->img,
+		data->player->pos_x,
+		data->player->pos_y
+	);
+}
+
 int main(int ac, char **av)
 {
 	t_mlx_data	mlx_data;
@@ -163,6 +208,8 @@ int main(int ac, char **av)
 	mlx_on_event(mlx_data.mlx, mlx_data.win, MLX_KEYDOWN, key_hook, &mlx_data);
 	mlx_on_event(mlx_data.mlx, mlx_data.win, MLX_WINDOW_EVENT, win_hook, &mlx_data);
 	creates_images(&mlx_data, &mlx_data.map);
+	print_img_list_verbose(&mlx_data);
+	print_img_list_verbose(&mlx_data);
 	mlx_loop(mlx_data.mlx);
 	// CLEAN
     mlx_destroy_window(mlx_data.mlx, mlx_data.win);

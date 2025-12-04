@@ -6,23 +6,23 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 15:15:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:44:51 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static void	free_tab(char **tab)
+static void	free_arr(char **arr)
 {
 	size_t	i;
 
 	i = 0;
-	while (tab[i])
+	while (arr[i])
 	{
-		free(tab[i]);
+		free(arr[i]);
 		i++;
 	}
-	free(tab);
+	free(arr);
 }
 
 static char	**duplicate_map(t_map_data *map)
@@ -43,7 +43,7 @@ static char	**duplicate_map(t_map_data *map)
 		if (!copy[i])
 		{
 			perror("Error\nFailure during allocation");
-			free_tab(copy);
+			free_arr(copy);
 			return (NULL);
 		}
 		i++;
@@ -109,11 +109,11 @@ int	check_map_path(t_map_data *map)
 	if (!player)
 	{
 		perror("Error\nNo player found");
-		free_tab(map_copy.map);
+		free_arr(map_copy.map);
 		return (0);
 	}
 	flood_fill(player->pos_x, player->pos_y, &map_copy);
-	free_tab(map_copy.map);
+	free_arr(map_copy.map);
 	if (!map_copy.exit_found)
 		perror("Error\nNo valid path to exit");
 	else if (map_copy.loot_found != map->total_loots)
