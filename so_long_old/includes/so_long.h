@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/03 13:58:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/05 09:36:34 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,33 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define TEXTURE_PLAYER_R 	"./textures/player/player_r.png"
-# define TEXTURE_PLAYER_L 	"./textures/player/player_l.png"
-# define TEXTURE_PLAYER_T 	"./textures/player/player_t.png"
-# define TEXTURE_PLAYER_D 	"./textures/player/player_d.png"
-# define TEXTURE_PATH 		"./textures/path.png"
-# define TEXTURE_WALL 		"./textures/wall.png"
-# define TEXTURE_LOOT 		"./textures/loot.png"
-# define TEXTURE_EXIT 		"./textures/exit.png"
-# define IMG_SIZE 			64
+# ifndef TEXTURE_PLAYER_R
+#  define TEXTURE_PLAYER_R "./textures/player/player_r.png"
+# endif
+# ifndef TEXTURE_PLAYER_L
+#  define TEXTURE_PLAYER_L "./textures/player/player_l.png"
+# endif
+# ifndef TEXTURE_PLAYER_T
+#  define TEXTURE_PLAYER_T "./textures/player/player_t.png"
+# endif
+# ifndef TEXTURE_PLAYER_D
+#  define TEXTURE_PLAYER_D "./textures/player/player_d.png"
+# endif
+# ifndef TEXTURE_PATH
+#  define TEXTURE_PATH "./textures/path.png"
+# endif
+# ifndef TEXTURE_WALL
+#  define TEXTURE_WALL "./textures/wall.png"
+# endif
+# ifndef TEXTURE_LOOT
+#  define TEXTURE_LOOT "./textures/loot.png"
+# endif
+# ifndef TEXTURE_EXIT
+#  define TEXTURE_EXIT "./textures/exit.png"
+# endif
+# ifndef IMG_SIZE
+#  define IMG_SIZE 64
+# endif
 
 typedef struct s_img_data
 {
@@ -80,11 +98,12 @@ int			check_map(t_map_data *map);
 int			check_map_path(t_map_data *map);
 int			is_search(char c, char *search);
 
-void		add_img_pl(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
-void		add_img_lt(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
-void		add_image(t_mlx_data *mlx_data, char *txt, int pos_x, int pos_y);
+void		add_img_pl(t_mlx_data *dt, char *txt, int pos_x, int pos_y);
+void		add_img_lt(t_mlx_data *dt, char *txt, int pos_x, int pos_y);
+void		add_image(t_mlx_data *dt, char *txt, int pos_x, int pos_y);
 void		make_move(t_mlx_data *mlx_data, char move);
-void		remove_loot(t_img_data *lst, size_t pos_x, size_t pos_y);
+void		remove_loot(t_img_data **lst, size_t pos_x, size_t pos_y);
+void 		redraw_all_images(t_mlx_data *mlx_data);
 void		destroy_images(t_mlx_data *mlx_data, t_img_data **imgs);
 
 char		*sl_strjoin(char *s1, char *s2);
