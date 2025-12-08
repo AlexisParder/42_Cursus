@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:13:49 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/02 14:59:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 13:55:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ size_t	get_max_x(char **map)
 	size_t	tmp_j;
 
 	i = 0;
+	tmp_j = 0;
 	while (map && map[i])
 	{
 		j = 0;
-		while(map[i][j])
+		while (map[i][j])
 			j++;
 		if (tmp_j < j)
 			tmp_j = j;
@@ -52,7 +53,7 @@ size_t	get_total_loots(char **map)
 	while (map && map[i])
 	{
 		j = 0;
-		while(map[i][j])
+		while (map[i][j])
 		{
 			if (map[i][j] == 'C')
 				count++;

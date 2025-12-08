@@ -6,21 +6,21 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/05 12:55:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 13:33:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	add_img_pl(t_mlx_data *dt, mlx_image img, int pos_x, int pos_y)
+void	add_img_pl(t_mlx_dt *dt, mlx_image img, size_t pos_x, size_t pos_y)
 {
-	long			x_calc;
-	long			y_calc;
-	t_player_data	*tmp;
-	size_t			tmp_nb_move;
-	size_t			tmp_nb_loot;
+	long		x_calc;
+	long		y_calc;
+	t_player_dt	*tmp;
+	size_t		tmp_nb_move;
+	size_t		tmp_nb_loot;
 
-	tmp = ft_calloc(1, sizeof(t_player_data));
+	tmp = ft_calloc(1, sizeof(t_player_dt));
 	tmp->size = IMG_SIZE;
 	tmp->pos_x = pos_x;
 	tmp->pos_y = pos_y;
@@ -34,34 +34,33 @@ void	add_img_pl(t_mlx_data *dt, mlx_image img, int pos_x, int pos_y)
 	}
 	tmp->nb_move = tmp_nb_move;
 	tmp->loot_collected = tmp_nb_loot;
-	// tmp->img = img;
 	(*dt).player = tmp;
 	x_calc = tmp->pos_x * tmp->size;
 	y_calc = tmp->pos_y * tmp->size;
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
 }
 
-void	add_img_lt(t_mlx_data *dt, mlx_image img, int pos_x, int pos_y)
+void	add_img_lt(t_mlx_dt *dt, mlx_image img, size_t pos_x, size_t pos_y)
 {
-	t_img_data	**loots;
+	t_loot_dt	**loots;
 	long		x_calc;
 	long		y_calc;
-	t_img_data	*tmp;
-	t_img_data	*img_last;
+	t_loot_dt	*tmp;
+	t_loot_dt	*loot_last;
 
 	loots = &(*dt).loots;
-	tmp = ft_calloc(1, sizeof(t_img_data));
+	tmp = ft_calloc(1, sizeof(t_loot_dt));
 	tmp->size = IMG_SIZE;
+	tmp->is_looted = 0;
 	tmp->pos_x = pos_x;
 	tmp->pos_y = pos_y;
-	// tmp->img = img;
-	tmp->img_prev = NULL;
-	tmp->img_next = NULL;
+	tmp->loot_prev = NULL;
+	tmp->loot_next = NULL;
 	if (*loots)
 	{
-		img_last = sl_imgs_last(*loots);
-		tmp->img_prev = img_last;
-		img_last->img_next = tmp;
+		loot_last = loots_last(*loots);
+		tmp->loot_prev = loot_last;
+		loot_last->loot_next = tmp;
 	}
 	else
 		*loots = tmp;
@@ -70,58 +69,14 @@ void	add_img_lt(t_mlx_data *dt, mlx_image img, int pos_x, int pos_y)
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
 }
 
-void	add_image(t_mlx_data *dt, mlx_image img, int pos_x, int pos_y)
+void	add_image(t_mlx_dt *dt, mlx_image img, size_t pos_x, size_t pos_y)
 {
-	t_img_data	**imgs;
-	long		x_calc;
-	long		y_calc;
-	t_img_data	*tmp;
-	t_img_data	*img_last;
+	long	x_calc;
+	long	y_calc;
+	size_t	size;
 
-	imgs = &(*dt).imgs;
-	tmp = ft_calloc(1, sizeof(t_img_data));
-	tmp->size = IMG_SIZE;
-	tmp->pos_x = pos_x;
-	tmp->pos_y = pos_y;
-	// tmp->img = img;
-	tmp->img_prev = NULL;
-	tmp->img_next = NULL;
-	if (*imgs)
-	{
-		img_last = sl_imgs_last(*imgs);
-		tmp->img_prev = img_last;
-		img_last->img_next = tmp;
-	}
-	else
-		*imgs = tmp;
-	x_calc = tmp->pos_x * tmp->size;
-	y_calc = tmp->pos_y * tmp->size;
+	size = IMG_SIZE;
+	x_calc = pos_x * size;
+	y_calc = pos_y * size;
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
-}
-
-void	redraw_all_images(t_mlx_data *data)
-{
-	t_img_data	*tmp;
-	long		x;
-	long		y;
-	mlx_color	bg_color;
-
-	bg_color.rgba = 0x000000;
-	mlx_clear_window(data->mlx, data->win, bg_color);
-	tmp = data->imgs;
-	while (tmp)
-	{
-		x = tmp->pos_x * tmp->size;
-		y = tmp->pos_y * tmp->size;
-		mlx_put_image_to_window(data->mlx, data->win, tmp->img, x, y);
-		tmp = tmp->img_next;
-	}
-	tmp = data->loots;
-	while (tmp)
-	{
-		x = tmp->pos_x * tmp->size;
-		y = tmp->pos_y * tmp->size;
-		mlx_put_image_to_window(data->mlx, data->win, tmp->img, x, y);
-		tmp = tmp->img_next;
-	}
 }

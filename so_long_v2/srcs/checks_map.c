@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:23:15 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/05 09:37:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:46:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static int	check_border(t_map_data *map)
+static int	check_border(t_map_dt *map)
 {
 	size_t	i;
 	size_t	j;
@@ -38,7 +38,7 @@ static int	check_border(t_map_data *map)
 	return (1);
 }
 
-static int	check_type(t_map_data *map)
+static int	check_type(t_map_dt *map)
 {
 	size_t	nb_loot;
 	size_t	nb_exit;
@@ -65,7 +65,7 @@ static int	check_type(t_map_data *map)
 	return (1);
 }
 
-static int	check_map_fill(t_map_data *map)
+static int	check_map_fill(t_map_dt *map)
 {
 	size_t	i;
 	size_t	j;
@@ -88,7 +88,7 @@ static int	check_map_fill(t_map_data *map)
 	return (1);
 }
 
-int	check_map(t_map_data *map)
+int	check_map(t_map_dt *map)
 {
 	if (!map || !map->map)
 	{

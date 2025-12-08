@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/05 09:37:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 13:56:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ static void	free_arr(char **arr)
 	free(arr);
 }
 
-static char	**duplicate_map(t_map_data *map)
+static char	**duplicate_map(t_map_dt *map)
 {
 	char	**copy;
 	size_t	i;
 
-	copy = ft_calloc(map->y_max, sizeof(char *));
+	copy = ft_calloc(map->y_max + 1, sizeof(char *));
 	if (!copy)
 	{
 		perror("Error\nFailure during allocation");
@@ -69,11 +69,11 @@ static void	flood_fill(size_t x, size_t y, t_map_ck *map_cp)
 	flood_fill(x, y - 1, map_cp);
 }
 
-static t_player_data	*find_player(t_map_ck *map_cp)
+static t_player_dt	*find_player(t_map_ck *map_cp)
 {
-	size_t			i;
-	size_t			j;
-	t_player_data	*tmp_player;
+	size_t		i;
+	size_t		j;
+	t_player_dt	*tmp_player;
 
 	i = 0;
 	while (map_cp->map[i])
@@ -83,7 +83,7 @@ static t_player_data	*find_player(t_map_ck *map_cp)
 		{
 			if (map_cp->map[i][j] == 'P')
 			{
-				tmp_player = ft_calloc(1, sizeof(t_player_data));
+				tmp_player = ft_calloc(1, sizeof(t_player_dt));
 				if (!tmp_player)
 					return (NULL);
 				tmp_player->pos_x = j;
@@ -97,10 +97,10 @@ static t_player_data	*find_player(t_map_ck *map_cp)
 	return (NULL);
 }
 
-int	check_map_path(t_map_data *map)
+int	check_map_path(t_map_dt *map)
 {
-	t_map_ck		map_copy;
-	t_player_data	*player;
+	t_map_ck	map_copy;
+	t_player_dt	*player;
 
 	map_copy.map = duplicate_map(map);
 	map_copy.exit_found = 0;
@@ -118,10 +118,8 @@ int	check_map_path(t_map_data *map)
 		perror("Error\nNo valid path to exit");
 	else if (map_copy.loot_found != map->total_loots)
 		perror("Error\nCan't reach all loot");
+	free(player);
 	if (!map_copy.exit_found || map_copy.loot_found != map->total_loots)
-	{
-		free(player);
 		return (0);
-	}
 	return (1);
 }

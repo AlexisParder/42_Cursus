@@ -6,20 +6,27 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:31:48 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 15:32:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 12:51:07 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-t_img_data	*sl_imgs_last(t_img_data *lst)
+t_img_dt	*sl_imgs_last(t_img_dt *lst)
 {
 	while (lst != NULL && lst->img_next != NULL)
 		lst = lst->img_next;
 	return (lst);
 }
 
-t_img_data	*sl_img_at_pos(t_img_data **lst, size_t pos_x, size_t pos_y)
+t_loot_dt	*loots_last(t_loot_dt *loots)
+{
+	while (loots != NULL && loots->loot_next != NULL)
+		loots = loots->loot_next;
+	return (loots);
+}
+
+t_img_dt	*sl_img_at_pos(t_img_dt **lst, size_t pos_x, size_t pos_y)
 {
 	if (!lst)
 		return (NULL);
@@ -32,7 +39,7 @@ t_img_data	*sl_img_at_pos(t_img_data **lst, size_t pos_x, size_t pos_y)
 	return (NULL);
 }
 
-size_t	sl_imgs_size(t_img_data *lst)
+size_t	sl_imgs_size(t_img_dt *lst)
 {
 	size_t	i;
 
