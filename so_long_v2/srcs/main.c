@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/08 13:54:09 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 14:32:40 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,10 @@ int	main(int ac, char **av)
 	mlx_dt.map.y_max = get_max_y(mlx_dt.map.map);
 	mlx_dt.map.total_loots = get_total_loots(mlx_dt.map.map);
 	if (!check_map(&mlx_dt.map))
-		return (1); // faire une fonction de clean;
+	{
+		free(mlx_dt.map.map);
+		return (1);
+	}
 	mlx_dt.loots = NULL;
 	mlx_dt.player = NULL;
 	mlx_dt.mlx = mlx_init();
