@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/08 14:32:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 14:37:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ char	**read_map(char *map_name)
 	if (!map_name)
 	{
 		perror("Error:\nInvalid map name");
-		// Mettre une fonction pour tout detruire avant d'arreter
 		exit(EXIT_FAILURE);
 	}
 	map_fd = ft_strjoin("./maps/", map_name);
@@ -105,7 +104,7 @@ char	**read_map(char *map_name)
 	if (fd < 0)
 	{
 		perror("Error:\nMap does not exist");
-		// Mettre une fonction pour tout detruire avant d'arreter
+		free(map_fd);
 		exit(EXIT_FAILURE);
 	}
 	line = get_next_line(fd);
