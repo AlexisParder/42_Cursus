@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks_map_path.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/08 13:56:52 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/08 16:12:45 by alexis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	**duplicate_map(t_map_dt *map)
 	return (copy);
 }
 
-static void	flood_fill(size_t x, size_t y, t_map_ck *map_cp)
+static void	flood_fill(long x, long y, t_map_ck *map_cp)
 {
 	if (x < 0 || y < 0 || !map_cp || !map_cp->map[y] || !map_cp->map[y][x])
 		return ;
