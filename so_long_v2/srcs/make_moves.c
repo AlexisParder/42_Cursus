@@ -6,33 +6,21 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/08 12:49:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/09 08:50:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-char	check_area(t_mlx_dt *mlx_data, size_t pos_x, size_t pos_y)
-{
-	if (mlx_data->map.map[pos_y][pos_x] == 'E')
-		return ('E');
-	else if (is_area_loot(mlx_data->loots, pos_x, pos_y))
-		return ('C');
-	return (-1);
-}
-
 static void	updt_area(t_mlx_dt *mlx_data, size_t pos_x, size_t pos_y)
 {
-	char	area_type;
-
-	area_type = check_area(mlx_data, pos_x, pos_y);
-	if (area_type == 'E')
+	if (mlx_data->map.map[pos_y][pos_x] == 'E')
 	{
 		if (mlx_data->player->loot_collected >= mlx_data->map.total_loots)
 			mlx_loop_end((mlx_context)mlx_data->mlx);
 		add_image(mlx_data, mlx_data->img_ref.exit, pos_x, pos_y);
 	}
-	else if (area_type == 'C')
+	else if (is_area_loot(mlx_data->loots, pos_x, pos_y))
 	{
 		if (can_loot(mlx_data->loots, pos_x, pos_y))
 		{
