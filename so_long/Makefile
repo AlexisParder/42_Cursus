@@ -14,6 +14,7 @@ SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)utils/utils_map.c \
 			$(SRC_DIR)utils/utils_clean.c \
 			$(SRC_DIR)utils/utils_draw.c \
+			$(SRC_DIR)get_next_line.c \
 			$(SRC_DIR)utils/utils_bonus.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 

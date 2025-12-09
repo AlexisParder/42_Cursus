@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 12:50:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/09 13:54:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,7 @@ size_t		get_max_x(char **map);
 size_t		get_max_y(char **map);
 size_t		get_total_loots(char **map);
 size_t		count_type(char **map, char *search);
+
+char	*new_get_next_line(int fd);
 
 #endif

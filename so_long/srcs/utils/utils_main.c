@@ -6,18 +6,18 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 11:36:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:18:00 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static char	*map_in_line(int fd, char *map_fd)
+static char	*map_in_line(int fd)
 {
 	char	*map_tmp;
 	char	*line;
 
-	line = get_next_line(fd);
+	line = new_get_next_line(fd);
 	map_tmp = NULL;
 	while (line)
 	{
@@ -26,21 +26,18 @@ static char	*map_in_line(int fd, char *map_fd)
 		if (!map_tmp)
 		{
 			close(fd);
-			free(map_fd);
 			free(map_tmp);
 			return (NULL);
 		}
-		line = get_next_line(fd);
+		line = new_get_next_line(fd);
 	}
 	close(fd);
-	free(map_fd);
 	return (map_tmp);
 }
 
 static char	**read_map(char *map_name)
 {
 	int		fd;
-	char	*map_fd;
 	char	*map_tmp;
 	char	**map;
 
@@ -49,15 +46,13 @@ static char	**read_map(char *map_name)
 		perror("Error:\nInvalid map name");
 		exit(EXIT_FAILURE);
 	}
-	map_fd = ft_strjoin("./maps/", map_name);
-	fd = open(map_fd, O_RDONLY);
+	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
 	{
 		perror("Error:\nMap does not exist");
-		free(map_fd);
 		exit(EXIT_FAILURE);
 	}
-	map_tmp = map_in_line(fd, map_fd);
+	map_tmp = map_in_line(fd);
 	map = ft_split(map_tmp, '\n');
 	free(map_tmp);
 	return (map);
