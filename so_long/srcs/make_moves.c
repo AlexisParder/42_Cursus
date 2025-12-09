@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 10:42:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:44:40 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ void	make_move(t_mlx_dt *mlx_data, char move)
 		mlx_data->map.map[mlx_data->map.y_exit][mlx_data->map.x_exit] = 'E';
 		mlx_data->map.map[pos_y][pos_x] = 'P';
 		redraw_window(mlx_data);
-		ft_printf("NB MOVE: %s\n", ft_itoa(mlx_data->player->nb_move));
 	}
 }

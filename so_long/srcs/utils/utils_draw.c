@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_redraw.c                                     :+:      :+:    :+:   */
+/*   utils_draw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:34:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 10:50:22 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:51:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,5 @@ void	redraw_window(t_mlx_dt *mlx_data)
 		redraw_line(mlx_data, &mlx_data->map, pos_y);
 		pos_y++;
 	}
+	display_move(mlx_data);
 }
