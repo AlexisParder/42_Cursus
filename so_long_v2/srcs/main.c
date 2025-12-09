@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/08 14:37:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/09 09:29:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
 
 	pos_y = 0;
 	size = IMG_SIZE;
-	i_ref.exit = mlx_new_image_from_file((*dt).mlx, TXT_EXIT, &size, &size);
-	i_ref.loot = mlx_new_image_from_file((*dt).mlx, TXT_LOOT, &size, &size);
-	i_ref.path = mlx_new_image_from_file((*dt).mlx, TXT_PATH, &size, &size);
-	i_ref.wall = mlx_new_image_from_file((*dt).mlx, TXT_WALL, &size, &size);
 	i_ref.pl_d = mlx_new_image_from_file((*dt).mlx, TXT_PLAYER_D, &size, &size);
 	i_ref.pl_l = mlx_new_image_from_file((*dt).mlx, TXT_PLAYER_L, &size, &size);
 	i_ref.pl_r = mlx_new_image_from_file((*dt).mlx, TXT_PLAYER_R, &size, &size);
 	i_ref.pl_t = mlx_new_image_from_file((*dt).mlx, TXT_PLAYER_T, &size, &size);
+	i_ref.exit = mlx_new_image_from_file((*dt).mlx, TXT_EXIT, &size, &size);
+	i_ref.loot = mlx_new_image_from_file((*dt).mlx, TXT_LOOT, &size, &size);
+	i_ref.path = mlx_new_image_from_file((*dt).mlx, TXT_PATH, &size, &size);
+	i_ref.wall = mlx_new_image_from_file((*dt).mlx, TXT_WALL, &size, &size);
 	dt->img_ref = i_ref;
 	while ((*map_dt).map[pos_y])
 	{
@@ -113,11 +113,18 @@ char	**read_map(char *map_name)
 	{
 		map_tmp = sl_strjoin(map_tmp, line);
 		free(line);
+		if (!map_tmp)
+		{
+			close(fd);
+			free(map_fd);
+			free(map_tmp);
+			return (NULL);
+		}
 		line = get_next_line(fd);
 	}
-	map = ft_split(map_tmp, '\n');
 	close(fd);
 	free(map_fd);
+	map = ft_split(map_tmp, '\n');
 	free(map_tmp);
 	return (map);
 }
