@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 12:58:44 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:21:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	create_map_dt(t_mlx_dt *mlx_data, char **av)
 	(*mlx_data).map_dt.total_loots = get_total_loots((*mlx_data).map_dt.map);
 	if (!check_map(&mlx_data->map_dt))
 	{
-		free((*mlx_data).map_dt.map);
+		free_arr((*mlx_data).map_dt.map);
 		exit(EXIT_FAILURE);
 	}
 }

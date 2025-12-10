@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 09:52:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:10:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static void	free_arr(char **arr)
+void	free_arr(char **arr)
 {
 	size_t	i;
 
