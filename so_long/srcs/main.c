@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 13:14:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:04:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	keyup_hook(int key, void *param)
 	t_mlx_dt	*mlx_data;
 
 	mlx_data = (t_mlx_dt *)param;
-	if (key)
+	if (key >= 0)
 		mlx_data->key_pressed = 0;
 }
 

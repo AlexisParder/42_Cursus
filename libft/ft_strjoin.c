@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 08:40:04 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:15:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-	{
-		s3 = ft_strdup(s2);
-		return (s3);
-	}
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2) + 1;
 	s3 = malloc((s1_len + s2_len) * sizeof(char));
