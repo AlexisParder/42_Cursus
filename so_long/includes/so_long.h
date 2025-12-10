@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 10:46:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:32:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_mlx_dt
 	int				key_pressed;
 	t_imgs_ref		img_ref;
 	t_player_dt		*player;
-	t_map_dt		map;
+	t_map_dt		map_dt;
 }	t_mlx_dt;
 
 int			check_move(t_mlx_dt *mlx_data, char move);
@@ -118,7 +118,5 @@ size_t		get_max_x(char **map);
 size_t		get_max_y(char **map);
 size_t		get_total_loots(char **map);
 size_t		count_type(char **map, char *search);
-
-char	*new_get_next_line(int fd);
 
 #endif

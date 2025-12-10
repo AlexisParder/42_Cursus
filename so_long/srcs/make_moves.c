@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 14:33:15 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:35:46 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static void	updt_area(t_mlx_dt *mlx_data, size_t pos_x, size_t pos_y)
 {
-	if (mlx_data->map.map[pos_y][pos_x] == 'E')
+	if (mlx_data->map_dt.map[pos_y][pos_x] == 'E')
 	{
-		if (mlx_data->player->loot_collected >= mlx_data->map.total_loots)
+		if (mlx_data->player->loot_collected >= mlx_data->map_dt.total_loots)
 			mlx_loop_end((mlx_context)mlx_data->mlx);
 	}
-	else if (mlx_data->map.map[pos_y][pos_x] == 'C')
+	else if (mlx_data->map_dt.map[pos_y][pos_x] == 'C')
 		mlx_data->player->loot_collected++;
 }
 
@@ -61,25 +61,25 @@ static void	display_move_shell(t_mlx_dt *mlx_data)
 	free(nb_move);
 }
 
-void	make_move(t_mlx_dt *mlx_data, char move)
+void	make_move(t_mlx_dt *mlx_dt, char move)
 {
 	size_t	pos_x;
 	size_t	pos_y;
 	size_t	last_pos_x;
 	size_t	last_pos_y;
 
-	if (check_move(mlx_data, move))
+	if (check_move(mlx_dt, move))
 	{
-		last_pos_x = mlx_data->player->pos_x;
-		last_pos_y = mlx_data->player->pos_y;
-		updt_pl_move(mlx_data, move);
-		pos_x = mlx_data->player->pos_x;
-		pos_y = mlx_data->player->pos_y;
-		updt_area(mlx_data, pos_x, pos_y);
-		mlx_data->map.map[last_pos_y][last_pos_x] = '0';
-		mlx_data->map.map[mlx_data->map.y_exit][mlx_data->map.x_exit] = 'E';
-		mlx_data->map.map[pos_y][pos_x] = 'P';
-		redraw_window(mlx_data);
-		display_move_shell(mlx_data);
+		last_pos_x = mlx_dt->player->pos_x;
+		last_pos_y = mlx_dt->player->pos_y;
+		updt_pl_move(mlx_dt, move);
+		pos_x = mlx_dt->player->pos_x;
+		pos_y = mlx_dt->player->pos_y;
+		updt_area(mlx_dt, pos_x, pos_y);
+		mlx_dt->map_dt.map[last_pos_y][last_pos_x] = '0';
+		mlx_dt->map_dt.map[mlx_dt->map_dt.y_exit][mlx_dt->map_dt.x_exit] = 'E';
+		mlx_dt->map_dt.map[pos_y][pos_x] = 'P';
+		redraw_window(mlx_dt);
+		display_move_shell(mlx_dt);
 	}
 }

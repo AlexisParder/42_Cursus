@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 12:49:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:34:35 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 		else if (line[i] == 'E')
 		{
 			add_image(mlx_data, mlx_data->img_ref.exit, i, pos_y);
-			mlx_data->map.x_exit = i;
-			mlx_data->map.y_exit = pos_y;
+			mlx_data->map_dt.x_exit = i;
+			mlx_data->map_dt.y_exit = pos_y;
 		}
 		else if (line[i] == 'P')
 			add_img_pl(mlx_data, mlx_data->img_ref.pl_r, i, pos_y);

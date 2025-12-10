@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 10:44:47 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:31:58 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ void	clean_all(t_mlx_dt mlx_data)
 	mlx_destroy_window(mlx_data.mlx, mlx_data.win);
 	destroy_images(&mlx_data);
 	free(mlx_data.player);
-	free(mlx_data.map.map);
+	free(mlx_data.map_dt.map);
 	mlx_destroy_context(mlx_data.mlx);
 }

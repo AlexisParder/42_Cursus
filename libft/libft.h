@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:13:02 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/01 13:28:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:29:32 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,5 @@ int		putchar_len(char c);
 int		putstr_len(char *s);
 
 char	*get_next_line(int fd);
-char	*get_next_line_multiplefd(int fd);
-char	*gnl_strjoin(char *s1, char *s2);
-char	*gnl_strchr(const char *s, int c);
-char	*gnl_strdup(const char *s);
-char	*get_buf_data(int fd, char *stash);
-char	*get_new_stash(char *stash);
-char	*extract_line(char *stash);
 
 #endif

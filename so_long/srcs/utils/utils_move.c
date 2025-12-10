@@ -3,54 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   utils_move.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:04:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/08 16:14:43 by alexis           ###   ########.fr       */
+/*   Updated: 2025/12/10 11:33:02 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static int	check_move_rl(t_mlx_dt *mlx_data, char move)
+static int	check_move_rl(t_mlx_dt *mlx_dt, char move)
 {
 	size_t	p_x;
 	size_t	p_y;
 	size_t	map_max_x;
 
-	p_x = mlx_data->player->pos_x;
-	p_y = mlx_data->player->pos_y;
-	map_max_x = mlx_data->map.x_max;
+	p_x = mlx_dt->player->pos_x;
+	p_y = mlx_dt->player->pos_y;
+	map_max_x = mlx_dt->map_dt.x_max;
 	if (move == 'r')
 	{
-		if ((p_x + 1 >= map_max_x) || mlx_data->map.map[p_y][p_x + 1] == '1')
+		if ((p_x + 1 >= map_max_x) || mlx_dt->map_dt.map[p_y][p_x + 1] == '1')
 			return (0);
 	}
 	else if (move == 'l')
 	{
-		if ((p_x - 1 <= 0) || mlx_data->map.map[p_y][p_x - 1] == '1')
+		if ((p_x - 1 <= 0) || mlx_dt->map_dt.map[p_y][p_x - 1] == '1')
 			return (0);
 	}
 	return (1);
 }
 
-static int	check_move_td(t_mlx_dt *mlx_data, char move)
+static int	check_move_td(t_mlx_dt *mlx_dt, char move)
 {
 	size_t	p_x;
 	size_t	p_y;
 	size_t	map_max_y;
 
-	p_x = mlx_data->player->pos_x;
-	p_y = mlx_data->player->pos_y;
-	map_max_y = mlx_data->map.y_max;
+	p_x = mlx_dt->player->pos_x;
+	p_y = mlx_dt->player->pos_y;
+	map_max_y = mlx_dt->map_dt.y_max;
 	if (move == 't')
 	{
-		if ((p_y - 1 <= 0) || mlx_data->map.map[p_y - 1][p_x] == '1')
+		if ((p_y - 1 <= 0) || mlx_dt->map_dt.map[p_y - 1][p_x] == '1')
 			return (0);
 	}
 	else if (move == 'd')
 	{
-		if ((p_y + 1 >= map_max_y) || mlx_data->map.map[p_y + 1][p_x] == '1')
+		if ((p_y + 1 >= map_max_y) || mlx_dt->map_dt.map[p_y + 1][p_x] == '1')
 			return (0);
 	}
 	return (1);

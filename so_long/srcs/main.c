@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 11:04:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:34:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(int ac, char **av)
 	mlx_on_event(mlx_dt.mlx, mlx_dt.win, MLX_KEYDOWN, keydown_hook, &mlx_dt);
 	mlx_on_event(mlx_dt.mlx, mlx_dt.win, MLX_WINDOW_EVENT, win_hook, &mlx_dt);
 	mlx_on_event(mlx_dt.mlx, mlx_dt.win, MLX_KEYUP, keyup_hook, &mlx_dt);
-	creates_images(&mlx_dt, &mlx_dt.map);
+	creates_images(&mlx_dt, &mlx_dt.map_dt);
 	mlx_loop(mlx_dt.mlx);
 	clean_all(mlx_dt);
 	return (0);

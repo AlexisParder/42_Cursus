@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 10:44:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:34:44 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*map_in_line(int fd)
 	char	*map_tmp;
 	char	*line;
 
-	line = new_get_next_line(fd);
+	line = get_next_line(fd);
 	map_tmp = NULL;
 	while (line)
 	{
@@ -29,7 +29,7 @@ static char	*map_in_line(int fd)
 			free(map_tmp);
 			return (NULL);
 		}
-		line = new_get_next_line(fd);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (map_tmp);
@@ -60,13 +60,13 @@ static char	**read_map(char *map_name)
 
 void	create_map_dt(t_mlx_dt *mlx_data, char **av)
 {
-	(*mlx_data).map.map = read_map(av[1]);
-	(*mlx_data).map.x_max = get_max_x((*mlx_data).map.map);
-	(*mlx_data).map.y_max = get_max_y((*mlx_data).map.map);
-	(*mlx_data).map.total_loots = get_total_loots((*mlx_data).map.map);
-	if (!check_map(&mlx_data->map))
+	(*mlx_data).map_dt.map = read_map(av[1]);
+	(*mlx_data).map_dt.x_max = get_max_x((*mlx_data).map_dt.map);
+	(*mlx_data).map_dt.y_max = get_max_y((*mlx_data).map_dt.map);
+	(*mlx_data).map_dt.total_loots = get_total_loots((*mlx_data).map_dt.map);
+	if (!check_map(&mlx_data->map_dt))
 	{
-		free((*mlx_data).map.map);
+		free((*mlx_data).map_dt.map);
 		exit(EXIT_FAILURE);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexis <alexis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:15:50 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/06 19:31:11 by alexis           ###   ########.fr       */
+/*   Updated: 2025/12/10 11:42:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,29 +76,20 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (ptr);
 }
 
-char	*ft_strchr(const char *s, int c)
+char    *ft_strchr(const char *s, int c)
 {
-	int	i;
-	int	tmp_i;
-	int	is_find;
+    int    i;
 
-	i = 0;
-	while (s && s[i])
-		i++;
-	tmp_i = i;
-	is_find = 0;
-	while (i >= 0)
-	{
-		if ((unsigned char)s[i] == (unsigned char)c)
-		{
-			tmp_i = i;
-			is_find = 1;
-		}
-		i--;
-	}
-	if (is_find)
-		return ((char *)&s[tmp_i]);
-	return (0);
+    i = 0;
+    if (!s)
+        return (0);
+    while (s[i])
+    {
+        if ((unsigned char)s[i] == (unsigned char)c)
+            return ((char *) &s[i]);
+        i++;
+    }
+    return (0);
 }
 
 char	*ft_strdup(const char *s)

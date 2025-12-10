@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:34:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 12:51:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/10 11:32:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	redraw_window(t_mlx_dt *mlx_data)
 	color.rgba = 0x000000;
 	mlx_clear_window(mlx_data->mlx, mlx_data->win, color);
 	pos_y = 0;
-	while (mlx_data->map.map[pos_y])
+	while (mlx_data->map_dt.map[pos_y])
 	{
-		redraw_line(mlx_data, &mlx_data->map, pos_y);
+		redraw_line(mlx_data, &mlx_data->map_dt, pos_y);
 		pos_y++;
 	}
 	display_move(mlx_data);
