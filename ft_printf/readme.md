@@ -13,9 +13,7 @@ This project strengthens skills in parsing logic, base conversions, buffer manag
 
 ## Example of usage
 The function is used like basic `printf`.<br>
-```c
-int printf(const char *format, ...);
-```
+`int printf(const char *format, ...);`
 
 ## Resources
 - man 3 printf
