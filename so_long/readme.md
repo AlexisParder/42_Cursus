@@ -11,9 +11,16 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 	- Use the `./so_long_bonus maps/<map_file>.ber` command to start game with bonus.
 
 ## Controls
-| Control | Description |
-|--------:|------------:|
-| Test    | Droite |
+| Key          | Action Description           |
+|--------------|------------------------------|
+| **W**        | Move up                      |
+| **A**        | Move left                    |
+| **S**        | Move down                    |
+| **D**        | Move right                   |
+| **↑ (Up)**   | Move up                      |
+| **← (Left)** | Move left                    |
+| **↓ (Down)** | Move down                    |
+| **→ (Right)**| Move right                   |
 
 ## Resources
 - MiniLibx
