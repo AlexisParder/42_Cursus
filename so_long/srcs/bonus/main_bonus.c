@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:20:42 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:54:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		perror("Error:\nInvalid format: './so_long <map_name.ber>'");
+		ft_printf("Error:\nInvalid format: './so_long <map_name.ber>'");
 		return (1);
 	}
 	mlx_dt.player = NULL;

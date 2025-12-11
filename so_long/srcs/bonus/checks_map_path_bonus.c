@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:20:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:54:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	**duplicate_map(t_map_dt *map)
 	copy = ft_calloc(map->y_max + 1, sizeof(char *));
 	if (!copy)
 	{
-		perror("Error\nFailure during allocation");
+		ft_printf("Error\nFailure during allocation");
 		return (NULL);
 	}
 	i = 0;
@@ -42,7 +42,7 @@ static char	**duplicate_map(t_map_dt *map)
 		copy[i] = ft_strdup(map->map[i]);
 		if (!copy[i])
 		{
-			perror("Error\nFailure during allocation");
+			ft_printf("Error\nFailure during allocation");
 			free_arr(copy);
 			return (NULL);
 		}
@@ -108,16 +108,16 @@ int	check_map_path(t_map_dt *map)
 	player = check_player(&map_copy);
 	if (!player)
 	{
-		perror("Error\nNo player found");
+		ft_printf("Error\nNo player found");
 		free_arr(map_copy.map);
 		return (0);
 	}
 	flood_fill(player->pos_x, player->pos_y, &map_copy);
 	free_arr(map_copy.map);
 	if (!map_copy.exit_found)
-		perror("Error\nNo valid path to exit");
+		ft_printf("Error\nNo valid path to exit");
 	else if (map_copy.loot_found != map->total_loots)
-		perror("Error\nCan't reach all loot");
+		ft_printf("Error\nCan't reach all loot");
 	free(player);
 	if (!map_copy.exit_found || map_copy.loot_found != map->total_loots)
 		return (0);

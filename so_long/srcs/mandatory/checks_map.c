@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:23:15 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/09 11:10:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:56:20 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ static int	check_type(t_map_dt *map)
 	nb_player = count_type(map->map, "P");
 	if (nb_loot < 1)
 	{
-		perror("Error:\nThere must be at least one loot on the map");
+		ft_printf("Error:\nThere must be at least one loot on the map");
 		return (0);
 	}
 	if (nb_exit != 1)
 	{
-		perror("Error:\nThere should only be one exit on the map");
+		ft_printf("Error:\nThere should only be one exit on the map");
 		return (0);
 	}
 	if (nb_player != 1)
 	{
-		perror("Error:\nThere should only be one player on the map");
+		ft_printf("Error:\nThere should only be one player on the map");
 		return (0);
 	}
 	return (1);
@@ -78,7 +78,7 @@ static int	check_map_fill(t_map_dt *map)
 		{
 			if (!is_search(map->map[i][j], "01ECP"))
 			{
-				perror("Error:\nInvalid map format, authorized char: '01ECP'");
+				ft_printf("Error:\nInvalid map format, use: '01ECP'");
 				return (0);
 			}
 			j++;
@@ -92,17 +92,17 @@ int	check_map(t_map_dt *map)
 {
 	if (!map || !map->map[0])
 	{
-		perror("Error:\nEmpty map");
+		ft_printf("Error:\nEmpty map");
 		return (0);
 	}
 	if (map->x_max == map->y_max)
 	{
-		perror("Error:\nThe map is not rectangular");
+		ft_printf("Error:\nThe map is not rectangular");
 		return (0);
 	}
 	if (!check_border(map))
 	{
-		perror("Error:\nThe borders are not valid.");
+		ft_printf("Error:\nThe borders are not valid.");
 		return (0);
 	}
 	if (!check_type(map))
