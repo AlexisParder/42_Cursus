@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_images.c                                    :+:      :+:    :+:   */
+/*   create_images_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:21:15 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:21:00 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,5 @@ void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
 		manage_line(dt, map_dt, pos_y);
 		pos_y++;
 	}
+	display_move(dt);
 }

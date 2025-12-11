@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_display_bonus.c                              :+:      :+:    :+:   */
+/*   utils_str_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 12:48:43 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:07:51 by achauvie         ###   ########.fr       */
+/*   Created: 2025/12/01 08:40:18 by achauvie          #+#    #+#             */
+/*   Updated: 2025/12/11 12:20:38 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	display_move(t_mlx_dt *dt)
+char	*sl_strjoin(char *s1, char *s2)
 {
-	char	*nb_move;
+	int		s1_len;
+	int		s2_len;
+	char	*s3;
 
-	nb_move = ft_itoa(dt->player->nb_move);
-	mlx_string_put(dt->mlx, dt->win, 64, 32, 0xFFFFFF, "Number of movements:");
-	mlx_string_put(dt->mlx, dt->win, 192, 32, 0xFFFFFF, nb_move);
-	free(nb_move);
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2) + 1;
+	s3 = malloc((s1_len + s2_len) * sizeof(char));
+	if (!s3)
+		return (NULL);
+	ft_strlcpy(s3, s1, s1_len + 1);
+	ft_strlcat(s3, s2, s1_len + s2_len);
+	free(s1);
+	return (s3);
 }
