@@ -12,5 +12,5 @@ This library becomes a core dependency for all subsequent projects (get_next_lin
 
 ## Instructions
 - Use the `make` command to generate the archive.
- - Use the `make bonus` command to generate the archive with bonus functions.
+	- Use the `make bonus` command to generate the archive with bonus functions.
 - Export the `libft.a` and `libft.h` files to the program that requires these functions.
