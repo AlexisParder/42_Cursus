@@ -5,10 +5,10 @@
 A graphical project focused on building a small 2D game using the MiniLibX library. The objective is to implement map parsing, collision logic, sprite rendering, and event handling, while respecting a strict set of rules regarding map validity, movement constraints, and asset management. The challenge increases with the need to create smooth player interactions, handle animation cycles, and ensure proper resource cleanup. This project develops skills in low-level graphics, event-driven programming, input handling, file parsing, and memory/resource management within a constrained C environment.
 
 ## Instructions
-<!-- - Use the `make` command to generate the programm.
-- Use the `./push_swap <list of unordered numbers>` command to sort the list.
-	- ⚠️ The program does not return the sorted list. It only displays the instructions it uses to sort the list.
-	- Using the command `./push_swap <list of unordered numbers> | wc -l` shows the number of instructions used to sort the list. -->
+- Use the `make` command to generate the program.
+	- Use the `make bonus` command to generate the program with bonus.
+- Use the `./so_long maps/<map_file>.ber` command to start game.
+-	 Use the `./so_long_bonus maps/<map_file>.ber` command to start game with bonus.
 
 ## Resources
 - MiniLibx
