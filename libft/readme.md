@@ -8,92 +8,93 @@ This library becomes a core dependency for all subsequent projects (get_next_lin
 
 ## Functions Mandatory
 - **ft_isalpha**
-	- Vérifie si un caractère est alphabétique (a–z ou A–Z).
+	- Checks if the character is alphabetic (a–z or A–Z).
 - **ft_isdigit**
-	- Vérifie si un caractère est un chiffre décimal (0–9).
+	- Checks if the character is a decimal digit (0–9).
 - **ft_isalnum**
-	- Vérifie si un caractère est alphanumérique (lettre ou chiffre).
+	- Checks if the character is alphanumeric (letter or digit).
 - **ft_isascii**
-	- Vérifie si un caractère est un caractère ASCII valide (0–127).
+	- Checks if the character is a valid ASCII character (0–127).
 - **ft_isprint**
-	- Vérifie si un caractère est imprimable (y compris l’espace).
+	- Checks if the character is printable (including space).
 - **ft_toupper**
-	- Convertit une lettre minuscule en majuscule si possible.
+	- Converts a lowercase letter to uppercase.
 - **ft_tolower**
-	- Convertit une lettre majuscule en minuscule si possible.
+	- Converts an uppercase letter to lowercase.
 - **ft_strlen**
-	- Retourne la longueur d’une chaîne de caractères.
+	- Returns the length of a string.
 - **ft_memset**
-	- Remplit un bloc mémoire avec une valeur donnée.
+	- Fills a block of memory with a given value.
 - **ft_bzero**
-	- Met à zéro un bloc mémoire sur une taille donnée.
+	- Sets a block of memory to zero.
 - **ft_memcpy**
-	- Copie un bloc mémoire vers un autre (sans chevauchement garanti).
+	- Copies a block of memory to another (no overlap handling).
 - **ft_memmove**
-	- Copie un bloc mémoire en gérant le chevauchement des zones.
+	- Copies a block of memory while handling overlapping areas safely.
 - **ft_memchr**
-	- Recherche un caractère dans un bloc mémoire.
+	- Searches for a byte in a block of memory.
 - **ft_memcmp**
-	- Compare deux blocs mémoire.
+	- Compares two blocks of memory.
 - **ft_strlcpy**
-	- Copie une chaîne dans un buffer en limitant la taille.
+	- Copies a string into a buffer with size limitation.
 - **ft_strlcat**
-	- Concatène une chaîne dans un buffer en limitant la taille.
+	- Concatenates a string into a buffer with size limitation.
 - **ft_strchr**
-	- Cherche la première occurrence d’un caractère dans une chaîne.
+	- Finds the first occurrence of a character in a string.
 - **ft_strrchr**
-	- Cherche la dernière occurrence d’un caractère dans une chaîne.
+	- Finds the last occurrence of a character in a string.
 - **ft_strncmp**
-	- Compare deux chaînes jusqu’à n caractères.
+	- Compares two strings up to n characters.
 - **ft_strnstr**
-	- Cherche une sous-chaîne dans une autre, limitée par une longueur.
+	- Searches for a substring inside another string, limited by length.
 - **ft_strdup**
-	- Duplique une chaîne en allouant de la mémoire.
+	- Duplicates a string using dynamic memory.
 - **ft_atoi**
-	- Convertit une chaîne en entier (ASCII to int).
+	- Converts a string to an integer.
 - **ft_calloc**
-	- Alloue de la mémoire et l’initialise à zéro.
+	- Allocates memory and initializes it to zero.
 - **ft_substr**
-	- Alloue et retourne une sous-chaîne à partir d’une chaîne donnée.
+	- Allocates and returns a substring from a given string.
 - **ft_strjoin**
-	- Concatène deux chaînes dans une nouvelle chaîne allouée.
+	- Joins two strings into a newly allocated string.
 - **ft_strtrim**
-	- Supprime les caractères d’un set au début et à la fin d’une chaîne.
+	- Trims characters from the start and end of a string based on a given set.
 - **ft_split**
-	- Divise une chaîne en tableau de chaînes selon un délimiteur.
+	- Splits a string into substrings based on a delimiter.
 - **ft_itoa**
-	- Convertit un entier en chaîne de caractères.
+	- Converts an integer into a string.
 - **ft_strmapi**
-	- Applique une fonction sur chaque caractère d’une chaîne et retourne une nouvelle chaîne.
+	- Applies a function to each character of a string and returns a new string.
 - **ft_striteri**
-	- Applique une fonction à chaque caractère de la chaîne (indexes fournis).
+	- Applies a function to each character of a string, passing its index.
 - **ft_putchar_fd**
-	- Écrit un caractère sur un descripteur de fichier.
+	- Writes a character to a file descriptor.
 - **ft_putstr_fd**
-	- Écrit une chaîne sur un descripteur de fichier.
+	- Writes a string to a file descriptor.
 - **ft_putendl_fd**
-	- Écrit une chaîne suivie d’un saut de ligne.
+	- Writes a string followed by a newline to a file descriptor.
 - **ft_putnbr_fd**
-	- Écrit un entier en base 10 sur un descripteur de fichier.
+	- Writes an integer in base 10 to a file descriptor.
+
 ## Functions Bonus
 - **ft_lstnew**
-	- Alloue une nouvelle liste avec le contenu donné.
+	- Allocates a new list node with the given content.
 - **ft_lstadd_front**
-	- Ajoute un élément au début de la liste.
+	- Adds a node at the beginning of the list.
 - **ft_lstsize**
-	- Compte le nombre d’éléments dans la liste.
+	- Counts the number of nodes in the list.
 - **ft_lstlast**
-	- Retourne le dernier élément de la liste.
+	- Returns the last node of the list.
 - **ft_lstadd_back**
-	- Ajoute un élément à la fin de la liste.
+	- Adds a node at the end of the list.
 - **ft_lstdelone**
-	- Supprime un élément et libère son contenu à l’aide de del.
+	- Deletes a node and frees its content using the del function.
 - **ft_lstclear**
-	- Supprime et libère toute la liste.
+	- Deletes and frees the entire list.
 - **ft_lstiter**
-	- Parcourt la liste en appliquant f au contenu de chaque élément.
+	- Iterates through the list and applies a function to each node's content.
 - **ft_lstmap**
-	- Crée une nouvelle liste en appliquant une fonction à chaque élément.
+	- Creates a new list by applying a function to each node of an existing list.
 
 ## Instructions
 - Use the `make` command to generate the archive.
