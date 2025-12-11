@@ -17,6 +17,7 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 | **A** / **← (Left)**  | Move left                    |
 | **S** / **↓ (Down)**  | Move down                    |
 | **D** / **→ (Right)** | Move right                   |
+| **ESCAPE**            | Quit Game                    |
 
 ## Resources
 - MiniLibx
