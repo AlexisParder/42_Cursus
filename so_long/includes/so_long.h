@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 15:38:02 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 14:49:17 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ typedef struct s_mlx_dt
 {
 	void			*win;
 	void			*mlx;
-	int				key_pressed;
 	t_imgs_ref		img_ref;
 	t_player_dt		*player;
 	t_map_dt		map_dt;

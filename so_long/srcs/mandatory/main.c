@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:54:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 14:49:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,6 @@ static int	keydown_hook(int key, t_mlx_dt *mlx_data)
 		make_move(mlx_data, 'l');
 	else if (key == 100 || key == 65363)
 		make_move(mlx_data, 'r');
-	return (0);
-}
-
-static int	keyup_hook(int key, void *param)
-{
-	t_mlx_dt	*mlx_data;
-
-	mlx_data = (t_mlx_dt *)param;
-	(void)key;
-	mlx_data->key_pressed = 0;
 	return (0);
 }
 
@@ -58,14 +48,12 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	mlx_dt.player = NULL;
-	mlx_dt.key_pressed = 0;
 	create_map_dt(&mlx_dt, av);
 	win_width = mlx_dt.map_dt.x_max * IMG_SIZE;
 	win_height = (mlx_dt.map_dt.y_max + 1) * IMG_SIZE;
 	mlx_dt.mlx = mlx_init();
 	mlx_dt.win = mlx_new_window(mlx_dt.mlx, win_width, win_height, "so_long");
-	mlx_hook(mlx_dt.win, 2, 1L << 0, keydown_hook, &mlx_dt);
-	mlx_hook(mlx_dt.win, 3, 1L << 1, keyup_hook, &mlx_dt);
+	mlx_hook(mlx_dt.win, 2, 1, keydown_hook, &mlx_dt);
 	mlx_hook(mlx_dt.win, 17, 0, close_hook, &mlx_dt);
 	creates_images(&mlx_dt, &mlx_dt.map_dt);
 	mlx_loop(mlx_dt.mlx);
