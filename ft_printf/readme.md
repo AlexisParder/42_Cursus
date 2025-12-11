@@ -12,7 +12,7 @@ This project strengthens skills in parsing logic, base conversions, buffer manag
 - Export the `ft_printf.a` and `ft_printf.h` files to the program that requires the `ft_printf` function.
 
 ## Example of usage
-The function is used like basic `printf`.
+The function is used like basic `printf`.<br>
 `int printf(const char *format, ...);`
 
 ## Resources
