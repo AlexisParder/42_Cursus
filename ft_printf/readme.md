@@ -8,12 +8,11 @@ It covers all mandatory conversions (c, s, p, d, i, u, x, X, %) and focuses on b
 This project strengthens skills in parsing logic, base conversions, buffer management, and function architecture.
 
 ## Instructions
-- Cloner le programme
-- Utiliser la commade `make`
-- Exporter les fichiers `ft_printf.a` et `ft_printf.h` dans le programme necessitant la fonction ft_printf;
+- Use the `make` command to generate the archive.
+- Export the `ft_printf.a` and `ft_printf.h` files to the program that requires the `ft_printf` function.
 
-## Exemple d'utilisation
-La fonction s'utilise comme printf de base;
+## Example of usage
+The function is used like basic `printf`.
 `int printf(const char *format, ...);`
 
 ## Resources
