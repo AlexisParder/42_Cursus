@@ -16,5 +16,5 @@ The function is used like basic `printf`.
 `int printf(const char *format, ...);`
 
 ## Resources
-- ![man 3 printf](https://man.developpez.com/man3/printf/)
+- man 3 printf
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
