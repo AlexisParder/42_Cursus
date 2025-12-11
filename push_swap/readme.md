@@ -44,5 +44,5 @@ You must use only these operations to manipulate the stacks and achieve a sorted
 ## Instructions
 - Use the `make` command to generate the programm.
 - Use the `./push_swap <list of unordered numbers>` command to sort the list.
-	- ⚠️ The program does not return the sorted list; it only displays the instructions it uses to sort it.
+	- ⚠️ The program does not return the sorted list.<br>it only displays the instructions it uses to sort it.
 	- Using the command `./push_swap <list of unordered numbers> | wc -l` shows the number of instructions used to sort the list.
