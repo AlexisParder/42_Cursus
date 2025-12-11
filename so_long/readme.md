@@ -35,8 +35,8 @@ The map must follow certain rules:
 - There must be at least one possible path between the player, all the collectibles, and the exit door.
 
 # Bonus
-- [] Make the player lose when they touch an enemy patrol.
-- [] Add some sprite animation.
+- [ ] Make the player lose when they touch an enemy patrol.
+- [ ] Add some sprite animation.
 - [x] Display the movement count directly on screen instead of writing it in the shell.
 
 ## Resources
