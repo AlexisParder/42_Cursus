@@ -1,0 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
+/*   Updated: 2025/12/10 15:46:39 by achauvie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <so_long.h>
+
+static int	keydown_hook(int key, t_mlx_dt *mlx_data)
+{
+	if (key == 65307)
+		close_game(mlx_data);
+	else if (key == 119 || key == 65362)
+	    make_move(mlx_data, 't');
+	else if (key == 115 || key == 65364)
+	    make_move(mlx_data, 'd');
+	else if (key == 97 || key == 65361)
+	    make_move(mlx_data, 'l');
+	else if (key == 100 || key == 65363)
+        make_move(mlx_data, 'r');
+	return (0);
+}
+
+static int	keyup_hook(int key, void *param)
+{
+	t_mlx_dt	*mlx_data;
+
+	mlx_data = (t_mlx_dt *)param;
+	(void)key;
+	mlx_data->key_pressed = 0;
+	return (0);
+}
+
+static int	close_hook(void *param)
+{
+	t_mlx_dt	*mlx_data;
+
+	mlx_data = (t_mlx_dt *)param;
+	close_game(mlx_data);
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	t_mlx_dt	mlx_dt;
+	int			win_width;
+	int			win_height;
+
+	if (ac != 2)
+	{
+		perror("Error:\nInvalid format: './so_long <map_name.ber>'");
+		return (1);
+	}
+	mlx_dt.player = NULL;
+	mlx_dt.key_pressed = 0;
+	create_map_dt(&mlx_dt, av);
+	
+	// Calculer la taille de la fenêtre en fonction de la map
+	win_width = mlx_dt.map_dt.x_max * IMG_SIZE;
+	win_height = (mlx_dt.map_dt.y_max + 1) * IMG_SIZE;
+	
+	mlx_dt.mlx = mlx_init();
+	mlx_dt.win = mlx_new_window(mlx_dt.mlx, win_width, win_height, "so_long");
+	
+	mlx_hook(mlx_dt.win, 2, 1L<<0, keydown_hook, &mlx_dt);
+	mlx_hook(mlx_dt.win, 3, 1L<<1, keyup_hook, &mlx_dt);
+	mlx_hook(mlx_dt.win, 17, 0, close_hook, &mlx_dt);
+	
+	creates_images(&mlx_dt, &mlx_dt.map_dt);
+	mlx_loop(mlx_dt.mlx);
+	free(mlx_dt.mlx);
+	
+	return (0);
+}
