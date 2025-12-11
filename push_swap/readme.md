@@ -48,5 +48,5 @@ You must use only these operations to manipulate the stacks and achieve a sorted
 	- Using the command `./push_swap <list of unordered numbers> | wc -l` shows the number of instructions used to sort the list.
 
 ## Resources
-- ![Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97) 
+- ![Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
