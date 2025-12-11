@@ -34,6 +34,11 @@ The map must follow certain rules:
 - The map must be enclosed/surrounded by walls.
 - There must be at least one possible path between the player, all the collectibles, and the exit door.
 
+# Bonus
+- [] Make the player lose when they touch an enemy patrol.
+- [] Add some sprite animation.
+- [x] Display the movement count directly on screen instead of writing it in the shell.
+
 ## Resources
 - MiniLibx
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
