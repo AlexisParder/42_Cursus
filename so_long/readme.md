@@ -10,6 +10,11 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 - Use the `./so_long maps/<map_file>.ber` command to start game.
 	- Use the `./so_long_bonus maps/<map_file>.ber` command to start game with bonus.
 
+## Controls
+| Control | Description |
+|--------:|------------:|
+| Test    | Droite |
+
 ## Resources
 - MiniLibx
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
