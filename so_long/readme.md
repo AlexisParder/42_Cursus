@@ -17,7 +17,22 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 | **A** / **← (Left)**  | Move left                    |
 | **S** / **↓ (Down)**  | Move down                    |
 | **D** / **→ (Right)** | Move right                   |
-| **ESCAPE**            | Quit Game                    |
+| **ESCAPE**            | Quit game                    |
+
+## Maps
+The maps are located in the `maps` folder.<br>
+The map must follow certain rules:
+- The map must be in the `.ber` format.
+- The map can be composed of only these 5 characters:
+	- **0** for an empty space,
+	- **1** for a wall,
+	- **C** for a collectible,
+	- **E** for a map exit,
+	- **P** for the player’s starting position.
+- To be valid, a map must contain 1 exit, 1 starting position and at least 1 collectible.
+- The map must be rectangular.
+- The map must be enclosed/surrounded by walls.
+- There must be at least one possible path between the player, all the collectibles, and the exit door.
 
 ## Resources
 - MiniLibx
