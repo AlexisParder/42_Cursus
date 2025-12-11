@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 15:39:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 09:14:49 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_player_dt	*create_player(t_mlx_dt *dt, size_t pos_x, size_t pos_y)
 	return (tmp);
 }
 
-void	add_img_pl(t_mlx_dt *dt, void * img, size_t pos_x, size_t pos_y)
+void	add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
 {
 	long	x_calc;
 	long	y_calc;
@@ -54,7 +54,7 @@ void	add_img_pl(t_mlx_dt *dt, void * img, size_t pos_x, size_t pos_y)
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
 }
 
-void	add_image(t_mlx_dt *dt, void * img, size_t pos_x, size_t pos_y)
+void	add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
 {
 	long	x_calc;
 	long	y_calc;

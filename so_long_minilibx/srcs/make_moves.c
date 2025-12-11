@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/10 15:30:47 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/11 09:15:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	updt_area(t_mlx_dt *mlx_data, size_t pos_x, size_t pos_y)
 
 void	updt_pl(t_mlx_dt *mlx_data)
 {
-	void *	img;
+	void	*img;
 
 	if (mlx_data->player->last_move == 'r')
 		img = mlx_data->img_ref.pl_r;
