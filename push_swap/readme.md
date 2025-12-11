@@ -46,3 +46,7 @@ You must use only these operations to manipulate the stacks and achieve a sorted
 - Use the `./push_swap <list of unordered numbers>` command to sort the list.
 	- ⚠️ The program does not return the sorted list. It only displays the instructions it uses to sort the list.
 	- Using the command `./push_swap <list of unordered numbers> | wc -l` shows the number of instructions used to sort the list.
+
+## Resources
+- ![Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+- ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
