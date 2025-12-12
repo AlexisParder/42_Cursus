@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:20:32 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:17:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 void	destroy_images(t_mlx_dt *mlx_data)
 {
@@ -30,6 +30,8 @@ void	destroy_images(t_mlx_dt *mlx_data)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.pl_r);
 	if (mlx_data->img_ref.pl_t)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.pl_t);
+	if (mlx_data->img_ref.enemy)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.enemy);
 }
 
 void	clean_all(t_mlx_dt *mlx_data)

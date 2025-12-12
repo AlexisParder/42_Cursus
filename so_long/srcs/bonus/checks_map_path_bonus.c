@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:54:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 10:24:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 void	free_arr(char **arr)
 {
@@ -57,6 +57,8 @@ static void	flood_fill(long x, long y, t_map_ck *map_cp)
 	if (x < 0 || y < 0 || !map_cp || !map_cp->map[y] || !map_cp->map[y][x])
 		return ;
 	if (map_cp->map[y][x] == '1' || map_cp->map[y][x] == 'V')
+		return ;
+	if (map_cp->map[y][x] == 'H')
 		return ;
 	if (map_cp->map[y][x] == 'E')
 		map_cp->exit_found = 1;

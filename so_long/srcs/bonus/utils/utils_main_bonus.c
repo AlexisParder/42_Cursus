@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 13:14:07 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:13:48 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 static char	*map_in_line(int fd)
 {
@@ -102,4 +102,10 @@ void	create_map_dt(t_mlx_dt *mlx_data, char **av)
 		free_arr((*mlx_data).map_dt.map);
 		exit(EXIT_FAILURE);
 	}
+}
+
+void	save_exit_pos(t_mlx_dt *mlx_data, size_t x, size_t y)
+{
+	mlx_data->map_dt.x_exit = x;
+	mlx_data->map_dt.y_exit = y;
 }

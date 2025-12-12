@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:16:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 10:30:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ static void	updt_area(t_mlx_dt *mlx_data, size_t pos_x, size_t pos_y)
 	if (mlx_data->map_dt.map[pos_y][pos_x] == 'E')
 	{
 		if (mlx_data->player->loot_collected >= mlx_data->map_dt.total_loots)
+		{
+			ft_printf("YOU WIN !");
 			close_game(mlx_data);
+		}
 	}
 	else if (mlx_data->map_dt.map[pos_y][pos_x] == 'C')
 		mlx_data->player->loot_collected++;

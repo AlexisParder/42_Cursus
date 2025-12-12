@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:21:00 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:07:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 static t_player_dt	*create_player(t_mlx_dt *dt, size_t pos_x, size_t pos_y)
 {
@@ -79,11 +79,12 @@ static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 			add_image(mlx_data, mlx_data->img_ref.wall, i, pos_y);
 		else if (line[i] == '0')
 			add_image(mlx_data, mlx_data->img_ref.path, i, pos_y);
+		else if (line[i] == 'H')
+			add_image(mlx_data, mlx_data->img_ref.enemy, i, pos_y);
 		else if (line[i] == 'E')
 		{
 			add_image(mlx_data, mlx_data->img_ref.exit, i, pos_y);
-			mlx_data->map_dt.x_exit = i;
-			mlx_data->map_dt.y_exit = pos_y;
+			save_exit_pos(mlx_data, i, pos_y);
 		}
 		else if (line[i] == 'P')
 			add_img_pl(mlx_data, mlx_data->img_ref.pl_r, i, pos_y);
@@ -106,6 +107,7 @@ void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
 	i_ref.pl_l = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_L, &size, &size);
 	i_ref.pl_r = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_R, &size, &size);
 	i_ref.pl_t = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_T, &size, &size);
+	i_ref.enemy = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY, &size, &size);
 	i_ref.exit = mlx_xpm_file_to_image((*dt).mlx, TXT_EXIT, &size, &size);
 	i_ref.loot = mlx_xpm_file_to_image((*dt).mlx, TXT_LOOT, &size, &size);
 	i_ref.path = mlx_xpm_file_to_image((*dt).mlx, TXT_PATH, &size, &size);

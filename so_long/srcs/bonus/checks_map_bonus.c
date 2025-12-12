@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:23:15 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:56:51 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 10:22:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 static int	check_border(t_map_dt *map)
 {
@@ -76,9 +76,9 @@ static int	check_map_fill(t_map_dt *map)
 		j = 0;
 		while (map->map[i][j])
 		{
-			if (!is_search(map->map[i][j], "01ECP"))
+			if (!is_search(map->map[i][j], "01ECPH"))
 			{
-				ft_printf("Error:\nInvalid map format, use: '01ECP'");
+				ft_printf("Error:\nInvalid map format, use: '01ECPH'");
 				return (0);
 			}
 			j++;

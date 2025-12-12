@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 09:58:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:14:07 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <libft.h>
 # include <mlx.h>
@@ -28,6 +28,9 @@
 # endif
 # ifndef TXT_PLAYER_D
 #  define TXT_PLAYER_D "./textures/player/player_d.xpm"
+# endif
+# ifndef TXT_ENEMY
+#  define TXT_ENEMY "./textures/enemy.xpm"
 # endif
 # ifndef TXT_PATH
 #  define TXT_PATH "./textures/path.xpm"
@@ -82,12 +85,14 @@ typedef struct s_imgs_ref
 	void	*loot;
 	void	*path;
 	void	*wall;
+	void	*enemy;
 }	t_imgs_ref;
 
 typedef struct s_mlx_dt
 {
 	void			*win;
 	void			*mlx;
+	int				stop_game;
 	t_imgs_ref		img_ref;
 	t_player_dt		*player;
 	t_map_dt		map_dt;
@@ -109,7 +114,10 @@ void		clean_all(t_mlx_dt *mlx_data);
 void		close_game(t_mlx_dt *mlx_data);
 void		create_map_dt(t_mlx_dt *mlx_data, char **av);
 void		display_move(t_mlx_dt *mlx_data);
+void		display_lose(t_mlx_dt *dt);
+void		display_win(t_mlx_dt *dt);
 void		free_arr(char **arr);
+void		save_exit_pos(t_mlx_dt *mlx_data, size_t x, size_t y);
 
 char		*sl_strjoin(char *s1, char *s2);
 

@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:04:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:20:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 10:00:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 static int	check_move_rl(t_mlx_dt *mlx_dt, char move)
 {

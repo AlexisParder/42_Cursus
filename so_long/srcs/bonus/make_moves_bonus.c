@@ -6,21 +6,29 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 12:20:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:11:12 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <so_long_bonus.h>
 
 static void	updt_area(t_mlx_dt *mlx_data, size_t pos_x, size_t pos_y)
 {
 	if (mlx_data->map_dt.map[pos_y][pos_x] == 'E')
 	{
 		if (mlx_data->player->loot_collected >= mlx_data->map_dt.total_loots)
-			close_game(mlx_data);
+		{
+			(*mlx_data).stop_game = 1;
+			display_win(mlx_data);
+		}
 	}
 	else if (mlx_data->map_dt.map[pos_y][pos_x] == 'C')
 		mlx_data->player->loot_collected++;
+	else if (mlx_data->map_dt.map[pos_y][pos_x] == 'H')
+	{
+		(*mlx_data).stop_game = 1;
+		display_lose(mlx_data);
+	}
 }
 
 void	updt_pl(t_mlx_dt *mlx_data)
