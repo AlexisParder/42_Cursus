@@ -29,6 +29,8 @@ The map must follow certain rules:
 	- **C** for a collectible,
 	- **E** for a map exit,
 	- **P** for the player’s starting position.
+- For the bonus, you can add
+	- **H** for the position of an enemy
 - To be valid, a map must contain 1 exit, 1 starting position and at least 1 collectible.
 - The map must be rectangular.
 - The map must be enclosed/surrounded by walls.
