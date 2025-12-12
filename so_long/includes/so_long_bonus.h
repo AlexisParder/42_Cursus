@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 11:14:07 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:35:20 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@
 # endif
 # ifndef TXT_EXIT
 #  define TXT_EXIT "./textures/exit.xpm"
+# endif
+# ifndef TXT_LOSE
+#  define TXT_LOSE "./textures/lose.xpm"
+# endif
+# ifndef TXT_WIN
+#  define TXT_WIN "./textures/win.xpm"
 # endif
 # ifndef IMG_SIZE
 #  define IMG_SIZE 64
@@ -86,6 +92,8 @@ typedef struct s_imgs_ref
 	void	*path;
 	void	*wall;
 	void	*enemy;
+	void	*win;
+	void	*lose;
 }	t_imgs_ref;
 
 typedef struct s_mlx_dt

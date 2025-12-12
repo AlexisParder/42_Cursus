@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 11:02:21 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:39:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	main(int ac, char **av)
 	mlx_dt.mlx = mlx_init();
 	mlx_dt.win = mlx_new_window(mlx_dt.mlx, win_width, win_height, "so_long");
 	mlx_dt.stop_game = 0;
+	mlx_dt.img_ref.lose = NULL;
+	mlx_dt.img_ref.win = NULL;
 	mlx_hook(mlx_dt.win, 2, 1, keydown_hook, &mlx_dt);
 	mlx_hook(mlx_dt.win, 17, 0, close_hook, &mlx_dt);
 	creates_images(&mlx_dt, &mlx_dt.map_dt);

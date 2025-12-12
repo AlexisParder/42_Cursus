@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 11:07:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:42:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
 	i_ref.loot = mlx_xpm_file_to_image((*dt).mlx, TXT_LOOT, &size, &size);
 	i_ref.path = mlx_xpm_file_to_image((*dt).mlx, TXT_PATH, &size, &size);
 	i_ref.wall = mlx_xpm_file_to_image((*dt).mlx, TXT_WALL, &size, &size);
+	i_ref.lose = mlx_xpm_file_to_image((*dt).mlx, TXT_LOSE, &size, &size);
+	i_ref.win = mlx_xpm_file_to_image((*dt).mlx, TXT_WIN, &size, &size);
 	dt->img_ref = i_ref;
 	while ((*map_dt).map[pos_y])
 	{
