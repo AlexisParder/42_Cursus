@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 09:15:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:36:53 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	clean_all(t_mlx_dt *mlx_data)
 
 void	close_game(t_mlx_dt *mlx_data)
 {
+	mlx_do_key_autorepeaton(mlx_data->mlx);
 	clean_all(mlx_data);
 	exit(0);
 }

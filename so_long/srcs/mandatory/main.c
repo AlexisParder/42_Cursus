@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 14:49:22 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:31:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ static int	close_hook(void *param)
 int	main(int ac, char **av)
 {
 	t_mlx_dt	mlx_dt;
-	int			win_width;
-	int			win_height;
 
 	if (ac != 2)
 	{
@@ -49,10 +47,9 @@ int	main(int ac, char **av)
 	}
 	mlx_dt.player = NULL;
 	create_map_dt(&mlx_dt, av);
-	win_width = mlx_dt.map_dt.x_max * IMG_SIZE;
-	win_height = (mlx_dt.map_dt.y_max + 1) * IMG_SIZE;
 	mlx_dt.mlx = mlx_init();
-	mlx_dt.win = mlx_new_window(mlx_dt.mlx, win_width, win_height, "so_long");
+	mlx_do_key_autorepeatoff(mlx_dt.mlx);
+	manage_window(&mlx_dt);
 	mlx_hook(mlx_dt.win, 2, 1, keydown_hook, &mlx_dt);
 	mlx_hook(mlx_dt.win, 17, 0, close_hook, &mlx_dt);
 	creates_images(&mlx_dt, &mlx_dt.map_dt);

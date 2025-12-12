@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 09:58:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:28:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void		close_game(t_mlx_dt *mlx_data);
 void		create_map_dt(t_mlx_dt *mlx_data, char **av);
 void		display_move(t_mlx_dt *mlx_data);
 void		free_arr(char **arr);
+void		manage_window(t_mlx_dt *mlx_dt);
 
 char		*sl_strjoin(char *s1, char *s2);
 

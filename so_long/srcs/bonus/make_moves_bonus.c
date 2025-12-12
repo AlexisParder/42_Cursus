@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 11:11:12 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:34:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,6 @@ static void	updt_pl_move(t_mlx_dt *mlx_data, char move)
 	mlx_data->player->last_move = move;
 }
 
-static void	display_move_shell(t_mlx_dt *mlx_data)
-{
-	char		*nb_move;
-
-	nb_move = ft_itoa(mlx_data->player->nb_move);
-	ft_printf("Number of movements: %s\n", nb_move);
-	free(nb_move);
-}
-
 void	make_move(t_mlx_dt *mlx_dt, char move)
 {
 	size_t	pos_x;
@@ -88,6 +79,5 @@ void	make_move(t_mlx_dt *mlx_dt, char move)
 		mlx_dt->map_dt.map[mlx_dt->map_dt.y_exit][mlx_dt->map_dt.x_exit] = 'E';
 		mlx_dt->map_dt.map[pos_y][pos_x] = 'P';
 		redraw_window(mlx_dt);
-		display_move_shell(mlx_dt);
 	}
 }

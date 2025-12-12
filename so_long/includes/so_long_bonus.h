@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 11:35:20 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:29:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void		display_lose(t_mlx_dt *dt);
 void		display_win(t_mlx_dt *dt);
 void		free_arr(char **arr);
 void		save_exit_pos(t_mlx_dt *mlx_data, size_t x, size_t y);
+void		manage_window(t_mlx_dt *mlx_dt);
 
 char		*sl_strjoin(char *s1, char *s2);
 

@@ -12,6 +12,7 @@ INC_DIR = -I includes/ -I $(MLX_DIR)
 
 SRC_DIR = srcs/mandatory/
 SRC_FILES = $(SRC_DIR)main.c \
+			$(SRC_DIR)manage_win.c \
 			$(SRC_DIR)create_images.c \
 			$(SRC_DIR)make_moves.c \
 			$(SRC_DIR)checks_map.c \
@@ -26,6 +27,7 @@ OBJ_FILES = $(SRC_FILES:.c=.o)
 
 SRC_BONUS_DIR = srcs/bonus/
 SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
+					$(SRC_BONUS_DIR)manage_win_bonus.c \
 					$(SRC_BONUS_DIR)create_images_bonus.c \
 					$(SRC_BONUS_DIR)make_moves_bonus.c \
 					$(SRC_BONUS_DIR)checks_map_bonus.c \
