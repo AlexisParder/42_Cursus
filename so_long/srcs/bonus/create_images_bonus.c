@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 10:32:05 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:36:20 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 	add_res = 1;
 	while (line[i])
 	{
-		if (line[i] == '1' || line[i] == '0' || line[i] == 'C')
+		if (line[i] != 'E' && line[i] != 'P')
 			add_image(mlx_data, get_image_ref(mlx_data, line[i]), i, pos_y);
 		else if (line[i] == 'E')
 		{

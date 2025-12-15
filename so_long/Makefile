@@ -68,6 +68,4 @@ fclean: clean
 
 re: fclean all
 
-re_bonus: fclean bonus
-
 .PHONY: all bonus clean fclean re
