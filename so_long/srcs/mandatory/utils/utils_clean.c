@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 09:43:54 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:25:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	destroy_images(t_mlx_dt *mlx_data)
 {
-	if (mlx_data->img_ref.exit)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.exit);
+	if (mlx_data->img_ref.exit_c)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.exit_c);
+	if (mlx_data->img_ref.exit_o)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.exit_o);
 	if (mlx_data->img_ref.loot)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.loot);
 	if (mlx_data->img_ref.path)
@@ -46,9 +48,9 @@ void	clean_all(t_mlx_dt *mlx_data)
 		free(mlx_data->mlx);
 }
 
-void	close_game(t_mlx_dt *mlx_data)
+void	close_game(t_mlx_dt *mlx_data, int status)
 {
 	mlx_do_key_autorepeaton(mlx_data->mlx);
 	clean_all(mlx_data);
-	exit(0);
+	exit(status);
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 10:30:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:13:51 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	updt_area(t_mlx_dt *mlx_data, size_t pos_x, size_t pos_y)
 		if (mlx_data->player->loot_collected >= mlx_data->map_dt.total_loots)
 		{
 			ft_printf("YOU WIN !");
-			close_game(mlx_data);
+			close_game(mlx_data, EXIT_SUCCESS);
 		}
 	}
 	else if (mlx_data->map_dt.map[pos_y][pos_x] == 'C')
@@ -30,11 +30,11 @@ void	updt_pl(t_mlx_dt *mlx_data)
 {
 	void	*img;
 
-	if (mlx_data->player->last_move == 'r')
+	if (mlx_data->player->direction == 'r')
 		img = mlx_data->img_ref.pl_r;
-	else if (mlx_data->player->last_move == 'l')
+	else if (mlx_data->player->direction == 'l')
 		img = mlx_data->img_ref.pl_l;
-	else if (mlx_data->player->last_move == 't')
+	else if (mlx_data->player->direction == 't')
 		img = mlx_data->img_ref.pl_t;
 	else
 		img = mlx_data->img_ref.pl_d;
@@ -52,7 +52,7 @@ static void	updt_pl_move(t_mlx_dt *mlx_data, char move)
 		mlx_data->player->pos_y--;
 	else if (move == 'd')
 		mlx_data->player->pos_y++;
-	mlx_data->player->last_move = move;
+	mlx_data->player->direction = move;
 }
 
 static void	display_move_shell(t_mlx_dt *mlx_data)
@@ -71,10 +71,10 @@ void	make_move(t_mlx_dt *mlx_dt, char move)
 	size_t	last_pos_x;
 	size_t	last_pos_y;
 
-	if (check_move(mlx_dt, move))
+	last_pos_x = mlx_dt->player->pos_x;
+	last_pos_y = mlx_dt->player->pos_y;
+	if (check_move(mlx_dt, move, last_pos_x, last_pos_y))
 	{
-		last_pos_x = mlx_dt->player->pos_x;
-		last_pos_y = mlx_dt->player->pos_y;
 		updt_pl_move(mlx_dt, move);
 		pos_x = mlx_dt->player->pos_x;
 		pos_y = mlx_dt->player->pos_y;

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:34:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/11 13:28:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:30:26 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,10 @@ static void	redraw_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 	line = ft_strdup((*map_data).map[pos_y]);
 	while (line[i])
 	{
-		if (line[i] == '1')
-			add_image(mlx_data, mlx_data->img_ref.wall, i, pos_y);
-		else if (line[i] == '0')
-			add_image(mlx_data, mlx_data->img_ref.path, i, pos_y);
-		else if (line[i] == 'E')
-			add_image(mlx_data, mlx_data->img_ref.exit, i, pos_y);
-		else if (line[i] == 'P')
+		if (line[i] != 'P')
+			add_image(mlx_data, get_image_ref(mlx_data, line[i]), i, pos_y);
+		else
 			updt_pl(mlx_data);
-		else if (line[i] == 'C')
-			add_image(mlx_data, mlx_data->img_ref.loot, i, pos_y);
 		i++;
 	}
 	free(line);

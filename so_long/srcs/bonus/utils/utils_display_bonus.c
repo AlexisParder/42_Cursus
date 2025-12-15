@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:48:43 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 11:44:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:41:17 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	display_lose(t_mlx_dt *dt)
 {
 	char	*msg;
 
+	(*dt).stop_game = 1;
 	mlx_clear_window(dt->mlx, dt->win);
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, (*dt).img_ref.lose, 0, 0);
 	msg = "Quit game with ESCAPE key";
@@ -36,6 +37,7 @@ void	display_win(t_mlx_dt *dt)
 {
 	char	*msg;
 
+	(*dt).stop_game = 1;
 	mlx_clear_window(dt->mlx, dt->win);
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, (*dt).img_ref.win, 0, 0);
 	msg = "Quit game with ESCAPE key";

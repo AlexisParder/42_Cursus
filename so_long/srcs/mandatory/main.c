@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 08:45:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 12:24:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	keydown_hook(int key, t_mlx_dt *mlx_data)
 {
 	if (key == 65307)
-		close_game(mlx_data);
+		close_game(mlx_data, EXIT_SUCCESS);
 	else if (key == 119 || key == 65362)
 		make_move(mlx_data, 't');
 	else if (key == 115 || key == 65364)
@@ -32,7 +32,7 @@ static int	close_hook(void *param)
 	t_mlx_dt	*mlx_data;
 
 	mlx_data = (t_mlx_dt *)param;
-	close_game(mlx_data);
+	close_game(mlx_data, EXIT_SUCCESS);
 	return (0);
 }
 

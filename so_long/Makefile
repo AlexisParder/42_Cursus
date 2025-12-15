@@ -33,6 +33,8 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 					$(SRC_BONUS_DIR)make_moves_bonus.c \
 					$(SRC_BONUS_DIR)checks_map_bonus.c \
 					$(SRC_BONUS_DIR)checks_map_path_bonus.c \
+					$(SRC_BONUS_DIR)manage_enemy_bonus.c \
+					$(SRC_BONUS_DIR)create_enemy_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_main_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_str_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_move_bonus.c \
@@ -40,7 +42,9 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_clean_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_image_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_draw_bonus.c \
+					$(SRC_BONUS_DIR)utils/utils_lst_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_display_bonus.c
+
 OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
 
 LIBS = $(LIBFT) $(MLX) -lXext -lX11 -lm
