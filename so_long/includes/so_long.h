@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 12:28:30 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:16:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ int			check_move(t_mlx_dt *mlx_data, char move);
 int			check_map(t_map_dt *map);
 int			check_map_path(t_map_dt *map);
 int			is_search(char c, char *search);
+int			add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 
-void		add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 void		add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 void		make_move(t_mlx_dt *mlx_data, char move);
 void		redraw_window(t_mlx_dt *mlx_data);
@@ -111,6 +111,8 @@ void		create_map_dt(t_mlx_dt *mlx_data, char **av);
 void		display_move(t_mlx_dt *mlx_data);
 void		free_arr(char **arr);
 void		manage_window(t_mlx_dt *mlx_dt);
+void		*get_image_ref(t_mlx_dt *mlx_data, char	chr);
+void		err_img(t_mlx_dt *mlx_data, char *line);
 
 char		*sl_strjoin(char *s1, char *s2);
 

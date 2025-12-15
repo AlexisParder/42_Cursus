@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 11:42:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:32:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,18 @@ static t_player_dt	*create_player(t_mlx_dt *dt, size_t pos_x, size_t pos_y)
 	return (tmp);
 }
 
-void	add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
+int	add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
 {
 	long	x_calc;
 	long	y_calc;
 
 	(*dt).player = create_player(dt, pos_x, pos_y);
 	if (!(*dt).player)
-		mlx_loop_end((void *)dt->mlx);
+		return (0);
 	x_calc = (*dt).player->pos_x * (*dt).player->size;
 	y_calc = ((*dt).player->pos_y + 1) * (*dt).player->size;
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
+	return (1);
 }
 
 void	add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
@@ -70,26 +71,25 @@ static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 {
 	size_t	i;
 	char	*line;
+	int		add_res;
 
 	i = 0;
 	line = ft_strdup((*map_data).map[pos_y]);
+	add_res = 1;
 	while (line[i])
 	{
-		if (line[i] == '1')
-			add_image(mlx_data, mlx_data->img_ref.wall, i, pos_y);
-		else if (line[i] == '0')
-			add_image(mlx_data, mlx_data->img_ref.path, i, pos_y);
-		else if (line[i] == 'H')
-			add_image(mlx_data, mlx_data->img_ref.enemy, i, pos_y);
+		if (line[i] == '1' || line[i] == '0' || line[i] == 'C')
+			add_image(mlx_data, get_image_ref(mlx_data, line[i]), i, pos_y);
 		else if (line[i] == 'E')
 		{
 			add_image(mlx_data, mlx_data->img_ref.exit, i, pos_y);
-			save_exit_pos(mlx_data, i, pos_y);
+			mlx_data->map_dt.x_exit = i;
+			mlx_data->map_dt.y_exit = pos_y;
 		}
 		else if (line[i] == 'P')
-			add_img_pl(mlx_data, mlx_data->img_ref.pl_r, i, pos_y);
-		else if (line[i] == 'C')
-			add_image(mlx_data, mlx_data->img_ref.loot, i, pos_y);
+			add_res = add_img_pl(mlx_data, mlx_data->img_ref.pl_r, i, pos_y);
+		if (!add_res)
+			err_img(mlx_data, line);
 		i++;
 	}
 	free(line);

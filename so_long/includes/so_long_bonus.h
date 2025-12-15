@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 12:29:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/15 10:18:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,8 @@ int			check_move(t_mlx_dt *mlx_data, char move);
 int			check_map(t_map_dt *map);
 int			check_map_path(t_map_dt *map);
 int			is_search(char c, char *search);
+int			add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 
-void		add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 void		add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 void		make_move(t_mlx_dt *mlx_data, char move);
 void		redraw_window(t_mlx_dt *mlx_data);
@@ -127,6 +127,8 @@ void		display_win(t_mlx_dt *dt);
 void		free_arr(char **arr);
 void		save_exit_pos(t_mlx_dt *mlx_data, size_t x, size_t y);
 void		manage_window(t_mlx_dt *mlx_dt);
+void		*get_image_ref(t_mlx_dt *mlx_data, char	chr);
+void		err_img(t_mlx_dt *mlx_data, char *line);
 
 char		*sl_strjoin(char *s1, char *s2);
 
