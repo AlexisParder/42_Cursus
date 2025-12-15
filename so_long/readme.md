@@ -4,6 +4,9 @@
 ## Description
 A graphical project focused on building a small 2D game using the MiniLibX library. The objective is to implement map parsing, collision logic, sprite rendering, and event handling, while respecting a strict set of rules regarding map validity, movement constraints, and asset management. The challenge increases with the need to create smooth player interactions, handle animation cycles, and ensure proper resource cleanup. This project develops skills in low-level graphics, event-driven programming, input handling, file parsing, and memory/resource management within a constrained C environment.
 
+![Affichage du projet](https://github.com/AlexisParder/images/blob/main/banner_so_long.png)
+
+
 ## Instructions
 - Use the `make` command to generate the program.
 	- Use the `make bonus` command to generate the program with bonus.
@@ -36,10 +39,13 @@ The map must follow certain rules:
 - The map must be enclosed/surrounded by walls.
 - There must be at least one possible path between the player, all the collectibles, and the exit door.
 
-# Bonus
+## Bonus
 - [x] Make the player lose when they touch an enemy patrol.
 - [ ] Add some sprite animation.
 - [x] Display the movement count directly on screen instead of writing it in the shell.
+
+## Use of AI
+AI was used to generate certain images such as the enemy, the victory poster, and the loss poster.
 
 ## Resources
 - MiniLibx
