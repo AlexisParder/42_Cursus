@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:13:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:47:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,13 @@ void		add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 void		make_move(t_mlx_dt *mlx_data, char move);
 void		redraw_window(t_mlx_dt *mlx_data);
 void		updt_pl(t_mlx_dt *mlx_data);
-void		destroy_images(t_mlx_dt *mlx_data);
 void		creates_images(t_mlx_dt *dt, t_map_dt *map_dt);
-void		clean_all(t_mlx_dt *mlx_data);
 void		close_game(t_mlx_dt *mlx_data, int status);
 void		create_map_dt(t_mlx_dt *mlx_data, char **av);
 void		display_move(t_mlx_dt *mlx_data);
 void		free_arr(char **arr);
 void		manage_window(t_mlx_dt *mlx_dt);
-void		*get_image_ref(t_mlx_dt *mlx_data, char	chr);
+void		*get_image_ref(t_mlx_dt *mlx_data, char chr);
 void		err_img(t_mlx_dt *mlx_data, char *line);
 
 char		*sl_strjoin(char *s1, char *s2);

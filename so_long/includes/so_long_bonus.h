@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:48:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:53:35 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <libft.h>
 # include <mlx.h>
 # include <fcntl.h>
+# include <time.h>	
 
 # ifndef TXT_PLAYER_R
 #  define TXT_PLAYER_R "./textures/player/player_r.xpm"
@@ -65,8 +66,8 @@
 # ifndef IMG_SIZE
 #  define IMG_SIZE 64
 # endif
-# ifndef SPEED_MOVE_ENEMY
-#  define SPEED_MOVE_ENEMY 100000
+# ifndef MOVE_DELAY_ENEMY
+#  define MOVE_DELAY_ENEMY 100000
 # endif
 
 typedef struct s_player_dt
@@ -86,7 +87,7 @@ typedef struct s_enemy_dt
 	size_t				pos_y;
 	char				direction;
 	int					is_on_loot;
-	struct s_enemy_dt	*next; 
+	struct s_enemy_dt	*next;
 }	t_enemy_dt;
 
 typedef struct s_map_dt
@@ -150,9 +151,7 @@ void		add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 void		make_move(t_mlx_dt *mlx_data, char move);
 void		redraw_window(t_mlx_dt *mlx_data);
 void		updt_pl(t_mlx_dt *mlx_data);
-void		destroy_images(t_mlx_dt *mlx_data);
 void		creates_images(t_mlx_dt *dt, t_map_dt *map_dt);
-void		clean_all(t_mlx_dt *mlx_data);
 void		close_game(t_mlx_dt *mlx_data, int status);
 void		create_map_dt(t_mlx_dt *mlx_data, char **av);
 void		display_move(t_mlx_dt *mlx_data);
@@ -162,13 +161,13 @@ void		free_arr(char **arr);
 void		free_lst(t_enemy_dt **lst);
 void		save_exit_pos(t_mlx_dt *mlx_data, size_t x, size_t y);
 void		manage_window(t_mlx_dt *mlx_dt);
-void		*get_image_ref(t_mlx_dt *mlx_data, char	chr);
+void		*get_image_ref(t_mlx_dt *mlx_data, char chr);
 void		err_img(t_mlx_dt *mlx_data, char *line);
 void		draw_enemies(t_mlx_dt *dt);
 
 char		*sl_strjoin(char *s1, char *s2);
+char		random_dir(int l, int r, int t, int d);
 
-size_t		sl_lstsize(t_enemy_dt *lst);
 size_t		get_max_x(char **map);
 size_t		get_max_y(char **map);
 size_t		get_total_loots(char **map);

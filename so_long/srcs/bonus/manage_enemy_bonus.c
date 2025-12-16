@@ -6,13 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:45:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:41:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:53:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
-
-#include <stdio.h>
 
 static void	updt_en_move(t_enemy_dt *enemy)
 {
@@ -27,7 +25,7 @@ static void	updt_en_move(t_enemy_dt *enemy)
 	enemy->direction = enemy->direction;
 }
 
-void	make_move_enemy(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
+static void	make_move_enemy(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
 {
 	size_t	pos_x;
 	size_t	pos_y;
@@ -54,17 +52,32 @@ void	make_move_enemy(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
 	mlx_dt->map_dt.map[pos_y][pos_x] = 'H';
 }
 
-static void move_enemies(t_mlx_dt *mlx_dt, t_enemy_dt **lst)
+static void	updt_direction(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
+{
+	int	move_left;
+	int	move_right;
+	int	move_top;
+	int	move_down;
+
+	move_left = check_move_en(mlx_dt, 'l', enemy->pos_x, enemy->pos_y);
+	move_right = check_move_en(mlx_dt, 'r', enemy->pos_x, enemy->pos_y);
+	move_top = check_move_en(mlx_dt, 't', enemy->pos_x, enemy->pos_y);
+	move_down = check_move_en(mlx_dt, 'd', enemy->pos_x, enemy->pos_y);
+	enemy->direction = random_dir(move_left, move_right, move_top, move_down);
+	make_move_enemy(mlx_dt, enemy);
+}
+
+static void	move_enemies(t_mlx_dt *mlx_dt, t_enemy_dt **lst)
 {
 	t_enemy_dt	*enemy;
 
 	enemy = *lst;
 	while (enemy)
 	{
-		if (check_move(mlx_dt, enemy->direction, enemy->pos_x, enemy->pos_y))
+		if (check_move_en(mlx_dt, enemy->direction, enemy->pos_x, enemy->pos_y))
 			make_move_enemy(mlx_dt, enemy);
 		else
-			ft_printf("DOIT CHANGER DE DIRECTION\n");
+			updt_direction(mlx_dt, enemy);
 		enemy = enemy->next;
 	}
 	redraw_window(mlx_dt);
@@ -76,7 +89,7 @@ int	manage_enemy(t_mlx_dt *mlx_dt)
 	if (mlx_dt->stop_game)
 		return (0);
 	mlx_dt->frame++;
-	if (mlx_dt->frame % SPEED_MOVE_ENEMY == 0)
+	if (mlx_dt->frame % MOVE_DELAY_ENEMY == 0)
 	{
 		move_enemies(mlx_dt, &mlx_dt->enemy);
 	}

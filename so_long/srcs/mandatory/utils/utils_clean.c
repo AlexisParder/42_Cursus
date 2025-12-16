@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 12:25:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:47:08 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-void	destroy_images(t_mlx_dt *mlx_data)
+static void	destroy_images(t_mlx_dt *mlx_data)
 {
 	if (mlx_data->img_ref.exit_c)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.exit_c);
@@ -34,7 +34,7 @@ void	destroy_images(t_mlx_dt *mlx_data)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.pl_t);
 }
 
-void	clean_all(t_mlx_dt *mlx_data)
+static void	clean_all(t_mlx_dt *mlx_data)
 {
 	destroy_images(mlx_data);
 	if (mlx_data->player)

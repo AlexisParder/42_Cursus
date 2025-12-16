@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:13:51 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:08:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	updt_pl(t_mlx_dt *mlx_data)
 	else
 		img = mlx_data->img_ref.pl_d;
 	add_img_pl(mlx_data, img, mlx_data->player->pos_x, mlx_data->player->pos_y);
-	mlx_data->player->nb_move++;
 }
 
 static void	updt_pl_move(t_mlx_dt *mlx_data, char move)
@@ -53,6 +52,7 @@ static void	updt_pl_move(t_mlx_dt *mlx_data, char move)
 	else if (move == 'd')
 		mlx_data->player->pos_y++;
 	mlx_data->player->direction = move;
+	mlx_data->player->nb_move++;
 }
 
 static void	display_move_shell(t_mlx_dt *mlx_data)

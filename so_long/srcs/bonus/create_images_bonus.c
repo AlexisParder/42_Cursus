@@ -6,66 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 13:55:55 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:23:23 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
-
-static t_player_dt	*create_player(t_mlx_dt *dt, size_t pos_x, size_t pos_y)
-{
-	t_player_dt	*tmp;
-	size_t		tmp_nb_move;
-	size_t		tmp_nb_loot;
-	char		tmp_direction;
-
-	tmp = ft_calloc(1, sizeof(t_player_dt));
-	if (!tmp)
-		return (NULL);
-	tmp->size = IMG_SIZE;
-	tmp->pos_x = pos_x;
-	tmp->pos_y = pos_y;
-	tmp_nb_move = 0;
-	tmp_nb_loot = 0;
-	tmp_direction = 'r';
-	if (dt->player != NULL)
-	{
-		tmp_nb_move = dt->player->nb_move;
-		tmp_nb_loot = dt->player->loot_collected;
-		tmp_direction = dt->player->direction;
-		free(dt->player);
-	}
-	tmp->nb_move = tmp_nb_move;
-	tmp->loot_collected = tmp_nb_loot;
-	tmp->direction = tmp_direction;
-	return (tmp);
-}
-
-int	add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
-{
-	long	x_calc;
-	long	y_calc;
-
-	(*dt).player = create_player(dt, pos_x, pos_y);
-	if (!(*dt).player)
-		return (0);
-	x_calc = (*dt).player->pos_x * (*dt).player->size;
-	y_calc = ((*dt).player->pos_y + 1) * (*dt).player->size;
-	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
-	return (1);
-}
-
-void	add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
-{
-	long	x_calc;
-	long	y_calc;
-	size_t	size;
-
-	size = IMG_SIZE;
-	x_calc = pos_x * size;
-	y_calc = (pos_y + 1) * size;
-	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
-}
 
 static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 {
@@ -96,13 +41,11 @@ static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 	free(line);
 }
 
-void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
+static void	creates_images_ref(t_mlx_dt *dt)
 {
 	int			size;
-	size_t		pos_y;
 	t_imgs_ref	i_ref;
 
-	pos_y = 0;
 	size = IMG_SIZE;
 	i_ref.pl_d = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_D, &size, &size);
 	i_ref.pl_l = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_L, &size, &size);
@@ -120,6 +63,14 @@ void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
 	i_ref.lose = mlx_xpm_file_to_image((*dt).mlx, TXT_LOSE, &size, &size);
 	i_ref.win = mlx_xpm_file_to_image((*dt).mlx, TXT_WIN, &size, &size);
 	dt->img_ref = i_ref;
+}
+
+void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
+{
+	size_t		pos_y;
+
+	pos_y = 0;
+	creates_images_ref(dt);
 	while ((*map_dt).map[pos_y])
 	{
 		manage_line(dt, map_dt, pos_y);

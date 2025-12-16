@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 14:42:58 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:49:12 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:52:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,37 @@ int	check_move_en(t_mlx_dt *mlx_dt, char move, size_t p_x, size_t p_y)
 			return (0);
 	}
 	return (1);
+}
+
+static int	updt_arr(char *arr, char c, int count)
+{
+	arr[count] = c;
+	count++;
+	return (count);
+}
+
+char	random_dir(int l, int r, int t, int d)
+{
+	char	*dirs;
+	int		count;
+	char	res;
+
+	count = l + r + t + d;
+	dirs = ft_calloc(count, sizeof(char));
+	if (!dirs)
+		return (0);
+	count = 0;
+	if (l)
+		count = updt_arr(dirs, 'l', count);
+	if (r)
+		count = updt_arr(dirs, 'r', count);
+	if (t)
+		count = updt_arr(dirs, 't', count);
+	if (d)
+		count = updt_arr(dirs, 'd', count);
+	if (count == 0)
+		return (0);
+	res = dirs[rand() % count];
+	free(dirs);
+	return (res);
 }

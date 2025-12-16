@@ -6,13 +6,29 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:16:59 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:30:56 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
-void	destroy_images(t_mlx_dt *mlx_data)
+static void	destroy_images_bonus(t_mlx_dt *mlx_data)
+{
+	if (mlx_data->img_ref.en_d)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_d);
+	if (mlx_data->img_ref.en_l)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_l);
+	if (mlx_data->img_ref.en_r)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_r);
+	if (mlx_data->img_ref.en_t)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_t);
+	if (mlx_data->img_ref.win)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.win);
+	if (mlx_data->img_ref.lose)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.lose);
+}
+
+static void	destroy_images(t_mlx_dt *mlx_data)
 {
 	if (mlx_data->img_ref.exit_c)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.exit_c);
@@ -32,23 +48,10 @@ void	destroy_images(t_mlx_dt *mlx_data)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.pl_r);
 	if (mlx_data->img_ref.pl_t)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.pl_t);
-	if (mlx_data->img_ref.en_d)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_d);
-	if (mlx_data->img_ref.en_l)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_l);
-	if (mlx_data->img_ref.en_r)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_r);
-	if (mlx_data->img_ref.en_t)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_t);
-	if (mlx_data->img_ref.win)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.win);
-	if (mlx_data->img_ref.lose)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.lose);
+	destroy_images_bonus(mlx_data);
 }
 
-
-
-void	clean_all(t_mlx_dt *mlx_data)
+static void	clean_all(t_mlx_dt *mlx_data)
 {
 	destroy_images(mlx_data);
 	if (mlx_data->player)

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:50:36 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:33:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 09:29:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	draw_enemies(t_mlx_dt *dt)
 	long		y_calc;
 	t_enemy_dt	*tmp;
 	void		*img;
-	
+
 	tmp = (*dt).enemy;
 	while (!dt->stop_game && tmp)
 	{

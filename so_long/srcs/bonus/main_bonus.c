@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 13:57:13 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 08:58:37 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int ac, char **av)
 	mlx_hook(mlx_dt.win, 17, 0, close_hook, &mlx_dt);
 	creates_images(&mlx_dt, &mlx_dt.map_dt);
 	draw_enemies(&mlx_dt);
+	srand(time(NULL));
 	mlx_loop_hook(mlx_dt.mlx, manage_enemy, &mlx_dt);
 	mlx_loop(mlx_dt.mlx);
 	free(mlx_dt.mlx);
