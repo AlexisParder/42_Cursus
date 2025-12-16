@@ -6,7 +6,6 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 
 ![Project banner](https://github.com/AlexisParder/images/blob/main/banner_so_long.png)
 
-
 ## Instructions
 - Use the `make` command to generate the program.
 	- Use the `make bonus` command to generate the program with bonus.
