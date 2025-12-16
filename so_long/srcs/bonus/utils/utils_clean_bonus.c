@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 11:22:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 12:26:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 
 static void	destroy_images_bonus(t_mlx_dt *mlx_data)
 {
-	if (mlx_data->img_ref.en_d)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_d);
-	if (mlx_data->img_ref.en_l)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_l);
-	if (mlx_data->img_ref.en_r)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_r);
-	if (mlx_data->img_ref.en_t)
-		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en_t);
+	if (mlx_data->img_ref.en1_d)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en1_d);
+	if (mlx_data->img_ref.en1_l)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en1_l);
+	if (mlx_data->img_ref.en1_r)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en1_r);
+	if (mlx_data->img_ref.en1_t)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en1_t);
+	if (mlx_data->img_ref.en2_d)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en2_d);
+	if (mlx_data->img_ref.en2_l)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en2_l);
+	if (mlx_data->img_ref.en2_r)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en2_r);
+	if (mlx_data->img_ref.en2_t)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.en2_t);
 	if (mlx_data->img_ref.win)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.win);
 	if (mlx_data->img_ref.lose)

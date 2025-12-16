@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 09:23:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 12:25:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,14 @@ static void	creates_images_ref(t_mlx_dt *dt)
 	i_ref.pl_l = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_L, &size, &size);
 	i_ref.pl_r = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_R, &size, &size);
 	i_ref.pl_t = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_T, &size, &size);
-	i_ref.en_d = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_D, &size, &size);
-	i_ref.en_l = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_L, &size, &size);
-	i_ref.en_r = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_R, &size, &size);
-	i_ref.en_t = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_T, &size, &size);
+	i_ref.en1_d = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_D_1, &size, &size);
+	i_ref.en1_l = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_L_1, &size, &size);
+	i_ref.en1_r = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_R_1, &size, &size);
+	i_ref.en1_t = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_T_1, &size, &size);
+	i_ref.en2_d = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_D_2, &size, &size);
+	i_ref.en2_l = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_L_2, &size, &size);
+	i_ref.en2_r = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_R_2, &size, &size);
+	i_ref.en2_t = mlx_xpm_file_to_image((*dt).mlx, TXT_ENEMY_T_2, &size, &size);
 	i_ref.exit_c = mlx_xpm_file_to_image((*dt).mlx, TXT_EXIT_C, &size, &size);
 	i_ref.exit_o = mlx_xpm_file_to_image((*dt).mlx, TXT_EXIT_O, &size, &size);
 	i_ref.loot = mlx_xpm_file_to_image((*dt).mlx, TXT_LOOT, &size, &size);

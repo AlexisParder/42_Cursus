@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:50:36 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 11:32:39 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 12:44:38 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,32 @@ int	create_enemy(t_enemy_dt **lst, size_t pos_x, size_t pos_y)
 	return (1);
 }
 
+static void	*get_image_sprite(t_mlx_dt *dt, t_enemy_dt *enemy)
+{
+	void		*img;
+
+	if (enemy->direction == 't' && dt->frame % 2 == 0)
+		img = dt->img_ref.en1_t;
+	else if (enemy->direction == 't' && dt->frame % 2 != 0)
+		img = dt->img_ref.en2_t;
+	else if (enemy->direction == 'd' && dt->frame % 2 == 0)
+		img = dt->img_ref.en1_d;
+	else if (enemy->direction == 'd' && dt->frame % 2 != 0)
+		img = dt->img_ref.en2_d;
+	else if (enemy->direction == 'r' && dt->frame % 2 == 0)
+		img = dt->img_ref.en1_r;
+	else if (enemy->direction == 'r' && dt->frame % 2 != 0)
+		img = dt->img_ref.en2_r;
+	else
+	{
+		if (dt->frame % 2 == 0)
+			img = dt->img_ref.en1_l;
+		else
+			img = dt->img_ref.en2_l;
+	}
+	return (img);
+}
+
 void	draw_enemies(t_mlx_dt *dt)
 {
 	long		x_calc;
@@ -46,13 +72,7 @@ void	draw_enemies(t_mlx_dt *dt)
 	tmp = (*dt).enemy;
 	while (!dt->stop_game && tmp)
 	{
-		img = dt->img_ref.en_l;
-		if (tmp->direction == 't')
-			img = dt->img_ref.en_t;
-		else if (tmp->direction == 'r')
-			img = dt->img_ref.en_r;
-		else if (tmp->direction == 'd')
-			img = dt->img_ref.en_d;
+		img = get_image_sprite(dt, tmp);
 		x_calc = tmp->pos_x * tmp->size;
 		y_calc = (tmp->pos_y + 1) * tmp->size;
 		mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);

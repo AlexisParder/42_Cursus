@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 09:07:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 12:42:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,5 @@ void	make_move(t_mlx_dt *mlx_dt, char move)
 		mlx_dt->map_dt.map[mlx_dt->map_dt.y_exit][mlx_dt->map_dt.x_exit] = 'E';
 		mlx_dt->map_dt.map[pos_y][pos_x] = 'P';
 		redraw_window(mlx_dt);
-		draw_enemies(mlx_dt);
 	}
 }

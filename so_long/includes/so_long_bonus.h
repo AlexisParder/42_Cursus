@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 10:35:29 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 12:39:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,29 @@
 # ifndef TXT_PLAYER_D
 #  define TXT_PLAYER_D "./textures/player/player_d.xpm"
 # endif
-# ifndef TXT_ENEMY_R
-#  define TXT_ENEMY_R "./textures/enemy/enemy_r.xpm"
+# ifndef TXT_ENEMY_R_1
+#  define TXT_ENEMY_R_1 "./textures/enemy/enemy_r_1.xpm"
 # endif
-# ifndef TXT_ENEMY_L
-#  define TXT_ENEMY_L "./textures/enemy/enemy_l.xpm"
+# ifndef TXT_ENEMY_L_1
+#  define TXT_ENEMY_L_1 "./textures/enemy/enemy_l_1.xpm"
 # endif
-# ifndef TXT_ENEMY_T
-#  define TXT_ENEMY_T "./textures/enemy/enemy_t.xpm"
+# ifndef TXT_ENEMY_T_1
+#  define TXT_ENEMY_T_1 "./textures/enemy/enemy_t_1.xpm"
 # endif
-# ifndef TXT_ENEMY_D
-#  define TXT_ENEMY_D "./textures/enemy/enemy_d.xpm"
+# ifndef TXT_ENEMY_D_1
+#  define TXT_ENEMY_D_1 "./textures/enemy/enemy_d_1.xpm"
+# endif
+# ifndef TXT_ENEMY_R_2
+#  define TXT_ENEMY_R_2 "./textures/enemy/enemy_r_2.xpm"
+# endif
+# ifndef TXT_ENEMY_L_2
+#  define TXT_ENEMY_L_2 "./textures/enemy/enemy_l_2.xpm"
+# endif
+# ifndef TXT_ENEMY_T_2
+#  define TXT_ENEMY_T_2 "./textures/enemy/enemy_t_2.xpm"
+# endif
+# ifndef TXT_ENEMY_D_2
+#  define TXT_ENEMY_D_2 "./textures/enemy/enemy_d_2.xpm"
 # endif
 # ifndef TXT_PATH
 #  define TXT_PATH "./textures/path.xpm"
@@ -67,7 +79,7 @@
 #  define IMG_SIZE 64
 # endif
 # ifndef MOVE_DELAY_ENEMY
-#  define MOVE_DELAY_ENEMY 100000
+#  define MOVE_DELAY_ENEMY 25000
 # endif
 
 typedef struct s_player_dt
@@ -118,10 +130,14 @@ typedef struct s_imgs_ref
 	void	*loot;
 	void	*path;
 	void	*wall;
-	void	*en_d;
-	void	*en_l;
-	void	*en_r;
-	void	*en_t;
+	void	*en1_d;
+	void	*en1_l;
+	void	*en1_r;
+	void	*en1_t;
+	void	*en2_d;
+	void	*en2_l;
+	void	*en2_r;
+	void	*en2_t;
 	void	*win;
 	void	*lose;
 }	t_imgs_ref;
