@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/12 10:24:03 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 11:27:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int	check_map_path(t_map_dt *map)
 	t_player_dt	*player;
 
 	map_copy.map = duplicate_map(map);
+	if (!map_copy.map)
+		return (0);
 	map_copy.exit_found = 0;
 	map_copy.loot_found = 0;
 	player = check_player(&map_copy);

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 10:39:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 10:59:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static char	*map_in_line(int fd)
 	while (line)
 	{
 		map_tmp = sl_strjoin(map_tmp, line);
-		ft_printf("%s", line);
 		if (!map_tmp || line[0] == '\n')
 			err_map(fd, map_tmp, line);
 		free(line);

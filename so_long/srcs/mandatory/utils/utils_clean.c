@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 10:35:54 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 11:22:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ void	close_game(t_mlx_dt *mlx_data, int status)
 
 void	err_map(int fd, char *map_tmp, char *line)
 {
+	char	*tmp;
+
+	tmp = get_next_line(fd);
+	while (tmp)
+	{
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
 	close(fd);
 	free(map_tmp);
 	free(line);
