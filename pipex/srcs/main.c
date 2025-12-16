@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 12:58:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 13:17:51 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int main(int ac, char **av)
 {
+	ft_printf("%d %s\n", ac, av[0]);
 	return 0;
 }

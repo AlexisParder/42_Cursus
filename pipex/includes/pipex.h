@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:55:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 12:56:21 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 13:17:29 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define PIPEX_H
 
 # include <libft.h>
+# include <fcntl.h>
+# include <sys/wait.h>
 
 #endif
