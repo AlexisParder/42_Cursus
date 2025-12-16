@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 09:47:08 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 10:35:54 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,13 @@ void	close_game(t_mlx_dt *mlx_data, int status)
 	mlx_do_key_autorepeaton(mlx_data->mlx);
 	clean_all(mlx_data);
 	exit(status);
+}
+
+void	err_map(int fd, char *map_tmp, char *line)
+{
+	close(fd);
+	free(map_tmp);
+	free(line);
+	ft_printf("Error:\nInvalid map");
+	exit(EXIT_FAILURE);
 }

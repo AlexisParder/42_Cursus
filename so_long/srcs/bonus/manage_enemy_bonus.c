@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:45:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 09:53:42 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/16 10:48:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,22 @@ static void	make_move_enemy(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
 
 static void	updt_direction(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
 {
-	int	move_left;
-	int	move_right;
-	int	move_top;
-	int	move_down;
+	int		move_l;
+	int		move_r;
+	int		move_t;
+	int		move_d;
+	char	r_dir;
 
-	move_left = check_move_en(mlx_dt, 'l', enemy->pos_x, enemy->pos_y);
-	move_right = check_move_en(mlx_dt, 'r', enemy->pos_x, enemy->pos_y);
-	move_top = check_move_en(mlx_dt, 't', enemy->pos_x, enemy->pos_y);
-	move_down = check_move_en(mlx_dt, 'd', enemy->pos_x, enemy->pos_y);
-	enemy->direction = random_dir(move_left, move_right, move_top, move_down);
-	make_move_enemy(mlx_dt, enemy);
+	move_l = check_move_en(mlx_dt, 'l', enemy->pos_x, enemy->pos_y);
+	move_r = check_move_en(mlx_dt, 'r', enemy->pos_x, enemy->pos_y);
+	move_t = check_move_en(mlx_dt, 't', enemy->pos_x, enemy->pos_y);
+	move_d = check_move_en(mlx_dt, 'd', enemy->pos_x, enemy->pos_y);
+	r_dir = random_dir(move_l, move_r, move_t, move_d);
+	if (r_dir == 'l' || r_dir == 'r' || r_dir == 't' || r_dir == 'd')
+	{
+		enemy->direction = random_dir(move_l, move_r, move_t, move_d);
+		make_move_enemy(mlx_dt, enemy);
+	}
 }
 
 static void	move_enemies(t_mlx_dt *mlx_dt, t_enemy_dt **lst)
@@ -90,8 +95,6 @@ int	manage_enemy(t_mlx_dt *mlx_dt)
 		return (0);
 	mlx_dt->frame++;
 	if (mlx_dt->frame % MOVE_DELAY_ENEMY == 0)
-	{
 		move_enemies(mlx_dt, &mlx_dt->enemy);
-	}
 	return (0);
 }
