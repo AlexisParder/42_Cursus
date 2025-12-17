@@ -1,5 +1,6 @@
-# libft
 *This project has been created as part of the 42 curriculum by achauvie.*
+
+# libft
 
 ## Description
 A foundational project from the 42 curriculum.

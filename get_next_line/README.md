@@ -1,5 +1,6 @@
-# get_next_line
 *This project has been created as part of the 42 curriculum by achauvie.*
+
+# get_next_line
 
 ## Description
 A project focused on creating a function capable of reading any file, input stream, or stdin one line at a time.
@@ -23,7 +24,7 @@ int	main(void)
 	line = get_next_line(fd);
 	while (line)
 	{
-		printf("%s", line) // You can replace by ft_printf function.
+		ft_printf("%s", line) // You can replace by printf function.
 		free(line);
 		line = get_next_line(fd);
 	}

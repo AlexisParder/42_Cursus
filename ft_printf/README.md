@@ -1,5 +1,6 @@
-# ft_printf
 *This project has been created as part of the 42 curriculum by achauvie.*
+
+# ft_printf
 
 ## Description
 A full reimplementation of the iconic printf function in C.
