@@ -49,11 +49,14 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 
 OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
 
+all: $(MLX) $(NAME)
+
+bonus: $(MLX) $(NAME_BONUS)
+
+$(MLX): 
+		$(MAKE) -C libs/minilibx-linux
+
 LIBS = $(LIBFT) $(MLX) -lXext -lX11 -lm
-
-all: $(NAME)
-
-bonus: $(NAME_BONUS)
 
 $(NAME): $(OBJ_FILES)
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
