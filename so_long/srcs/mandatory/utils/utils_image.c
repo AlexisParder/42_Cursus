@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:14:59 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 11:31:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/17 09:03:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	*get_image_ref(t_mlx_dt *mlx_data, char chr)
 		return (mlx_data->img_ref.wall);
 	else if (chr == 'C')
 		return (mlx_data->img_ref.loot);
-	else if (chr == 'E')
+	else if (chr == 'E' && mlx_data->player)
 	{
 		if (mlx_data->player->loot_collected >= mlx_data->map_dt.total_loots)
 			return (mlx_data->img_ref.exit_o);
 		return (mlx_data->img_ref.exit_c);
 	}
+	else if (chr == 'E' && !mlx_data->player)
+		return (mlx_data->img_ref.exit_c);
 	return (mlx_data->img_ref.path);
 }
 
