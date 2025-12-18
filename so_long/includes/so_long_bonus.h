@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 12:39:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 10:26:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <libft.h>
 # include <mlx.h>
 # include <fcntl.h>
-# include <time.h>	
+# include <time.h>
 
 # ifndef TXT_PLAYER_R
 #  define TXT_PLAYER_R "./textures/player/player_r.xpm"
