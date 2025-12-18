@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 09:21:31 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 11:29:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 09:56:04 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
 	if (!(*dt).player)
 		return (0);
 	x_calc = (*dt).player->pos_x * (*dt).player->size;
-	y_calc = ((*dt).player->pos_y + 1) * (*dt).player->size;
+	y_calc = (*dt).player->pos_y * (*dt).player->size;
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
 	return (1);
 }
@@ -63,6 +63,6 @@ void	add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
 
 	size = IMG_SIZE;
 	x_calc = pos_x * size;
-	y_calc = (pos_y + 1) * size;
+	y_calc = pos_y * size;
 	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
 }

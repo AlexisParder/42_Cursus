@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:34:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 13:14:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 10:12:26 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	redraw_window(t_mlx_dt *mlx_data)
 
 	if ((*mlx_data).stop_game)
 		return ;
-	mlx_clear_window(mlx_data->mlx, mlx_data->win);
 	pos_y = 0;
 	while (mlx_data->map_dt.map[pos_y])
 	{

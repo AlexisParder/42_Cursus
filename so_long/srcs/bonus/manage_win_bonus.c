@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 12:25:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/17 10:21:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 09:56:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	manage_window(t_mlx_dt *mlx_dt)
 	mlx_dt->frame = 0;
 	mlx_dt->enemy = NULL;
 	win_width = (*mlx_dt).map_dt.x_max * IMG_SIZE;
-	win_height = ((*mlx_dt).map_dt.y_max + 1) * IMG_SIZE;
+	win_height = (*mlx_dt).map_dt.y_max * IMG_SIZE;
 	mlx_get_screen_size((*mlx_dt).mlx, &w, &h);
 	if (win_width < w)
 		w = win_width;

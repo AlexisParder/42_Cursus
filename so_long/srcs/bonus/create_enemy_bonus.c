@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:50:36 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 12:44:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 10:02:00 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	draw_enemies(t_mlx_dt *dt)
 	{
 		img = get_image_sprite(dt, tmp);
 		x_calc = tmp->pos_x * tmp->size;
-		y_calc = (tmp->pos_y + 1) * tmp->size;
+		y_calc = tmp->pos_y * tmp->size;
 		mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
 		tmp = tmp->next;
 	}

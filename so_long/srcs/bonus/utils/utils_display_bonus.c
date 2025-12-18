@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:48:43 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 14:41:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 10:10:02 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	display_move(t_mlx_dt *dt)
 	char	*nb_move;
 
 	nb_move = ft_itoa(dt->player->nb_move);
-	mlx_string_put(dt->mlx, dt->win, 64, 32, 0xFFFFFF, "Number of movements:");
-	mlx_string_put(dt->mlx, dt->win, 192, 32, 0xFFFFFF, nb_move);
+	mlx_string_put(dt->mlx, dt->win, 64, 13, 0x000000, "Number of movements:");
+	mlx_string_put(dt->mlx, dt->win, 192, 13, 0x000000, nb_move);
 	free(nb_move);
 }
 
