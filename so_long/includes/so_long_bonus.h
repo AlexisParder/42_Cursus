@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/18 10:26:36 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:33:08 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,6 @@ int			check_move(t_mlx_dt *mlx_data, char move, size_t p_x, size_t p_y);
 int			check_move_en(t_mlx_dt *mlx_dt, char move, size_t p_x, size_t p_y);
 int			check_map(t_map_dt *map);
 int			check_map_path(t_map_dt *map);
-int			is_search(char c, char *search);
 int			add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 int			create_enemy(t_enemy_dt **lst, size_t pos_x, size_t pos_y);
 int			manage_enemy(t_mlx_dt *mlx_dt);
@@ -181,6 +180,7 @@ void		*get_image_ref(t_mlx_dt *mlx_data, char chr);
 void		err_img(t_mlx_dt *mlx_data, char *line);
 void		draw_enemies(t_mlx_dt *dt);
 void		err_map(int fd, char *map_tmp, char *line);
+void		updt_map(t_mlx_dt *dt, t_enemy_dt *en, size_t pos_x, size_t pos_y);
 
 char		*sl_strjoin(char *s1, char *s2);
 char		random_dir(int l, int r, int t, int d);

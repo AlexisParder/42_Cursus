@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:45:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 12:41:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:35:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,8 @@ static void	make_move_enemy(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
 	updt_en_move(enemy);
 	pos_x = enemy->pos_x;
 	pos_y = enemy->pos_y;
-	if (enemy->is_on_loot)
-	{
-		mlx_dt->map_dt.map[last_pos_y][last_pos_x] = 'C';
-		enemy->is_on_loot = 0;
-	}
-	else
-		mlx_dt->map_dt.map[last_pos_y][last_pos_x] = '0';
-	if (mlx_dt->map_dt.map[pos_y][pos_x] == 'C')
-		enemy->is_on_loot = 1;
-	mlx_dt->map_dt.map[mlx_dt->map_dt.y_exit][mlx_dt->map_dt.x_exit] = 'E';
-	if (mlx_dt->map_dt.map[pos_y][pos_x] == 'P')
+	updt_map(mlx_dt, enemy, last_pos_x, last_pos_y);
+	if (pos_x == mlx_dt->player->pos_x && pos_y == mlx_dt->player->pos_y)
 		display_lose(mlx_dt);
 	mlx_dt->map_dt.map[pos_y][pos_x] = 'H';
 }

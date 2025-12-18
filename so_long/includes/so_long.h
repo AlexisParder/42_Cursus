@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 10:35:35 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:33:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ typedef struct s_mlx_dt
 int			check_move(t_mlx_dt *mlx_data, char move, size_t p_x, size_t p_y);
 int			check_map(t_map_dt *map);
 int			check_map_path(t_map_dt *map);
-int			is_search(char c, char *search);
 int			add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 
 void		add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 10:35:07 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:53:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*map_in_line(int fd)
 	close(fd);
 	if (!map_tmp)
 	{
-		ft_printf("Error:\nMap Empty");
+		ft_printf("Error\nMap Empty");
 		exit(EXIT_FAILURE);
 	}
 	return (map_tmp);
@@ -45,14 +45,14 @@ static void	check_type_map(char *map_name)
 	i = 0;
 	if (len < 4)
 	{
-		ft_printf("Error:\nInvalid type, format: <name>.ber");
+		ft_printf("Error\nInvalid type, format: <name>.ber");
 		exit(EXIT_FAILURE);
 	}
 	while (i < len - 4)
 		i++;
 	if (!ft_strnstr(&map_name[i], ".ber", 4))
 	{
-		ft_printf("Error:\nInvalid type, format: <name>.ber");
+		ft_printf("Error\nInvalid type, format: <name>.ber");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -65,14 +65,14 @@ static char	**read_map(char *map_name)
 
 	if (!map_name)
 	{
-		ft_printf("Error:\nInvalid map name");
+		ft_printf("Error\nInvalid map name");
 		exit(EXIT_FAILURE);
 	}
 	check_type_map(map_name);
 	fd = open(map_name, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_printf("Error:\nMap does not exist");
+		ft_printf("Error\nMap does not exist");
 		exit(EXIT_FAILURE);
 	}
 	map_tmp = map_in_line(fd);
@@ -80,7 +80,7 @@ static char	**read_map(char *map_name)
 	free(map_tmp);
 	if (!map || !map[0])
 	{
-		ft_printf("Error:\nMap Empty");
+		ft_printf("Error\nMap Empty");
 		exit(EXIT_FAILURE);
 	}
 	return (map);
