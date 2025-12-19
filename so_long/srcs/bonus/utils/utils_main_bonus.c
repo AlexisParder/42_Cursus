@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 10:10:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 15:08:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,9 @@ static char	*map_in_line(int fd)
 static void	check_type_map(char *map_name)
 {
 	size_t	len;
-	size_t	i;
 
 	len = ft_strlen(map_name);
-	i = 0;
-	if (len < 4)
-	{
-		ft_printf("Error\nInvalid type, format: <name>.ber");
-		exit(EXIT_FAILURE);
-	}
-	while (i < len - 4)
-		i++;
-	if (!ft_strnstr(&map_name[i], ".ber", 4))
+	if (!ft_strnstr(&map_name[len - 4], ".ber", 4))
 	{
 		ft_printf("Error\nInvalid type, format: <name>.ber");
 		exit(EXIT_FAILURE);
