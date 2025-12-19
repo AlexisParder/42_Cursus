@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:24:37 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/18 15:53:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:11:29 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,13 @@ static char	**read_map(char *map_name)
 
 void	create_map_dt(t_mlx_dt *mlx_data, char **av)
 {
-	(*mlx_data).map_dt.map = read_map(av[1]);
-	(*mlx_data).map_dt.x_max = get_max_x((*mlx_data).map_dt.map);
-	(*mlx_data).map_dt.y_max = get_max_y((*mlx_data).map_dt.map);
-	(*mlx_data).map_dt.total_loots = get_total_loots((*mlx_data).map_dt.map);
+	mlx_data->map_dt.map = read_map(av[1]);
+	mlx_data->map_dt.x_max = get_max_x(mlx_data->map_dt.map);
+	mlx_data->map_dt.y_max = get_max_y(mlx_data->map_dt.map);
+	mlx_data->map_dt.total_loots = get_total_loots(mlx_data->map_dt.map);
 	if (!check_map(&mlx_data->map_dt))
 	{
-		free_arr((*mlx_data).map_dt.map);
+		free_arr(mlx_data->map_dt.map);
 		exit(EXIT_FAILURE);
 	}
 }

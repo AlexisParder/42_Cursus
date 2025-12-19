@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:34:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 12:30:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:11:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	redraw_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 	char	*line;
 
 	i = 0;
-	line = ft_strdup((*map_data).map[pos_y]);
+	line = ft_strdup(map_data->map[pos_y]);
 	while (line[i])
 	{
 		if (line[i] != 'P')

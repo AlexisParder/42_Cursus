@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/18 15:53:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:08:53 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	keydown_hook(int key, t_mlx_dt *mlx_data)
 {
-	if (key != 65307 && (*mlx_data).stop_game)
+	if (key != 65307 && mlx_data->stop_game)
 		return (0);
 	if (key == 65307)
 		close_game(mlx_data, EXIT_SUCCESS);

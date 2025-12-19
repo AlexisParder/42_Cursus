@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/17 09:05:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 10:10:55 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ int	add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
 	long	x_calc;
 	long	y_calc;
 
-	(*dt).player = create_player(dt, pos_x, pos_y);
-	if (!(*dt).player)
+	dt->player = create_player(dt, pos_x, pos_y);
+	if (!dt->player)
 		return (0);
-	x_calc = (*dt).player->pos_x * (*dt).player->size;
-	y_calc = (*dt).player->pos_y * (*dt).player->size;
-	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
+	x_calc = dt->player->pos_x * dt->player->size;
+	y_calc = dt->player->pos_y * dt->player->size;
+	mlx_put_image_to_window(dt->mlx, dt->win, img, x_calc, y_calc);
 	return (1);
 }
 
@@ -64,7 +64,7 @@ void	add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y)
 	size = IMG_SIZE;
 	x_calc = pos_x * size;
 	y_calc = pos_y * size;
-	mlx_put_image_to_window((*dt).mlx, (*dt).win, img, x_calc, y_calc);
+	mlx_put_image_to_window(dt->mlx, dt->win, img, x_calc, y_calc);
 }
 
 static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
@@ -74,7 +74,7 @@ static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 	int		add_res;
 
 	i = 0;
-	line = ft_strdup((*map_data).map[pos_y]);
+	line = ft_strdup(map_data->map[pos_y]);
 	add_res = 1;
 	while (line[i])
 	{
@@ -102,17 +102,17 @@ void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
 
 	pos_y = 0;
 	size = IMG_SIZE;
-	i_ref.pl_d = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_D, &size, &size);
-	i_ref.pl_l = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_L, &size, &size);
-	i_ref.pl_r = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_R, &size, &size);
-	i_ref.pl_t = mlx_xpm_file_to_image((*dt).mlx, TXT_PLAYER_T, &size, &size);
-	i_ref.exit_c = mlx_xpm_file_to_image((*dt).mlx, TXT_EXIT_C, &size, &size);
-	i_ref.exit_o = mlx_xpm_file_to_image((*dt).mlx, TXT_EXIT_O, &size, &size);
-	i_ref.loot = mlx_xpm_file_to_image((*dt).mlx, TXT_LOOT, &size, &size);
-	i_ref.path = mlx_xpm_file_to_image((*dt).mlx, TXT_PATH, &size, &size);
-	i_ref.wall = mlx_xpm_file_to_image((*dt).mlx, TXT_WALL, &size, &size);
+	i_ref.pl_d = mlx_xpm_file_to_image(dt->mlx, TXT_PLAYER_D, &size, &size);
+	i_ref.pl_l = mlx_xpm_file_to_image(dt->mlx, TXT_PLAYER_L, &size, &size);
+	i_ref.pl_r = mlx_xpm_file_to_image(dt->mlx, TXT_PLAYER_R, &size, &size);
+	i_ref.pl_t = mlx_xpm_file_to_image(dt->mlx, TXT_PLAYER_T, &size, &size);
+	i_ref.exit_c = mlx_xpm_file_to_image(dt->mlx, TXT_EXIT_C, &size, &size);
+	i_ref.exit_o = mlx_xpm_file_to_image(dt->mlx, TXT_EXIT_O, &size, &size);
+	i_ref.loot = mlx_xpm_file_to_image(dt->mlx, TXT_LOOT, &size, &size);
+	i_ref.path = mlx_xpm_file_to_image(dt->mlx, TXT_PATH, &size, &size);
+	i_ref.wall = mlx_xpm_file_to_image(dt->mlx, TXT_WALL, &size, &size);
 	dt->img_ref = i_ref;
-	while ((*map_dt).map[pos_y])
+	while (map_dt->map[pos_y])
 	{
 		manage_line(dt, map_dt, pos_y);
 		pos_y++;
