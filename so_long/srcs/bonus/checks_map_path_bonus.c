@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 11:27:36 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 13:15:38 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	**duplicate_map(t_map_dt *map)
 	copy = ft_calloc(map->y_max + 1, sizeof(char *));
 	if (!copy)
 	{
-		ft_printf("Error\nFailure during allocation");
+		ft_printf("Error\nAllocation failure");
 		return (NULL);
 	}
 	i = 0;
@@ -42,7 +42,7 @@ static char	**duplicate_map(t_map_dt *map)
 		copy[i] = ft_strdup(map->map[i]);
 		if (!copy[i])
 		{
-			ft_printf("Error\nFailure during allocation");
+			ft_printf("Error\nAllocation failure");
 			free_arr(copy);
 			return (NULL);
 		}

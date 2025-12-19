@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:14:59 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/17 09:04:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 13:15:38 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*get_image_ref(t_mlx_dt *mlx_data, char chr)
 
 void	err_img(t_mlx_dt *mlx_data, char *line)
 {
-	ft_printf("Error\nFailure during allocation");
+	ft_printf("Error\nAllocation failure");
 	free(line);
 	free_lst(&mlx_data->enemy);
 	close_game(mlx_data, EXIT_FAILURE);
