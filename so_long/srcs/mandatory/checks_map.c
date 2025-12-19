@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:23:15 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/18 16:36:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:19:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static int	check_border(t_map_dt *m_dt)
 	i = 0;
 	while (m_dt->map[i])
 	{
-		if (i == 0 || i == m_dt->y_max)
+		if (i == 0 || i == m_dt->y_max - 1)
 		{
+			ft_printf("%s\n", m_dt->map[i]);
 			j = 0;
 			while (m_dt->map[i][j])
 			{
@@ -31,7 +32,8 @@ static int	check_border(t_map_dt *m_dt)
 			}
 			i++;
 		}
-		if (m_dt->map[i][0] != '1' || m_dt->map[i][m_dt->x_max - 1] != '1')
+		if (i < m_dt->y_max - 1
+			&& (m_dt->map[i][0] != '1' || m_dt->map[i][m_dt->x_max - 1] != '1'))
 			return (0);
 		i++;
 	}
