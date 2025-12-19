@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:23:15 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/18 16:35:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/19 08:48:51 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	check_map_fill(t_map_dt *map_dt)
 		j = 0;
 		while (map_dt->map[i][j])
 		{
-			if (!ft_strchr("01ECP", map_dt->map[i][j]))
+			if (!ft_strchr("01ECPH", map_dt->map[i][j]))
 			{
 				ft_printf("Error\nInvalid map format, use: '01ECPH'");
 				return (0);
