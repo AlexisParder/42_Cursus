@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 12:25:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 13:10:15 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 13:51:32 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	manage_window(t_mlx_dt *mlx_dt)
 		w = win_width;
 	if (win_height < h)
 		h = win_height;
-	mlx_dt->win = mlx_new_window(mlx_dt->mlx, w, h, "so_long - achauvie");
+	mlx_dt->win = mlx_new_window(mlx_dt->mlx, w, h, TITLE);
 	if (!mlx_dt->win)
 		close_game(mlx_dt, EXIT_FAILURE);
 }

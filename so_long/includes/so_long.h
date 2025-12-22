@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 13:18:08 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 13:51:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <mlx.h>
 # include <fcntl.h>
 
+# ifndef TITLE
+#  define TITLE "so_long - achauvie"
+# endif
 # ifndef TXT_PLAYER_R
 #  define TXT_PLAYER_R "./textures/player/player_r.xpm"
 # endif
