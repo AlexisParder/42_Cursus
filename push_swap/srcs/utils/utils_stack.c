@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:17:11 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/28 10:32:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 14:17:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	fill_stack(t_stack **stack, char **list)
 		tmp = ft_calloc(1, sizeof(t_stack));
 		if (!tmp)
 			return (1);
-		tmp->nbr = ft_atoi(list[i]);
+		tmp->nbr = ft_atol(list[i]);
 		tmp->prev = NULL;
 		tmp->next = NULL;
 		if (*stack)

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 09:46:05 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/04 08:44:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 14:17:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ static int	find_dup(char **list)
 	while (list[i])
 	{
 		k = i + 1;
-		a = ft_atoi(list[i]);
+		a = ft_atol(list[i]);
 		while (list[k])
 		{
-			b = ft_atoi(list[k]);
+			b = ft_atol(list[k]);
 			if (a == b)
 				return (1);
 			k++;
@@ -52,7 +52,7 @@ static int	arg_isdigit(char *arg)
 			return (0);
 		i++;
 	}
-	tmp_nbr = ft_atoi(arg);
+	tmp_nbr = ft_atol(arg);
 	if (tmp_nbr < -2147483648 || tmp_nbr > 2147483647)
 		return (0);
 	return (1);
