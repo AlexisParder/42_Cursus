@@ -1,6 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # push_swap
+![🇫🇷 French](./README_FR.md)
 
 ## Description
 A highly algorithmic project where the goal is to sort a list of integers using two stacks and a restricted set of operations.
