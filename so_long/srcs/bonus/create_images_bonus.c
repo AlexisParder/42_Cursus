@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 10:07:29 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 13:14:59 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)
 
 	pos_y = 0;
 	creates_images_ref(dt);
+	check_img_ref(dt);
 	while (map_dt->map[pos_y])
 	{
 		manage_line(dt, map_dt, pos_y);

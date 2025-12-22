@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/18 15:53:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 13:24:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@ int	main(int ac, char **av)
 	create_map_dt(&mlx_dt, av);
 	mlx_dt.mlx = mlx_init();
 	if (!mlx_dt.mlx)
-	{
-		free_arr(mlx_dt.map_dt.map);
-		return (1);
-	}
+		close_game(&mlx_dt, EXIT_FAILURE);
+	init_img_ref(&mlx_dt);
 	mlx_do_key_autorepeatoff(mlx_dt.mlx);
 	manage_window(&mlx_dt);
 	mlx_hook(mlx_dt.win, 2, 1, keydown_hook, &mlx_dt);
