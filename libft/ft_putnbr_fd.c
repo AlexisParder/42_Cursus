@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:41:22 by achauvie          #+#    #+#             */
-/*   Updated: 2025/10/23 12:23:29 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 14:12:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	if (fd > -1)
 	{
-		if ((long int)n == -2147483648)
+		if ((long)n == -2147483648)
 			write(fd, "-2147483648", 11);
 		else if (n < 0)
 		{

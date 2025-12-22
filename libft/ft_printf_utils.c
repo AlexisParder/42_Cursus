@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 14:39:31 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/05 11:04:10 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 14:12:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_int(long int n, int base_len)
+static int	count_int(long n, int base_len)
 {
 	int			i;
 
@@ -42,7 +42,7 @@ static int	count_long_int(long unsigned int n, int base_len)
 	return (i);
 }
 
-int	long_itoa(long int n)
+int	long_itoa(long n)
 {
 	int		size_int;
 	char	*str;

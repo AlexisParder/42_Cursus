@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 14:59:09 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/05 11:03:47 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 14:12:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	arg_switch_type(const char c, va_list vlst)
 	else if (c == 'x' || c == 'X')
 		count = long_itoa_hex(va_arg(vlst, unsigned int), c);
 	else if (c == 'p')
-		count = long_itoa_hex(va_arg(vlst, long long int), c);
+		count = long_itoa_hex(va_arg(vlst, long long), c);
 	else if (c == '%')
 		count = putchar_len('%');
 	return (count);

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:26:33 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 14:08:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/22 14:08:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	size_t	i;
-	int		nb;
-	int		sign;
+	long	nb;
+	long	sign;
 
 	i = 0;
 	nb = 0;
