@@ -1,6 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # ft_printf
+![🇫🇷 French](./README_FR.md)
 
 ## Description
 A full reimplementation of the iconic printf function in C.
