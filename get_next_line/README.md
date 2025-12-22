@@ -1,6 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # get_next_line
+![🇫🇷 French](./README_FR.md)
 
 ## Description
 A project focused on creating a function capable of reading any file, input stream, or stdin one line at a time.

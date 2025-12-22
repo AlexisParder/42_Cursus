@@ -1,4 +1,4 @@
-**Ce projet a été créé dans le cadre du cursus 42 par achauvie.**
+*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # ft_printf
 ![🇬🇧 English](./README.md)
