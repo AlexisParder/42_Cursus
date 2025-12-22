@@ -9,7 +9,7 @@ L’implémentation doit gérer des buffers internes, conserver les données non
 Le bonus optionnel ajoute la gestion de plusieurs descripteurs de fichiers simultanément.
 Ce projet renforce les connaissances sur les descripteurs de fichiers, la mémoire dynamique, les variables statiques, la logique de buffer et la gestion robuste des cas limites.
 
-## Example of usage
+## Exemple d’utilisation
 ```c
 #include <get_next_line.h>
 #include <fcntl.h>
