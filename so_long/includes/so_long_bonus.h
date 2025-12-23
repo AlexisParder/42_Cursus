@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 13:52:02 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 09:37:25 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,8 @@ typedef struct s_mlx_dt
 {
 	void			*win;
 	void			*mlx;
+	int				w;
+	int				h;
 	int				stop_game;
 	t_imgs_ref		img_ref;
 	t_player_dt		*player;
