@@ -46,7 +46,7 @@ The map must follow certain rules:
 - [x] Display the movement count directly on screen instead of writing it in the shell.
 
 ## Use of AI
-AI was used to generate certain images such as the enemy, the victory poster, and the defeat poster.
+AI was used to generate certain images such as the enemy, the movement counter background, the victory poster, and the defeat poster.
 
 ## Resources
 - MiniLibx

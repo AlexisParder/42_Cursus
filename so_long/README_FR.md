@@ -46,7 +46,7 @@ La carte doit respecter certaines règles :
 - [x] Afficher le compteur de déplacements directement à l’écran au lieu de l’écrire dans le terminal.
 
 ## Utilisation de l’IA
-L’IA a été utilisée pour générer certaines images, comme l’ennemi, l’affiche de victoire et l’affiche de défaite.
+L’IA a été utilisée pour générer certaines images comme l’ennemi, le fond du compteur de mouvement, l’affiche de victoire et l’affiche de défaite.
 
 ## Ressources
 - MiniLibx
