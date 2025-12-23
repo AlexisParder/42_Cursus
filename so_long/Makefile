@@ -33,7 +33,8 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 					$(SRC_BONUS_DIR)make_moves_bonus.c \
 					$(SRC_BONUS_DIR)checks_map_bonus.c \
 					$(SRC_BONUS_DIR)checks_map_path_bonus.c \
-					$(SRC_BONUS_DIR)manage_enemy_bonus.c \
+					$(SRC_BONUS_DIR)move_enemy_bonus.c \
+					$(SRC_BONUS_DIR)manage_loop_bonus.c \
 					$(SRC_BONUS_DIR)create_enemy_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_main_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_str_bonus.c \

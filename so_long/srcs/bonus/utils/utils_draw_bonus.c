@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:34:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 10:10:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 13:31:20 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,4 @@ void	redraw_window(t_mlx_dt *mlx_data)
 		redraw_line(mlx_data, &mlx_data->map_dt, pos_y);
 		pos_y++;
 	}
-	display_move(mlx_data);
 }
