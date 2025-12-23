@@ -41,7 +41,7 @@ SRC_FILES = ft_isalpha.c \
 			ft_printf_utils.c \
 			ft_printf_str_utils.c \
 			get_next_line.c
-SRC_Bonus_FILES = 	ft_lstnew_bonus.c \
+SRC_BONUS_FILES = 	ft_lstnew_bonus.c \
 					ft_lstadd_front_bonus.c \
 					ft_lstsize_bonus.c \
 					ft_lstlast_bonus.c \
@@ -51,26 +51,43 @@ SRC_Bonus_FILES = 	ft_lstnew_bonus.c \
 					ft_lstiter_bonus.c \
 					ft_lstmap_bonus.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
-OBJ_Bonus_FILES = $(SRC_Bonus_FILES:.c=.o)
+OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
+
+# Colors
+GREEN	= \033[0;32m
+BLUE	= \033[0;34m
+YELLOW	= \033[0;33m
+RED		= \033[0;31m
+RESET	= \033[0m
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-		ar rcs -o $(NAME) $(OBJ_FILES)
+		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
+		@ar rcs -o $(NAME) $(OBJ_FILES)
+		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
 %.o : %.c
-		$(CC) $(CFLAGS) $(INC_FILES) -o $@ -c $<
+		@$(CC) $(CFLAGS) $(INC_FILES) -o $@ -c $<
 
-bonus: all $(OBJ_Bonus_FILES)
-		ar rcs -o $(NAME) $(OBJ_Bonus_FILES)
+bonus: $(OBJ_BONUS_FILES)
+		@echo "$(BLUE)[BUILD] Compilation de $(NAME) avec bonus...$(RESET)"
+		@ar rcs -o $(NAME) $(OBJ_FILES)
+		@ar rcs -o $(NAME) $(OBJ_BONUS_FILES)
+		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
 clean:
-		rm -rf $(OBJ_FILES)
-		rm -rf $(OBJ_Bonus_FILES)
+		@echo "$(YELLOW)[CLEAN] Suppression des objets...$(RESET)"
+		@rm -rf $(OBJ_FILES)
+		@rm -rf $(OBJ_BONUS_FILES)
+		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
 
 fclean: clean
-		rm -rf $(NAME)
+		@echo "$(RED)[FCLEAN] Suppression des binaires...$(RESET)"
+		@rm -rf $(NAME)
+		@echo "$(GREEN)[FCLEAN] OK ✔$(RESET)"
 
 re: fclean all
+		@echo "$(GREEN)[RE] Rebuild terminé ✔$(RESET)"
 
 .PHONY: all bonus clean fclean re

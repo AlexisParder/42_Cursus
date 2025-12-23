@@ -52,31 +52,49 @@ OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
 
 LIBS = $(LIBFT) $(MLX) -lXext -lX11 -lm
 
+# Colors
+GREEN	= \033[0;32m
+BLUE	= \033[0;34m
+YELLOW	= \033[0;33m
+RED		= \033[0;31m
+RESET	= \033[0m
+
 all: $(MLX) $(NAME)
 
 bonus: $(MLX) $(NAME_BONUS)
 
-$(MLX): 
-		$(MAKE) -C libs/minilibx-linux
+$(MLX):
+		@echo "$(BLUE)[MLX] Compilation de la minilibx...$(RESET)"
+		@$(MAKE) -C libs/minilibx-linux
+		@echo "$(GREEN)[MLX] Minilibx compilée ✔$(RESET)"
 
 $(NAME): $(OBJ_FILES)
+		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
+		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
 $(NAME_BONUS): $(OBJ_BONUS_FILES)
+		@echo "$(BLUE)[BUILD] Compilation de $(NAME_BONUS)...$(RESET)"
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
+		@echo "$(GREEN)[OK] $(NAME_BONUS) prêt ✔$(RESET)"
 
 %.o : %.c
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ -c $<
 
 clean:
+		@echo "$(YELLOW)[CLEAN] Suppression des objets...$(RESET)"
 		@rm -rf $(OBJ_FILES)
 		@rm -rf $(OBJ_BONUS_FILES)
-		$(MAKE) -C libs/minilibx-linux clean
+		@$(MAKE) -C libs/minilibx-linux clean
+		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
 
 fclean: clean
+		@echo "$(RED)[FCLEAN] Suppression des binaires...$(RESET)"
 		@rm -rf $(NAME)
 		@rm -rf $(NAME_BONUS)
+		@echo "$(GREEN)[FCLEAN] OK ✔$(RESET)"
 
 re: fclean all
+		@echo "$(GREEN)[RE] Rebuild terminé ✔$(RESET)"
 
 .PHONY: all bonus clean fclean re
