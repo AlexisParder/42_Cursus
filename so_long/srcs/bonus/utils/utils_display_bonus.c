@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:48:43 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 11:24:20 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:45:46 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@ void	display_move(t_mlx_dt *dt)
 {
 	char	*nb_move;
 	int		pos_x;
+	void	*img;
 
 	nb_move = ft_itoa(dt->player->nb_move);
 	mlx_set_font(dt->mlx, dt->win, "9x15");
-	mlx_put_image_to_window(dt->mlx, dt->win, dt->img_ref.cnt, 0, 0);
+	if (dt->frame % 2 == 0)
+		img = dt->img_ref.cnt;
+	else
+		img = dt->img_ref.cnt2;
+	mlx_put_image_to_window(dt->mlx, dt->win, img, 0, 0);
 	if (dt->player->nb_move >= 100)
 		pos_x = 45;
 	else if (dt->player->nb_move >= 10)

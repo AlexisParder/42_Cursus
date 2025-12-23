@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 13:14:59 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:51:59 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,28 @@ static void	manage_line(t_mlx_dt *mlx_data, t_map_dt *map_data, size_t pos_y)
 	free(line);
 }
 
+static void	creates_images_ref_bonus(t_mlx_dt *dt)
+{
+	int			size;
+	t_imgs_ref	i_ref;
+
+	size = IMG_SIZE;
+	i_ref = dt->img_ref;
+	i_ref.en1_d = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_D_1, &size, &size);
+	i_ref.en1_l = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_L_1, &size, &size);
+	i_ref.en1_r = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_R_1, &size, &size);
+	i_ref.en1_t = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_T_1, &size, &size);
+	i_ref.en2_d = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_D_2, &size, &size);
+	i_ref.en2_l = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_L_2, &size, &size);
+	i_ref.en2_r = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_R_2, &size, &size);
+	i_ref.en2_t = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_T_2, &size, &size);
+	i_ref.lose = mlx_xpm_file_to_image(dt->mlx, TXT_LOSE, &size, &size);
+	i_ref.win = mlx_xpm_file_to_image(dt->mlx, TXT_WIN, &size, &size);
+	i_ref.cnt = mlx_xpm_file_to_image(dt->mlx, TXT_COUNT_BG, &size, &size);
+	i_ref.cnt2 = mlx_xpm_file_to_image(dt->mlx, TXT_COUNT2_BG, &size, &size);
+	dt->img_ref = i_ref;
+}
+
 static void	creates_images_ref(t_mlx_dt *dt)
 {
 	int			size;
@@ -51,23 +73,14 @@ static void	creates_images_ref(t_mlx_dt *dt)
 	i_ref.pl_l = mlx_xpm_file_to_image(dt->mlx, TXT_PLAYER_L, &size, &size);
 	i_ref.pl_r = mlx_xpm_file_to_image(dt->mlx, TXT_PLAYER_R, &size, &size);
 	i_ref.pl_t = mlx_xpm_file_to_image(dt->mlx, TXT_PLAYER_T, &size, &size);
-	i_ref.en1_d = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_D_1, &size, &size);
-	i_ref.en1_l = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_L_1, &size, &size);
-	i_ref.en1_r = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_R_1, &size, &size);
-	i_ref.en1_t = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_T_1, &size, &size);
-	i_ref.en2_d = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_D_2, &size, &size);
-	i_ref.en2_l = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_L_2, &size, &size);
-	i_ref.en2_r = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_R_2, &size, &size);
-	i_ref.en2_t = mlx_xpm_file_to_image(dt->mlx, TXT_ENEMY_T_2, &size, &size);
 	i_ref.exit_c = mlx_xpm_file_to_image(dt->mlx, TXT_EXIT_C, &size, &size);
 	i_ref.exit_o = mlx_xpm_file_to_image(dt->mlx, TXT_EXIT_O, &size, &size);
 	i_ref.loot = mlx_xpm_file_to_image(dt->mlx, TXT_LOOT, &size, &size);
 	i_ref.path = mlx_xpm_file_to_image(dt->mlx, TXT_PATH, &size, &size);
 	i_ref.wall = mlx_xpm_file_to_image(dt->mlx, TXT_WALL, &size, &size);
 	i_ref.lose = mlx_xpm_file_to_image(dt->mlx, TXT_LOSE, &size, &size);
-	i_ref.win = mlx_xpm_file_to_image(dt->mlx, TXT_WIN, &size, &size);
-	i_ref.cnt = mlx_xpm_file_to_image(dt->mlx, TXT_COUNT_BG, &size, &size);
 	dt->img_ref = i_ref;
+	creates_images_ref_bonus(dt);
 }
 
 void	creates_images(t_mlx_dt *dt, t_map_dt *map_dt)

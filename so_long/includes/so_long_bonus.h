@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 11:16:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:46:49 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@
 # ifndef TXT_COUNT_BG
 #  define TXT_COUNT_BG "./textures/cnt.xpm"
 # endif
+# ifndef TXT_COUNT2_BG
+#  define TXT_COUNT2_BG "./textures/cnt2.xpm"
+# endif
 # ifndef IMG_SIZE
 #  define IMG_SIZE 64
 # endif
@@ -147,6 +150,7 @@ typedef struct s_imgs_ref
 	void	*win;
 	void	*lose;
 	void	*cnt;
+	void	*cnt2;
 }	t_imgs_ref;
 
 typedef struct s_mlx_dt

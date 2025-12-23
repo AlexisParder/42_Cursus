@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 10:57:44 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 09:50:53 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:44:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	destroy_images_bonus(t_mlx_dt *mlx_data)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.lose);
 	if (mlx_data->img_ref.cnt)
 		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.cnt);
+	if (mlx_data->img_ref.cnt2)
+		mlx_destroy_image(mlx_data->mlx, mlx_data->img_ref.cnt2);
 }
 
 static void	destroy_images(t_mlx_dt *mlx_data)

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:14:59 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 13:31:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:44:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	init_img_ref(t_mlx_dt *mlx_data)
 	mlx_data->img_ref.lose = NULL;
 	mlx_data->img_ref.win = NULL;
 	mlx_data->img_ref.cnt = NULL;
+	mlx_data->img_ref.cnt2 = NULL;
 }
 
 void	check_img_ref(t_mlx_dt *dt)
@@ -78,7 +79,7 @@ void	check_img_ref(t_mlx_dt *dt)
 		err_found = 1;
 	if (!img_ref.loot || !img_ref.path || !img_ref.wall)
 		err_found = 1;
-	if (!img_ref.lose || !img_ref.win || !img_ref.cnt)
+	if (!img_ref.lose || !img_ref.win || !img_ref.cnt || !img_ref.cnt2)
 		err_found = 1;
 	if (err_found)
 	{

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:45:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 08:51:09 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:46:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ int	manage_enemy(t_mlx_dt *mlx_dt)
 	if (mlx_dt->frame % MOVE_DELAY_ENEMY == 0)
 		move_enemies(mlx_dt, &mlx_dt->enemy);
 	draw_enemies(mlx_dt);
+	display_move(mlx_dt);
 	return (0);
 }
