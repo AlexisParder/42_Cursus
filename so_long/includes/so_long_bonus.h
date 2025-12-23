@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 09:37:25 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:16:43 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@
 #  define TXT_WIN "./textures/win.xpm"
 # endif
 # ifndef TXT_COUNT_BG
-#  define TXT_COUNT_BG "./textures/count_bg.xpm"
+#  define TXT_COUNT_BG "./textures/cnt.xpm"
 # endif
 # ifndef IMG_SIZE
 #  define IMG_SIZE 64
