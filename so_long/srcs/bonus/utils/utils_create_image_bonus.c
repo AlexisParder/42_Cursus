@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 09:21:31 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 10:06:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:42:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static t_player_dt	*create_player(t_mlx_dt *dt, size_t pos_x, size_t pos_y)
 	tmp->pos_y = pos_y;
 	tmp_nb_move = 0;
 	tmp_nb_loot = 0;
-	tmp_direction = 'r';
+	tmp_direction = MOVE_RIGHT;
 	if (dt->player != NULL)
 	{
 		tmp_nb_move = dt->player->nb_move;

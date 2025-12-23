@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:50:36 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 10:06:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:42:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	create_enemy(t_enemy_dt **lst, size_t pos_x, size_t pos_y)
 	tmp->size = IMG_SIZE;
 	tmp->pos_x = pos_x;
 	tmp->pos_y = pos_y;
-	tmp->direction = 'l';
+	tmp->direction = MOVE_LEFT;
 	tmp->is_on_loot = 0;
 	tmp->next = NULL;
 	if (*lst)
@@ -40,17 +40,17 @@ static void	*get_image_sprite(t_mlx_dt *dt, t_enemy_dt *enemy)
 {
 	void		*img;
 
-	if (enemy->direction == 't' && dt->frame % 2 == 0)
+	if (enemy->direction == MOVE_UP && dt->frame % 2 == 0)
 		img = dt->img_ref.en1_t;
-	else if (enemy->direction == 't' && dt->frame % 2 != 0)
+	else if (enemy->direction == MOVE_UP && dt->frame % 2 != 0)
 		img = dt->img_ref.en2_t;
-	else if (enemy->direction == 'd' && dt->frame % 2 == 0)
+	else if (enemy->direction == MOVE_DOWN && dt->frame % 2 == 0)
 		img = dt->img_ref.en1_d;
-	else if (enemy->direction == 'd' && dt->frame % 2 != 0)
+	else if (enemy->direction == MOVE_DOWN && dt->frame % 2 != 0)
 		img = dt->img_ref.en2_d;
-	else if (enemy->direction == 'r' && dt->frame % 2 == 0)
+	else if (enemy->direction == MOVE_RIGHT && dt->frame % 2 == 0)
 		img = dt->img_ref.en1_r;
-	else if (enemy->direction == 'r' && dt->frame % 2 != 0)
+	else if (enemy->direction == MOVE_RIGHT && dt->frame % 2 != 0)
 		img = dt->img_ref.en2_r;
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 11:46:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:48:35 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,14 @@
 # ifndef MOVE_DELAY_ENEMY
 #  define MOVE_DELAY_ENEMY 25000
 # endif
+
+typedef enum e_move
+{
+	MOVE_UP		= 't',
+	MOVE_LEFT	= 'l',
+	MOVE_DOWN	= 'b',
+	MOVE_RIGHT	= 'r'
+}	t_move;
 
 typedef struct s_player_dt
 {

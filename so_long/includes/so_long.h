@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 13:51:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:48:21 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@
 # ifndef IMG_SIZE
 #  define IMG_SIZE 64
 # endif
+
+typedef enum e_move
+{
+	MOVE_UP		= 't',
+	MOVE_LEFT	= 'l',
+	MOVE_DOWN	= 'b',
+	MOVE_RIGHT	= 'r'
+}	t_move;
 
 typedef struct s_player_dt
 {

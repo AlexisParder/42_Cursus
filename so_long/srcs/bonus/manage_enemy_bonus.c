@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:45:42 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 11:46:05 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:37:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static void	updt_en_move(t_enemy_dt *enemy)
 {
-	if (enemy->direction == 'r')
+	if (enemy->direction == MOVE_RIGHT)
 		enemy->pos_x++;
-	else if (enemy->direction == 'l')
+	else if (enemy->direction == MOVE_LEFT)
 		enemy->pos_x--;
-	else if (enemy->direction == 't')
+	else if (enemy->direction == MOVE_UP)
 		enemy->pos_y--;
-	else if (enemy->direction == 'd')
+	else if (enemy->direction == MOVE_DOWN)
 		enemy->pos_y++;
 	enemy->direction = enemy->direction;
 }
@@ -51,14 +51,15 @@ static void	updt_direction(t_mlx_dt *mlx_dt, t_enemy_dt *enemy)
 	int		move_d;
 	char	r_dir;
 
-	move_l = check_move_en(mlx_dt, 'l', enemy->pos_x, enemy->pos_y);
-	move_r = check_move_en(mlx_dt, 'r', enemy->pos_x, enemy->pos_y);
-	move_t = check_move_en(mlx_dt, 't', enemy->pos_x, enemy->pos_y);
-	move_d = check_move_en(mlx_dt, 'd', enemy->pos_x, enemy->pos_y);
+	move_l = check_move_en(mlx_dt, MOVE_LEFT, enemy->pos_x, enemy->pos_y);
+	move_r = check_move_en(mlx_dt, MOVE_RIGHT, enemy->pos_x, enemy->pos_y);
+	move_t = check_move_en(mlx_dt, MOVE_UP, enemy->pos_x, enemy->pos_y);
+	move_d = check_move_en(mlx_dt, MOVE_DOWN, enemy->pos_x, enemy->pos_y);
 	r_dir = random_dir(move_l, move_r, move_t, move_d);
-	if (r_dir == 'l' || r_dir == 'r' || r_dir == 't' || r_dir == 'd')
+	if (r_dir == MOVE_DOWN || r_dir == MOVE_RIGHT
+		|| r_dir == MOVE_LEFT || r_dir == MOVE_UP)
 	{
-		enemy->direction = random_dir(move_l, move_r, move_t, move_d);
+		enemy->direction = r_dir;
 		make_move_enemy(mlx_dt, enemy);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/16 12:42:14 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/23 12:45:43 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	updt_pl(t_mlx_dt *mlx_data)
 {
 	void	*img;
 
-	if (mlx_data->player->direction == 'r')
+	if (mlx_data->player->direction == MOVE_RIGHT)
 		img = mlx_data->img_ref.pl_r;
-	else if (mlx_data->player->direction == 'l')
+	else if (mlx_data->player->direction == MOVE_LEFT)
 		img = mlx_data->img_ref.pl_l;
-	else if (mlx_data->player->direction == 't')
+	else if (mlx_data->player->direction == MOVE_UP)
 		img = mlx_data->img_ref.pl_t;
 	else
 		img = mlx_data->img_ref.pl_d;
@@ -42,13 +42,13 @@ void	updt_pl(t_mlx_dt *mlx_data)
 
 static void	updt_pl_move(t_mlx_dt *mlx_data, char move)
 {
-	if (move == 'r')
+	if (move == MOVE_RIGHT)
 		mlx_data->player->pos_x++;
-	else if (move == 'l')
+	else if (move == MOVE_LEFT)
 		mlx_data->player->pos_x--;
-	else if (move == 't')
+	else if (move == MOVE_UP)
 		mlx_data->player->pos_y--;
-	else if (move == 'd')
+	else if (move == MOVE_DOWN)
 		mlx_data->player->pos_y++;
 	mlx_data->player->direction = move;
 	mlx_data->player->nb_move++;
