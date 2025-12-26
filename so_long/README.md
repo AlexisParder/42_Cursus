@@ -1,53 +1,53 @@
-*This project has been created as part of the 42 curriculum by achauvie.*
+*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # so_long
-![🇫🇷 French](./README_FR.md)
+![🇬🇧 English](./README_EN.md)
 
 ## Description
-A graphical project focused on building a small 2D game using the MiniLibX library. The objective is to implement map parsing, collision logic, sprite rendering, and event handling, while respecting a strict set of rules regarding map validity, movement constraints, and asset management. The challenge increases with the need to create smooth player interactions, handle animation cycles, and ensure proper resource cleanup. This project develops skills in low-level graphics, event-driven programming, input handling, file parsing, and memory/resource management within a constrained C environment.
+Un projet graphique axé sur la création d’un petit jeu 2D en utilisant la bibliothèque MiniLibX. L’objectif est d’implémenter l’analyse de la carte, la logique de collision, le rendu des sprites et la gestion des événements, tout en respectant un ensemble strict de règles concernant la validité de la carte, les contraintes de déplacement et la gestion des ressources graphiques. La difficulté augmente avec la nécessité de créer des interactions fluides avec le joueur, de gérer les cycles d’animation et d’assurer un nettoyage correct des ressources. Ce projet permet de développer des compétences en graphismes bas niveau, programmation événementielle, gestion des entrées utilisateur, analyse de fichiers et gestion de la mémoire/des ressources dans un environnement C contraint.
 
 ![Project banner](./banner_so_long.png)
 
 ## Instructions
-- Use the `make` command to generate the program.
-	- Use the `make bonus` command to generate the program with bonus.
-- Use the `./so_long maps/<map_file>.ber` command to start game.
-	- Use the `./so_long_bonus maps/<map_file>.ber` command to start game with bonus.
+- Utilisez la commande `make` pour générer le programme.
+	- Utilisez la commande `make bonus` pour générer le programme avec les bonus.
+- Utilisez la commande `./so_long maps/<fichier_carte>.ber` pour lancer le jeu.
+	- Utilisez la commande `./so_long_bonus maps/<fichier_carte>.ber` pour lancer le jeu avec les bonus.
 
-## Controls
-| Key                   | Action Description           |
-|-----------------------|------------------------------|
-| **W** / **↑ (Up)**    | Move up                      |
-| **A** / **← (Left)**  | Move left                    |
-| **S** / **↓ (Down)**  | Move down                    |
-| **D** / **→ (Right)** | Move right                   |
-| **ESCAPE**            | Quit game                    |
+## Commandes
+| Key                    | Action Description           |
+|------------------------|------------------------------|
+| **W** / **↑ (Haut)**   | Se déplacer vers le haut     |
+| **A** / **← (Gauche)** | Se déplacer vers la gauche   |
+| **S** / **↓ (Bas)**    | Se déplacer vers le bas      |
+| **D** / **→ (Droite)** | Se déplacer vers la droite   |
+| **ÉCHAP**              | Quitter le jeu               |
 
-## Maps
-The maps are located in the `maps` folder.<br>
-The map must follow certain rules:
-- The map must be in the `.ber` format.
-- The map can be composed of only these 5 characters:
-	- **0** for an empty space,
-	- **1** for a wall,
-	- **C** for a collectible,
-	- **E** for a map exit,
-	- **P** for the player’s starting position.
-	- For the bonus, you can add
-		- **H** for the position of an enemy
-- To be valid, a map must contain 1 exit, 1 starting position and at least 1 collectible.
-- The map must be rectangular.
-- The map must be enclosed/surrounded by walls.
-- There must be at least one possible path between the player, all the collectibles, and the exit door.
+## Cartes
+Les cartes se trouvent dans le dossier `maps`.<br>
+La carte doit respecter certaines règles :
+- La carte doit être au format `.ber`.
+- La carte ne peut être composée que des 5 caractères suivants :
+	- **0** pour un espace vide,
+	- **1** pour un mur,
+	- **C** pour un objet à collecter,
+	- **E** pour la sortie de la carte,
+	- **P** pour la position de départ du joueur.
+	- Pour le bonus, vous pouvez ajouter :
+		- **H** pour la position d’un ennemi.
+- Pour être valide, une carte doit contenir 1 sortie, 1 position de départ et au moins 1 objet à collecter.
+- La carte doit être rectangulaire.
+- La carte doit être entièrement entourée de murs.
+- Il doit exister au moins un chemin possible entre le joueur, tous les objets à collecter et la sortie.
 
 ## Bonus
-- [x] Make the player lose when they touch an enemy patrol.
-- [X] Add some sprite animation.
-- [x] Display the movement count directly on screen instead of writing it in the shell.
+- [x] Faire perdre le joueur lorsqu’il touche une patrouille ennemie.
+- [X] Ajouter des animations de sprites.
+- [x] Afficher le compteur de déplacements directement à l’écran au lieu de l’écrire dans le terminal.
 
-## Use of AI
-AI was used to generate certain images such as the enemy, the movement counter background, the victory poster, and the defeat poster.
+## Utilisation de l’IA
+L’IA a été utilisée pour générer certaines images comme l’ennemi, le fond du compteur de mouvement, l’affiche de victoire et l’affiche de défaite.
 
-## Resources
+## Ressources
 - MiniLibx
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

@@ -1,54 +1,54 @@
-*This project has been created as part of the 42 curriculum by achauvie.*
+*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # push_swap
-![🇫🇷 French](./README_FR.md)
+![🇬🇧 English](./README_EN.md)
 
 ## Description
-A highly algorithmic project where the goal is to sort a list of integers using two stacks and a restricted set of operations.
-The challenge is to design and implement an optimized sorting strategy that produces the fewest possible instructions, especially for large datasets (100–500 elements).
-Common approaches include small-dataset sorting, chunk-based strategies, and radix sort.
-This project develops algorithmic thinking, time/operation optimization, data structure manipulation, and implementation of complex logic under strict constraints.
+Un projet fortement algorithmique dont l’objectif est de trier une liste d’entiers en utilisant deux piles et un ensemble restreint d’opérations.
+Le défi consiste à concevoir et implémenter une stratégie de tri optimisée produisant le moins d’instructions possible, en particulier pour de grands ensembles de données (100 à 500 éléments).
+Les approches courantes incluent le tri de petits ensembles, les stratégies par chunks et le radix sort.
+Ce projet développe la réflexion algorithmique, l’optimisation du temps et du nombre d’opérations, la manipulation de structures de données et l’implémentation d’une logique complexe sous de fortes contraintes.
 
-## Allowed Operations
-The list below shows all the operations permitted to sort the numbers in the `push_swap` project.
-You must use only these operations to manipulate the stacks and achieve a sorted list.
+## Opérations autorisées
+La liste ci-dessous présente toutes les opérations autorisées pour trier les nombres dans le projet `push_swap`.
+Vous devez utiliser uniquement ces opérations pour manipuler les piles et obtenir une liste triée.
 - **sa (swap a)**
-	- Swap the first 2 elements at the top of stack a.
-	- Do nothing if there is only one element or none.
+	- Échange les 2 premiers éléments au sommet de la pile a.
+	- Ne fait rien s’il n’y a qu’un seul élément ou aucun.
 - **sb (swap b)**
-	- Swap the first 2 elements at the top of stack b.
-	- Do nothing if there is only one element or none.
+	- Échange les 2 premiers éléments au sommet de la pile b.
+	- Ne fait rien s’il n’y a qu’un seul élément ou aucun.
 - **ss**
-	- sa and sb at the same time.
+	- Exécute sa et sb en même temps.
 - **pa (push a)**
-	- Take the first element at the top of b and put it at the top of a.
-	- Do nothing if b is empty.
+	- Prend le premier élément au sommet de b et le place au sommet de a.
+	- Ne fait rien si b est vide.
 - **pb (push b)**
-	- Take the first element at the top of a and put it at the top of b.
-	- Do nothing if a is empty.
+	- Prend le premier élément au sommet de a et le place au sommet de b.
+	- Ne fait rien si a est vide.
 - **ra (rotate a)**
-	- Shift up all elements of stack a by 1.
-	- The first element becomes the last one.
+	- Décale vers le haut tous les éléments de la pile a de 1.
+	- Le premier élément devient le dernier.
 - **rb (rotate b)**
-	- Shift up all elements of stack b by 1.
-	- The first element becomes the last one.
+	- Décale vers le haut tous les éléments de la pile b de 1.
+	- Le premier élément devient le dernier.
 - **rr**
-	- ra and rb at the same time.
+	- Exécute ra et rb en même temps.
 - **rra (reverse rotate a)**
-	- Shift down all elements of stack a by 1.
-	- The last element becomes the first one.
+	- Décale vers le bas tous les éléments de la pile a de 1.
+	- Le dernier élément devient le premier.
 - **rrb (reverse rotate b)**
-	- Shift down all elements of stack b by 1.
-	- The last element becomes the first one.
+	- Décale vers le bas tous les éléments de la pile b de 1.
+	- Le dernier élément devient le premier.
 - **rrr**
-	- rra and rrb at the same time.
+	- Exécute rra et rrb en même temps.
 
 ## Instructions
-- Use the `make` command to generate the program.
-- Use the `./push_swap <list of unordered numbers>` command to sort the list.
-	- ⚠️ The program does not return the sorted list. It only displays the instructions it uses to sort the list.
-	- Using the command `./push_swap <list of unordered numbers> | wc -l` shows the number of instructions used to sort the list.
+- Utilisez la commande `make` pour générer le programme.
+- Utilisez la commande `./push_swap <liste de nombres non triés> `pour trier la liste.
+	- ⚠️ Le programme ne retourne pas la liste triée. Il affiche uniquement les instructions utilisées pour effectuer le tri.
+	- La commande `./push_swap <liste de nombres non triés> | wc -l` permet d’afficher le nombre d’instructions utilisées pour trier la liste.
 
-## Resources
-- Turk Algorithm
+## Ressources
+- Algorithme de Turk
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

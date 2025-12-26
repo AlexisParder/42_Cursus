@@ -1,112 +1,112 @@
-*This project has been created as part of the 42 curriculum by achauvie.*
+*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # libft
-![🇫🇷 French](./README_FR.md)
+![🇬🇧 English](./README_EN.md)
 
 ## Description
-A foundational project from the 42 curriculum.
-Libft consists of recreating a custom version of the standard C library by implementing a wide set of essential functions for memory manipulation, string handling, character checks, and linked list operations.
-This library becomes a core dependency for all subsequent projects (get_next_line, ft_printf, push_swap, minishell, etc.) and establishes strong fundamentals in low-level programming, memory management, and clean code structure.
+Un projet fondamental du cursus 42.
+Libft consiste à recréer une version personnalisée de la bibliothèque standard C en implémentant un large ensemble de fonctions essentielles pour la manipulation de la mémoire, la gestion des chaînes de caractères, les vérifications de caractères et les opérations sur les listes chaînées.
+Cette bibliothèque devient une dépendance centrale pour tous les projets suivants (get_next_line, ft_printf, push_swap, minishell, etc.) et pose des bases solides en programmation bas niveau, gestion de la mémoire et structure de code propre.
 
-## Functions Mandatory
+## Fonctions obligatoires
 - **ft_isalpha**
-	- Checks if the character is alphabetic (a–z or A–Z).
+	- Vérifie si le caractère est alphabétique (a–z ou A–Z).
 - **ft_isdigit**
-	- Checks if the character is a decimal digit (0–9).
+	- Vérifie si le caractère est un chiffre décimal (0–9).
 - **ft_isalnum**
-	- Checks if the character is alphanumeric (letter or digit).
+	- Vérifie si le caractère est alphanumérique (lettre ou chiffre).
 - **ft_isascii**
-	- Checks if the character is a valid ASCII character (0–127).
+	- Vérifie si le caractère est un caractère ASCII valide (0–127).
 - **ft_isprint**
-	- Checks if the character is printable (including space).
+	- Vérifie si le caractère est imprimable (y compris l’espace).
 - **ft_toupper**
-	- Converts a lowercase letter to uppercase.
+	- Convertit une lettre minuscule en majuscule.
 - **ft_tolower**
-	- Converts an uppercase letter to lowercase.
+	- Convertit une lettre majuscule en minuscule.
 - **ft_strlen**
-	- Returns the length of a string.
+	- Retourne la longueur d’une chaîne de caractères.
 - **ft_memset**
-	- Fills a block of memory with a given value.
+	- Remplit une zone mémoire avec une valeur donnée.
 - **ft_bzero**
-	- Sets a block of memory to zero.
+	- Met une zone mémoire à zéro.
 - **ft_memcpy**
-	- Copies a block of memory to another (no overlap handling).
+	- Copie une zone mémoire vers une autre (sans gestion du chevauchement).
 - **ft_memmove**
-	- Copies a block of memory while handling overlapping areas safely.
+	- Copie une zone mémoire en gérant correctement les zones qui se chevauchent.
 - **ft_memchr**
-	- Searches for a byte in a block of memory.
+	- Recherche un octet dans une zone mémoire.
 - **ft_memcmp**
-	- Compares two blocks of memory.
+	- Compare deux zones mémoire.
 - **ft_strlcpy**
-	- Copies a string into a buffer with size limitation.
+	- Copie une chaîne dans un buffer avec une limitation de taille.
 - **ft_strlcat**
-	- Concatenates a string into a buffer with size limitation.
+	- Concatène une chaîne dans un buffer avec une limitation de taille.
 - **ft_strchr**
-	- Finds the first occurrence of a character in a string.
+	- Trouve la première occurrence d’un caractère dans une chaîne.
 - **ft_strrchr**
-	- Finds the last occurrence of a character in a string.
+	- Trouve la dernière occurrence d’un caractère dans une chaîne.
 - **ft_strncmp**
-	- Compares two strings up to n characters.
+	- Compare deux chaînes jusqu’à n caractères.
 - **ft_strnstr**
-	- Searches for a substring inside another string, limited by length.
+	- Recherche une sous-chaîne dans une autre chaîne, avec une limite de longueur.
 - **ft_strdup**
-	- Duplicates a string using dynamic memory.
+	- Duplique une chaîne en utilisant la mémoire dynamique.
 - **ft_atoi**
-	- Converts a string to an integer.
+	- Convertit une chaîne en entier.
 - **ft_calloc**
-	- Allocates memory and initializes it to zero.
+	- Alloue de la mémoire et l’initialise à zéro.
 - **ft_substr**
-	- Allocates and returns a substring from a given string.
+	- Alloue et retourne une sous-chaîne à partir d’une chaîne donnée.
 - **ft_strjoin**
-	- Joins two strings into a newly allocated string.
+	- Assemble deux chaînes dans une nouvelle chaîne allouée.
 - **ft_strtrim**
-	- Trims characters from the start and end of a string based on a given set.
+	- Supprime les caractères au début et à la fin d’une chaîne selon un ensemble donné.
 - **ft_split**
-	- Splits a string into substrings based on a delimiter.
+	- Découpe une chaîne en sous-chaînes à partir d’un délimiteur.
 - **ft_itoa**
-	- Converts an integer into a string.
+	- Convertit un entier en chaîne de caractères.
 - **ft_strmapi**
-	- Applies a function to each character of a string and returns a new string.
+	- Applique une fonction à chaque caractère d’une chaîne et retourne une nouvelle chaîne.
 - **ft_striteri**
-	- Applies a function to each character of a string, passing its index.
+	- Applique une fonction à chaque caractère d’une chaîne en passant son index.
 - **ft_putchar_fd**
-	- Writes a character to a file descriptor.
+	- Écrit un caractère sur un descripteur de fichier.
 - **ft_putstr_fd**
-	- Writes a string to a file descriptor.
+	- Écrit une chaîne sur un descripteur de fichier.
 - **ft_putendl_fd**
-	- Writes a string followed by a newline to a file descriptor.
+	- Écrit une chaîne suivie d’un retour à la ligne sur un descripteur de fichier.
 - **ft_putnbr_fd**
-	- Writes an integer in base 10 to a file descriptor.
+	- Écrit un entier en base 10 sur un descripteur de fichier.
 
-## Functions Bonus
+## Fonctions bonus
 - **ft_lstnew**
-	- Allocates a new list node with the given content.
+	- Alloue un nouveau maillon de liste avec le contenu donné.
 - **ft_lstadd_front**
-	- Adds a node at the beginning of the list.
+	- Ajoute un maillon au début de la liste.
 - **ft_lstsize**
-	- Counts the number of nodes in the list.
+	- Compte le nombre de maillons dans la liste.
 - **ft_lstlast**
-	- Returns the last node of the list.
+	- Retourne le dernier maillon de la liste.
 - **ft_lstadd_back**
-	- Adds a node at the end of the list.
+	- Ajoute un maillon à la fin de la liste.
 - **ft_lstdelone**
-	- Deletes a node and frees its content using the del function.
+	- Supprime un maillon et libère son contenu à l’aide de la fonction del.
 - **ft_lstclear**
-	- Deletes and frees the entire list.
+	- Supprime et libère entièrement la liste.
 - **ft_lstiter**
-	- Iterates through the list and applies a function to each node's content.
+	- Parcourt la liste et applique une fonction au contenu de chaque maillon.
 - **ft_lstmap**
-	- Creates a new list by applying a function to each node of an existing list.
+	- Crée une nouvelle liste en appliquant une fonction à chaque maillon d’une liste existante.
 
-## Additional Projects Integrated
-The following functions come from two separate 42 projects — get_next_line and ft_printf.
-They are not part of the original mandatory Libft project, but they are commonly integrated afterwards to extend the library with more advanced features such as formatted output and line-by-line file reading.
+## Projets supplémentaires intégrés
+Les fonctions suivantes proviennent de deux projets distincts du cursus 42 — get_next_line et ft_printf.
+Elles ne font pas partie du projet Libft obligatoire original, mais sont souvent intégrées par la suite afin d’enrichir la bibliothèque avec des fonctionnalités plus avancées telles que l’affichage formaté et la lecture de fichiers ligne par ligne.
 - ![ft_printf](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)
-	- A custom re-implementation of the standard printf function.
+	- Une réimplémentation personnalisée de la fonction standard printf.
 - ![get_next_line](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)
-	- Reads a file descriptor line by line, returning one line per call, regardless of the buffer size.
+	- Lit un descripteur de fichier ligne par ligne, en retournant une ligne par appel, quelle que soit la taille du buffer.
 
 ## Instructions
-- Use the `make` command to generate the archive.
-	- Use the `make bonus` command to generate the archive with bonus functions.
-- Export the `libft.a` and `libft.h` files to the program that requires these functions.
+- Utilisez la commande `make` pour générer l’archive.
+	- Utilisez la commande `make` bonus pour générer l’archive avec les fonctions bonus.
+- Exportez les fichiers `libft.a` et `libft.h` vers le programme qui nécessite ces fonctions.

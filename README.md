@@ -1,49 +1,52 @@
 # 42 Cursus
 [![achauvie's 42 stats](https://badge.mediaplus.ma/darkblue/achauvie?1337Badge=off&UM6P=off)](https://github.com/AlexisParder)<br>
-![🇫🇷 French](./README_FR.md)
+![🇬🇧 English](./README_EN.md)
 
 ## libf
-A foundational project from the 42 curriculum.
-Libft consists of recreating a custom version of the standard C library by implementing a wide set of essential functions for memory manipulation, string handling, character checks, and linked list operations.
-This library becomes a core dependency for all subsequent projects (get_next_line, ft_printf, push_swap, minishell, etc.) and establishes strong fundamentals in low-level programming, memory management, and clean code structure.
+Un projet fondamental du cursus 42.
+Libft consiste à recréer une version personnalisée de la bibliothèque standard C en implémentant un large ensemble de fonctions essentielles pour la manipulation de la mémoire, la gestion des chaînes de caractères, les vérifications de caractères et les opérations sur les listes chaînées.
+Cette bibliothèque devient une dépendance centrale pour tous les projets suivants (get_next_line, ft_printf, push_swap, minishell, etc.) et pose des bases solides en programmation bas niveau, gestion de la mémoire et structure de code propre.
 
-![Go to libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+![Voir libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
 
 ## ft_print
-A full reimplementation of the iconic printf function in C.
-The project aims to handle formatted output by parsing format strings and supporting variadic arguments using stdarg.h.
-It covers all mandatory conversions (c, s, p, d, i, u, x, X, %) and focuses on building a modular, well-structured, and efficient formatting engine.
-This project strengthens skills in parsing logic, base conversions, buffer management, and function architecture.
+Une réimplémentation complète de la célèbre fonction printf en C.
+Le projet a pour objectif de gérer l’affichage formaté en analysant les chaînes de format et en prenant en charge les arguments variables à l’aide de stdarg.h.
+Il couvre toutes les conversions obligatoires (c, s, p, d, i, u, x, X, %) et met l’accent sur la construction d’un moteur de formatage modulaire, bien structuré et efficace.
+Ce projet renforce les compétences en logique de parsing, conversions de bases, gestion de buffers et architecture de fonctions.
 
-![Go to ft_printf](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)
+![Voir ft_printf](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)
 
 ## get_next_line
-A project focused on creating a function capable of reading any file, input stream, or stdin one line at a time.
-The implementation must manage internal buffers, preserve unread data between calls, handle arbitrary BUFFER_SIZE values, and ensure full memory safety.
-The optional bonus adds multi-file descriptor handling.
-This project reinforces knowledge of file descriptors, dynamic memory, static variables, buffer logic, and robust edge-case management.
+Un projet axé sur la création d’une fonction capable de lire n’importe quel fichier, flux d’entrée ou l’entrée standard (stdin) ligne par ligne.
+L’implémentation doit gérer des buffers internes, conserver les données non lues entre les appels, prendre en charge des valeurs arbitraires de BUFFER_SIZE et garantir une sécurité mémoire totale.
+Le bonus optionnel ajoute la gestion de plusieurs descripteurs de fichiers simultanément.
+Ce projet renforce les connaissances sur les descripteurs de fichiers, la mémoire dynamique, les variables statiques, la logique de buffer et la gestion robuste des cas limites.
 
-![Go to get_next_line](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)
+![Voir get_next_line](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)
 
 ## born2beroot
-A system-administration project centered around installing and configuring a secure Linux virtual machine from scratch. The goal is to enforce strict security and compliance rules, including user/group management, minimum password policies, a hardened SSH setup, and a custom firewall configuration. The project also requires monitoring system resources through a custom script and documenting the entire setup using rigorous guidelines. This project strengthens understanding of Linux fundamentals, privilege management, security hardening, virtualization, and reproducible system configuration.
+Un projet d’administration système centré sur l’installation et la configuration complète d’une machine virtuelle Linux sécurisée à partir de zéro. L’objectif est de mettre en place des règles strictes de sécurité et de conformité, incluant la gestion des utilisateurs et des groupes, des politiques minimales de mots de passe, une configuration SSH renforcée et une configuration personnalisée du pare-feu.
+Le projet exige également la surveillance des ressources système à l’aide d’un script personnalisé et la documentation complète de l’installation selon des consignes rigoureuses. Ce projet permet de renforcer la compréhension des bases de Linux, de la gestion des privilèges, du durcissement de la sécurité, de la virtualisation et de la configuration système reproductible.
 
-![Go to born2beroot](https://github.com/AlexisParder/42_Cursus/tree/main/born2beroot)
+![Voir born2beroot](https://github.com/AlexisParder/42_Cursus/tree/main/born2beroot)
 
 ## push_swap
-A highly algorithmic project where the goal is to sort a list of integers using two stacks and a restricted set of operations.
-The challenge is to design and implement an optimized sorting strategy that produces the fewest possible instructions, especially for large datasets (100–500 elements).
-Common approaches include small-dataset sorting, chunk-based strategies, and radix sort.
-This project develops algorithmic thinking, time/operation optimization, data structure manipulation, and implementation of complex logic under strict constraints.
+Un projet fortement algorithmique dont l’objectif est de trier une liste d’entiers en utilisant deux piles et un ensemble restreint d’opérations.
+Le défi consiste à concevoir et implémenter une stratégie de tri optimisée produisant le moins d’instructions possible, en particulier pour de grands ensembles de données (100 à 500 éléments).
+Les approches courantes incluent le tri de petits ensembles, les stratégies par chunks et le radix sort.
+Ce projet développe la réflexion algorithmique, l’optimisation du temps et du nombre d’opérations, la manipulation de structures de données et l’implémentation d’une logique complexe sous de fortes contraintes.
 
-![Go to push_swap](https://github.com/AlexisParder/42_Cursus/tree/main/push_swap)
+![Voir push_swap](https://github.com/AlexisParder/42_Cursus/tree/main/push_swap)
 
 ## so_long
-A graphical project focused on building a small 2D game using the MiniLibX library. The objective is to implement map parsing, collision logic, sprite rendering, and event handling, while respecting a strict set of rules regarding map validity, movement constraints, and asset management. The challenge increases with the need to create smooth player interactions, handle animation cycles, and ensure proper resource cleanup. This project develops skills in low-level graphics, event-driven programming, input handling, file parsing, and memory/resource management within a constrained C environment.
+Un projet graphique axé sur la création d’un petit jeu 2D en utilisant la bibliothèque MiniLibX. L’objectif est d’implémenter l’analyse de la carte, la logique de collision, le rendu des sprites et la gestion des événements, tout en respectant un ensemble strict de règles concernant la validité de la carte, les contraintes de déplacement et la gestion des ressources graphiques. La difficulté augmente avec la nécessité de créer des interactions fluides avec le joueur, de gérer les cycles d’animation et d’assurer un nettoyage correct des ressources. Ce projet permet de développer des compétences en graphismes bas niveau, programmation événementielle, gestion des entrées utilisateur, analyse de fichiers et gestion de la mémoire/des ressources dans un environnement C contraint.
 
-![Go to so_long](https://github.com/AlexisParder/42_Cursus/tree/main/so_long)
+![Voir so_long](https://github.com/AlexisParder/42_Cursus/tree/main/so_long)
 
 ## pipex
-A project aimed at reproducing the behavior of Unix pipelines by redirecting input/output streams between multiple commands. The program must correctly fork processes, set up pipes, manage file descriptors, and execute commands through PATH resolution, all while ensuring strict error handling and memory safety. The bonus involves handling multiple pipes and heredoc functionality. This project reinforces mastery of processes, system calls, I/O redirection, environment variables, and inter-process communication, while teaching how to orchestrate complex data flows at the system level.
+Un projet visant à reproduire le comportement des pipelines Unix en redirigeant les flux d’entrée et de sortie entre plusieurs commandes. Le programme doit créer correctement des processus avec fork, mettre en place des pipes, gérer les descripteurs de fichiers et exécuter les commandes via la résolution du PATH, tout en garantissant une gestion stricte des erreurs et une sécurité mémoire totale.
+Le bonus consiste à gérer plusieurs pipes ainsi que la fonctionnalité heredoc.
+Ce projet renforce la maîtrise des processus, des appels système, de la redirection des entrées/sorties, des variables d’environnement et de la communication inter-processus, tout en apprenant à orchestrer des flux de données complexes au niveau système.
 
-![Go to pipex](https://github.com/AlexisParder/42_Cursus/tree/main/pipex)
+![Voir pipex](https://github.com/AlexisParder/42_Cursus/tree/main/pipex)

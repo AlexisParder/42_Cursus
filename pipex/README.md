@@ -1,21 +1,23 @@
-*This project has been created as part of the 42 curriculum by achauvie.*
+*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # pipex
-![🇫🇷 French](./README_FR.md)
+![🇬🇧 English](./README_EN.md)
 
 ## Description
-A project aimed at reproducing the behavior of Unix pipelines by redirecting input/output streams between multiple commands. The program must correctly fork processes, set up pipes, manage file descriptors, and execute commands through PATH resolution, all while ensuring strict error handling and memory safety. The bonus involves handling multiple pipes and heredoc functionality. This project reinforces mastery of processes, system calls, I/O redirection, environment variables, and inter-process communication, while teaching how to orchestrate complex data flows at the system level.
+Un projet visant à reproduire le comportement des pipelines Unix en redirigeant les flux d’entrée et de sortie entre plusieurs commandes. Le programme doit créer correctement des processus avec fork, mettre en place des pipes, gérer les descripteurs de fichiers et exécuter les commandes via la résolution du PATH, tout en garantissant une gestion stricte des erreurs et une sécurité mémoire totale.
+Le bonus consiste à gérer plusieurs pipes ainsi que la fonctionnalité heredoc.
+Ce projet renforce la maîtrise des processus, des appels système, de la redirection des entrées/sorties, des variables d’environnement et de la communication inter-processus, tout en apprenant à orchestrer des flux de données complexes au niveau système.
 
 ## Instructions
-- Use the `make` command to generate the program.
-- Use the `./pipex file1 cmd1 cmd2 file2` command to start program.
-	- **file1** and **file2** are file names.
-	- **cmd1** and **cmd2** are shell commands with their parameters.
-	- **Exemple:** ``./pipex infile "ls -l" "wc -l" outfile``
+- Utilisez la commande `make` pour générer le programme.
+- Utilisez la commande `./pipex file1 cmd1 cmd2 file2` pour lancer le programme.
+	- **file1** et **file2** sont des noms de fichiers.
+	- **cmd1** et **cmd2** sont des commandes shell avec leurs paramètres.
+	- Exemple : `./pipex infile "ls -l" "wc -l" outfile`
 
 ## Bonus
 
-## Use of AI
+## Utilisation de l’IA
 
 ## Resources
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

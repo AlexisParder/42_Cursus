@@ -1,15 +1,15 @@
-*This project has been created as part of the 42 curriculum by achauvie.*
+*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # get_next_line
-![🇫🇷 French](./README_FR.md)
+![🇬🇧 English](./README_EN.md)
 
 ## Description
-A project focused on creating a function capable of reading any file, input stream, or stdin one line at a time.
-The implementation must manage internal buffers, preserve unread data between calls, handle arbitrary BUFFER_SIZE values, and ensure full memory safety.
-The optional bonus adds multi-file descriptor handling.
-This project reinforces knowledge of file descriptors, dynamic memory, static variables, buffer logic, and robust edge-case management.
+Un projet axé sur la création d’une fonction capable de lire n’importe quel fichier, flux d’entrée ou l’entrée standard (stdin) ligne par ligne.
+L’implémentation doit gérer des buffers internes, conserver les données non lues entre les appels, prendre en charge des valeurs arbitraires de BUFFER_SIZE et garantir une sécurité mémoire totale.
+Le bonus optionnel ajoute la gestion de plusieurs descripteurs de fichiers simultanément.
+Ce projet renforce les connaissances sur les descripteurs de fichiers, la mémoire dynamique, les variables statiques, la logique de buffer et la gestion robuste des cas limites.
 
-## Example of usage
+## Exemple d’utilisation
 ```c
 #include <get_next_line.h>
 #include <fcntl.h>
@@ -25,7 +25,7 @@ int	main(void)
 	line = get_next_line(fd);
 	while (line)
 	{
-		ft_printf("%s", line) // You can replace by printf function.
+		ft_printf("%s", line) // Peut être remplacé par printf.
 		free(line);
 		line = get_next_line(fd);
 	}

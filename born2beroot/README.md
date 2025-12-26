@@ -1,25 +1,26 @@
-*This project has been created as part of the 42 curriculum by achauvie.*
+*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # born2beroot
-![🇫🇷 French](./README_FR.md)
+![🇬🇧 English](./README_EN.md)
 
 ## Description
-A system-administration project centered around installing and configuring a secure Linux virtual machine from scratch. The goal is to enforce strict security and compliance rules, including user/group management, minimum password policies, a hardened SSH setup, and a custom firewall configuration. The project also requires monitoring system resources through a custom script and documenting the entire setup using rigorous guidelines. This project strengthens understanding of Linux fundamentals, privilege management, security hardening, virtualization, and reproducible system configuration.
+Un projet d’administration système centré sur l’installation et la configuration complète d’une machine virtuelle Linux sécurisée à partir de zéro. L’objectif est de mettre en place des règles strictes de sécurité et de conformité, incluant la gestion des utilisateurs et des groupes, des politiques minimales de mots de passe, une configuration SSH renforcée et une configuration personnalisée du pare-feu.
+Le projet exige également la surveillance des ressources système à l’aide d’un script personnalisé et la documentation complète de l’installation selon des consignes rigoureuses. Ce projet permet de renforcer la compréhension des bases de Linux, de la gestion des privilèges, du durcissement de la sécurité, de la virtualisation et de la configuration système reproductible.
 
 ## Script Monitoring.sh
-The script must always be able to display the following information:
-- The architecture of your operating system and its kernel version.
-- The number of physical processors.
-- The number of virtual processors.
-- The current available RAM on your server and its utilization rate as a percentage.
-- The current available storage on your server and its utilization rate as a percentage.
-- The current utilization rate of your processors as a percentage.
-- The date and time of the last reboot.
-- Whether LVM is active or not.
-- The number of active connections.
-- The number of users using the server.
-- The IPv4 address of your server and its MAC (Media Access Control) address.
-- The number of commands executed with the sudo program.
+Le script doit toujours être capable d’afficher les informations suivantes :
+- L’architecture de votre système d’exploitation ainsi que la version de son noyau.
+- Le nombre de processeurs physiques.
+- Le nombre de processeurs virtuels.
+- La quantité de mémoire vive (RAM) disponible sur le serveur ainsi que son taux d’utilisation en pourcentage.
+- L’espace de stockage disponible sur le serveur ainsi que son taux d’utilisation en pourcentage.
+- Le taux d’utilisation actuel des processeurs en pourcentage.
+- La date et l’heure du dernier redémarrage.
+- Si LVM est actif ou non.
+- Le nombre de connexions actives.
+- Le nombre d’utilisateurs actuellement connectés au serveur.
+- L’adresse IPv4 du serveur ainsi que son adresse MAC (Media Access Control).
+- Le nombre de commandes exécutées avec le programme `sudo`.
 
-### Resources
+### Ressources
 - ![Guide Born2beroot](https://github.com/Vikingu-del/Born2beRoot)
