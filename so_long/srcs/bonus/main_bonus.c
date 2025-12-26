@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 12:46:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 13:01:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ int	main(int ac, char **av)
 	{
 		ft_printf("Usage:\n");
 		ft_printf("./so_long_bonus <path/map_name.ber>\n");
-		ft_printf("./so_long_bonus <W> <H> <C> <number of enemy>\n");
-		ft_printf("	<W>: Width of map\n");
-		ft_printf("	<H>: Height of map\n");
-		ft_printf("	<C>: Number of loot\n");
+		ft_printf("./so_long_bonus <W> <H> <C> <Number_of_enemies>\n");
+		ft_printf("	<W>: Map width\n");
+		ft_printf("	<H>: Map height\n");
+		ft_printf("	<C>: Number of collectible items\n");
 		return (1);
 	}
 	return (0);
