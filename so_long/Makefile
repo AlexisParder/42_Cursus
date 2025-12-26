@@ -47,7 +47,8 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_display_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_move_enemy_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_enemy_bonus.c \
-					$(SRC_BONUS_DIR)utils/utils_create_image_bonus.c
+					$(SRC_BONUS_DIR)utils/utils_create_image_bonus.c \
+					$(SRC_BONUS_DIR)utils/utils_time_bonus.c
 
 OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
 

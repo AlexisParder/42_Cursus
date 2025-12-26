@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 13:33:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 09:08:37 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <mlx.h>
 # include <fcntl.h>
 # include <time.h>
+# include <sys/time.h>
 
 # ifndef TITLE
 #  define TITLE "so_long_bonus - achauvie"
@@ -88,7 +89,7 @@
 #  define IMG_SIZE 64
 # endif
 # ifndef MOVE_DELAY_ENEMY
-#  define MOVE_DELAY_ENEMY 25000
+#  define MOVE_DELAY_ENEMY 500
 # endif
 
 typedef enum e_move
@@ -173,6 +174,7 @@ typedef struct s_mlx_dt
 	t_enemy_dt		*enemy;
 	t_map_dt		map_dt;
 	size_t			frame;
+	long			last_time_enemy_move;
 }	t_mlx_dt;
 
 int			check_move(t_mlx_dt *mlx_data, char move, size_t p_x, size_t p_y);
@@ -208,6 +210,8 @@ void		move_enemies(t_mlx_dt *mlx_dt, t_enemy_dt **lst);
 
 char		*sl_strjoin(char *s1, char *s2);
 char		random_dir(int l, int r, int t, int d);
+
+long		get_time_ms(void);
 
 size_t		get_max_x(char **map);
 size_t		get_max_y(char **map);

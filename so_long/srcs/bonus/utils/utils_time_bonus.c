@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_loop_bonus.c                                :+:      :+:    :+:   */
+/*   utils_time_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 13:34:08 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 09:12:27 by achauvie         ###   ########.fr       */
+/*   Created: 2025/12/26 09:05:38 by achauvie          #+#    #+#             */
+/*   Updated: 2025/12/26 09:13:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long_bonus.h>
 
-int	manage_loop(t_mlx_dt *mlx_dt)
+long	get_time_ms(void)
 {
-	long	current_time;
+	struct timeval	tv;
+	long			res;
 
-	if (mlx_dt->stop_game)
-		return (0);
-	mlx_dt->frame++;
-	current_time = get_time_ms();
-	if (current_time - mlx_dt->last_time_enemy_move >= MOVE_DELAY_ENEMY)
-	{
-		move_enemies(mlx_dt, &mlx_dt->enemy);
-		mlx_dt->last_time_enemy_move = current_time;
-	}
-	draw_enemies(mlx_dt);
-	display_move(mlx_dt);
-	return (0);
+	gettimeofday(&tv, NULL);
+	res = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+	return (res);
 }
