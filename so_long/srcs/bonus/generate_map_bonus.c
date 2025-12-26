@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:35:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 12:47:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 13:54:44 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,15 +108,15 @@ void	start_generate_map(char **av)
 
 	dt.w = ft_atol(av[1]);
 	if (dt.w < 5)
-		ft_printf("Width < 5\n");
+		ft_printf("Error\nWidth must be at least 5\n");
 	dt.h = ft_atol(av[2]);
 	if (dt.h < 3)
-		ft_printf("Height < 3\n");
+		ft_printf("Error\nHeight must be at least 3\n");
 	if (dt.w == dt.h)
-		ft_printf("The map is not rectangular\n");
+		ft_printf("Error\nThe map is not rectangular\n");
 	dt.c = ft_atol(av[3]);
 	if (dt.c < 1)
-		ft_printf("Loot < 1\n");
+		ft_printf("Error\nLoot must be at least 1\n");
 	dt.nb_en = ft_atol(av[4]);
 	if (dt.nb_en < 0)
 		dt.nb_en = 0;
