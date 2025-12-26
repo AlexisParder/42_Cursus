@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:41:04 by achauvie          #+#    #+#             */
-/*   Updated: 2025/11/05 11:04:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 08:49:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 int	putchar_len(char c)
 {

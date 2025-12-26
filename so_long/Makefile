@@ -4,7 +4,7 @@ NAME_BONUS = so_long_bonus
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT = libs/libft.a
+LIBFT = libs/libft/libft.a
 MLX_DIR = libs/minilibx-linux
 MLX = $(MLX_DIR)/libmlx.a
 
@@ -60,14 +60,19 @@ YELLOW	= \033[0;33m
 RED		= \033[0;31m
 RESET	= \033[0m
 
-all: $(MLX) $(NAME)
+all: $(MLX) $(LIBFT) $(NAME)
 
-bonus: $(MLX) $(NAME_BONUS)
+bonus: $(MLX) $(LIBFT) $(NAME_BONUS)
 
 $(MLX):
 		@echo "$(BLUE)[MLX] Compilation de la minilibx...$(RESET)"
 		@$(MAKE) -C libs/minilibx-linux
 		@echo "$(GREEN)[MLX] Minilibx compilée ✔$(RESET)"
+
+$(LIBFT):
+		@echo "$(BLUE)[LIBFT] Compilation de la libft...$(RESET)"
+		@$(MAKE) -C libs/libft
+		@echo "$(GREEN)[LIBFT] libft compilée ✔$(RESET)"
 
 $(NAME): $(OBJ_FILES)
 		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
@@ -87,12 +92,14 @@ clean:
 		@rm -rf $(OBJ_FILES)
 		@rm -rf $(OBJ_BONUS_FILES)
 		@$(MAKE) -C libs/minilibx-linux clean
+		@$(MAKE) -C libs/libft clean
 		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
 
 fclean: clean
 		@echo "$(RED)[FCLEAN] Suppression des binaires...$(RESET)"
 		@rm -rf $(NAME)
 		@rm -rf $(NAME_BONUS)
+		@$(MAKE) -C libs/libft fclean
 		@echo "$(GREEN)[FCLEAN] OK ✔$(RESET)"
 
 re: fclean all

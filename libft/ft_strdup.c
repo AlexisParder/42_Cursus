@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 08:31:36 by achauvie          #+#    #+#             */
-/*   Updated: 2025/10/22 10:53:24 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 08:49:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 char	*ft_strdup(const char *s)
 {

@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:15:30 by achauvie          #+#    #+#             */
-/*   Updated: 2025/10/22 10:17:24 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 08:49:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
