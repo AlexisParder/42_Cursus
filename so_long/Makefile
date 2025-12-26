@@ -102,7 +102,7 @@ fclean: clean
 		@echo "$(RED)[FCLEAN] Suppression des binaires...$(RESET)"
 		@rm -rf $(NAME)
 		@rm -rf $(NAME_BONUS)
-		@$(MAKE) -C libs/libft fclean
+		@rm -rf libs/libft/libft.a
 		@echo "$(GREEN)[FCLEAN] OK ✔$(RESET)"
 
 re: fclean all
