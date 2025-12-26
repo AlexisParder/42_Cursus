@@ -13,6 +13,10 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 	- Use the `make bonus` command to generate the program with bonus.
 - Use the `./so_long maps/<map_file>.ber` command to start game.
 	- Use the `./so_long_bonus maps/<map_file>.ber` command to start game with bonus.
+	- (Personal bonus) Use the command `./so_long_bonus <W> <H> <C> <Number_of_enemies>` to generate a map.
+		- W: Map width.
+		- H: Map height.
+		- C: Number of collectible items.
 
 ## Controls
 | Key                   | Action Description           |

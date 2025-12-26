@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 09:08:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 12:48:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,16 @@ typedef struct s_mlx_dt
 	long			last_time_enemy_move;
 }	t_mlx_dt;
 
+typedef struct s_gen_map
+{
+	char	**map;
+	long	w;
+	long	h;
+	long	c;
+	long	nb_en;
+	long	space;
+}	t_gen_map;
+
 int			check_move(t_mlx_dt *mlx_data, char move, size_t p_x, size_t p_y);
 int			check_move_en(t_mlx_dt *mlx_dt, char move, size_t p_x, size_t p_y);
 int			check_map(t_map_dt *map);
@@ -207,6 +217,9 @@ void		updt_map(t_mlx_dt *dt, t_enemy_dt *en, size_t pos_x, size_t pos_y);
 void		init_img_ref(t_mlx_dt *mlx_data);
 void		check_img_ref(t_mlx_dt *dt);
 void		move_enemies(t_mlx_dt *mlx_dt, t_enemy_dt **lst);
+void		start_generate_map(char **av);
+void		fill_map_c_h(t_gen_map *dt);
+void		fill_map_base(t_gen_map *dt);
 
 char		*sl_strjoin(char *s1, char *s2);
 char		random_dir(int l, int r, int t, int d);

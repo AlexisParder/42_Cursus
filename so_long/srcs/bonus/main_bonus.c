@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:30:13 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 13:31:48 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 12:46:56 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,10 @@ static int	close_hook(void *param)
 	return (0);
 }
 
-int	main(int ac, char **av)
+static void	start_game(char **av)
 {
 	t_mlx_dt	mlx_dt;
 
-	if (ac != 2)
-	{
-		ft_printf("Error\nInvalid format: './so_long <path/map_name.ber>'");
-		return (1);
-	}
 	mlx_dt.player = NULL;
 	create_map_dt(&mlx_dt, av);
 	mlx_dt.mlx = mlx_init();
@@ -58,9 +53,27 @@ int	main(int ac, char **av)
 	mlx_hook(mlx_dt.win, 2, 1, keydown_hook, &mlx_dt);
 	mlx_hook(mlx_dt.win, 17, 0, close_hook, &mlx_dt);
 	creates_images(&mlx_dt, &mlx_dt.map_dt);
-	srand(time(NULL));
 	mlx_loop_hook(mlx_dt.mlx, manage_loop, &mlx_dt);
 	mlx_loop(mlx_dt.mlx);
 	free(mlx_dt.mlx);
+}
+
+int	main(int ac, char **av)
+{
+	srand(time(NULL));
+	if (ac == 2)
+		start_game(av);
+	else if (ac == 5)
+		start_generate_map(av);
+	else
+	{
+		ft_printf("Usage:\n");
+		ft_printf("./so_long_bonus <path/map_name.ber>\n");
+		ft_printf("./so_long_bonus <W> <H> <C> <number of enemy>\n");
+		ft_printf("	<W>: Width of map\n");
+		ft_printf("	<H>: Height of map\n");
+		ft_printf("	<C>: Number of loot\n");
+		return (1);
+	}
 	return (0);
 }
