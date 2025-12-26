@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:35:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 13:54:44 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 15:41:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ void	start_generate_map(char **av)
 	t_gen_map	dt;
 
 	dt.w = ft_atol(av[1]);
-	if (dt.w < 5)
-		ft_printf("Error\nWidth must be at least 5\n");
+	if (dt.w < 5 || dt.w > 30)
+		ft_printf("Error\nWidth must be between 5 and 30\n");
 	dt.h = ft_atol(av[2]);
-	if (dt.h < 3)
-		ft_printf("Error\nHeight must be at least 3\n");
+	if (dt.h < 3 || dt.h > 16)
+		ft_printf("Error\nHeight must be between 3 and 16\n");
 	if (dt.w == dt.h)
 		ft_printf("Error\nThe map is not rectangular\n");
 	dt.c = ft_atol(av[3]);
@@ -120,7 +120,8 @@ void	start_generate_map(char **av)
 	dt.nb_en = ft_atol(av[4]);
 	if (dt.nb_en < 0)
 		dt.nb_en = 0;
-	if (dt.w < 5 || dt.h < 3 || dt.w == dt.h || dt.c < 1)
+	if (dt.w < 5 || dt.w > 30 || dt.h > 16 || dt.h < 3
+		|| dt.w == dt.h || dt.c < 1)
 		exit(EXIT_FAILURE);
 	generate_map(&dt);
 }
