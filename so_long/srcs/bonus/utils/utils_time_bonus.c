@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 09:05:38 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 09:13:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 15:08:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 long	get_time_ms(void)
 {
-	struct timeval	tv;
+	struct timeval	time_val;
 	long			res;
 
-	gettimeofday(&tv, NULL);
-	res = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+	gettimeofday(&time_val, NULL);
+	res = (time_val.tv_sec * 1000) + (time_val.tv_usec / 1000);
 	return (res);
 }
