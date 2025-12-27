@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:35:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 09:42:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:47:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	start_generate_map(char **av)
 		ft_printf("Error\nLoot must be at least 1\n");
 	if (dt.nb_en < 0)
 		dt.nb_en = 0;
-	if (dt.w < 5 || dt.w > 30 || dt.h > 16 || dt.h < 3
+	if (dt.w < 5 || dt.w > 30 || dt.h < 3 || dt.h > 16
 		|| dt.w == dt.h || dt.c < 1)
 		exit(EXIT_FAILURE);
 	ft_printf("Starting map generation, please wait...\n");
