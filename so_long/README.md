@@ -2,6 +2,15 @@
 
 # so_long
 ![🇬🇧 English](./README_EN.md)
+- [so\_long](#so_long)
+	- [Description](#description)
+	- [Instructions](#instructions)
+	- [Commandes](#commandes)
+	- [Cartes](#cartes)
+	- [Bonus](#bonus)
+	- [Utilisation de l’IA](#utilisation-de-lia)
+	- [Ressources](#ressources)
+
 
 ## Description
 Un projet graphique axé sur la création d’un petit jeu 2D en utilisant la bibliothèque MiniLibX. L’objectif est d’implémenter l’analyse de la carte, la logique de collision, le rendu des sprites et la gestion des événements, tout en respectant un ensemble strict de règles concernant la validité de la carte, les contraintes de déplacement et la gestion des ressources graphiques. La difficulté augmente avec la nécessité de créer des interactions fluides avec le joueur, de gérer les cycles d’animation et d’assurer un nettoyage correct des ressources. Ce projet permet de développer des compétences en graphismes bas niveau, programmation événementielle, gestion des entrées utilisateur, analyse de fichiers et gestion de la mémoire/des ressources dans un environnement C contraint.
