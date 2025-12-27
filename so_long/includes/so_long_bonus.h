@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 08:50:02 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:32:09 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,7 @@ void		move_enemies(t_mlx_dt *mlx_dt, t_enemy_dt **lst);
 void		start_generate_map(char **av);
 void		fill_map_c_h(t_gen_map *dt);
 void		fill_map_base(t_gen_map *dt);
+void		err_create_file(t_gen_map *dt, char *file);
 
 char		*sl_strjoin(char *s1, char *s2);
 char		random_dir(int l, int r, int t, int d);

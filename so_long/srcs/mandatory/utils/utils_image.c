@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 10:14:59 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/22 13:31:36 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:37:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@ void	*get_image_ref(t_mlx_dt *mlx_data, char chr)
 	else if (chr == 'E' && !mlx_data->player)
 		return (mlx_data->img_ref.exit_c);
 	return (mlx_data->img_ref.path);
-}
-
-void	err_img(t_mlx_dt *mlx_data, char *line)
-{
-	ft_printf("Error\nAllocation failure");
-	free(line);
-	close_game(mlx_data, EXIT_FAILURE);
 }
 
 void	init_img_ref(t_mlx_dt *mlx_data)

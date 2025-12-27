@@ -23,6 +23,7 @@ SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)utils/utils_map.c \
 			$(SRC_DIR)utils/utils_clean.c \
 			$(SRC_DIR)utils/utils_image.c \
+			$(SRC_DIR)utils/utils_error.c \
 			$(SRC_DIR)utils/utils_draw.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
@@ -50,6 +51,7 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_enemy_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_create_image_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_time_bonus.c \
+					$(SRC_BONUS_DIR)utils/utils_error_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_gen_fill_map_bonus.c
 
 OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:35:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 08:23:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:38:25 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,11 @@ static void	create_file(t_gen_map *dt)
 	file = ft_strjoin("./maps/", time);
 	free(time);
 	file = sl_strjoin(file, ".ber");
+	if (!file)
+		err_create_file(dt, file);
 	fd = open(file, O_WRONLY | O_TRUNC | O_CREAT, 0777);
 	if (fd < 0)
-	{
-		ft_printf("Error\nFile creation failure");
-		free_arr(dt->map);
-		free(file);
-		exit(EXIT_FAILURE);
-	}
+		err_create_file(dt, file);
 	fill_file(dt, fd, file);
 }
 
