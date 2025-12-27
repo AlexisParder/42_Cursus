@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:35:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 09:38:25 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:42:49 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,6 @@ void	start_generate_map(char **av)
 	if (dt.w < 5 || dt.w > 30 || dt.h > 16 || dt.h < 3
 		|| dt.w == dt.h || dt.c < 1)
 		exit(EXIT_FAILURE);
+	ft_printf("Starting map generation, please wait...\n");
 	generate_map(&dt);
 }
