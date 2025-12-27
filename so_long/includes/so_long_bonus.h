@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 09:32:09 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:53:24 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@
 #  define TXT_LOOT "./textures/loot.xpm"
 # endif
 # ifndef TXT_EXIT_C
-#  define TXT_EXIT_C "./textures/exit_c.xpm"
+#  define TXT_EXIT_C "./textures/exit/exit_c.xpm"
 # endif
 # ifndef TXT_EXIT_O
-#  define TXT_EXIT_O "./textures/exit_o.xpm"
+#  define TXT_EXIT_O "./textures/exit/exit_o.xpm"
 # endif
 # ifndef TXT_LOSE
 #  define TXT_LOSE "./textures/lose.xpm"
@@ -80,10 +80,10 @@
 #  define TXT_WIN "./textures/win.xpm"
 # endif
 # ifndef TXT_COUNT_BG
-#  define TXT_COUNT_BG "./textures/cnt.xpm"
+#  define TXT_COUNT_BG "./textures/counter/cnt.xpm"
 # endif
 # ifndef TXT_COUNT2_BG
-#  define TXT_COUNT2_BG "./textures/cnt2.xpm"
+#  define TXT_COUNT2_BG "./textures/counter/cnt2.xpm"
 # endif
 # ifndef IMG_SIZE
 #  define IMG_SIZE 64

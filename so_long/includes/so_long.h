@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 12:48:21 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 09:53:32 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@
 #  define TXT_LOOT "./textures/loot.xpm"
 # endif
 # ifndef TXT_EXIT_C
-#  define TXT_EXIT_C "./textures/exit_c.xpm"
+#  define TXT_EXIT_C "./textures/exit/exit_c.xpm"
 # endif
 # ifndef TXT_EXIT_O
-#  define TXT_EXIT_O "./textures/exit_o.xpm"
+#  define TXT_EXIT_O "./textures/exit/exit_o.xpm"
 # endif
 # ifndef IMG_SIZE
 #  define IMG_SIZE 64
