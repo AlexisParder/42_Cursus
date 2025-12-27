@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 12:48:52 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/27 08:50:02 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,6 @@ typedef struct s_mlx_dt
 	t_enemy_dt		*enemy;
 	t_map_dt		map_dt;
 	size_t			frame;
-	long			last_time_enemy_move;
 }	t_mlx_dt;
 
 typedef struct s_gen_map
