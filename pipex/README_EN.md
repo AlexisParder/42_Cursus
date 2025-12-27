@@ -2,6 +2,12 @@
 
 # pipex
 ![🇫🇷 French](./README.md)
+- [pipex](#pipex)
+	- [Description](#description)
+	- [Instructions](#instructions)
+	- [Bonus](#bonus)
+	- [Use of AI](#use-of-ai)
+	- [Resources](#resources)
 
 ## Description
 A project aimed at reproducing the behavior of Unix pipelines by redirecting input/output streams between multiple commands. The program must correctly fork processes, set up pipes, manage file descriptors, and execute commands through PATH resolution, all while ensuring strict error handling and memory safety. The bonus involves handling multiple pipes and heredoc functionality. This project reinforces mastery of processes, system calls, I/O redirection, environment variables, and inter-process communication, while teaching how to orchestrate complex data flows at the system level.

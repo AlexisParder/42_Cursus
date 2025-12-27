@@ -2,6 +2,10 @@
 
 # born2beroot
 ![🇫🇷 French](./README.md)
+- [born2beroot](#born2beroot)
+	- [Description](#description)
+	- [Script Monitoring.sh](#script-monitoringsh)
+	- [Resources](#resources)
 
 ## Description
 A system-administration project centered around installing and configuring a secure Linux virtual machine from scratch. The goal is to enforce strict security and compliance rules, including user/group management, minimum password policies, a hardened SSH setup, and a custom firewall configuration. The project also requires monitoring system resources through a custom script and documenting the entire setup using rigorous guidelines. This project strengthens understanding of Linux fundamentals, privilege management, security hardening, virtualization, and reproducible system configuration.
@@ -21,5 +25,5 @@ The script must always be able to display the following information:
 - The IPv4 address of your server and its MAC (Media Access Control) address.
 - The number of commands executed with the sudo program.
 
-### Resources
+## Resources
 - ![Guide Born2beroot](https://github.com/Vikingu-del/Born2beRoot)

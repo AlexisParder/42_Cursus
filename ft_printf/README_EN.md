@@ -2,6 +2,11 @@
 
 # ft_printf
 ![🇫🇷 French](./README.md)
+- [ft\_printf](#ft_printf)
+	- [Description](#description)
+	- [Instructions](#instructions)
+	- [Example of usage](#example-of-usage)
+	- [Resources](#resources)
 
 ## Description
 A full reimplementation of the iconic printf function in C.

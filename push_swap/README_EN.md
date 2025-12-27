@@ -2,6 +2,11 @@
 
 # push_swap
 ![🇫🇷 French](./README.md)
+- [push\_swap](#push_swap)
+	- [Description](#description)
+	- [Allowed Operations](#allowed-operations)
+	- [Instructions](#instructions)
+	- [Resources](#resources)
 
 ## Description
 A highly algorithmic project where the goal is to sort a list of integers using two stacks and a restricted set of operations.

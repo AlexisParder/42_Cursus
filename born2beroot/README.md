@@ -2,6 +2,10 @@
 
 # born2beroot
 ![🇬🇧 English](./README_EN.md)
+- [born2beroot](#born2beroot)
+	- [Description](#description)
+	- [Script Monitoring.sh](#script-monitoringsh)
+	- [Ressources](#ressources)
 
 ## Description
 Un projet d’administration système centré sur l’installation et la configuration complète d’une machine virtuelle Linux sécurisée à partir de zéro. L’objectif est de mettre en place des règles strictes de sécurité et de conformité, incluant la gestion des utilisateurs et des groupes, des politiques minimales de mots de passe, une configuration SSH renforcée et une configuration personnalisée du pare-feu.
@@ -22,5 +26,5 @@ Le script doit toujours être capable d’afficher les informations suivantes :
 - L’adresse IPv4 du serveur ainsi que son adresse MAC (Media Access Control).
 - Le nombre de commandes exécutées avec le programme `sudo`.
 
-### Ressources
+## Ressources
 - ![Guide Born2beroot](https://github.com/Vikingu-del/Born2beRoot)

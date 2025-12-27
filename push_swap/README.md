@@ -2,6 +2,11 @@
 
 # push_swap
 ![🇬🇧 English](./README_EN.md)
+- [push\_swap](#push_swap)
+	- [Description](#description)
+	- [Opérations autorisées](#opérations-autorisées)
+	- [Instructions](#instructions)
+	- [Ressources](#ressources)
 
 ## Description
 Un projet fortement algorithmique dont l’objectif est de trier une liste d’entiers en utilisant deux piles et un ensemble restreint d’opérations.

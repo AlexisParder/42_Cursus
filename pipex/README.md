@@ -2,6 +2,12 @@
 
 # pipex
 ![🇬🇧 English](./README_EN.md)
+- [pipex](#pipex)
+	- [Description](#description)
+	- [Instructions](#instructions)
+	- [Bonus](#bonus)
+	- [Utilisation de l’IA](#utilisation-de-lia)
+	- [Resources](#resources)
 
 ## Description
 Un projet visant à reproduire le comportement des pipelines Unix en redirigeant les flux d’entrée et de sortie entre plusieurs commandes. Le programme doit créer correctement des processus avec fork, mettre en place des pipes, gérer les descripteurs de fichiers et exécuter les commandes via la résolution du PATH, tout en garantissant une gestion stricte des erreurs et une sécurité mémoire totale.

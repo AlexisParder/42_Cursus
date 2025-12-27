@@ -2,6 +2,12 @@
 
 # libft
 ![🇫🇷 French](./README.md)
+- [libft](#libft)
+	- [Description](#description)
+	- [Functions Mandatory](#functions-mandatory)
+	- [Functions Bonus](#functions-bonus)
+	- [Additional Projects Integrated](#additional-projects-integrated)
+	- [Instructions](#instructions)
 
 ## Description
 A foundational project from the 42 curriculum.

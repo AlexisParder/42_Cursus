@@ -1,6 +1,14 @@
 # 42 Cursus
 [![achauvie's 42 stats](https://badge.mediaplus.ma/darkblue/achauvie?1337Badge=off&UM6P=off)](https://github.com/AlexisParder)<br>
 ![🇬🇧 English](./README_EN.md)
+- [42 Cursus](#42-cursus)
+	- [libf](#libf)
+	- [ft\_print](#ft_print)
+	- [get\_next\_line](#get_next_line)
+	- [born2beroot](#born2beroot)
+	- [push\_swap](#push_swap)
+	- [so\_long](#so_long)
+	- [pipex](#pipex)
 
 ## libf
 Un projet fondamental du cursus 42.

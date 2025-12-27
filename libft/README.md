@@ -2,6 +2,12 @@
 
 # libft
 ![🇬🇧 English](./README_EN.md)
+- [libft](#libft)
+	- [Description](#description)
+	- [Fonctions obligatoires](#fonctions-obligatoires)
+	- [Fonctions bonus](#fonctions-bonus)
+	- [Projets supplémentaires intégrés](#projets-supplémentaires-intégrés)
+	- [Instructions](#instructions)
 
 ## Description
 Un projet fondamental du cursus 42.

@@ -2,6 +2,9 @@
 
 # get_next_line
 ![🇬🇧 English](./README_EN.md)
+- [get\_next\_line](#get_next_line)
+	- [Description](#description)
+	- [Exemple d’utilisation](#exemple-dutilisation)
 
 ## Description
 Un projet axé sur la création d’une fonction capable de lire n’importe quel fichier, flux d’entrée ou l’entrée standard (stdin) ligne par ligne.

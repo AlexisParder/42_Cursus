@@ -2,6 +2,9 @@
 
 # get_next_line
 ![🇫🇷 French](./README.md)
+- [get\_next\_line](#get_next_line)
+	- [Description](#description)
+	- [Example of usage](#example-of-usage)
 
 ## Description
 A project focused on creating a function capable of reading any file, input stream, or stdin one line at a time.
