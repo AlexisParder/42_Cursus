@@ -64,3 +64,4 @@ L’IA a été utilisée pour générer certaines images comme l’ennemi, le fo
 ## Ressources
 - MiniLibx
 - ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+- ![pixilart](https://www.pixilart.com/)
