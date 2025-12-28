@@ -1,7 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # so_long
-![🇫🇷 French](./README.md)
+[🇫🇷 French](./README.md)
 - [so\_long](#so_long)
 	- [Description](#description)
 	- [Instructions](#instructions)

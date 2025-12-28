@@ -1,7 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # born2beroot
-![🇫🇷 French](./README.md)
+[🇫🇷 French](./README.md)
 - [born2beroot](#born2beroot)
 	- [Description](#description)
 	- [Script Monitoring.sh](#script-monitoringsh)
@@ -26,4 +26,4 @@ The script must always be able to display the following information:
 - The number of commands executed with the sudo program.
 
 ## Resources
-- ![Guide Born2beroot](https://github.com/Vikingu-del/Born2beRoot)
+- [Guide Born2beroot](https://github.com/Vikingu-del/Born2beRoot)

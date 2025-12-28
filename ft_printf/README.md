@@ -1,7 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # ft_printf
-![🇬🇧 English](./README_EN.md)
+[🇬🇧 English](./README_EN.md)
 - [ft\_printf](#ft_printf)
 	- [Description](#description)
 	- [Instructions](#instructions)
@@ -24,4 +24,4 @@ La fonction s’utilise comme le `printf` classique.<br>
 
 ## Ressources
 - man 3 printf
-- ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+- [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

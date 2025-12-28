@@ -1,7 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # libft
-![🇫🇷 French](./README.md)
+[🇫🇷 French](./README.md)
 - [libft](#libft)
 	- [Description](#description)
 	- [Functions Mandatory](#functions-mandatory)
@@ -107,9 +107,9 @@ This library becomes a core dependency for all subsequent projects (get_next_lin
 ## Additional Projects Integrated
 The following functions come from two separate 42 projects — get_next_line and ft_printf.
 They are not part of the original mandatory Libft project, but they are commonly integrated afterwards to extend the library with more advanced features such as formatted output and line-by-line file reading.
-- ![ft_printf](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)
+- [ft_printf](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)
 	- A custom re-implementation of the standard printf function.
-- ![get_next_line](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)
+- [get_next_line](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)
 	- Reads a file descriptor line by line, returning one line per call, regardless of the buffer size.
 
 ## Instructions

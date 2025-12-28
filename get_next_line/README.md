@@ -1,7 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # get_next_line
-![🇬🇧 English](./README_EN.md)
+[🇬🇧 English](./README_EN.md)
 - [get\_next\_line](#get_next_line)
 	- [Description](#description)
 	- [Exemple d’utilisation](#exemple-dutilisation)

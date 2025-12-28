@@ -1,7 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # pipex
-![🇬🇧 English](./README_EN.md)
+[🇬🇧 English](./README_EN.md)
 - [pipex](#pipex)
 	- [Description](#description)
 	- [Instructions](#instructions)
@@ -26,4 +26,4 @@ Ce projet renforce la maîtrise des processus, des appels système, de la redire
 ## Utilisation de l’IA
 
 ## Resources
-- ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+- [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

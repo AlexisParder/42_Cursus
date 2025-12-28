@@ -1,7 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # so_long
-![🇬🇧 English](./README_EN.md)
+[🇬🇧 English](./README_EN.md)
 - [so\_long](#so_long)
 	- [Description](#description)
 	- [Instructions](#instructions)

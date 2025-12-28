@@ -1,7 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # pipex
-![🇫🇷 French](./README.md)
+[🇫🇷 French](./README.md)
 - [pipex](#pipex)
 	- [Description](#description)
 	- [Instructions](#instructions)
@@ -24,4 +24,4 @@ A project aimed at reproducing the behavior of Unix pipelines by redirecting inp
 ## Use of AI
 
 ## Resources
-- ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+- [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

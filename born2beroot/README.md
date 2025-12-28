@@ -1,7 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # born2beroot
-![🇬🇧 English](./README_EN.md)
+[🇬🇧 English](./README_EN.md)
 - [born2beroot](#born2beroot)
 	- [Description](#description)
 	- [Script Monitoring.sh](#script-monitoringsh)
@@ -27,4 +27,4 @@ Le script doit toujours être capable d’afficher les informations suivantes :
 - Le nombre de commandes exécutées avec le programme `sudo`.
 
 ## Ressources
-- ![Guide Born2beroot](https://github.com/Vikingu-del/Born2beRoot)
+- [Guide Born2beroot](https://github.com/Vikingu-del/Born2beRoot)

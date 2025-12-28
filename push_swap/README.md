@@ -1,7 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # push_swap
-![🇬🇧 English](./README_EN.md)
+[🇬🇧 English](./README_EN.md)
 - [push\_swap](#push_swap)
 	- [Description](#description)
 	- [Opérations autorisées](#opérations-autorisées)
@@ -55,5 +55,5 @@ Vous devez utiliser uniquement ces opérations pour manipuler les piles et obten
 	- La commande `./push_swap <liste de nombres non triés> | wc -l` permet d’afficher le nombre d’instructions utilisées pour trier la liste.
 
 ## Ressources
-- Algorithme de Turk
-- ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+- [Turk Algorithm](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
+- [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

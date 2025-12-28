@@ -1,7 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # get_next_line
-![🇫🇷 French](./README.md)
+[🇫🇷 French](./README.md)
 - [get\_next\_line](#get_next_line)
 	- [Description](#description)
 	- [Example of usage](#example-of-usage)

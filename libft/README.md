@@ -1,7 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # libft
-![🇬🇧 English](./README_EN.md)
+[🇬🇧 English](./README_EN.md)
 - [libft](#libft)
 	- [Description](#description)
 	- [Fonctions obligatoires](#fonctions-obligatoires)
@@ -107,9 +107,9 @@ Cette bibliothèque devient une dépendance centrale pour tous les projets suiva
 ## Projets supplémentaires intégrés
 Les fonctions suivantes proviennent de deux projets distincts du cursus 42 — get_next_line et ft_printf.
 Elles ne font pas partie du projet Libft obligatoire original, mais sont souvent intégrées par la suite afin d’enrichir la bibliothèque avec des fonctionnalités plus avancées telles que l’affichage formaté et la lecture de fichiers ligne par ligne.
-- ![ft_printf](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)
+- [ft_printf](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)
 	- Une réimplémentation personnalisée de la fonction standard printf.
-- ![get_next_line](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)
+- [get_next_line](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)
 	- Lit un descripteur de fichier ligne par ligne, en retournant une ligne par appel, quelle que soit la taille du buffer.
 
 ## Instructions
