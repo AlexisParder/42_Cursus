@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 09:53:24 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/28 08:54:26 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ int			check_map_path(t_map_dt *map);
 int			add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 int			create_enemy(t_enemy_dt **lst, size_t pos_x, size_t pos_y);
 int			manage_loop(t_mlx_dt *mlx_dt);
+int			player_too_close(t_gen_map *dt, long x, long y);
 
 void		add_image(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 void		make_move(t_mlx_dt *mlx_data, char move);
@@ -220,6 +221,7 @@ void		start_generate_map(char **av);
 void		fill_map_c_h(t_gen_map *dt);
 void		fill_map_base(t_gen_map *dt);
 void		err_create_file(t_gen_map *dt, char *file);
+void		fill_walls_rnd(t_gen_map *dt);
 
 char		*sl_strjoin(char *s1, char *s2);
 char		random_dir(int l, int r, int t, int d);

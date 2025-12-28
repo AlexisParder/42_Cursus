@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:35:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 09:47:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/28 08:54:26 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ static void	generate_map(t_gen_map *dt)
 	}
 	fill_map_base(dt);
 	fill_map_c_h(dt);
+	fill_walls_rnd(dt);
 	if (!check_map_gen(dt))
 		generate_map(dt);
 }

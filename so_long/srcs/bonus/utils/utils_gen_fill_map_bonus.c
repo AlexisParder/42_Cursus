@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 12:41:36 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 12:48:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/28 08:52:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ static void	fill_map_type(t_gen_map *dt, char c)
 		y = rand() % dt->h;
 		if (dt->map[y][x] == '0')
 		{
+			if (c == 'H' && player_too_close(dt, x, y))
+				continue ;
 			dt->map[y][x] = c;
 			break ;
 		}

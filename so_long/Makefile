@@ -52,7 +52,9 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_create_image_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_time_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_error_bonus.c \
-					$(SRC_BONUS_DIR)utils/utils_gen_fill_map_bonus.c
+					$(SRC_BONUS_DIR)utils/utils_gen_fill_map_bonus.c \
+					$(SRC_BONUS_DIR)utils/utils_gen_walls_bonus.c \
+					$(SRC_BONUS_DIR)utils/utils_distance_player_bonus.c
 
 OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
 
