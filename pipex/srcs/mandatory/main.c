@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/18 08:47:00 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/28 09:46:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main(int ac, char **av)
 {
-	int		fd1;
-	int		pipefd[2];
-	pid_t	pid1;
+	// int		fd1;
+	// int		pipefd[2];
+	// pid_t	pid1;
 
 	if (ac != 5)
 	{

@@ -1,8 +1,14 @@
 NAME = push_swap
+
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
+
 INC_DIR = -I includes/
-SRC_DIR = srcs/
+
+OBJ_DIR = obj
+OBJ_MAND_DIR = $(OBJ_DIR)/mandatory
+
+SRC_DIR = srcs/mandatory/
 SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)calc_moves.c \
 			$(SRC_DIR)make_moves.c \
@@ -16,7 +22,7 @@ SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)utils/utils_global.c \
 			$(SRC_DIR)utils/utils_calc_moves.c \
 			$(SRC_DIR)utils/utils_sort.c
-OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:srcs/mandatory/%.c=$(OBJ_MAND_DIR)/%.o)
 
 # Colors
 GREEN	= \033[0;32m
@@ -32,12 +38,13 @@ $(NAME): $(OBJ_FILES)
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ libs/libft.a
 		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
-%.o : %.c
-		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ -c $<
+$(OBJ_MAND_DIR)/%.o: srcs/mandatory/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INC_DIR) -c $< -o $@
 
 clean:
 		@echo "$(YELLOW)[CLEAN] Suppression des objets...$(RESET)"
-		@rm -rf $(OBJ_FILES)
+		@rm -rf $(OBJ_DIR)
 		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
 
 fclean: clean

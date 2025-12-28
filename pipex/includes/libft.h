@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:13:02 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/15 11:51:00 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/26 12:56:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-long	ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -57,7 +58,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 int		ft_printf(const char *arg_s, ...)__attribute__((format(printf, 1, 2)));
-int		long_itoa(long int n);
+int		long_itoa(long n);
 int		long_itoa_hex(long unsigned int n, char c);
 int		putchar_len(char c);
 int		putstr_len(char *s);
