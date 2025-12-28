@@ -62,4 +62,5 @@ AI was used to generate certain images such as the enemy, the movement counter b
 
 ## Resources
 - MiniLibx
-- ![libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+- [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
+- [pixilart](https://www.pixilart.com/)
