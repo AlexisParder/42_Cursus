@@ -28,7 +28,7 @@ Un projet graphique axé sur la création d’un petit jeu 2D en utilisant la bi
 		- C: Nombre d'objets à collecter.
 
 ## Commandes
-| Key                    | Action Description           |
+| Touche                 | Description de l’action      |
 |------------------------|------------------------------|
 | **W** / **↑ (Haut)**   | Se déplacer vers le haut     |
 | **A** / **← (Gauche)** | Se déplacer vers la gauche   |
