@@ -10,6 +10,10 @@ MLX = $(MLX_DIR)/libmlx.a
 
 INC_DIR = -I includes/ -I $(MLX_DIR)
 
+OBJ_DIR = obj
+OBJ_MAND_DIR = $(OBJ_DIR)/mandatory
+OBJ_BONUS_DIR = $(OBJ_DIR)/bonus
+
 SRC_DIR = srcs/mandatory/
 SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)manage_win.c \
@@ -25,7 +29,7 @@ SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)utils/utils_image.c \
 			$(SRC_DIR)utils/utils_error.c \
 			$(SRC_DIR)utils/utils_draw.c
-OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:srcs/mandatory/%.c=$(OBJ_MAND_DIR)/%.o)
 
 SRC_BONUS_DIR = srcs/bonus/
 SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
@@ -55,8 +59,7 @@ SRC_BONUS_FILES = 	$(SRC_BONUS_DIR)main_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_gen_fill_map_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_gen_walls_bonus.c \
 					$(SRC_BONUS_DIR)utils/utils_distance_player_bonus.c
-
-OBJ_BONUS_FILES = $(SRC_BONUS_FILES:.c=.o)
+OBJ_BONUS_FILES = $(SRC_BONUS_FILES:srcs/bonus/%.c=$(OBJ_BONUS_DIR)/%.o)
 
 LIBS = $(LIBFT) $(MLX) -lXext -lX11 -lm
 
@@ -91,13 +94,17 @@ $(NAME_BONUS): $(OBJ_BONUS_FILES)
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
 		@echo "$(GREEN)[OK] $(NAME_BONUS) prêt ✔$(RESET)"
 
-%.o : %.c
-		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ -c $<
+$(OBJ_MAND_DIR)/%.o: srcs/mandatory/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INC_DIR) -c $< -o $@
+
+$(OBJ_BONUS_DIR)/%.o: srcs/bonus/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INC_DIR) -c $< -o $@
 
 clean:
 		@echo "$(YELLOW)[CLEAN] Suppression des objets...$(RESET)"
-		@rm -rf $(OBJ_FILES)
-		@rm -rf $(OBJ_BONUS_FILES)
+		@rm -rf $(OBJ_DIR)
 		@$(MAKE) -C libs/minilibx-linux clean
 		@$(MAKE) -C libs/libft clean
 		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
