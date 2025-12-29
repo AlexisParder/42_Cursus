@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:15:32 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/26 08:48:51 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/29 09:01:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 static char	*gnl_strjoin(char *s1, char *s2)
 {

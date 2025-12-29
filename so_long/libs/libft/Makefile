@@ -1,7 +1,7 @@
 NAME = libft.a
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror
-INC_FILES = -I ../../includes/
+INC_FILES = -I ./libft.h
 SRC_FILES = ft_isalpha.c \
 			ft_isdigit.c \
 			ft_isalnum.c \

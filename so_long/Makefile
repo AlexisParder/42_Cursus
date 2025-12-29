@@ -8,7 +8,7 @@ LIBFT = libs/libft/libft.a
 MLX_DIR = libs/minilibx-linux
 MLX = $(MLX_DIR)/libmlx.a
 
-INC_DIR = -I includes/ -I $(MLX_DIR)
+INC_DIR = -I includes/ -I libs/libft/ -I $(MLX_DIR)
 
 OBJ_DIR = obj
 OBJ_MAND_DIR = $(OBJ_DIR)/mandatory

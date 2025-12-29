@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libs/libft/libft.a
 
-INC_DIR = -I includes/
+INC_DIR = -I includes/ -I libs/libft/ 
 
 OBJ_DIR = obj
 OBJ_MAND_DIR = $(OBJ_DIR)/mandatory
