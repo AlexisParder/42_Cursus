@@ -24,4 +24,6 @@ A project aimed at reproducing the behavior of Unix pipelines by redirecting inp
 ## Use of AI
 
 ## Resources
+- [Unix Processes in C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
+- [Pipes, Forks & Dups by Roslyn McConnell](https://www.rozmichelle.com/pipes-forks-dups/)
 - [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

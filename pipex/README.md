@@ -26,4 +26,6 @@ Ce projet renforce la maîtrise des processus, des appels système, de la redire
 ## Utilisation de l’IA
 
 ## Resources
+- [Les processus Unix en C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
+- [Pipes, Forks & Dups par Roslyn McConnell](https://www.rozmichelle.com/pipes-forks-dups/)
 - [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
