@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 09:32:50 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/27 09:38:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:48:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,23 @@ void	err_img(t_mlx_dt *mlx_data, char *line)
 	free(line);
 	free_lst(&mlx_data->enemy);
 	close_game(mlx_data, EXIT_FAILURE);
+}
+
+void	err_space(t_gen_map *dt, char c)
+{
+	char	*nb;
+
+	if (c == 'C')
+	{
+		nb = ft_itoa(dt->space);
+		ft_printf("You cannot place more than %s loot (C) on this map!\n", nb);
+	}
+	else
+	{
+		nb = ft_itoa(((dt->space - dt->c) / 3));
+		ft_printf("You cannot place more than %s enemy (H) on this map!\n", nb);
+	}
+	free(nb);
+	free_arr(dt->map);
+	exit(EXIT_FAILURE);
 }

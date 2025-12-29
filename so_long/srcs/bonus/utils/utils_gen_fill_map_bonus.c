@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 12:41:36 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/28 08:52:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/29 08:51:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,41 +32,47 @@ static void	calc_space(t_gen_map *dt)
 	}
 }
 
-static void	err_space(t_gen_map *dt, char c)
-{
-	char	*nb;
-
-	if (c == 'C')
-	{
-		nb = ft_itoa(dt->space);
-		ft_printf("You cannot place more than %s loot (C) on this map!\n", nb);
-	}
-	else
-	{
-		nb = ft_itoa(((dt->space - dt->c) / 3));
-		ft_printf("You cannot place more than %s enemy (H) on this map!\n", nb);
-	}
-	free(nb);
-	free_arr(dt->map);
-	exit(EXIT_FAILURE);
-}
-
-static void	fill_map_type(t_gen_map *dt, char c)
+static int	fill_map_type(t_gen_map *dt, char c)
 {
 	long	x;
 	long	y;
+	long	attempts;
 
-	while (1)
+	attempts = 0;
+	while (attempts < (dt->w * dt->h * 2))
 	{
 		x = rand() % dt->w;
 		y = rand() % dt->h;
 		if (dt->map[y][x] == '0')
 		{
 			if (c == 'H' && player_too_close(dt, x, y))
+			{
+				attempts++;
 				continue ;
+			}
 			dt->map[y][x] = c;
-			break ;
+			return (1);
 		}
+		attempts++;
+	}
+	return (0);
+}
+
+static void	fill_loots(t_gen_map *dt)
+{
+	long	i;
+
+	i = 0;
+	while (i < dt->c)
+	{
+		if (!fill_map_type(dt, 'C'))
+		{
+			ft_printf("Error\nCannot place collectible\n");
+			free_arr(dt->map);
+			exit(EXIT_FAILURE);
+		}
+		dt->space--;
+		i++;
 	}
 }
 
@@ -78,17 +84,16 @@ void	fill_map_c_h(t_gen_map *dt)
 		err_space(dt, 'C');
 	if (((dt->space - dt->c) / 3) < dt->nb_en)
 		err_space(dt, 'H');
-	i = 0;
-	while (i < dt->c)
-	{
-		fill_map_type(dt, 'C');
-		dt->space--;
-		i++;
-	}
+	fill_loots(dt);
 	i = 0;
 	while (i < dt->nb_en)
 	{
-		fill_map_type(dt, 'H');
+		if (!fill_map_type(dt, 'H'))
+		{
+			ft_printf("Error\nCannot place enemy (no valid position)\n");
+			free_arr(dt->map);
+			exit(EXIT_FAILURE);
+		}
 		dt->space--;
 		i++;
 	}
