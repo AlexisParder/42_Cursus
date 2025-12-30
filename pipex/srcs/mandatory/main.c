@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/29 12:48:00 by achauvie         ###   ########.fr       */
+/*   Updated: 2025/12/30 12:46:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,13 +155,124 @@ int	sum_with_pipe()
 	return (0);
 }
 
+#include <time.h> // a retirer
+int	communication_between_processes()
+{
+	int	fd1[2]; // C => P
+	int	fd2[2]; // P => C
+	pid_t	pid;
+	
+	if (pipe(fd1) == -1)
+		return (1);
+	if (pipe(fd2) == -1)
+		return (1);
+	pid = fork();
+	if (pid == -1)
+		return (1);
+	if (pid == 0)
+	{
+		// Child process
+		// Lire sur fd2
+		// Ecrire sur fd1
+		int	x;
+
+		close (fd1[0]);
+		close (fd2[1]);
+		if (read(fd2[0], &x, sizeof(x)) == -1)
+			return (1);
+		printf("Received %d\n", x);
+		x *= 4;
+		if (write(fd1[1], &x, sizeof(x)) == -1)
+			return (1);
+		printf("Wrote %d\n", x);
+		close (fd1[1]);
+		close (fd2[0]);
+	}
+	else
+	{
+		// Parent process
+		// Lire sur fd1
+		// Ecrire sur fd2
+		close (fd1[1]);
+		close (fd2[0]);
+		srand(time(NULL));
+		int	y = rand() % 10;
+		int	status;
+		if (write(fd2[1], &y, sizeof(y)) == -1)
+			return (1);
+		if (read(fd1[0], &y, sizeof(y)) == -1)
+			return (1);
+		printf("Result is %d\n", y);
+		close (fd1[0]);
+		close (fd2[1]);
+		waitpid(pid, &status, 0);
+	}
+	return (0);
+}
+
+int	exec_cmd()
+{
+	int pid;
+
+	pid = fork();
+	if (pid == -1)
+		return (1);
+	if (pid == 0)
+	{
+		// Child process
+		char *argv[] = {"ping", "-c", "3", "google.com", NULL};
+		// char *argv[] = {"ping", "-c", "3", "googleeeqwewqedsadfa.com", NULL}; // simuler une err
+    	char *envp[] = {NULL};
+		int	err;
+
+		// Redirecting standard output
+		// int file;
+		
+		// file = open("pingRes.txt", O_WRONLY | O_CREAT, 0777);
+		// if (file < 0)
+		// 	return (1);
+		
+		// dup2(file, STDOUT_FILENO);
+		// close(file);
+		// 
+    	err = execve("/bin/ping", argv, envp);
+		// Si on met du code apres, il ne sera jamais execute car execve devient le nouveau programme SAUF si execve n'a pas fonctionne.
+		if (err == -1)
+		{
+			ft_printf("Could not find program to execute\n");
+			return (1);
+		}
+	}
+	else
+	{
+		// Parent process
+		int status;
+		
+		waitpid(pid, &status, 0);
+		if (WIFEXITED(status))
+		{
+			int	statusCode;
+			
+			statusCode = WEXITSTATUS(status);
+			if (statusCode == 0)
+				ft_printf("Success!\n");
+			else
+				ft_printf("Failure with status code %d\n", statusCode);
+		}
+		ft_printf("Some post processing goes here!\n");
+	}
+	return (0);
+}
+
 int main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
 	// fork_with_wait();
 	// fork_pipe();
-	sum_with_pipe();
+	// sum_with_pipe();
+	// communication_between_processes();
+	exec_cmd();
 	// int		fd1;
 	// int		pipefd[2];
 	// pid_t	pid1;
