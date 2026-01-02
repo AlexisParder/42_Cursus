@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:06:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/23 13:31:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/02 09:16:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ static void	creates_images_ref(t_mlx_dt *dt)
 	i_ref.loot = mlx_xpm_file_to_image(dt->mlx, TXT_LOOT, &size, &size);
 	i_ref.path = mlx_xpm_file_to_image(dt->mlx, TXT_PATH, &size, &size);
 	i_ref.wall = mlx_xpm_file_to_image(dt->mlx, TXT_WALL, &size, &size);
-	i_ref.lose = mlx_xpm_file_to_image(dt->mlx, TXT_LOSE, &size, &size);
 	dt->img_ref = i_ref;
 	creates_images_ref_bonus(dt);
 }
