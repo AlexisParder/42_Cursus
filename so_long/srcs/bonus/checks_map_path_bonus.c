@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:22:18 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/19 13:15:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/02 09:23:47 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static t_player_dt	*check_player(t_map_ck *map_ref)
 	return (NULL);
 }
 
-int	check_map_path(t_map_dt *map)
+int	check_map_path(t_map_dt *map, int print_err)
 {
 	t_map_ck	map_copy;
 	t_player_dt	*player;
@@ -110,7 +110,7 @@ int	check_map_path(t_map_dt *map)
 	map_copy.exit_found = 0;
 	map_copy.loot_found = 0;
 	player = check_player(&map_copy);
-	if (!player)
+	if (!player && print_err)
 	{
 		ft_printf("Error\nNo player found");
 		free_arr(map_copy.map);
@@ -118,9 +118,9 @@ int	check_map_path(t_map_dt *map)
 	}
 	flood_fill(player->pos_x, player->pos_y, &map_copy);
 	free_arr(map_copy.map);
-	if (!map_copy.exit_found)
+	if (!map_copy.exit_found && print_err)
 		ft_printf("Error\nNo valid path to exit");
-	else if (map_copy.loot_found != map->total_loots)
+	else if (map_copy.loot_found != map->total_loots && print_err)
 		ft_printf("Error\nCan't reach all loot");
 	free(player);
 	if (!map_copy.exit_found || map_copy.loot_found != map->total_loots)

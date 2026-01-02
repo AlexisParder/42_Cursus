@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 08:38:21 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/28 08:54:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/02 09:24:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	wall_is_valid(t_gen_map *dt)
 	map_dt.x_exit = dt->w;
 	map_dt.y_max = dt->h;
 	map_dt.total_loots = dt->c;
-	if (check_map_path(&map_dt))
+	if (check_map_path(&map_dt, 0))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 10:10:01 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/29 09:02:35 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/02 09:24:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,7 @@ typedef struct s_gen_map
 int			check_move(t_mlx_dt *mlx_data, char move, size_t p_x, size_t p_y);
 int			check_move_en(t_mlx_dt *mlx_dt, char move, size_t p_x, size_t p_y);
 int			check_map(t_map_dt *map);
-int			check_map_path(t_map_dt *map);
+int			check_map_path(t_map_dt *map, int print_err);
 int			add_img_pl(t_mlx_dt *dt, void *img, size_t pos_x, size_t pos_y);
 int			create_enemy(t_enemy_dt **lst, size_t pos_x, size_t pos_y);
 int			manage_loop(t_mlx_dt *mlx_dt);
