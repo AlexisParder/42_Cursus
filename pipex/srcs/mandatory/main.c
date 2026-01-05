@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 14:32:01 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:38:32 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,16 @@ void	exec_cmd1(t_pipex *data)
 		path = check_access_cmd(data, data->argv[2]);
 		if (!path)
 		{
-			perror(path);
+			perror("path");
 			exit(EXIT_FAILURE);
 		}
 		dup2(data->pipefd[1], STDOUT_FILENO);
 		close(data->pipefd[1]);
 		argv = ft_split(data->argv[2], ' ');
 		execve(path, argv, data->envp);
-				perror("execve");
+		perror("execve");
 		free(path);
+		free_arr(argv);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -71,7 +72,7 @@ void	exec_cmd2(t_pipex *data)
 		path = check_access_cmd(data, data->argv[3]);
 		if (!path)
 		{
-			perror(path);
+			perror("path");
 			exit(EXIT_FAILURE);
 		}
 		dup2(fd, STDOUT_FILENO);
@@ -80,6 +81,7 @@ void	exec_cmd2(t_pipex *data)
 		execve(path, argv, data->envp);
 		perror("execve");
 		free(path);
+		free_arr(argv);
 		exit(EXIT_FAILURE);
 	}
 }
