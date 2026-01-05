@@ -6,24 +6,18 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 13:07:01 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:32:01 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 
-// FIXME: LES PATHS DANS LES CHILDS NE SONT JAMAIS FREE ACTUELLEMENT
-int	exec_cmds(t_pipex *data)
+void	exec_cmd1(t_pipex *data)
 {
-	pid_t	pid1;
-	pid_t	pid2;
-
-	if (pipe(data->pipefd) < 0)
-		return (1);
-	pid1 = fork();
-	if (pid1 < 0)
-		return (1);
-	if (pid1 == 0)
+	data->pid1 = fork();
+	if (data->pid1 < 0)
+		return ;
+	if (data->pid1 == 0)
 	{
 		int		fd;
 		char	**argv;
@@ -47,13 +41,19 @@ int	exec_cmds(t_pipex *data)
 		dup2(data->pipefd[1], STDOUT_FILENO);
 		close(data->pipefd[1]);
 		argv = ft_split(data->argv[2], ' ');
-		ft_printf("%s\n", path);
 		execve(path, argv, data->envp);
+				perror("execve");
+		free(path);
+		exit(EXIT_FAILURE);
 	}
-	pid2 = fork();
-	if (pid2 < 0)
-		return (1);
-	if (pid2 == 0)
+}
+
+void	exec_cmd2(t_pipex *data)
+{
+	data->pid2 = fork();
+	if (data->pid2 < 0)
+		return ;
+	if (data->pid2 == 0)
 	{
 		int		fd;
 		char	**argv;
@@ -78,11 +78,22 @@ int	exec_cmds(t_pipex *data)
 		close(fd);
 		argv = ft_split(data->argv[3], ' ');
 		execve(path, argv, data->envp);
+		perror("execve");
+		free(path);
+		exit(EXIT_FAILURE);
 	}
+}
+
+int	exec_cmds(t_pipex *data)
+{
+	if (pipe(data->pipefd) < 0)
+		return (1);
+	exec_cmd1(data);
+	exec_cmd2(data);
 	close(data->pipefd[0]);
 	close(data->pipefd[1]);
-	waitpid(pid1, &data->status1, 0);
-	waitpid(pid2, &data->status2, 0);
+	waitpid(data->pid1, &data->status1, 0);
+	waitpid(data->pid2, &data->status2, 0);
 	return (0);
 }
 
