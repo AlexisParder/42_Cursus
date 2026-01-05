@@ -6,12 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 12:31:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/05 12:45:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 
+// FIXME: LES PATHS DANS LES CHILDS NE SONT JAMAIS FREE ACTUELLEMENT
 int	exec_cmds(t_pipex data)
 {
 	int		status1;
