@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 11:10:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/05 13:03:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ char	*get_env_path(char **envp)
 	return (NULL);
 }
 
-static char	*check_with_path(t_pipex data, char *cmd)
+static char	*check_with_path(t_pipex *data, char *cmd)
 {
 	char	**tmp;
 	char	*path;
 	char	*cmd_path;
 	size_t	i;
 
-	path = get_env_path(data.envp);
+	path = get_env_path(data->envp);
 	if (!path)
 		return (NULL);
 	tmp = ft_split(path, ':');
@@ -55,13 +55,13 @@ static char	*check_with_path(t_pipex data, char *cmd)
 	return (cmd_path);
 }
 
-char	*check_access_cmd(t_pipex data, char *cmd)
+char	*check_access_cmd(t_pipex *data, char *cmd)
 {
 	char	*cmd_path;
 	char	*cmd_tmp;
 	size_t	i;
 	
-	if (!data.envp || data.envp[0][0] == '\0' || !cmd)
+	if (!data->envp || data->envp[0][0] == '\0' || !cmd)
 		return (NULL);
 	cmd_path = NULL;
 	i = 0;
