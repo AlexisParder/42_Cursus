@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 14:38:32 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/05 14:50:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	exec_cmd1(t_pipex *data)
 {
 	data->pid1 = fork();
-	if (data->pid1 < 0)
-		return ;
 	if (data->pid1 == 0)
 	{
 		int		fd;
@@ -52,8 +50,6 @@ void	exec_cmd1(t_pipex *data)
 void	exec_cmd2(t_pipex *data)
 {
 	data->pid2 = fork();
-	if (data->pid2 < 0)
-		return ;
 	if (data->pid2 == 0)
 	{
 		int		fd;
