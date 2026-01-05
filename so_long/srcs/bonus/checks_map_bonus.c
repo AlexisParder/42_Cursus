@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:23:15 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/02 09:24:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/05 13:17:07 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ static int	check_map_size(t_map_dt *map_dt)
 	size_t	y;
 	size_t	len;
 
-	if (map_dt->x_max == map_dt->y_max)
-		return (0);
 	len = ft_strlen(map_dt->map[0]);
 	y = 1;
 	while (map_dt->map[y])

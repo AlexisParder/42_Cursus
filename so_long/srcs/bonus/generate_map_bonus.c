@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 10:35:39 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/28 08:54:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/05 13:17:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,6 @@ void	start_generate_map(char **av)
 		ft_printf("Error\nWidth must be between 5 and 30\n");
 	if (dt.h < 3 || dt.h > 16)
 		ft_printf("Error\nHeight must be between 3 and 16\n");
-	if (dt.w == dt.h)
-		ft_printf("Error\nThe map is not rectangular\n");
 	if (dt.c < 1)
 		ft_printf("Error\nLoot must be at least 1\n");
 	if (dt.nb_en < 0)
