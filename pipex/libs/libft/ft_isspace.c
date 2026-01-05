@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 12:55:39 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 10:20:15 by achauvie         ###   ########.fr       */
+/*   Created: 2025/10/13 13:56:56 by achauvie          #+#    #+#             */
+/*   Updated: 2026/01/05 11:13:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <libft.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <sys/wait.h>
-
-typedef struct s_pipex
+int	ft_isspace(int c)
 {
-	char **argv;
-	char **envp;
-}	t_pipex;
-
-char	*get_env_path(char **envp);
-char	*check_access_cmd(t_pipex data, char *cmd);
-
-void	free_arr(char **arr);
-
-#endif
+	if (c >= 0 && c <= ' ')
+		return (1);
+	return (0);
+}
