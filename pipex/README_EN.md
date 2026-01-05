@@ -17,7 +17,8 @@ A project aimed at reproducing the behavior of Unix pipelines by redirecting inp
 - Use the `./pipex file1 cmd1 cmd2 file2` command to start program.
 	- **file1** and **file2** are file names.
 	- **cmd1** and **cmd2** are shell commands with their parameters.
-	- **Exemple:** ``./pipex infile "ls -l" "wc -l" outfile``
+	- **Exemple:** `./pipex infile "ls -l" "wc -l" outfile`
+    	- The equivalent in **bash** would be `< infile ls -l | wc -l > outfile`
 
 ## Bonus
 

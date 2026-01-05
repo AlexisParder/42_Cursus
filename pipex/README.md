@@ -20,6 +20,7 @@ Ce projet renforce la maîtrise des processus, des appels système, de la redire
 	- **file1** et **file2** sont des noms de fichiers.
 	- **cmd1** et **cmd2** sont des commandes shell avec leurs paramètres.
 	- Exemple : `./pipex infile "ls -l" "wc -l" outfile`
+    	- L'equivalent en **bash** serait `< infile ls -l | wc -l > outfile`
 
 ## Bonus
 
