@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 13:03:22 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/06 10:00:47 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 char	*get_env_path(char **envp)
 {
 	size_t	i;
-	
+
 	if (!envp || envp[0][0] == '\0')
 		return (NULL);
 	i = 0;
 	while (envp[i])
 	{
-		if(ft_strncmp(envp[i], "PATH=", 5) == 0)
+		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
 			return (&envp[i][5]);
 		i++;
 	}
@@ -60,12 +60,12 @@ char	*check_access_cmd(t_pipex *data, char *cmd)
 	char	*cmd_path;
 	char	*cmd_tmp;
 	size_t	i;
-	
+
 	if (!data->envp || data->envp[0][0] == '\0' || !cmd)
 		return (NULL);
 	cmd_path = NULL;
 	i = 0;
-	while(cmd[i] && !ft_isspace(cmd[i]))
+	while (cmd[i] && !ft_isspace(cmd[i]))
 		i++;
 	cmd_tmp = ft_calloc(i + 1, sizeof(char));
 	if (!cmd_tmp)
@@ -77,7 +77,7 @@ char	*check_access_cmd(t_pipex *data, char *cmd)
 	{
 		if (access(cmd_tmp, X_OK) == 0)
 			cmd_path = ft_strdup(cmd_tmp);
-	}	
+	}
 	free(cmd_tmp);
 	return (cmd_path);
 }

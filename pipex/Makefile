@@ -13,6 +13,7 @@ OBJ_MAND_DIR = $(OBJ_DIR)/mandatory
 SRC_DIR = srcs/mandatory/
 SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)utils/utils.c \
+			$(SRC_DIR)utils/utils_cmds.c \
 			$(SRC_DIR)utils/utils_envp.c
 OBJ_FILES = $(SRC_FILES:srcs/mandatory/%.c=$(OBJ_MAND_DIR)/%.o)
 

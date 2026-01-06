@@ -6,28 +6,38 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/06 08:41:04 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/06 10:34:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 
+int	open_file(char *file, int rd_only)
+{
+	int	fd;
+
+	if (rd_only)
+		fd = open(file, O_RDONLY);
+	else
+		fd = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644);
+	if (fd < 0)
+	{
+		perror(file);
+		exit(EXIT_FAILURE);
+	}
+	return (fd);
+}
+
 void	exec_cmd1(t_pipex *data)
 {
+	int		fd;
+	char	*path;
+
 	data->pid1 = fork();
 	if (data->pid1 == 0)
 	{
-		int		fd;
-		char	**argv;
-		char	*path;
-
 		close(data->pipefd[0]);
-		fd = open(data->argv[1], O_RDONLY);
-		if (fd < 0)
-		{
-			perror(data->argv[1]);
-			exit(EXIT_FAILURE);
-		}
+		fd = open_file(data->argv[1], 1);
 		dup2(fd, STDIN_FILENO);
 		close(fd);
 		path = check_access_cmd(data, data->argv[2]);
@@ -38,30 +48,20 @@ void	exec_cmd1(t_pipex *data)
 		}
 		dup2(data->pipefd[1], STDOUT_FILENO);
 		close(data->pipefd[1]);
-		argv = ft_split(data->argv[2], ' ');
-		execve(path, argv, data->envp);
-		perror("execve");
-		free(path);
-		free_arr(argv);
-		exit(EXIT_FAILURE);
+		execve(path, data->cmds[0].args, data->envp);
+		perror(data->cmds[0].name);
 	}
 }
 
 void	exec_cmd2(t_pipex *data)
 {
+	int		fd;
+	char	*path;
+
 	data->pid2 = fork();
 	if (data->pid2 == 0)
 	{
-		int		fd;
-		char	**argv;
-		char	*path;
-		
-		fd = open(data->argv[4], O_RDWR | O_CREAT | O_TRUNC, 0777);
-		if (fd < 0)
-		{
-			perror(data->argv[4]);
-			exit(EXIT_FAILURE);
-		}
+		fd = open_file(data->argv[4], 0);
 		dup2(data->pipefd[0], STDIN_FILENO);
 		close(data->pipefd[0]);
 		close(data->pipefd[1]);
@@ -73,12 +73,8 @@ void	exec_cmd2(t_pipex *data)
 		}
 		dup2(fd, STDOUT_FILENO);
 		close(fd);
-		argv = ft_split(data->argv[3], ' ');
-		execve(path, argv, data->envp);
-		perror("execve");
-		free(path);
-		free_arr(argv);
-		exit(EXIT_FAILURE);
+		execve(path, data->cmds[1].args, data->envp);
+		perror(data->cmds[1].name);
 	}
 }
 
@@ -94,17 +90,24 @@ int	exec_cmds(t_pipex *data)
 	waitpid(data->pid2, &data->status2, 0);
 	return (0);
 }
-int main(int ac, char **av, char **envp)
+
+int	main(int ac, char **av, char **envp)
 {
 	t_pipex	data;
+	int		err;
 
 	if (ac != 5)
 	{
 		ft_putstr_fd("Error usage: ./pipex file1 cmd1 cmd2 file2\n", 2);
 		return (1);
 	}
+	data.argc = ac;
 	data.argv = av;
 	data.envp = envp;
+	err = fill_cmds(&data);
+	if (err)
+		free_cmds(&data, EXIT_FAILURE);
 	exec_cmds(&data);
-	return 0;
+	free_cmds(&data, EXIT_SUCCESS);
+	return (0);
 }
