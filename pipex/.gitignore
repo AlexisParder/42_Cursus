@@ -1,0 +1,18 @@
+# *.a
+# *.o
+# pipex
+# *.txt
+# *.sh
+
+*
+
+!*/
+
+!srcs/**
+!libs/**
+!includes/**
+
+!.gitignore
+!Makefile
+!README.md
+!README_EN.md
