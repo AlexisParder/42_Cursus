@@ -1,9 +1,3 @@
-# *.a
-# *.o
-# pipex
-# *.txt
-# *.sh
-
 *
 
 !*/
@@ -16,3 +10,6 @@
 !Makefile
 !README.md
 !README_EN.md
+
+*.o
+*.a
