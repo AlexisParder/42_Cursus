@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 14:50:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/06 08:41:04 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int	exec_cmds(t_pipex *data)
 	waitpid(data->pid2, &data->status2, 0);
 	return (0);
 }
-
 int main(int ac, char **av, char **envp)
 {
 	t_pipex	data;
