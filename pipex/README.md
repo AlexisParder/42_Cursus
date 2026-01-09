@@ -25,6 +25,7 @@ Ce projet renforce la maîtrise des processus, des appels système, de la redire
 ## Bonus
 
 ## Utilisation de l’IA
+L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet, notamment les concepts de forks, pipes et autres mécanismes systèmes.
 
 ## Resources
 - [Les processus Unix en C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)

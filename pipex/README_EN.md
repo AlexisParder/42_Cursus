@@ -23,6 +23,7 @@ A project aimed at reproducing the behavior of Unix pipelines by redirecting inp
 ## Bonus
 
 ## Use of AI
+Artificial intelligence was used as a support to understand and consolidate the key concepts of the project, notably forks, pipes, and other system mechanisms.
 
 ## Resources
 - [Unix Processes in C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
