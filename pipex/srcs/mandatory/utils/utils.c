@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:19:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/05 10:20:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:01:31 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_arr(char **arr)
 	size_t	i;
 
 	i = 0;
-	while (arr[i])
+	while (arr && arr[i])
 	{
 		free(arr[i]);
 		i++;

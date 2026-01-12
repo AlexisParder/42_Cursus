@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/09 08:39:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:24:46 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,30 @@ char	*get_env_path(char **envp)
 	return (NULL);
 }
 
+static int	check_cmd_path(char *cmd_path, char **tmp)
+{
+	if (!cmd_path)
+	{
+		free(cmd_path);
+		free_arr(tmp);
+		return (0);
+	}
+	return (1);
+}
+
+static char	*create_cmd_path(char *cmd, char **tmp, size_t i)
+{
+	char	*cmd_path;
+
+	cmd_path = ft_strjoin(tmp[i], "/");
+	if (!check_cmd_path(cmd_path, tmp))
+		return (NULL);
+	cmd_path = ft_strjoin_free(cmd_path, cmd);
+	if (!check_cmd_path(cmd_path, tmp))
+		return (NULL);
+	return (cmd_path);
+}
+
 static char	*check_with_path(t_pipex *data, char *cmd)
 {
 	char	**tmp;
@@ -42,10 +66,11 @@ static char	*check_with_path(t_pipex *data, char *cmd)
 	if (!tmp)
 		return (NULL);
 	i = 0;
-	while (tmp[i])
+	while (tmp && tmp[i])
 	{
-		cmd_path = ft_strjoin(tmp[i], "/");
-		cmd_path = ft_strjoin_free(cmd_path, cmd);
+		cmd_path = create_cmd_path(cmd, tmp, i);
+		if (!cmd_path)
+			return (NULL);
 		if (access(cmd_path, X_OK) == 0)
 			break ;
 		free(cmd_path);

@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/08 10:06:58 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:15:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 
-int	open_file(char *file, int rd_only)
+int	open_file(t_pipex *data, char *file, int rd_only)
 {
 	int	fd;
 
@@ -23,6 +23,9 @@ int	open_file(char *file, int rd_only)
 	if (fd < 0)
 	{
 		perror(file);
+		close(data->pipefd[0]);
+		close(data->pipefd[1]);
+		free_cmds(data, EXIT_FAILURE);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -37,20 +40,23 @@ void	exec_cmd1(t_pipex *data)
 	if (data->pid1 == 0)
 	{
 		close(data->pipefd[0]);
-		fd = open_file(data->argv[1], 1);
+		fd = open_file(data, data->argv[1], 1);
 		dup2(fd, STDIN_FILENO);
 		close(fd);
 		path = check_access_cmd(data, data->argv[2]);
 		if (!path)
 		{
 			perror(data->cmds[0].name);
-			exit(127);
+			close(data->pipefd[1]);
 		}
-		dup2(data->pipefd[1], STDOUT_FILENO);
-		close(data->pipefd[1]);
-		execve(path, data->cmds[0].args, data->envp);
-		perror(data->cmds[0].name);
-		exit(EXIT_FAILURE);
+		else
+		{
+			dup2(data->pipefd[1], STDOUT_FILENO);
+			close(data->pipefd[1]);
+			execve(path, data->cmds[0].args, data->envp);
+			perror(data->cmds[0].name);
+			free(path);
+		}
 	}
 }
 
@@ -63,20 +69,23 @@ void	exec_cmd2(t_pipex *data)
 	if (data->pid2 == 0)
 	{
 		close(data->pipefd[1]);
-		fd = open_file(data->argv[4], 0);
-		dup2(data->pipefd[0], STDIN_FILENO);
-		close(data->pipefd[0]);
+		fd = open_file(data, data->argv[4], 0);
 		path = check_access_cmd(data, data->argv[3]);
 		if (!path)
 		{
 			perror(data->cmds[1].name);
-			exit(127);
+			close(fd);
 		}
-		dup2(fd, STDOUT_FILENO);
-		close(fd);
-		execve(path, data->cmds[1].args, data->envp);
-		perror(data->cmds[1].name);
-		exit(EXIT_FAILURE);
+		else
+		{
+			dup2(data->pipefd[0], STDIN_FILENO);
+			close(data->pipefd[0]);
+			dup2(fd, STDOUT_FILENO);
+			close(fd);
+			execve(path, data->cmds[1].args, data->envp);
+			perror(data->cmds[1].name);
+			free(path);
+		}
 	}
 }
 
@@ -109,7 +118,7 @@ int	main(int ac, char **av, char **envp)
 	err = fill_cmds(&data);
 	if (err)
 		free_cmds(&data, EXIT_FAILURE);
-	exec_cmds(&data);
-	free_cmds(&data, EXIT_SUCCESS);
+	err = exec_cmds(&data);
+	free_cmds(&data, err);
 	return (0);
 }
