@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 10:48:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:00:47 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ char	**split_with_quote(char const *s)
 	size_t	i;
 	size_t	k;
 	char	**arr;
-
+	
+	if (ft_char_occur(s, '"') % 2 != 0 || ft_char_occur(s, '\'') % 2 != 0)
+		return (NULL);
 	nb_rep = count_set(s);
 	arr = malloc((nb_rep + 1) * sizeof(char *));
 	if (!arr)
