@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 14:00:47 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:29:21 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex.h"
 
 static size_t	sz_substr(char const *s, size_t start, size_t in_quote, char c)
 {
@@ -73,6 +73,7 @@ char	**split_with_quote(char const *s)
 	size_t	i;
 	size_t	k;
 	char	**arr;
+	int		in_quote;
 	
 	if (ft_char_occur(s, '"') % 2 != 0 || ft_char_occur(s, '\'') % 2 != 0)
 		return (NULL);
@@ -81,26 +82,25 @@ char	**split_with_quote(char const *s)
 	if (!arr)
 		return (NULL);
 	arr[nb_rep] = NULL;
+	in_quote = 0;
 	i = 0;
 	k = 0;
-	while (s != NULL && s[i])
+	while (s && s[i])
 	{
 		if (!ft_isspace(s[i]) && s[i] != '"' && s[i] != '\'')
-		{
-			arr[k] = ft_substr(s, i, sz_substr(s, i, 0, 0));
-			if (!check_arr(arr, k))
-				return (NULL);
-			k++;
-			i += sz_substr(s, i, 0, 0) - 1;
-		}
+			in_quote = 0;
 		else if (s[i] == '"' || s[i] == '\'')
+			in_quote = 1;
+		if (!ft_isspace(s[i]) || s[i] == '"' || s[i] == '\'')
 		{
-			i++;
-			arr[k] = ft_substr(s, i, sz_substr(s, i, 1, s[i - 1]));
+			i += in_quote;
+			arr[k] = ft_substr(s, i, sz_substr(s, i, in_quote, s[i - in_quote]));
 			if (!check_arr(arr, k))
 				return (NULL);
 			k++;
-			i += sz_substr(s, i, 1, s[i - 1]);
+			i += sz_substr(s, i, in_quote, s[i - in_quote]);
+			if (!in_quote)
+				i--;
 		}
 		i++;
 	}
