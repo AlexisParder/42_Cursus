@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:13:02 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/09 08:38:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 13:58:25 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+size_t	ft_char_occur(char const *str, char c);
 
 int		ft_printf(const char *arg_s, ...)__attribute__((format(printf, 1, 2)));
 int		long_itoa(long n);

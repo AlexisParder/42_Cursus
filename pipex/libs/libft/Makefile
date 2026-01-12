@@ -43,7 +43,8 @@ SRC_FILES = ft_isalpha.c \
 			ft_printf.c \
 			ft_printf_utils.c \
 			ft_printf_str_utils.c \
-			get_next_line.c
+			get_next_line.c \
+			ft_char_occur.c
 SRC_BONUS_FILES = 	ft_lstnew_bonus.c \
 					ft_lstadd_front_bonus.c \
 					ft_lstsize_bonus.c \
