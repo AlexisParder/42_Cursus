@@ -6,15 +6,15 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 10:21:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:49:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	size_substr(char const *s, unsigned int start)
+static size_t	size_substr(char const *s, size_t start)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[start + i] && !ft_isspace(s[start + i]))
@@ -22,11 +22,11 @@ static int	size_substr(char const *s, unsigned int start)
 	return (i);
 }
 
-static int	count_set(char const *src)
+static size_t	count_set(char const *src)
 {
-	int	i;
-	int	count;
-	int	s_len;
+	size_t	i;
+	size_t	count;
+	size_t	s_len;
 
 	i = 0;
 	count = 0;
@@ -45,9 +45,9 @@ static int	count_set(char const *src)
 	return (count);
 }
 
-static int	check_arr(char **arr, int k)
+static size_t	check_arr(char **arr, size_t k)
 {
-	int	i;
+	size_t	i;
 
 	if (arr[k] == NULL)
 	{
@@ -62,9 +62,9 @@ static int	check_arr(char **arr, int k)
 
 char	**ft_split_all_space(char const *s)
 {
-	int		nb_rep;
-	int		i;
-	int		k;
+	size_t	nb_rep;
+	size_t	i;
+	size_t	k;
 	char	**arr;
 
 	nb_rep = count_set(s);
