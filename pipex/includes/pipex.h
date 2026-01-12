@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:55:39 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/11 17:55:30 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 09:01:02 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		fill_cmds(t_pipex *data);
 
 char	*get_env_path(char **envp);
 char	*check_access_cmd(t_pipex *data, char *cmd);
-char	**parse_cmds(char *cmd);
+char	**split_with_quote(char const *s);
 
 void	free_arr(char **arr);
 void	free_cmds(t_pipex *data, int status);

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_all_space.c                               :+:      :+:    :+:   */
+/*   split_with_quotes.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 10:21:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:20:55 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	size_substr(char const *s, unsigned int start)
+static int	size_substr(char const *s, unsigned int start, int in_quote, char c)
 {
 	int	i;
 
 	i = 0;
-	while (s[start + i] && !ft_isspace(s[start + i]))
+	while (!in_quote && s[start + i] && !ft_isspace(s[start + i]))
+		i++;
+	while (in_quote && s[start + i] && s[start + i] != c)
 		i++;
 	return (i);
 }
@@ -35,10 +37,15 @@ static int	count_set(char const *src)
 	s_len = ft_strlen(src);
 	while (src[i] && i <= s_len)
 	{
-		if (!ft_isspace(src[i]))
+		if (!ft_isspace(src[i]) && src[i] != '"' && src[i] != '\'')
 		{
 			count++;
-			i += size_substr(src, i) - 1;
+			i += size_substr(src, i, 0, 0) - 1;
+		}
+		else if (src[i] == '"' || src[i] == '\'')
+		{
+			count++;
+			i += size_substr(src, i, 1, src[i]) + 1;
 		}
 		i++;
 	}
@@ -60,7 +67,7 @@ static int	check_arr(char **arr, int k)
 	return (1);
 }
 
-char	**ft_split_all_space(char const *s)
+char	**split_with_quote(char const *s)
 {
 	int		nb_rep;
 	int		i;
@@ -76,13 +83,22 @@ char	**ft_split_all_space(char const *s)
 	k = 0;
 	while (s != NULL && s[i])
 	{
-		if (!ft_isspace(s[i]))
+		if (!ft_isspace(s[i]) && s[i] != '"' && s[i] != '\'')
 		{
-			arr[k] = ft_substr(s, i, size_substr(s, i));
+			arr[k] = ft_substr(s, i, size_substr(s, i, 0, 0));
 			if (!check_arr(arr, k))
 				return (NULL);
 			k++;
-			i += size_substr(s, i) - 1;
+			i += size_substr(s, i, 0, 0) - 1;
+		}
+		else if (s[i] == '"' || s[i] == '\'')
+		{
+			i++;
+			arr[k] = ft_substr(s, i, size_substr(s, i, 1, s[i - 1]));
+			if (!check_arr(arr, k))
+				return (NULL);
+			k++;
+			i += size_substr(s, i, 1, s[i - 1]);
 		}
 		i++;
 	}

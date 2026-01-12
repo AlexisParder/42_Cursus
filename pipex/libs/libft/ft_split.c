@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2025/12/29 09:01:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:21:34 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ static int	count_set(char const *src, char set)
 	return (count);
 }
 
-static int	check_tab(char **tab, int k)
+static int	check_arr(char **arr, int k)
 {
 	int	i;
 
-	if (tab[k] == NULL)
+	if (arr[k] == NULL)
 	{
 		i = 0;
-		while (tab[i])
-			free(tab[i++]);
-		free(tab);
+		while (arr[i])
+			free(arr[i++]);
+		free(arr);
 		return (0);
 	}
 	return (1);
@@ -65,26 +65,26 @@ char	**ft_split(char const *s, char c)
 	int		nb_rep;
 	int		i;
 	int		k;
-	char	**tab;
+	char	**arr;
 
 	nb_rep = count_set(s, c);
-	tab = malloc((nb_rep + 1) * sizeof(char *));
-	if (!tab)
+	arr = malloc((nb_rep + 1) * sizeof(char *));
+	if (!arr)
 		return (NULL);
-	tab[nb_rep] = NULL;
+	arr[nb_rep] = NULL;
 	i = 0;
 	k = 0;
 	while (s != NULL && s[i])
 	{
 		if (s[i] != c)
 		{
-			tab[k] = ft_substr(s, i, size_substr(s, i, c));
-			if (!check_tab(tab, k))
+			arr[k] = ft_substr(s, i, size_substr(s, i, c));
+			if (!check_arr(arr, k))
 				return (NULL);
 			k++;
 			i += size_substr(s, i, c) - 1;
 		}
 		i++;
 	}
-	return (tab);
+	return (arr);
 }
