@@ -6,15 +6,15 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 10:20:55 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/12 10:48:23 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	size_substr(char const *s, unsigned int start, int in_quote, char c)
+static size_t	sz_substr(char const *s, size_t start, size_t in_quote, char c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (!in_quote && s[start + i] && !ft_isspace(s[start + i]))
@@ -24,11 +24,11 @@ static int	size_substr(char const *s, unsigned int start, int in_quote, char c)
 	return (i);
 }
 
-static int	count_set(char const *src)
+static size_t	count_set(char const *src)
 {
-	int	i;
-	int	count;
-	int	s_len;
+	size_t	i;
+	size_t	count;
+	size_t	s_len;
 
 	i = 0;
 	count = 0;
@@ -40,21 +40,21 @@ static int	count_set(char const *src)
 		if (!ft_isspace(src[i]) && src[i] != '"' && src[i] != '\'')
 		{
 			count++;
-			i += size_substr(src, i, 0, 0) - 1;
+			i += sz_substr(src, i, 0, 0) - 1;
 		}
 		else if (src[i] == '"' || src[i] == '\'')
 		{
 			count++;
-			i += size_substr(src, i, 1, src[i]) + 1;
+			i += sz_substr(src, i, 1, src[i]) + 1;
 		}
 		i++;
 	}
 	return (count);
 }
 
-static int	check_arr(char **arr, int k)
+static size_t	check_arr(char **arr, size_t k)
 {
-	int	i;
+	size_t	i;
 
 	if (arr[k] == NULL)
 	{
@@ -69,9 +69,9 @@ static int	check_arr(char **arr, int k)
 
 char	**split_with_quote(char const *s)
 {
-	int		nb_rep;
-	int		i;
-	int		k;
+	size_t	nb_rep;
+	size_t	i;
+	size_t	k;
 	char	**arr;
 
 	nb_rep = count_set(s);
@@ -85,20 +85,20 @@ char	**split_with_quote(char const *s)
 	{
 		if (!ft_isspace(s[i]) && s[i] != '"' && s[i] != '\'')
 		{
-			arr[k] = ft_substr(s, i, size_substr(s, i, 0, 0));
+			arr[k] = ft_substr(s, i, sz_substr(s, i, 0, 0));
 			if (!check_arr(arr, k))
 				return (NULL);
 			k++;
-			i += size_substr(s, i, 0, 0) - 1;
+			i += sz_substr(s, i, 0, 0) - 1;
 		}
 		else if (s[i] == '"' || s[i] == '\'')
 		{
 			i++;
-			arr[k] = ft_substr(s, i, size_substr(s, i, 1, s[i - 1]));
+			arr[k] = ft_substr(s, i, sz_substr(s, i, 1, s[i - 1]));
 			if (!check_arr(arr, k))
 				return (NULL);
 			k++;
-			i += size_substr(s, i, 1, s[i - 1]);
+			i += sz_substr(s, i, 1, s[i - 1]);
 		}
 		i++;
 	}
