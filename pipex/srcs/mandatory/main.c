@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 12:15:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/13 11:09:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	open_file(t_pipex *data, char *file, int rd_only)
 		perror(file);
 		close(data->pipefd[0]);
 		close(data->pipefd[1]);
-		free_cmds(data, EXIT_FAILURE);
-		exit(EXIT_FAILURE);
+		free_all_cmds(data);
+		exit(1);
 	}
 	return (fd);
 }
@@ -45,17 +45,17 @@ void	exec_cmd1(t_pipex *data)
 		close(fd);
 		path = check_access_cmd(data, data->argv[2]);
 		if (!path)
-		{
-			perror(data->cmds[0].name);
-			close(data->pipefd[1]);
-		}
+			err_path(data, 0, data->pipefd[1], -1);
 		else
 		{
 			dup2(data->pipefd[1], STDOUT_FILENO);
 			close(data->pipefd[1]);
 			execve(path, data->cmds[0].args, data->envp);
-			perror(data->cmds[0].name);
+			ft_putstr_fd(data->cmds[0].name, 2);
+			ft_putstr_fd(": command not found\n", 2);
 			free(path);
+			free_all_cmds(data);
+			exit(127);
 		}
 	}
 }
@@ -72,10 +72,7 @@ void	exec_cmd2(t_pipex *data)
 		fd = open_file(data, data->argv[4], 0);
 		path = check_access_cmd(data, data->argv[3]);
 		if (!path)
-		{
-			perror(data->cmds[1].name);
-			close(fd);
-		}
+			err_path(data, 1, fd, data->pipefd[0]);
 		else
 		{
 			dup2(data->pipefd[0], STDIN_FILENO);
@@ -83,8 +80,11 @@ void	exec_cmd2(t_pipex *data)
 			dup2(fd, STDOUT_FILENO);
 			close(fd);
 			execve(path, data->cmds[1].args, data->envp);
-			perror(data->cmds[1].name);
+			ft_putstr_fd(data->cmds[1].name, 2);
+			ft_putstr_fd(": command not found\n", 2);
 			free(path);
+			free_all_cmds(data);
+			exit(127);
 		}
 	}
 }
@@ -99,7 +99,9 @@ int	exec_cmds(t_pipex *data)
 	close(data->pipefd[1]);
 	waitpid(data->pid1, &data->status1, 0);
 	waitpid(data->pid2, &data->status2, 0);
-	return (0);
+	if (WIFEXITED(data->status2))
+		return (WEXITSTATUS(data->status2));
+	return (1);
 }
 
 int	main(int ac, char **av, char **envp)
@@ -116,9 +118,8 @@ int	main(int ac, char **av, char **envp)
 	data.argv = av;
 	data.envp = envp;
 	err = fill_cmds(&data);
-	if (err)
-		free_cmds(&data, EXIT_FAILURE);
-	err = exec_cmds(&data);
-	free_cmds(&data, err);
-	return (0);
+	if (!err)
+		err = exec_cmds(&data);
+	free_all_cmds(&data);
+	return (err);
 }

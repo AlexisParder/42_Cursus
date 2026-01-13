@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 14:29:21 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:22:08 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,42 +67,47 @@ static size_t	check_arr(char **arr, size_t k)
 	return (1);
 }
 
+static void	parse_word(char const *s, char **arr, size_t *i, size_t *k)
+{
+	int		in_quote;
+	char	quote_char;
+
+	in_quote = 0;
+	quote_char = 0;
+	if (s[*i] == '"' || s[*i] == '\'')
+	{
+		in_quote = 1;
+		quote_char = s[*i];
+		(*i)++;
+	}
+	arr[*k] = ft_substr(s, *i, sz_substr(s, *i, in_quote, quote_char));
+	if (!check_arr(arr, *k))
+		return ;
+	(*k)++;
+	*i += sz_substr(s, *i, in_quote, quote_char);
+	if (in_quote && (s[*i] == '"' || s[*i] == '\''))
+		(*i)++;
+}
+
 char	**split_with_quote(char const *s)
 {
 	size_t	nb_rep;
 	size_t	i;
 	size_t	k;
 	char	**arr;
-	int		in_quote;
-	
-	if (ft_char_occur(s, '"') % 2 != 0 || ft_char_occur(s, '\'') % 2 != 0)
-		return (NULL);
+
 	nb_rep = count_set(s);
-	arr = malloc((nb_rep + 1) * sizeof(char *));
+	arr = ft_calloc((nb_rep + 1), sizeof(char *));
 	if (!arr)
 		return (NULL);
-	arr[nb_rep] = NULL;
-	in_quote = 0;
 	i = 0;
 	k = 0;
 	while (s && s[i])
 	{
-		if (!ft_isspace(s[i]) && s[i] != '"' && s[i] != '\'')
-			in_quote = 0;
-		else if (s[i] == '"' || s[i] == '\'')
-			in_quote = 1;
-		if (!ft_isspace(s[i]) || s[i] == '"' || s[i] == '\'')
-		{
-			i += in_quote;
-			arr[k] = ft_substr(s, i, sz_substr(s, i, in_quote, s[i - in_quote]));
-			if (!check_arr(arr, k))
-				return (NULL);
-			k++;
-			i += sz_substr(s, i, in_quote, s[i - in_quote]);
-			if (!in_quote)
-				i--;
-		}
-		i++;
+		if (!ft_isspace(s[i]))
+			parse_word(s, arr, &i, &k);
+		else
+			i++;
 	}
 	return (arr);
 }

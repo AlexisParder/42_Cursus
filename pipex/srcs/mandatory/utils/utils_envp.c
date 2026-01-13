@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/12 12:24:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/13 10:54:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static char	*check_with_path(t_pipex *data, char *cmd)
 		if (access(cmd_path, X_OK) == 0)
 			break ;
 		free(cmd_path);
+		cmd_path = NULL;
 		i++;
 	}
 	free_arr(tmp);
