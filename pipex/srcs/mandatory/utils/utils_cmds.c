@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 09:22:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/13 11:10:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:54:18 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ int	fill_cmds(t_pipex *data)
 			return (1);
 		ft_strlcpy(data->cmds[j].name, data->argv[i], k + 1);
 		data->cmds[j].args = split_with_quote(data->argv[i]);
-		if (!data->cmds[j].args || !data->cmds[j].args[0])
-			perror(data->cmds[j].name);
 		i++;
 		j++;
 	}
