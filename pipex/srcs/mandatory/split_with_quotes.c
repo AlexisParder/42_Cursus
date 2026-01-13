@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 09:40:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/13 12:22:08 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:24:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static size_t	check_arr(char **arr, size_t k)
 	return (1);
 }
 
-static void	parse_word(char const *s, char **arr, size_t *i, size_t *k)
+static void	extract_word(char const *s, char **arr, size_t *i, size_t *k)
 {
 	int		in_quote;
 	char	quote_char;
@@ -105,7 +105,7 @@ char	**split_with_quote(char const *s)
 	while (s && s[i])
 	{
 		if (!ft_isspace(s[i]))
-			parse_word(s, arr, &i, &k);
+			extract_word(s, arr, &i, &k);
 		else
 			i++;
 	}
