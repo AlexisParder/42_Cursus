@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/13 10:54:42 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/14 09:07:36 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	*check_access_cmd(t_pipex *data, char *cmd)
 	char	*cmd_tmp;
 	size_t	i;
 
-	if (!data->envp || data->envp[0][0] == '\0' || !cmd)
+	if (!data->envp || !data->envp[0] || data->envp[0][0] == '\0' || !cmd)
 		return (NULL);
 	cmd_path = NULL;
 	i = 0;
