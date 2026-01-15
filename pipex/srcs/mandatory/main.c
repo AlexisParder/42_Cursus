@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/15 13:07:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:07:47 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	exec_cmd1(t_pipex *data)
 		dup2(fd, STDIN_FILENO);
 		close(fd);
 		data->cmds[0].err_path = check_access_cmd(data, data->argv[2], 0);
-		if (data->cmds[0].err_path || data->cmds[0].path == NULL)
+		if (data->cmds[0].err_path)
 			err_path(data, 0, data->pipefd[1], -1);
 		else
 		{
@@ -68,7 +68,7 @@ void	exec_cmd2(t_pipex *data)
 		close(data->pipefd[1]);
 		fd = open_file(data, data->argv[4], 0);
 		data->cmds[1].err_path = check_access_cmd(data, data->argv[3], 1);
-		if (data->cmds[1].err_path || data->cmds[1].path == NULL)
+		if (data->cmds[1].err_path)
 			err_path(data, 1, fd, data->pipefd[0]);
 		else
 		{

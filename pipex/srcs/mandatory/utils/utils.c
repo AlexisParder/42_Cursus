@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:19:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/15 11:07:04 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:06:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_arr(char **arr)
 
 void	err_path(t_pipex *data, size_t cmd_nb, int fd, int pipefd)
 {
-	if (data->cmds[cmd_nb].err_path == 1)
+	if (data->cmds[cmd_nb].err_path == 1 || data->cmds[cmd_nb].err_path == 3)
 	{
 		ft_putstr_fd(data->cmds[cmd_nb].name, 2);
 		ft_putstr_fd(": command not found\n", 2);

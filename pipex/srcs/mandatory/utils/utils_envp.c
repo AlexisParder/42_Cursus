@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/15 11:11:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:06:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ int	check_access_cmd(t_pipex *data, char *cmd, int cmd_nb)
 			data->cmds[cmd_nb].path = ft_strdup(cmd_tmp);
 	}
 	free(cmd_tmp);
+	if (data->cmds[cmd_nb].path == NULL)
+		return (3);
 	return (0);
 }
