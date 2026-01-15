@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 09:22:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/13 12:54:18 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:11:37 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	fill_cmds(t_pipex *data)
 		while (data->argv[i][k] && !ft_isspace(data->argv[i][k]))
 			k++;
 		data->cmds[j].name = ft_calloc(k + 1, sizeof(char));
+		data->cmds[j].err_path = 0;
+		data->cmds[j].path = NULL;
 		if (!data->cmds[j].name)
 			return (1);
 		ft_strlcpy(data->cmds[j].name, data->argv[i], k + 1);
@@ -47,6 +49,7 @@ void	free_all_cmds(t_pipex *data)
 	while (data->cmds && data->cmds[i].name)
 	{
 		free(data->cmds[i].name);
+		free(data->cmds[i].path);
 		free_arr(data->cmds[i].args);
 		i++;
 	}

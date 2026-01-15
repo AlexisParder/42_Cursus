@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/14 09:07:36 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:11:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,29 +81,27 @@ static char	*check_with_path(t_pipex *data, char *cmd)
 	return (cmd_path);
 }
 
-char	*check_access_cmd(t_pipex *data, char *cmd)
+int	check_access_cmd(t_pipex *data, char *cmd, int cmd_nb)
 {
-	char	*cmd_path;
 	char	*cmd_tmp;
 	size_t	i;
 
 	if (!data->envp || !data->envp[0] || data->envp[0][0] == '\0' || !cmd)
-		return (NULL);
-	cmd_path = NULL;
+		return (1);
 	i = 0;
 	while (cmd[i] && !ft_isspace(cmd[i]))
 		i++;
 	cmd_tmp = ft_calloc(i + 1, sizeof(char));
 	if (!cmd_tmp)
-		return (NULL);
+		return (2);
 	ft_strlcpy(cmd_tmp, cmd, i + 1);
 	if (!ft_strchr(cmd_tmp, '/'))
-		cmd_path = check_with_path(data, cmd_tmp);
+		data->cmds[cmd_nb].path = check_with_path(data, cmd_tmp);
 	else
 	{
 		if (access(cmd_tmp, X_OK) == 0)
-			cmd_path = ft_strdup(cmd_tmp);
+			data->cmds[cmd_nb].path = ft_strdup(cmd_tmp);
 	}
 	free(cmd_tmp);
-	return (cmd_path);
+	return (0);
 }

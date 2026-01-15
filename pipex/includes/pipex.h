@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:55:39 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/13 11:10:20 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:02:29 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_cmd_data
 {
 	char	*name;
 	char	**args;
+	char	*path;
+	int		err_path;
 }	t_cmd_data;
 
 typedef struct s_pipex
@@ -38,9 +40,9 @@ typedef struct s_pipex
 }	t_pipex;
 
 int		fill_cmds(t_pipex *data);
+int		check_access_cmd(t_pipex *data, char *cmd, int cmd_nb);
 
 char	*get_env_path(char **envp);
-char	*check_access_cmd(t_pipex *data, char *cmd);
 char	**split_with_quote(char const *s);
 
 void	free_arr(char **arr);

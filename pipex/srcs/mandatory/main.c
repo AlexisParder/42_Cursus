@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/13 11:09:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/15 11:08:31 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	open_file(t_pipex *data, char *file, int rd_only)
 void	exec_cmd1(t_pipex *data)
 {
 	int		fd;
-	char	*path;
 
 	data->pid1 = fork();
 	if (data->pid1 == 0)
@@ -43,17 +42,17 @@ void	exec_cmd1(t_pipex *data)
 		fd = open_file(data, data->argv[1], 1);
 		dup2(fd, STDIN_FILENO);
 		close(fd);
-		path = check_access_cmd(data, data->argv[2]);
-		if (!path)
+		data->cmds[0].err_path = check_access_cmd(data, data->argv[2], 0);
+		if (data->cmds[0].err_path)
 			err_path(data, 0, data->pipefd[1], -1);
 		else
 		{
 			dup2(data->pipefd[1], STDOUT_FILENO);
 			close(data->pipefd[1]);
-			execve(path, data->cmds[0].args, data->envp);
+			execve(data->cmds[0].path, data->cmds[0].args, data->envp);
 			ft_putstr_fd(data->cmds[0].name, 2);
 			ft_putstr_fd(": command not found\n", 2);
-			free(path);
+			free(data->cmds[0].path);
 			free_all_cmds(data);
 			exit(127);
 		}
@@ -63,15 +62,14 @@ void	exec_cmd1(t_pipex *data)
 void	exec_cmd2(t_pipex *data)
 {
 	int		fd;
-	char	*path;
 
 	data->pid2 = fork();
 	if (data->pid2 == 0)
 	{
 		close(data->pipefd[1]);
 		fd = open_file(data, data->argv[4], 0);
-		path = check_access_cmd(data, data->argv[3]);
-		if (!path)
+		data->cmds[1].err_path = check_access_cmd(data, data->argv[3], 1);
+		if (data->cmds[1].err_path)
 			err_path(data, 1, fd, data->pipefd[0]);
 		else
 		{
@@ -79,10 +77,10 @@ void	exec_cmd2(t_pipex *data)
 			close(data->pipefd[0]);
 			dup2(fd, STDOUT_FILENO);
 			close(fd);
-			execve(path, data->cmds[1].args, data->envp);
+			execve(data->cmds[1].path, data->cmds[1].args, data->envp);
 			ft_putstr_fd(data->cmds[1].name, 2);
 			ft_putstr_fd(": command not found\n", 2);
-			free(path);
+			free(data->cmds[1].path);
 			free_all_cmds(data);
 			exit(127);
 		}
