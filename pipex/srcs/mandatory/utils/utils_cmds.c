@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 09:22:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/16 08:59:38 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:23:40 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@ void	free_all(t_pipex *data)
 	data->status = NULL;
 	free(data->pid);
 	data->pid = NULL;
+	i = 0;
+	while (data->pipefd[i])
+	{
+		free(data->pipefd[i]);
+		i++;
+	}
+	free(data->pipefd);
+	data->pipefd = NULL;
 }
 
 int	open_file(t_pipex *data, char *file, int rd_only)
@@ -72,8 +80,8 @@ int	open_file(t_pipex *data, char *file, int rd_only)
 	if (fd < 0)
 	{
 		perror(file);
-		close(data->pipefd[0]);
-		close(data->pipefd[1]);
+		close(data->pipefd[0][0]);
+		close(data->pipefd[0][1]);
 		free_all(data);
 		exit(1);
 	}

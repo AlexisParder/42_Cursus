@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:55:39 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/16 08:53:00 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:18:13 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_pipex
 	int			argc;
 	char		**argv;
 	char		**envp;
-	int			pipefd[2];
+	int			**pipefd;
 	pid_t		*pid;
 	int			*status;
 	t_cmd_data	*cmds;
