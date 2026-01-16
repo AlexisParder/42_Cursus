@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/16 10:27:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:40:10 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 
-void	exec_cmd1(t_pipex *data)
+void	exec_child1(t_pipex *data)
 {
 	int		fd;
 
@@ -39,7 +39,7 @@ void	exec_cmd1(t_pipex *data)
 	}
 }
 
-void	exec_cmd2(t_pipex *data)
+void	exec_child2(t_pipex *data)
 {
 	int		fd;
 
@@ -66,18 +66,41 @@ void	exec_cmd2(t_pipex *data)
 	}
 }
 
-int	exec_cmds(t_pipex *data)
+static void	close_pipes(t_pipex *data)
 {
-	if (pipe(data->pipefd[0]) < 0)
-		return (1);
-	exec_cmd1(data);
-	exec_cmd2(data);
-	close(data->pipefd[0][0]);
-	close(data->pipefd[0][1]);
-	waitpid(data->pid[0], &data->status[0], 0);
-	waitpid(data->pid[1], &data->status[1], 0);
-	if (WIFEXITED(data->status[1]))
-		return (WEXITSTATUS(data->status[1]));
+	long	i;
+
+	i = 0;
+	while (i < data->argc - 4)
+	{
+		close(data->pipefd[i][0]);
+		close(data->pipefd[i][1]);
+		i++;
+	}
+}
+
+int	exec_parent(t_pipex *data)
+{
+	long	i;
+
+	i = 0;
+	while (i < data->argc - 4)
+	{
+		if (pipe(data->pipefd[i]) < 0)
+			return (1);
+		i++;
+	}
+	exec_child1(data);
+	exec_child2(data);
+	close_pipes(data);
+	i = 0;
+	while (i < data->argc - 3)
+	{
+		waitpid(data->pid[i], &data->status[i], 0);
+		i++;
+	}
+	if (WIFEXITED(data->status[data->argc - 4]))
+		return (WEXITSTATUS(data->status[data->argc - 4]));
 	return (1);
 }
 
@@ -122,7 +145,7 @@ int	main(int ac, char **av, char **envp)
 	if (!err)
 		err = fill_cmds(&data);
 	if (!err)
-		err = exec_cmds(&data);
+		err = exec_parent(&data);
 	free_all(&data);
 	return (err);
 }
