@@ -6,37 +6,18 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/15 14:07:47 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:59:54 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 
-int	open_file(t_pipex *data, char *file, int rd_only)
-{
-	int	fd;
-
-	if (rd_only)
-		fd = open(file, O_RDONLY);
-	else
-		fd = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644);
-	if (fd < 0)
-	{
-		perror(file);
-		close(data->pipefd[0]);
-		close(data->pipefd[1]);
-		free_all_cmds(data);
-		exit(1);
-	}
-	return (fd);
-}
-
 void	exec_cmd1(t_pipex *data)
 {
 	int		fd;
 
-	data->pid1 = fork();
-	if (data->pid1 == 0)
+	data->pid[0] = fork();
+	if (data->pid[0] == 0)
 	{
 		close(data->pipefd[0]);
 		fd = open_file(data, data->argv[1], 1);
@@ -52,7 +33,7 @@ void	exec_cmd1(t_pipex *data)
 			execve(data->cmds[0].path, data->cmds[0].args, data->envp);
 			ft_putstr_fd(data->cmds[0].name, 2);
 			ft_putstr_fd(": command not found\n", 2);
-			free_all_cmds(data);
+			free_all(data);
 			exit(127);
 		}
 	}
@@ -62,8 +43,8 @@ void	exec_cmd2(t_pipex *data)
 {
 	int		fd;
 
-	data->pid2 = fork();
-	if (data->pid2 == 0)
+	data->pid[1] = fork();
+	if (data->pid[1] == 0)
 	{
 		close(data->pipefd[1]);
 		fd = open_file(data, data->argv[4], 0);
@@ -79,7 +60,7 @@ void	exec_cmd2(t_pipex *data)
 			execve(data->cmds[1].path, data->cmds[1].args, data->envp);
 			ft_putstr_fd(data->cmds[1].name, 2);
 			ft_putstr_fd(": command not found\n", 2);
-			free_all_cmds(data);
+			free_all(data);
 			exit(127);
 		}
 	}
@@ -93,11 +74,25 @@ int	exec_cmds(t_pipex *data)
 	exec_cmd2(data);
 	close(data->pipefd[0]);
 	close(data->pipefd[1]);
-	waitpid(data->pid1, &data->status1, 0);
-	waitpid(data->pid2, &data->status2, 0);
-	if (WIFEXITED(data->status2))
-		return (WEXITSTATUS(data->status2));
+	waitpid(data->pid[0], &data->status[0], 0);
+	waitpid(data->pid[1], &data->status[1], 0);
+	if (WIFEXITED(data->status[1]))
+		return (WEXITSTATUS(data->status[1]));
 	return (1);
+}
+
+static int	init_data(t_pipex *data, int ac, char **av, char **envp)
+{
+	data->argc = ac;
+	data->argv = av;
+	data->envp = envp;
+	data->status = ft_calloc(ac - 3, sizeof(int));
+	if (!data->status)
+		return (1);
+	data->pid = ft_calloc(ac - 3, sizeof(int));
+	if (!data->pid)
+		return (1);
+	return (0);
 }
 
 int	main(int ac, char **av, char **envp)
@@ -110,12 +105,11 @@ int	main(int ac, char **av, char **envp)
 		ft_putstr_fd("Error usage: ./pipex file1 cmd1 cmd2 file2\n", 2);
 		return (1);
 	}
-	data.argc = ac;
-	data.argv = av;
-	data.envp = envp;
-	err = fill_cmds(&data);
+	err = init_data(&data, ac, av, envp);
+	if (!err)
+		err = fill_cmds(&data);
 	if (!err)
 		err = exec_cmds(&data);
-	free_all_cmds(&data);
+	free_all(&data);
 	return (err);
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 09:22:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/15 11:11:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:59:38 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	fill_cmds(t_pipex *data)
 	return (0);
 }
 
-void	free_all_cmds(t_pipex *data)
+void	free_all(t_pipex *data)
 {
 	size_t	i;
 
@@ -55,4 +55,27 @@ void	free_all_cmds(t_pipex *data)
 	}
 	free(data->cmds);
 	data->cmds = NULL;
+	free(data->status);
+	data->status = NULL;
+	free(data->pid);
+	data->pid = NULL;
+}
+
+int	open_file(t_pipex *data, char *file, int rd_only)
+{
+	int	fd;
+
+	if (rd_only)
+		fd = open(file, O_RDONLY);
+	else
+		fd = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644);
+	if (fd < 0)
+	{
+		perror(file);
+		close(data->pipefd[0]);
+		close(data->pipefd[1]);
+		free_all(data);
+		exit(1);
+	}
+	return (fd);
 }

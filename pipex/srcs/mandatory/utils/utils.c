@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:19:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/15 14:06:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 08:44:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	err_path(t_pipex *data, size_t cmd_nb, int fd, int pipefd)
 		close(fd);
 	if (pipefd >= 0)
 		close(pipefd);
-	free_all_cmds(data);
+	free_all(data);
 	exit(127);
 }
