@@ -6,15 +6,44 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 10:43:55 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/16 10:44:18 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:02:25 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex.h>
 
+static void	close_all_pipes(t_pipex *data)
+{
+	long	i;
+
+	i = 0;
+	while (i < data->argc - 4)
+	{
+		close(data->pipefd[i][0]);
+		close(data->pipefd[i][1]);
+		i++;
+	}
+}
+
+static void	close_other_pipes(t_pipex *data, size_t cmd_nb)
+{
+	
+}
+
+static void	exec_child(t_pipex *data, size_t cmd_nb)
+{
+	// int	fd;
+
+	data->pid[cmd_nb] = fork();
+	if (data->pid[cmd_nb] == 0)
+	{
+		close_other_pipes(data, cmd_nb);
+	}
+}
+
 static void	exec_child1(t_pipex *data)
 {
-	int		fd;
+	int	fd;
 
 	data->pid[0] = fork();
 	if (data->pid[0] == 0)
@@ -41,13 +70,13 @@ static void	exec_child1(t_pipex *data)
 
 static void	exec_child2(t_pipex *data)
 {
-	int		fd;
+	int	fd;
 
 	data->pid[1] = fork();
 	if (data->pid[1] == 0)
 	{
 		close(data->pipefd[0][1]);
-		fd = open_file(data, data->argv[4], 0);
+		fd = open_file(data, data->argv[data->argc - 1], 0);
 		data->cmds[1].err_path = check_access_cmd(data, data->argv[3], 1);
 		if (data->cmds[1].err_path)
 			err_path(data, 1, fd, data->pipefd[0][0]);
@@ -66,35 +95,28 @@ static void	exec_child2(t_pipex *data)
 	}
 }
 
-static void	close_pipes(t_pipex *data)
-{
-	long	i;
-
-	i = 0;
-	while (i < data->argc - 4)
-	{
-		close(data->pipefd[i][0]);
-		close(data->pipefd[i][1]);
-		i++;
-	}
-}
-
 int	exec_parent(t_pipex *data)
 {
-	long	i;
+	size_t	i;
 
 	i = 0;
-	while (i < data->argc - 4)
+	while (i < (size_t)data->argc - 4)
 	{
 		if (pipe(data->pipefd[i]) < 0)
 			return (1);
 		i++;
 	}
-	exec_child1(data);
-	exec_child2(data);
-	close_pipes(data);
 	i = 0;
-	while (i < data->argc - 3)
+	while (i < (size_t)data->argc - 3)
+	{
+		// exec_child(data, i);
+		i++;
+	}
+	exec_child1(data); // a supprimer
+	exec_child2(data); // a supprimer
+	close_all_pipes(data);
+	i = 0;
+	while (i < (size_t)data->argc - 3)
 	{
 		waitpid(data->pid[i], &data->status[i], 0);
 		i++;
