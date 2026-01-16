@@ -17,8 +17,8 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 ![Project banner](./banner_so_long.png)
 
 ## Instructions
-- Use the `make` command to generate the program.
-	- Use the `make bonus` command to generate the program with bonus.
+- Use the `make` command to compile the program.
+	- Use the `make bonus` command to compile the program with bonus.
 - Use the `./so_long maps/<map_file>.ber` command to start game.
 	- Use the `./so_long_bonus maps/<map_file>.ber` command to start game with bonus.
 	- **(Personal bonus)** Use the command `./so_long_bonus <W> <H> <C> <Number_of_enemies>` to generate a map.

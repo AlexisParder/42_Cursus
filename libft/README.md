@@ -113,6 +113,6 @@ Elles ne font pas partie du projet Libft obligatoire original, mais sont souvent
 	- Lit un descripteur de fichier ligne par ligne, en retournant une ligne par appel, quelle que soit la taille du buffer.
 
 ## Instructions
-- Utilisez la commande `make` pour générer l’archive.
-	- Utilisez la commande `make` bonus pour générer l’archive avec les fonctions bonus.
+- Utilisez la commande `make` pour compiler l’archive.
+	- Utilisez la commande `make bonus` pour compiler l’archive avec les fonctions bonus.
 - Exportez les fichiers `libft.a` et `libft.h` vers le programme qui nécessite ces fonctions.

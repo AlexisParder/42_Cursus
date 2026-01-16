@@ -15,7 +15,7 @@ Il couvre toutes les conversions obligatoires (c, s, p, d, i, u, x, X, %) et met
 Ce projet renforce les compétences en logique de parsing, conversions de bases, gestion de buffers et architecture de fonctions.
 
 ## Instructions
-- Utilisez la commande `make` pour générer l’archive.
+- Utilisez la commande `make` pour compiler l’archive.
 - Exportez les fichiers `ft_printf.a` et `ft_printf.h` vers le programme qui nécessite la fonction `ft_printf`.
 
 ## Exemple d’utilisation

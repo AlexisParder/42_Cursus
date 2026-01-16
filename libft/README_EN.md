@@ -113,6 +113,6 @@ They are not part of the original mandatory Libft project, but they are commonly
 	- Reads a file descriptor line by line, returning one line per call, regardless of the buffer size.
 
 ## Instructions
-- Use the `make` command to generate the archive.
-	- Use the `make bonus` command to generate the archive with bonus functions.
+- Use the `make` command to compile the archive.
+	- Use the `make bonus` command to compile the archive with bonus functions.
 - Export the `libft.a` and `libft.h` files to the program that requires these functions.

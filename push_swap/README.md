@@ -49,7 +49,7 @@ Vous devez utiliser uniquement ces opérations pour manipuler les piles et obten
 	- Exécute rra et rrb en même temps.
 
 ## Instructions
-- Utilisez la commande `make` pour générer le programme.
+- Utilisez la commande `make` pour compiler le programme.
 - Utilisez la commande `./push_swap <liste de nombres non triés> `pour trier la liste.
 	- ⚠️ Le programme ne retourne pas la liste triée. Il affiche uniquement les instructions utilisées pour effectuer le tri.
 	- La commande `./push_swap <liste de nombres non triés> | wc -l` permet d’afficher le nombre d’instructions utilisées pour trier la liste.

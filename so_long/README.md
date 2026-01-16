@@ -18,8 +18,8 @@ Un projet graphique axé sur la création d’un petit jeu 2D en utilisant la bi
 ![Project banner](./banner_so_long.png)
 
 ## Instructions
-- Utilisez la commande `make` pour générer le programme.
-	- Utilisez la commande `make bonus` pour générer le programme avec les bonus.
+- Utilisez la commande `make` pour compiler le programme.
+	- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
 - Utilisez la commande `./so_long maps/<fichier_carte>.ber` pour lancer le jeu.
 	- Utilisez la commande `./so_long_bonus maps/<fichier_carte>.ber` pour lancer le jeu avec les bonus.
 	- **(Bonus personnel)** Utilisez la commande `./so_long_bonus <W> <H> <C> <Nombre d'ennemis>` pour generer une carte.
