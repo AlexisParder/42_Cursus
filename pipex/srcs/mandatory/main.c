@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/16 10:25:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/16 10:27:40 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	exec_cmds(t_pipex *data)
 static int	init_data(t_pipex *data, int ac, char **av, char **envp)
 {
 	long	i;
-	
+
 	data->argc = ac;
 	data->argv = av;
 	data->envp = envp;
