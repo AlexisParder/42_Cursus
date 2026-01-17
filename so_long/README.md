@@ -55,7 +55,7 @@ La carte doit respecter certaines règles :
 
 ## Bonus
 - [x] Faire perdre le joueur lorsqu’il touche une patrouille ennemie.
-- [X] Ajouter des animations de sprites.
+- [x] Ajouter des animations de sprites.
 - [x] Afficher le compteur de déplacements directement à l’écran au lieu de l’écrire dans le terminal.
 
 ## Utilisation de l’IA

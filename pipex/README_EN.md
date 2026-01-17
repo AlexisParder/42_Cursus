@@ -21,7 +21,7 @@ A project aimed at reproducing the behavior of Unix pipelines by redirecting inp
     	- The equivalent in **bash** would be `< infile ls -l | wc -l > outfile`
 
 ## Bonus
-- [ ] Handle multiple pipes.
+- [x] Handle multiple pipes.
 	- `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
 	- The equivalent in **bash** would be `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
 - [ ] Support « and » when the first parameter is "here_doc".

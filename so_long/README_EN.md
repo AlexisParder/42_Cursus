@@ -54,7 +54,7 @@ The map must follow certain rules:
 
 ## Bonus
 - [x] Make the player lose when they touch an enemy patrol.
-- [X] Add some sprite animation.
+- [x] Add some sprite animation.
 - [x] Display the movement count directly on screen instead of writing it in the shell.
 
 ## Use of AI

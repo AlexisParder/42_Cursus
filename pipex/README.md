@@ -23,7 +23,7 @@ Ce projet renforce la maîtrise des processus, des appels système, de la redire
     	- L'equivalent en **bash** serait `< infile ls -l | wc -l > outfile`
 
 ## Bonus
-- [ ] Gérer plusieurs pipes.
+- [x] Gérer plusieurs pipes.
 	- `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
 	- L'equivalent en **bash** serait `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
 - [ ] Prise en charge de « and » lorsque le premier paramètre est « here_doc ».
