@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_parent.c                                      :+:      :+:    :+:   */
+/*   exec_parent_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 10:43:55 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:51:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/17 12:58:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pipex.h>
+#include <pipex_bonus.h>
 
 static void	exec_cmd(t_pipex *data, size_t cmd_nb)
 {

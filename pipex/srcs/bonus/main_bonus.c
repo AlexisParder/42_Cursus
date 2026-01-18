@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:55:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/17 12:58:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <pipex.h>
+#include <pipex_bonus.h>
 
 static int	init_data(t_pipex *data, int ac, char **av, char **envp)
 {
@@ -44,9 +44,9 @@ int	main(int ac, char **av, char **envp)
 	t_pipex	data;
 	int		err;
 
-	if (ac != 5)
+	if (ac < 5)
 	{
-		ft_putstr_fd("Usage: ./pipex file1 cmd1 cmd2 file2\n", 2);
+		ft_putstr_fd("Usage: ./pipex infile cmd1 cmd2 ... cmdN outfile\n", 2);
 		return (1);
 	}
 	err = init_data(&data, ac, av, envp);
