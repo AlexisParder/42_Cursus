@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 10:43:55 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:51:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/19 08:41:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,7 @@ static void	exec_cmd(t_pipex *data, size_t cmd_nb)
 	data->cmds[cmd_nb].err_path = check_access_cmd(data,
 			data->argv[cmd_nb + 2], cmd_nb);
 	if (data->cmds[cmd_nb].err_path)
-	{
-		if (cmd_nb == 0)
 			err_path(data, cmd_nb);
-		else if (cmd_nb == (size_t)nb_cmds - 1)
-			err_path(data, cmd_nb);
-		else
-			err_path(data, cmd_nb);
-	}
 	execve(data->cmds[cmd_nb].path, data->cmds[cmd_nb].args, data->envp);
 	ft_putstr_fd(data->cmds[cmd_nb].name, 2);
 	ft_putstr_fd(": command not found\n", 2);
