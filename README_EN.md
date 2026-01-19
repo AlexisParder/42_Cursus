@@ -9,6 +9,8 @@
 	- [push\_swap](#push_swap)
 	- [so\_long](#so_long)
 	- [pipex](#pipex)
+	- [philosophers](#philosophers)
+	- [minishell](#minishell)
 
 ## libf
 A foundational project from the 42 curriculum.
@@ -55,3 +57,13 @@ A graphical project focused on building a small 2D game using the MiniLibX libra
 A project aimed at reproducing the behavior of Unix pipelines by redirecting input/output streams between multiple commands. The program must correctly fork processes, set up pipes, manage file descriptors, and execute commands through PATH resolution, all while ensuring strict error handling and memory safety. The bonus involves handling multiple pipes and heredoc functionality. This project reinforces mastery of processes, system calls, I/O redirection, environment variables, and inter-process communication, while teaching how to orchestrate complex data flows at the system level.
 
 [Go to pipex](https://github.com/AlexisParder/42_Cursus/tree/main/pipex)
+
+## philosophers
+A concurrency-focused project based on the classic Dining Philosophers problem. The objective is to simulate multiple philosophers sharing limited resources while avoiding deadlocks, starvation, and race conditions. The implementation relies on threads (or processes), mutexes, precise time management, and synchronized access to shared data. The project demands rigorous control over timing constraints, clean thread lifecycle management, and accurate state logging. This project develops a deep understanding of multithreading, synchronization primitives, concurrent programming pitfalls, and performance-sensitive logic under strict real-time constraints.
+
+[Go to philosophers](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers)
+
+## minishell
+A comprehensive systems programming project that consists of recreating a simplified Unix shell from scratch. The program must parse and execute user commands, manage environment variables, handle built-in commands, support pipes and redirections, and correctly propagate exit statuses. The challenge lies in accurately tokenizing input, managing process creation, handling signals (Ctrl-C, Ctrl-D, Ctrl-\\), and reproducing Bash-like behavior within defined limits. This project builds strong expertise in process control, parsing logic, file descriptor management, signal handling, and robust error recovery in a low-level C environment.
+
+[Go to minishell](https://github.com/AlexisParder/42_Cursus/tree/main/minishell)
