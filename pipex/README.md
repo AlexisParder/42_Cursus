@@ -16,6 +16,7 @@ Ce projet renforce la maîtrise des processus, des appels système, de la redire
 
 ## Instructions
 - Utilisez la commande `make` pour compiler le programme.
+	- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
 - Utilisez la commande `./pipex file1 cmd1 cmd2 file2` pour lancer le programme.
 	- **file1** et **file2** sont des noms de fichiers.
 	- **cmd1** et **cmd2** sont des commandes shell avec leurs paramètres.

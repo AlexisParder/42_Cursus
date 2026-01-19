@@ -14,6 +14,7 @@ A project aimed at reproducing the behavior of Unix pipelines by redirecting inp
 
 ## Instructions
 - Use the `make` command to compile the program.
+	- Use the `make bonus` command to compile the program with bonus.
 - Use the `./pipex file1 cmd1 cmd2 file2` command to start program.
 	- **file1** and **file2** are file names.
 	- **cmd1** and **cmd2** are shell commands with their parameters.
