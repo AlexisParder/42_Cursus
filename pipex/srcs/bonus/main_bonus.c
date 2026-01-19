@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:58:05 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:17:54 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ int	main(int ac, char **av, char **envp)
 	}
 	err = init_data(&data, ac, av, envp);
 	if (err)
+	{
 		ft_putstr_fd("Error: memory allocation failed\n", 2);
-	if (!err)
-		err = fill_cmds(&data);
+		return (err);
+	}
+	err = fill_cmds(&data);
 	if (err)
 		ft_putstr_fd("Error: command initialization failed\n", 2);
-	if (!err)
+	else
 		err = exec_parent(&data);
 	free_all(&data);
 	return (err);
