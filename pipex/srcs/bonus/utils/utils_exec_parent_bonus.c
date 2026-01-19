@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 12:40:20 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/19 11:11:35 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:13:21 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	infile_to_pipe(t_pipex *data)
 		dup2(fd, STDIN_FILENO);
 		close(fd);
 	}
-	// dup2(fd, STDIN_FILENO);
-	// close(fd);
 }
 
 void	pipe_to_pipe(t_pipex *data, size_t cmd_nb)

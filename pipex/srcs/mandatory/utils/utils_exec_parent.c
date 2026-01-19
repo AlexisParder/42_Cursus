@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 12:40:20 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:41:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:13:31 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	infile_to_pipe(t_pipex *data)
 	dup2(data->pipefd[0][1], STDOUT_FILENO);
 	close(data->pipefd[0][1]);
 	fd = open_file(data, data->argv[1], 1);
-	dup2(fd, STDIN_FILENO);
-	close(fd);
+	if (fd >= 0)
+	{
+		dup2(fd, STDIN_FILENO);
+		close(fd);
+	}
 }
 
 void	pipe_to_pipe(t_pipex *data, size_t cmd_nb)
@@ -42,6 +45,9 @@ void	pipe_to_outfile(t_pipex *data, size_t cmd_nb)
 	dup2(data->pipefd[cmd_nb - 1][0], STDIN_FILENO);
 	close(data->pipefd[cmd_nb - 1][0]);
 	fd = open_file(data, data->argv[data->argc - 1], 0);
-	dup2(fd, STDOUT_FILENO);
-	close(fd);
+	if (fd >= 0)
+	{
+		dup2(fd, STDOUT_FILENO);
+		close(fd);
+	}
 }
