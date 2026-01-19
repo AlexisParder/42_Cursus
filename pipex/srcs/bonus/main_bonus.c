@@ -6,11 +6,28 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/19 09:17:54 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/19 10:29:54 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex_bonus.h>
+
+static int	check_is_here_doc(t_pipex *data)
+{
+	size_t	len;
+
+	len = ft_strlen(data->argv[1]);
+	if (len == 8 && !ft_strncmp(data->argv[1], "here_doc", 8))
+		return (1);
+	return (0);
+}
+
+static char	*get_limiter(t_pipex *data)
+{
+	if (!data->is_here_doc)
+		return (NULL);
+	return (data->argv[2]);
+}
 
 static int	init_data(t_pipex *data, int ac, char **av, char **envp)
 {
@@ -36,6 +53,8 @@ static int	init_data(t_pipex *data, int ac, char **av, char **envp)
 			return (1);
 		i++;
 	}
+	data->is_here_doc = check_is_here_doc(data);
+	data->limiter = get_limiter(data);
 	return (0);
 }
 
