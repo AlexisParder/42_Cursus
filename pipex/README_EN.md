@@ -25,7 +25,7 @@ A project aimed at reproducing the behavior of Unix pipelines by redirecting inp
 - [x] Handle multiple pipes.
 	- `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
 	- The equivalent in **bash** would be `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
-- [ ] Support « and » when the first parameter is "here_doc".
+- [ ] Support `«` and `»` when the first parameter is `here_doc`.
 	- `./pipex here_doc LIMITER cmd cmd1 file`
 	- The equivalent in **bash** would be `cmd << LIMITER | cmd1 >> file`
 
