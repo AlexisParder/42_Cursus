@@ -21,8 +21,7 @@ Un projet graphique axé sur la création d’un petit jeu 2D en utilisant la bi
 - Utilisez la commande `make` pour compiler le programme.
 	- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
 - Utilisez la commande `./so_long maps/<fichier_carte>.ber` pour lancer le jeu.
-	- Utilisez la commande `./so_long_bonus maps/<fichier_carte>.ber` pour lancer le jeu avec les bonus.
-	- **(Bonus personnel)** Utilisez la commande `./so_long_bonus <W> <H> <C> <Nombre d'ennemis>` pour generer une carte.
+	- **(Bonus personnel)** Utilisez la commande `./so_long <W> <H> <C> <Nombre d'ennemis>` pour generer une carte.
 		- W: Largeur de la carte.
 		- H: Hauteur de la carte.
 		- C: Nombre d'objets à collecter.

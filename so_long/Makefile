@@ -1,5 +1,4 @@
 NAME = so_long
-NAME_BONUS = so_long_bonus
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -72,8 +71,6 @@ RESET	= \033[0m
 
 all: $(MLX) $(LIBFT) $(NAME)
 
-bonus: $(MLX) $(LIBFT) $(NAME_BONUS)
-
 $(MLX):
 		@echo "$(BLUE)[MLX] Compilation de la minilibx...$(RESET)"
 		@$(MAKE) -C libs/minilibx-linux
@@ -89,10 +86,10 @@ $(NAME): $(OBJ_FILES)
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
 		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
-$(NAME_BONUS): $(OBJ_BONUS_FILES)
-		@echo "$(BLUE)[BUILD] Compilation de $(NAME_BONUS)...$(RESET)"
-		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
-		@echo "$(GREEN)[OK] $(NAME_BONUS) prêt ✔$(RESET)"
+bonus: $(LIBFT) $(OBJ_BONUS_FILES)
+		@echo "$(BLUE)[BONUS] Compilation de $(NAME) (bonus)...$(RESET)"
+		@$(CC) $(CFLAGS) $(INC_DIR) -o $(NAME) $(OBJ_BONUS_FILES) $(LIBS)
+		@echo "$(GREEN)[OK] $(NAME) (bonus) prêt ✓$(RESET)"
 
 $(OBJ_MAND_DIR)/%.o: srcs/mandatory/%.c
 	@mkdir -p $(dir $@)
