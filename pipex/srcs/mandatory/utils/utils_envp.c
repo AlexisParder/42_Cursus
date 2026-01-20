@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/20 11:21:08 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:03:38 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int	check_access_cmd(t_pipex *data, char *cmd, int cmd_nb)
 {
 	char	*cmd_tmp;
 	size_t	i;
+	int		err;
 
 	if (!cmd)
 		return (1);
@@ -95,15 +96,15 @@ int	check_access_cmd(t_pipex *data, char *cmd, int cmd_nb)
 	if (!cmd_tmp)
 		return (2);
 	ft_strlcpy(cmd_tmp, cmd, i + 1);
+	err = 0;
 	if (!ft_strchr(cmd_tmp, '/'))
 		data->cmds[cmd_nb].path = check_with_path(data, cmd_tmp);
 	else
-	{
-		if (access(cmd_tmp, X_OK) == 0)
-			data->cmds[cmd_nb].path = ft_strdup(cmd_tmp);
-	}
+		err = check_without_path(data, cmd_nb, cmd_tmp);
 	free(cmd_tmp);
-	if (data->cmds[cmd_nb].path == NULL)
+	if (!err && data->cmds[cmd_nb].path == NULL)
 		return (3);
+	else if (err)
+		return (err);
 	return (0);
 }
