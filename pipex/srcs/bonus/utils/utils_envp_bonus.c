@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/20 13:07:25 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:51:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*get_env_path(char **envp)
 	i = 0;
 	while (envp[i])
 	{
-		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
+		if (!ft_strncmp(envp[i], "PATH=", 5))
 			return (&envp[i][5]);
 		i++;
 	}
