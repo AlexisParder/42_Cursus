@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 10:43:55 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/20 10:28:44 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:36:23 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,22 @@ static void	close_parent_pipes(t_pipex *data, size_t cmd_nb)
 	}
 }
 
+static void	wait_children(t_pipex *data)
+{
+	size_t	i;
+	pid_t	wpid;
+	int		status;
+
+	i = 0;
+	while (i < (size_t)data->argc - 3 - data->here_doc)
+	{
+		wpid = waitpid(-1, &status, 0);
+		if (wpid == data->pid[data->argc - 4 - data->here_doc])
+			data->status[data->argc - 4 - data->here_doc] = status;
+		i++;
+	}
+}
+
 int	exec_parent(t_pipex *data)
 {
 	size_t	i;
@@ -73,12 +89,7 @@ int	exec_parent(t_pipex *data)
 		close_parent_pipes(data, i);
 		i++;
 	}
-	i = 0;
-	while (i < (size_t)data->argc - 3 - data->here_doc)
-	{
-		waitpid(data->pid[i], &data->status[i], 0);
-		i++;
-	}
+	wait_children(data);
 	if (WIFEXITED(data->status[data->argc - 4 - data->here_doc]))
 		return (WEXITSTATUS(data->status[data->argc - 4 - data->here_doc]));
 	return (1);
