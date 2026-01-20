@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 09:22:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:50:30 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:31:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	open_file(t_pipex *data, char *file, int rd_only)
 	if (rd_only)
 		fd = open(file, O_RDONLY);
 	else
-		fd = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644);
+		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 0)
 	{
 		perror(file);

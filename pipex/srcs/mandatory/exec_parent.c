@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 10:43:55 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/19 08:42:44 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:28:55 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ static void	exec_child(t_pipex *data, size_t cmd_nb)
 	nb_cmds = data->argc - 3;
 	data->pid[cmd_nb] = fork();
 	if (data->pid[cmd_nb] < 0)
-	{
-		perror("fork");
 		return ;
-	}
 	if (data->pid[cmd_nb] == 0)
 	{
 		if (cmd_nb == 0)

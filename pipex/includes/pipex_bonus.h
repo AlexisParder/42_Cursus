@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:55:39 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/19 10:19:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 09:59:48 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_pipex
 	pid_t		*pid;
 	int			*status;
 	t_cmd_data	*cmds;
-	int			is_here_doc;
+	int			here_doc;
 	char		*limiter;
 }	t_pipex;
 
@@ -53,5 +53,6 @@ void	err_path(t_pipex *data, size_t cmd_nb);
 void	infile_to_pipe(t_pipex *data);
 void	pipe_to_pipe(t_pipex *data, size_t cmd_nb);
 void	pipe_to_outfile(t_pipex *data, size_t cmd_nb);
+void	handle_here_doc(t_pipex *data);
 
 #endif

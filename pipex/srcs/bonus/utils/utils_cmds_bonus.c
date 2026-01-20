@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 09:22:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:58:05 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:31:37 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	fill_cmds(t_pipex *data)
 	size_t	j;
 	size_t	k;
 
-	data->cmds = ft_calloc(data->argc - 2, sizeof(t_cmd_data));
+	data->cmds = ft_calloc(data->argc - 2 - data->here_doc, sizeof(t_cmd_data));
 	if (!data->cmds)
 		return (1);
-	i = 2;
+	i = 2 + data->here_doc;
 	j = 0;
 	while (i < data->argc - 1)
 	{
@@ -76,7 +76,8 @@ void	free_all(t_pipex *data)
 	i = 0;
 	if (data->pipefd)
 	{
-		while (i < (size_t)data->argc - 4 && data->pipefd[i])
+		while (i < ((size_t)data->argc - 4 - data->here_doc)
+			&& data->pipefd[i])
 		{
 			free(data->pipefd[i]);
 			i++;
@@ -93,7 +94,7 @@ int	open_file(t_pipex *data, char *file, int rd_only)
 	if (rd_only)
 		fd = open(file, O_RDONLY);
 	else
-		fd = open(file, O_RDWR | O_CREAT | O_TRUNC, 0644);
+		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 0)
 	{
 		perror(file);

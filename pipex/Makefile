@@ -25,6 +25,7 @@ SRC_BONUS_DIR = srcs/bonus/
 SRC_BONUS_FILES = $(SRC_BONUS_DIR)main_bonus.c \
 			$(SRC_BONUS_DIR)split_with_quotes_bonus.c \
 			$(SRC_BONUS_DIR)exec_parent_bonus.c \
+			$(SRC_BONUS_DIR)here_doc_bonus.c \
 			$(SRC_BONUS_DIR)utils/utils_bonus.c \
 			$(SRC_BONUS_DIR)utils/utils_cmds_bonus.c \
 			$(SRC_BONUS_DIR)utils/utils_envp_bonus.c \
