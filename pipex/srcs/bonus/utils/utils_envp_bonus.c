@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 09:11:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/17 12:58:05 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:25:30 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*get_env_path(char **envp)
 {
 	size_t	i;
 
-	if (!envp || envp[0][0] == '\0')
+	if (!envp || !envp[0] || envp[0][0] == '\0')
 		return (NULL);
 	i = 0;
 	while (envp[i])
@@ -86,7 +86,7 @@ int	check_access_cmd(t_pipex *data, char *cmd, int cmd_nb)
 	char	*cmd_tmp;
 	size_t	i;
 
-	if (!data->envp || !data->envp[0] || data->envp[0][0] == '\0' || !cmd)
+	if (!cmd)
 		return (1);
 	i = 0;
 	while (cmd[i] && !ft_isspace(cmd[i]))
