@@ -6,18 +6,18 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:56:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/20 10:29:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/21 09:45:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <pipex_bonus.h>
 
-static int	check_here_doc(t_pipex *data)
+static int	check_here_doc(char	**av)
 {
 	size_t	len;
 
-	len = ft_strlen(data->argv[1]);
-	if (len == 8 && !ft_strncmp(data->argv[1], "here_doc", 8))
+	len = ft_strlen(av[1]);
+	if (len == 8 && !ft_strncmp(av[1], "here_doc", 8))
 		return (1);
 	return (0);
 }
@@ -36,7 +36,6 @@ static int	init_data(t_pipex *data, int ac, char **av, char **envp)
 	data->argc = ac;
 	data->argv = av;
 	data->envp = envp;
-	data->here_doc = check_here_doc(data);
 	data->status = ft_calloc(data->argc - 3 - data->here_doc, sizeof(int));
 	if (!data->status)
 		return (1);
@@ -63,7 +62,10 @@ int	main(int ac, char **av, char **envp)
 	t_pipex	data;
 	int		err;
 
-	if (ac < 5)
+	data.here_doc = 0;
+	if (ac >= 2)
+		data.here_doc = check_here_doc(av);
+	if ((data.here_doc && ac < 6) || (!data.here_doc && ac < 5))
 	{
 		ft_putstr_fd("Usage: ./pipex infile cmd1 cmd2 ... cmdN outfile\n", 2);
 		ft_putstr_fd("Or: ./pipex here_doc LIMITER cmd1 ... cmdN outfile\n", 2);
