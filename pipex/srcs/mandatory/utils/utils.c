@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:19:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/20 13:12:35 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:58:54 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	err_path(t_pipex *data, size_t cmd_nb)
 
 int	check_without_path(t_pipex *data, int cmd_nb, char *cmd_tmp)
 {
-	if (access(cmd_tmp, F_OK) == 0)
+	if (!access(cmd_tmp, F_OK))
 	{
-		if (access(cmd_tmp, X_OK) == 0)
+		if (!access(cmd_tmp, X_OK))
 			data->cmds[cmd_nb].path = ft_strdup(cmd_tmp);
 		else
 			return (5);
