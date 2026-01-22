@@ -19,12 +19,12 @@ A concurrency-focused project based on the classic Dining Philosophers problem. 
 
 ## Instructions
 ### Mandatory
-- Go to the philo folder to compile the basic program.
-- Use the make command to compile the program.
+- Go to the `philo` folder to compile the basic program.
+- Use the `make` command to compile the program.
 <!-- - Use the `./philo ...` command to run the program. -->
 ### Bonus
-- Go to the philo_bonus folder to compile the program with the bonus features.
-- Use the make bonus command to compile the program with the bonus features
+- Go to the `philo_bonus` folder to compile the program with the bonus features.
+- Use the `make bonus` command to compile the program with the bonus features
 
 ## Bonus
 - [ ] All the forks are put in the middle of the table.
