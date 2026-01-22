@@ -3,9 +3,7 @@ NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT = libs/libft/libft.a
-
-INC_DIR = -I includes/ -I libs/libft/ 
+INC_DIR = -I includes/
 
 OBJ_DIR = obj
 
@@ -20,18 +18,12 @@ YELLOW	= \033[0;33m
 RED		= \033[0;31m
 RESET	= \033[0m
 
-LIBS = $(LIBFT)
 
-all: $(LIBFT) $(NAME)
-
-$(LIBFT):
-		@echo "$(BLUE)[LIBFT] Compilation de la libft...$(RESET)"
-		@$(MAKE) -C libs/libft
-		@echo "$(GREEN)[LIBFT] libft compilée ✔$(RESET)"
+all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
-		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
+		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^
 		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
 $(OBJ_DIR)/%.o: srcs/%.c
@@ -41,13 +33,11 @@ $(OBJ_DIR)/%.o: srcs/%.c
 clean:
 		@echo "$(YELLOW)[CLEAN] Suppression des objets...$(RESET)"
 		@rm -rf $(OBJ_DIR)
-		@$(MAKE) -C libs/libft clean
 		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
 
 fclean: clean
 		@echo "$(RED)[FCLEAN] Suppression des binaires...$(RESET)"
 		@rm -rf $(NAME)
-		@rm -rf libs/libft/libft.a
 		@echo "$(GREEN)[FCLEAN] OK ✔$(RESET)"
 
 re: fclean all

@@ -6,13 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:18:08 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/22 09:19:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/01/22 09:28:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
-
-# include <libft.h>
 
 #endif

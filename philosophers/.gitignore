@@ -1,0 +1,14 @@
+*
+
+!*/
+
+!srcs/**
+!includes/**
+
+!.gitignore
+!Makefile
+!README.md
+!README_EN.md
+
+*.o
+*.a
