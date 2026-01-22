@@ -8,7 +8,9 @@
 - [philosophers](#philosophers)
 	- [Description](#description)
 	- [Instructions](#instructions)
-	- [Bonus](#bonus)
+		- [Mandatory](#mandatory)
+		- [Bonus](#bonus)
+	- [Bonus](#bonus-1)
 	- [Use of AI](#use-of-ai)
 	- [Resources](#resources)
 
@@ -16,21 +18,18 @@
 A concurrency-focused project based on the classic Dining Philosophers problem. The objective is to simulate multiple philosophers sharing limited resources while avoiding deadlocks, starvation, and race conditions. The implementation relies on threads (or processes), mutexes, precise time management, and synchronized access to shared data. The project demands rigorous control over timing constraints, clean thread lifecycle management, and accurate state logging. This project develops a deep understanding of multithreading, synchronization primitives, concurrent programming pitfalls, and performance-sensitive logic under strict real-time constraints.
 
 ## Instructions
-<!-- - Use the `make` command to compile the program.
-	- Use the `make bonus` command to compile the program with bonus.
-- Use the `./pipex file1 cmd1 cmd2 file2` command to start program.
-	- **file1** and **file2** are file names.
-	- **cmd1** and **cmd2** are shell commands with their parameters.
-	- **Exemple:** `./pipex infile "ls -l" "wc -l" outfile`
-    	- The equivalent in **bash** would be `< infile ls -l | wc -l > outfile` -->
+### Mandatory
+- Go to the philo folder to compile the basic program.
+- Use the make command to compile the program.
+<!-- - Use the `./philo ...` command to run the program. -->
+### Bonus
+- Go to the philo_bonus folder to compile the program with the bonus features.
+- Use the make bonus command to compile the program with the bonus features
 
 ## Bonus
-<!-- - [x] Handle multiple pipes.
-	- `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
-	- The equivalent in **bash** would be `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
-- [ ] Support « and » when the first parameter is "here_doc".
-	- `./pipex here_doc LIMITER cmd cmd1 file`
-	- The equivalent in **bash** would be `cmd << LIMITER | cmd1 >> file` -->
+- [ ] All the forks are put in the middle of the table.
+- [ ] They have no states in memory, but the number of available forks is represented by a semaphore.
+- [ ] Each philosopher must be represented as a separate process. However, the main process should not act as a philosopher.
 
 ## Use of AI
 <!-- Artificial intelligence was used as a support to understand and consolidate the key concepts of the project, notably forks, pipes, and other system mechanisms. -->
@@ -38,4 +37,3 @@ A concurrency-focused project based on the classic Dining Philosophers problem. 
 ## Resources
 <!-- - [Unix Processes in C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
 - [Pipes, Forks & Dups by Roslyn McConnell](https://www.rozmichelle.com/pipes-forks-dups/) -->
-- [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)

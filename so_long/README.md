@@ -8,9 +8,11 @@
 - [so\_long](#so_long)
 	- [Description](#description)
 	- [Instructions](#instructions)
+		- [Obligatoire](#obligatoire)
+		- [Bonus](#bonus)
 	- [Commandes](#commandes)
 	- [Cartes](#cartes)
-	- [Bonus](#bonus)
+	- [Bonus](#bonus-1)
 	- [Utilisation de l’IA](#utilisation-de-lia)
 	- [Ressources](#ressources)
 
@@ -21,13 +23,16 @@ Un projet graphique axé sur la création d’un petit jeu 2D en utilisant la bi
 ![Project banner](./banner_so_long.png)
 
 ## Instructions
+### Obligatoire
 - Utilisez la commande `make` pour compiler le programme.
-	- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
 - Utilisez la commande `./so_long maps/<fichier_carte>.ber` pour lancer le jeu.
-	- **(Bonus personnel)** Utilisez la commande `./so_long <W> <H> <C> <Nombre d'ennemis>` pour generer une carte.
-		- W: Largeur de la carte.
-		- H: Hauteur de la carte.
-		- C: Nombre d'objets à collecter.
+### Bonus
+- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
+- Utilisez la commande `./so_long maps/<fichier_carte>.ber` pour lancer le jeu.
+- **(Bonus personnel)** Utilisez la commande `./so_long <W> <H> <C> <Nombre d'ennemis>` pour generer une carte.
+  - W: Largeur de la carte.
+  - H: Hauteur de la carte.
+  - C: Nombre d'objets à collecter.
 
 ## Commandes
 | Touche                 | Description de l’action      |

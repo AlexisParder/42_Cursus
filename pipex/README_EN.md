@@ -8,7 +8,9 @@
 - [pipex](#pipex)
 	- [Description](#description)
 	- [Instructions](#instructions)
-	- [Bonus](#bonus)
+		- [Mandatory](#mandatory)
+		- [Bonus](#bonus)
+	- [Bonus](#bonus-1)
 	- [Use of AI](#use-of-ai)
 	- [Resources](#resources)
 
@@ -16,13 +18,17 @@
 A project aimed at reproducing the behavior of Unix pipelines by redirecting input/output streams between multiple commands. The program must correctly fork processes, set up pipes, manage file descriptors, and execute commands through PATH resolution, all while ensuring strict error handling and memory safety. The bonus involves handling multiple pipes and heredoc functionality. This project reinforces mastery of processes, system calls, I/O redirection, environment variables, and inter-process communication, while teaching how to orchestrate complex data flows at the system level.
 
 ## Instructions
+### Mandatory
 - Use the `make` command to compile the program.
-	- Use the `make bonus` command to compile the program with bonus.
 - Use the `./pipex file1 cmd1 cmd2 file2` command to start program.
 	- **file1** and **file2** are file names.
 	- **cmd1** and **cmd2** are shell commands with their parameters.
 	- **Exemple:** `./pipex infile "ls -l" "wc -l" outfile`
     	- The equivalent in **bash** would be `< infile ls -l | wc -l > outfile`
+### Bonus
+- Use the `make bonus` command to compile the program with bonus.
+- Use the `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2` command to start program.
+- Or use the `./pipex here_doc LIMITER cmd cmd1 file` command to start program.
 
 ## Bonus
 - [x] Handle multiple pipes.

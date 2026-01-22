@@ -11,6 +11,8 @@
 	- [Fonctions bonus](#fonctions-bonus)
 	- [Projets supplémentaires intégrés](#projets-supplémentaires-intégrés)
 	- [Instructions](#instructions)
+		- [Mandatory](#mandatory)
+		- [Bonus](#bonus)
 
 ## Description
 Un projet fondamental du cursus 42.
@@ -116,6 +118,9 @@ Elles ne font pas partie du projet Libft obligatoire original, mais sont souvent
 	- Lit un descripteur de fichier ligne par ligne, en retournant une ligne par appel, quelle que soit la taille du buffer.
 
 ## Instructions
+### Mandatory
 - Utilisez la commande `make` pour compiler l’archive.
-	- Utilisez la commande `make bonus` pour compiler l’archive avec les fonctions bonus.
+- Exportez les fichiers `libft.a` et `libft.h` vers le programme qui nécessite ces fonctions.
+### Bonus
+- Utilisez la commande `make bonus` pour compiler l’archive avec les fonctions bonus.
 - Exportez les fichiers `libft.a` et `libft.h` vers le programme qui nécessite ces fonctions.

@@ -8,7 +8,9 @@
 - [minishell](#minishell)
 	- [Description](#description)
 	- [Instructions](#instructions)
-	- [Bonus](#bonus)
+		- [Obligatoire](#obligatoire)
+		- [Bonus](#bonus)
+	- [Bonus](#bonus-1)
 	- [Utilisation de l’IA](#utilisation-de-lia)
 	- [Resources](#resources)
 
@@ -16,6 +18,8 @@
 Un projet complet de programmation système consistant à recréer un shell Unix simplifié à partir de zéro. Le programme doit analyser et exécuter les commandes utilisateur, gérer les variables d’environnement, prendre en charge les commandes intégrées (built-ins), supporter les pipes et les redirections, et propager correctement les codes de sortie. La difficulté réside dans la tokenisation précise de l’entrée, la gestion de la création des processus, le traitement des signaux (Ctrl-C, Ctrl-D, Ctrl-\\), ainsi que la reproduction d’un comportement proche de Bash dans des limites définies. Ce projet permet de développer une solide expertise en contrôle des processus, en logique de parsing, en gestion des descripteurs de fichiers, en gestion des signaux et en récupération d’erreurs robuste dans un environnement C bas niveau.
 
 ## Instructions
+### Obligatoire
+### Bonus
 <!-- - Utilisez la commande `make` pour compiler le programme.
 	- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
 - Utilisez la commande `./pipex file1 cmd1 cmd2 file2` pour lancer le programme.

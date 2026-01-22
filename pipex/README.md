@@ -8,7 +8,9 @@
 - [pipex](#pipex)
 	- [Description](#description)
 	- [Instructions](#instructions)
-	- [Bonus](#bonus)
+		- [Obligatoire](#obligatoire)
+		- [Bonus](#bonus)
+	- [Bonus](#bonus-1)
 	- [Utilisation de l’IA](#utilisation-de-lia)
 	- [Resources](#resources)
 
@@ -18,13 +20,17 @@ Le bonus consiste à gérer plusieurs pipes ainsi que la fonctionnalité heredoc
 Ce projet renforce la maîtrise des processus, des appels système, de la redirection des entrées/sorties, des variables d’environnement et de la communication inter-processus, tout en apprenant à orchestrer des flux de données complexes au niveau système.
 
 ## Instructions
+### Obligatoire
 - Utilisez la commande `make` pour compiler le programme.
-	- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
 - Utilisez la commande `./pipex file1 cmd1 cmd2 file2` pour lancer le programme.
 	- **file1** et **file2** sont des noms de fichiers.
 	- **cmd1** et **cmd2** sont des commandes shell avec leurs paramètres.
 	- Exemple : `./pipex infile "ls -l" "wc -l" outfile`
     	- L'equivalent en **bash** serait `< infile ls -l | wc -l > outfile`
+### Bonus
+- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
+- Utilisez la commande `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2` pour lancer le programme.
+- Ou utilisez la commande `./pipex here_doc LIMITER cmd cmd1 file` pour lancer le programme.
 
 ## Bonus
 - [x] Gérer plusieurs pipes.
