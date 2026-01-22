@@ -1,6 +1,8 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # get_next_line
+![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
+![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)
 [![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/get_next_line)<br>
 [🇬🇧 English](./README_EN.md)
 - [get\_next\_line](#get_next_line)

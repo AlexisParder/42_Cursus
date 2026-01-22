@@ -1,6 +1,8 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # so_long
+![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
+![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)
 [![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/so_long)<br>
 [🇫🇷 French](./README.md)
 - [so\_long](#so_long)
