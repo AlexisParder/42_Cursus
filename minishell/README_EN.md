@@ -8,9 +8,6 @@
 - [minishell](#minishell)
 	- [Description](#description)
 	- [Instructions](#instructions)
-		- [Mandatory](#mandatory)
-		- [Bonus](#bonus)
-	- [Bonus](#bonus-1)
 	- [Use of AI](#use-of-ai)
 	- [Resources](#resources)
 
@@ -18,8 +15,6 @@
 A comprehensive systems programming project that consists of recreating a simplified Unix shell from scratch. The program must parse and execute user commands, manage environment variables, handle built-in commands, support pipes and redirections, and correctly propagate exit statuses. The challenge lies in accurately tokenizing input, managing process creation, handling signals (Ctrl-C, Ctrl-D, Ctrl-\\), and reproducing Bash-like behavior within defined limits. This project builds strong expertise in process control, parsing logic, file descriptor management, signal handling, and robust error recovery in a low-level C environment.
 
 ## Instructions
-### Mandatory
-### Bonus
 <!-- - Use the `make` command to compile the program.
 	- Use the `make bonus` command to compile the program with bonus.
 - Use the `./pipex file1 cmd1 cmd2 file2` command to start program.
@@ -27,14 +22,6 @@ A comprehensive systems programming project that consists of recreating a simpli
 	- **cmd1** and **cmd2** are shell commands with their parameters.
 	- **Exemple:** `./pipex infile "ls -l" "wc -l" outfile`
     	- The equivalent in **bash** would be `< infile ls -l | wc -l > outfile` -->
-
-## Bonus
-<!-- - [x] Handle multiple pipes.
-	- `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
-	- The equivalent in **bash** would be `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
-- [ ] Support « and » when the first parameter is "here_doc".
-	- `./pipex here_doc LIMITER cmd cmd1 file`
-	- The equivalent in **bash** would be `cmd << LIMITER | cmd1 >> file` -->
 
 ## Use of AI
 <!-- Artificial intelligence was used as a support to understand and consolidate the key concepts of the project, notably forks, pipes, and other system mechanisms. -->

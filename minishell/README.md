@@ -8,9 +8,6 @@
 - [minishell](#minishell)
 	- [Description](#description)
 	- [Instructions](#instructions)
-		- [Obligatoire](#obligatoire)
-		- [Bonus](#bonus)
-	- [Bonus](#bonus-1)
 	- [Utilisation de l’IA](#utilisation-de-lia)
 	- [Resources](#resources)
 
@@ -18,8 +15,6 @@
 Un projet complet de programmation système consistant à recréer un shell Unix simplifié à partir de zéro. Le programme doit analyser et exécuter les commandes utilisateur, gérer les variables d’environnement, prendre en charge les commandes intégrées (built-ins), supporter les pipes et les redirections, et propager correctement les codes de sortie. La difficulté réside dans la tokenisation précise de l’entrée, la gestion de la création des processus, le traitement des signaux (Ctrl-C, Ctrl-D, Ctrl-\\), ainsi que la reproduction d’un comportement proche de Bash dans des limites définies. Ce projet permet de développer une solide expertise en contrôle des processus, en logique de parsing, en gestion des descripteurs de fichiers, en gestion des signaux et en récupération d’erreurs robuste dans un environnement C bas niveau.
 
 ## Instructions
-### Obligatoire
-### Bonus
 <!-- - Utilisez la commande `make` pour compiler le programme.
 	- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
 - Utilisez la commande `./pipex file1 cmd1 cmd2 file2` pour lancer le programme.
@@ -27,14 +22,6 @@ Un projet complet de programmation système consistant à recréer un shell Unix
 	- **cmd1** et **cmd2** sont des commandes shell avec leurs paramètres.
 	- Exemple : `./pipex infile "ls -l" "wc -l" outfile`
     	- L'equivalent en **bash** serait `< infile ls -l | wc -l > outfile` -->
-
-## Bonus
-<!-- - [x] Gérer plusieurs pipes.
-	- `./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2`
-	- L'equivalent en **bash** serait `< file1 cmd1 | cmd2 | cmd3 ... | cmdn > file2`
-- [ ] Prise en charge de « and » lorsque le premier paramètre est « here_doc ».
-	- `./pipex here_doc LIMITER cmd cmd1 file`
-	- L'equivalent en **bash** serait `cmd << LIMITER | cmd1 >> file` -->
 
 ## Utilisation de l’IA
 <!-- L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet, notamment les concepts de forks, pipes et autres mécanismes systèmes. -->
