@@ -1,6 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # libft
+[![Score](https://img.shields.io/badge/score-115%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/libft)<br>
 [🇬🇧 English](./README_EN.md)
 - [libft](#libft)
 	- [Description](#description)

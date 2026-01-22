@@ -1,6 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # pipex
+[![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/pipex)<br>
 [🇫🇷 French](./README.md)
 - [pipex](#pipex)
 	- [Description](#description)

@@ -1,6 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # so_long
+[![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/so_long)<br>
 [🇬🇧 English](./README_EN.md)
 - [so\_long](#so_long)
 	- [Description](#description)

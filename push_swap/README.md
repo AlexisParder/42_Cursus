@@ -1,6 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # push_swap
+[![Score](https://img.shields.io/badge/score-100%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/push_swap)<br>
 [🇬🇧 English](./README_EN.md)
 - [push\_swap](#push_swap)
 	- [Description](#description)

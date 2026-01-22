@@ -1,6 +1,7 @@
 *Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
 
 # born2beroot
+[![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/born2beroot)<br>
 [🇬🇧 English](./README_EN.md)
 - [born2beroot](#born2beroot)
 	- [Description](#description)

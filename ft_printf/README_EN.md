@@ -1,6 +1,7 @@
 *This project has been created as part of the 42 curriculum by achauvie.*
 
 # ft_printf
+[![Score](https://img.shields.io/badge/score-100%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/ft_printf)<br>
 [🇫🇷 French](./README.md)
 - [ft\_printf](#ft_printf)
 	- [Description](#description)
