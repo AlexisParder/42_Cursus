@@ -31,7 +31,7 @@ int	main(void)
 	line = get_next_line(fd);
 	while (line)
 	{
-		ft_printf("%s", line) // Peut être remplacé par printf.
+		ft_printf("%s", line); // Peut être remplacé par printf.
 		free(line);
 		line = get_next_line(fd);
 	}
