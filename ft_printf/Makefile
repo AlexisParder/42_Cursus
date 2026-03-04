@@ -15,7 +15,18 @@ YELLOW	= \033[0;33m
 RED		= \033[0;31m
 RESET	= \033[0m
 
-all: $(NAME)
+BANNER = \
+"\n $(RESET)███████$(RED)╗$(RESET)████████$(RED)╗     $(RESET)██████$(RED)╗ $(RESET)██████$(RED)╗ $(RESET)██$(RED)╗$(RESET)███$(RED)╗   $(RESET)██$(RED)╗$(RESET)████████$(RED)╗$(RESET)███████$(RED)╗\n" \
+"$(RESET)██$(RED)╔════╝╚══$(RESET)██$(RED)╔══╝     $(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)║$(RESET)████$(RED)╗  $(RESET)██$(RED)║╚══$(RESET)██$(RED)╔══╝$(RESET)██$(RED)╔════╝\n" \
+"$(RESET)█████$(RED)╗     $(RESET)██$(RED)║        $(RESET)██████$(RED)╔╝$(RESET)██████$(RED)╔╝$(RESET)██$(RED)║$(RESET)██$(RED)╔$(RESET)██$(RED)╗ $(RESET)██$(RED)║   $(RESET)██$(RED)║   $(RESET)█████$(RED)╗  \n" \
+"$(RESET)██$(RED)╔══╝     $(RESET)██$(RED)║        $(RESET)██$(RED)╔═══╝ $(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)║$(RESET)██$(RED)║╚$(RESET)██$(RED)╗$(RESET)██$(RED)║   $(RESET)██$(RED)║   $(RESET)██$(RED)╔══╝  \n" \
+"$(RESET)██$(RED)║        $(RESET)██$(RED)║$(RESET)███████$(RED)╗$(RESET)██$(RED)║     $(RESET)██$(RED)║  $(RESET)██$(RED)║$(RESET)██$(RED)║$(RESET)██$(RED)║ ╚$(RESET)████$(RED)║   $(RESET)██$(RED)║   $(RESET)██$(RED)║     \n" \
+"$(RED)╚═╝        ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝     \n$(RESET)"
+
+all: banner $(NAME)
+
+banner:
+	@echo $(BANNER)
 
 $(NAME): $(OBJ_FILES)
 		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
