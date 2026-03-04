@@ -69,7 +69,29 @@ YELLOW	= \033[0;33m
 RED		= \033[0;31m
 RESET	= \033[0m
 
-all: $(MLX) $(LIBFT) $(NAME)
+BANNER = \
+"\n $(RESET)███████$(RED)╗ $(RESET)██████$(RED)╗         $(RESET)██$(RED)╗      $(RESET)██████$(RED)╗ $(RESET)███$(RED)╗   $(RESET)██$(RED)╗ $(RESET)██████$(RED)╗  \n" \
+"$(RESET)██$(RED)╔════╝$(RESET)██$(RED)╔═══$(RESET)██$(RED)╗        $(RESET)██$(RED)║     $(RESET)██$(RED)╔═══$(RESET)██$(RED)╗$(RESET)████$(RED)╗  $(RESET)██$(RED)║$(RESET)██$(RED)╔════╝  \n" \
+"$(RESET)███████$(RED)╗$(RESET)██$(RED)║   $(RESET)██$(RED)║        $(RESET)██$(RED)║     $(RESET)██$(RED)║   $(RESET)██$(RED)║$(RESET)██$(RED)╔$(RESET)██$(RED)╗ $(RESET)██$(RED)║$(RESET)██$(RED)║  $(RESET)███$(RED)╗ \n" \
+"╚════$(RESET)██$(RED)║$(RESET)██$(RED)║   $(RESET)██$(RED)║        $(RESET)██$(RED)║     $(RESET)██$(RED)║   $(RESET)██$(RED)║$(RESET)██$(RED)║╚$(RESET)██$(RED)╗$(RESET)██$(RED)║$(RESET)██$(RED)║   $(RESET)██$(RED)║ \n" \
+"$(RESET)███████$(RED)║╚$(RESET)██████$(RED)╔╝$(RESET)███████$(RED)╗$(RESET)███████$(RED)╗╚$(RESET)██████$(RED)╔╝$(RESET)██$(RED)║ ╚$(RESET)████$(RED)║╚$(RESET)██████$(RED)╔╝ \n" \
+"$(RED)╚══════╝ ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝  \n$(RESET)"
+
+BANNER_BONUS = \
+" $(RESET)██████$(BLUE)╗  $(RESET)██████$(BLUE)╗ $(RESET)███$(BLUE)╗   $(RESET)██$(BLUE)╗$(RESET)██$(BLUE)╗   $(RESET)██$(BLUE)╗$(RESET)███████$(BLUE)╗ \n" \
+"$(RESET)██$(BLUE)╔══$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)╔═══$(RESET)██$(BLUE)╗$(RESET)████$(BLUE)╗  $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)╔════╝ \n" \
+"$(RESET)██████$(BLUE)╔╝$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)╔$(RESET)██$(BLUE)╗ $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)███████$(BLUE)╗ \n" \
+"$(RESET)██$(BLUE)╔══$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║╚$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║╚════$(RESET)██$(BLUE)║ \n" \
+"$(RESET)██████$(BLUE)╔╝╚$(RESET)██████$(BLUE)╔╝$(RESET)██$(BLUE)║ ╚$(RESET)████$(BLUE)║╚$(RESET)██████$(BLUE)╔╝$(RESET)███████$(BLUE)║ \n" \
+"$(BLUE)╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ \n$(RESET)"
+
+all: banner $(MLX) $(LIBFT) $(NAME)
+
+banner:
+	@echo $(BANNER)
+
+banner_bonus: banner
+	@echo $(BANNER_BONUS)
 
 $(MLX):
 		@echo "$(BLUE)[MLX] Compilation de la minilibx...$(RESET)"
@@ -86,7 +108,7 @@ $(NAME): $(OBJ_FILES)
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
 		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
-bonus: $(LIBFT) $(OBJ_BONUS_FILES)
+bonus: banner_bonus $(LIBFT) $(OBJ_BONUS_FILES)
 		@echo "$(BLUE)[BONUS] Compilation de $(NAME) (bonus)...$(RESET)"
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $(NAME) $(OBJ_BONUS_FILES) $(LIBS)
 		@echo "$(GREEN)[OK] $(NAME) (bonus) prêt ✓$(RESET)"

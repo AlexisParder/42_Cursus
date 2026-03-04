@@ -39,9 +39,31 @@ YELLOW	= \033[0;33m
 RED		= \033[0;31m
 RESET	= \033[0m
 
+BANNER = \
+"\n $(RESET)██████$(RED)╗ $(RESET)██$(RED)╗$(RESET)██████$(RED)╗ $(RESET)███████$(RED)╗$(RESET)██$(RED)╗  $(RESET)██$(RED)╗ \n" \
+"$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)║$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)╔════╝╚$(RESET)██$(RED)╗$(RESET)██$(RED)╔╝ \n" \
+"$(RESET)██████$(RED)╔╝$(RESET)██$(RED)║$(RESET)██████$(RED)╔╝$(RESET)█████$(RED)╗   ╚$(RESET)███$(RED)╔╝  \n" \
+"$(RESET)██$(RED)╔═══╝ $(RESET)██$(RED)║$(RESET)██$(RED)╔═══╝ $(RESET)██$(RED)╔══╝   $(RESET)██$(RED)╔$(RESET)██$(RED)╗  \n" \
+"$(RESET)██$(RED)║     $(RESET)██$(RED)║$(RESET)██$(RED)║     $(RESET)███████$(RED)╗$(RESET)██$(RED)╔╝ $(RESET)██$(RED)╗ \n" \
+"$(RED)╚═╝     ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝ \n$(RESET)"
+
+BANNER_BONUS = \
+" $(RESET)██████$(BLUE)╗  $(RESET)██████$(BLUE)╗ $(RESET)███$(BLUE)╗   $(RESET)██$(BLUE)╗$(RESET)██$(BLUE)╗   $(RESET)██$(BLUE)╗$(RESET)███████$(BLUE)╗ \n" \
+"$(RESET)██$(BLUE)╔══$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)╔═══$(RESET)██$(BLUE)╗$(RESET)████$(BLUE)╗  $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)╔════╝ \n" \
+"$(RESET)██████$(BLUE)╔╝$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)╔$(RESET)██$(BLUE)╗ $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)███████$(BLUE)╗ \n" \
+"$(RESET)██$(BLUE)╔══$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║╚$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║╚════$(RESET)██$(BLUE)║ \n" \
+"$(RESET)██████$(BLUE)╔╝╚$(RESET)██████$(BLUE)╔╝$(RESET)██$(BLUE)║ ╚$(RESET)████$(BLUE)║╚$(RESET)██████$(BLUE)╔╝$(RESET)███████$(BLUE)║ \n" \
+"$(BLUE)╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ \n$(RESET)"
+
 LIBS = $(LIBFT)
 
-all: $(LIBFT) $(NAME)
+all: banner $(LIBFT) $(NAME)
+
+banner:
+	@echo $(BANNER)
+
+banner_bonus: banner
+	@echo $(BANNER_BONUS)
 
 $(LIBFT):
 		@echo "$(BLUE)[LIBFT] Compilation de la libft...$(RESET)"
@@ -53,7 +75,7 @@ $(NAME): $(OBJ_FILES)
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
 		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
 
-bonus: $(LIBFT) $(OBJ_BONUS_FILES)
+bonus: banner_bonus $(LIBFT) $(OBJ_BONUS_FILES)
 		@echo "$(BLUE)[BONUS] Compilation de $(NAME) (bonus)...$(RESET)"
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $(NAME) $(OBJ_BONUS_FILES) $(LIBS)
 		@echo "$(GREEN)[OK] $(NAME) (bonus) prêt ✓$(RESET)"

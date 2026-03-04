@@ -64,7 +64,29 @@ YELLOW	= \033[0;33m
 RED		= \033[0;31m
 RESET	= \033[0m
 
-all: $(NAME)
+BANNER = \
+"\n $(RESET)██$(RED)╗     $(RESET)██$(RED)╗$(RESET)██████$(RED)╗ $(RESET)███████$(RED)╗$(RESET)████████$(RED)╗\n" \
+"$(RESET)██$(RED)║     $(RESET)██$(RED)║$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)╔════╝╚══$(RESET)██$(RED)╔══╝\n" \
+"$(RESET)██$(RED)║     $(RESET)██$(RED)║$(RESET)██████$(RED)╔╝$(RESET)█████$(RED)╗     $(RESET)██$(RED)║   \n" \
+"$(RESET)██$(RED)║     $(RESET)██$(RED)║$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)╔══╝     $(RESET)██$(RED)║   \n" \
+"$(RESET)███████$(RED)╗$(RESET)██$(RED)║$(RESET)██████$(RED)╔╝$(RESET)██$(RED)║        $(RESET)██$(RED)║   \n" \
+"$(RED)╚══════╝╚═╝╚═════╝ ╚═╝        ╚═╝   \n$(RESET)"
+
+BANNER_BONUS = \
+" $(RESET)██████$(BLUE)╗  $(RESET)██████$(BLUE)╗ $(RESET)███$(BLUE)╗   $(RESET)██$(BLUE)╗$(RESET)██$(BLUE)╗   $(RESET)██$(BLUE)╗$(RESET)███████$(BLUE)╗ \n" \
+"$(RESET)██$(BLUE)╔══$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)╔═══$(RESET)██$(BLUE)╗$(RESET)████$(BLUE)╗  $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)╔════╝ \n" \
+"$(RESET)██████$(BLUE)╔╝$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)╔$(RESET)██$(BLUE)╗ $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)███████$(BLUE)╗ \n" \
+"$(RESET)██$(BLUE)╔══$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║$(RESET)██$(BLUE)║╚$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)║$(RESET)██$(BLUE)║   $(RESET)██$(BLUE)║╚════$(RESET)██$(BLUE)║ \n" \
+"$(RESET)██████$(BLUE)╔╝╚$(RESET)██████$(BLUE)╔╝$(RESET)██$(BLUE)║ ╚$(RESET)████$(BLUE)║╚$(RESET)██████$(BLUE)╔╝$(RESET)███████$(BLUE)║ \n" \
+"$(BLUE)╚═════╝  ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ \n$(RESET)"
+
+all: banner $(NAME)
+
+banner:
+	@echo $(BANNER)
+
+banner_bonus: banner
+	@echo $(BANNER_BONUS)
 
 $(NAME): $(OBJ_FILES)
 		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
@@ -74,7 +96,7 @@ $(NAME): $(OBJ_FILES)
 %.o : %.c
 		@$(CC) $(CFLAGS) $(INC_FILES) -o $@ -c $<
 
-bonus: $(OBJ_BONUS_FILES)
+bonus: banner_bonus $(OBJ_BONUS_FILES)
 		@echo "$(BLUE)[BUILD] Compilation de $(NAME) avec bonus...$(RESET)"
 		@ar rcs -o $(NAME) $(OBJ_FILES)
 		@ar rcs -o $(NAME) $(OBJ_BONUS_FILES)

@@ -35,7 +35,18 @@ RESET	= \033[0m
 
 LIBS = $(LIBFT)
 
-all: $(LIBFT) $(NAME)
+BANNER = \
+"\n $(RESET)██████$(RED)╗ $(RESET)██$(RED)╗   $(RESET)██$(RED)╗$(RESET)███████$(RED)╗$(RESET)██$(RED)╗  $(RESET)██$(RED)╗        $(RESET)███████$(RED)╗$(RESET)██$(RED)╗    $(RESET)██$(RED)╗ $(RESET)█████$(RED)╗ $(RESET)██████$(RED)╗  \n" \
+"$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)║   $(RESET)██$(RED)║$(RESET)██$(RED)╔════╝$(RESET)██$(RED)║  $(RESET)██$(RED)║        $(RESET)██$(RED)╔════╝$(RESET)██$(RED)║    $(RESET)██$(RED)║$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)╔══$(RESET)██$(RED)╗ \n" \
+"$(RESET)██████$(RED)╔╝$(RESET)██$(RED)║   $(RESET)██$(RED)║$(RESET)███████$(RED)╗$(RESET)███████$(RED)║        $(RESET)███████$(RED)╗$(RESET)██$(RED)║ $(RESET)█$(RED)╗ $(RESET)██$(RED)║$(RESET)███████$(RED)║$(RESET)██████$(RED)╔╝ \n" \
+"$(RESET)██$(RED)╔═══╝ $(RESET)██$(RED)║   $(RESET)██$(RED)║╚════$(RESET)██$(RED)║$(RESET)██$(RED)╔══$(RESET)██$(RED)║        ╚════$(RESET)██$(RED)║$(RESET)██$(RED)║$(RESET)███$(RED)╗$(RESET)██$(RED)║$(RESET)██$(RED)╔══$(RESET)██$(RED)║$(RESET)██$(RED)╔═══╝  \n" \
+"$(RESET)██$(RED)║     ╚$(RESET)██████$(RED)╔╝$(RESET)███████$(RED)║$(RESET)██$(RED)║  $(RESET)██$(RED)║$(RESET)███████$(RED)╗$(RESET)███████$(RED)║╚$(RESET)███$(RED)╔$(RESET)███$(RED)╔╝$(RESET)██$(RED)║  $(RESET)██$(RED)║$(RESET)██$(RED)║      \n" \
+"$(RED)╚═╝      ╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝      \n$(RESET)"
+
+all: banner $(LIBFT) $(NAME)
+
+banner:
+	@echo $(BANNER)
 
 $(LIBFT):
 		@echo "$(BLUE)[LIBFT] Compilation de la libft...$(RESET)"
