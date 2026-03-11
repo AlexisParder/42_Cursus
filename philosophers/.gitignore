@@ -2,7 +2,7 @@
 
 !*/
 
-!srcs/**
+!philo/srcs/**
 !includes/**
 
 !.gitignore

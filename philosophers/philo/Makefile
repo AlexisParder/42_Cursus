@@ -8,7 +8,8 @@ INC_DIR = -I includes/
 OBJ_DIR = obj
 
 SRC_DIR = srcs/
-SRC_FILES = $(SRC_DIR)main.c
+SRC_FILES = $(SRC_DIR)main.c \
+			$(SRC_DIR)utils/philo_atol.c
 OBJ_FILES = $(SRC_FILES:srcs/%.c=$(OBJ_DIR)/%.o)
 
 # Colors

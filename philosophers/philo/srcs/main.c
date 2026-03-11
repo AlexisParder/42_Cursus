@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:17:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/01/22 14:19:51 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/03/11 09:47:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ static int	check_args(int ac, char **av)
 {
 	long	value;
 
-	value = philo_long_atoi(av[1]);
-	if (value < 0)
+	value = philo_atol(av[1]);
+	if (value <= 0)
 		return (0);
-	value = philo_long_atoi(av[2]);
-	if (value < 0)
+	value = philo_atol(av[2]);
+	if (value <= 0)
 		return (0);
-	value = philo_long_atoi(av[3]);
-	if (value < 0)
+	value = philo_atol(av[3]);
+	if (value <= 0)
 		return (0);
-	value = philo_long_atoi(av[4]);
-	if (value < 0)
+	value = philo_atol(av[4]);
+	if (value <= 0)
 		return (0);
 	if (ac == 6)
 	{
-		value = philo_long_atoi(av[5]);
+		value = philo_atol(av[5]);
 		if (value < 0)
 			return (0);
 	}
@@ -39,12 +39,12 @@ static int	check_args(int ac, char **av)
 
 static void	init_data(t_philo *data, int ac, char **av)
 {
-	data->nb_philosophers = philo_long_atoi(av[1]);
-	data->time_to_die = philo_long_atoi(av[2]);
-	data->time_to_eat = philo_long_atoi(av[3]);
-	data->time_to_sleep = philo_long_atoi(av[4]);
+	data->nb_philosophers = philo_atol(av[1]);
+	data->time_to_die = philo_atol(av[2]);
+	data->time_to_eat = philo_atol(av[3]);
+	data->time_to_sleep = philo_atol(av[4]);
 	if (ac == 6)
-		data->max_meals = philo_long_atoi(av[5]);
+		data->max_meals = philo_atol(av[5]);
 }
 
 int	main(int ac, char **av)
