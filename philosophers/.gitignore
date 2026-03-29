@@ -12,3 +12,6 @@
 
 *.o
 *.a
+
+!thread_exercices/*.c
+!thread_exercices/*.md
