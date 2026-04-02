@@ -14,6 +14,49 @@
       - [Consigne :](#consigne-)
       - [Contraintes :](#contraintes-)
       - [À comprendre :](#à-comprendre-)
+  - [Exercice 1.4 : pthread\_detach](#exercice-14--pthread_detach)
+    - [Objectif : Comprendre la différence entre join et detach](#objectif--comprendre-la-différence-entre-join-et-detach)
+      - [Consigne :](#consigne--1)
+      - [Contraintes :](#contraintes--1)
+      - [Fonctions nécessaires :](#fonctions-nécessaires-)
+      - [À comprendre :](#à-comprendre--1)
+  - [Exercice 1.5 : Mesurer le temps](#exercice-15--mesurer-le-temps)
+    - [Objectif : Maîtriser gettimeofday](#objectif--maîtriser-gettimeofday)
+      - [Consigne :](#consigne--2)
+      - [Contraintes :](#contraintes--2)
+      - [Fonctions nécessaires :](#fonctions-nécessaires--1)
+      - [À comprendre :](#à-comprendre--2)
+- [📗 PARTIE 2 : Threads + Mutex](#-partie-2--threads--mutex)
+  - [Exercice 2.1 : Le problème sans mutex](#exercice-21--le-problème-sans-mutex)
+    - [Objectif : Visualiser une race condition](#objectif--visualiser-une-race-condition)
+      - [Consigne :](#consigne--3)
+      - [Contraintes :](#contraintes--3)
+      - [Fonctions nécessaires :](#fonctions-nécessaires--2)
+      - [À comprendre :](#à-comprendre--3)
+  - [Exercice 2.2 : Résoudre avec un mutex](#exercice-22--résoudre-avec-un-mutex)
+    - [Objectif : Protéger une ressource partagée](#objectif--protéger-une-ressource-partagée)
+      - [Consigne :](#consigne--4)
+      - [Contraintes :](#contraintes--4)
+      - [Fonctions nécessaires :](#fonctions-nécessaires--3)
+      - [À comprendre :](#à-comprendre--4)
+  - [Exercice 2.3 : Mutex et affichage](#exercice-23--mutex-et-affichage)
+    - [Objectif : Protéger les prints pour éviter les affichages mélangés](#objectif--protéger-les-prints-pour-éviter-les-affichages-mélangés)
+      - [Consigne :](#consigne--5)
+      - [Contraintes :](#contraintes--5)
+      - [Fonctions nécessaires :](#fonctions-nécessaires--4)
+      - [À comprendre :](#à-comprendre--5)
+  - [Exercice 2.4 : Plusieurs mutex](#exercice-24--plusieurs-mutex)
+    - [Objectif : Gérer plusieurs ressources indépendantes](#objectif--gérer-plusieurs-ressources-indépendantes)
+      - [Consigne :](#consigne--6)
+      - [Contraintes :](#contraintes--6)
+      - [Fonctions nécessaires :](#fonctions-nécessaires--5)
+      - [⚠️ Piège :](#️-piège-)
+  - [Exercice 2.5 : Détecter et prévenir le deadlock](#exercice-25--détecter-et-prévenir-le-deadlock)
+    - [Objectif : Résoudre le deadlock de l'exercice 2.4](#objectif--résoudre-le-deadlock-de-lexercice-24)
+      - [Consigne :](#consigne--7)
+      - [Piste :](#piste-)
+      - [Fonctions nécessaires :](#fonctions-nécessaires--6)
+      - [À comprendre :](#à-comprendre--6)
 
 
 # 📘 PARTIE 1 : Maîtriser les Threads
@@ -82,3 +125,169 @@ for (int i = 0; i < n; i++)
 
 #### À comprendre :
 Comment retourner une valeur depuis un thread ?
+
+## Exercice 1.4 : pthread_detach
+
+### Objectif : Comprendre la différence entre join et detach
+
+#### Consigne :
+- Crée 3 threads detachés
+- Chaque thread affiche son ID puis attend 1 seconde (`usleep`)
+- Le main affiche `Main finished` et termine
+- Observer ce qui se passe
+
+#### Contraintes :
+- Utiliser `pthread_detach()`
+- Utiliser `usleep()`
+
+#### Fonctions nécessaires :
+`pthread_create`, `pthread_detach`, `usleep`, `printf`
+
+#### À comprendre :
+- Que se passe-t-il si le main se termine avant les threads detachés ?
+- Quelle est la différence fondamentale avec pthread_join ?
+
+## Exercice 1.5 : Mesurer le temps
+
+### Objectif : Maîtriser gettimeofday
+
+#### Consigne :
+- Crée une fonction get_time_ms() qui retourne le temps en millisecondes
+- Crée 3 threads
+- Chaque thread affiche :
+  - Thread 0 started at: 0ms
+  - Thread 0 finished at: 150ms
+- Chaque thread simule un travail avec usleep
+
+#### Contraintes :
+- Utiliser `gettimeofday()`
+- Calculer le temps relatif au lancement du programme
+- Pas d'horloge absolue dans l'affichage
+
+#### Fonctions nécessaires :
+`pthread_create`, `pthread_join`, `gettimeofday`, `usleep`, `printf`
+
+#### À comprendre :
+- struct timeval tv;
+  - gettimeofday(&tv, NULL);
+  - long ms = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+- Comment calculer un temps relatif ?
+- Pourquoi éviter time() qui ne donne que les secondes ?
+
+# 📗 PARTIE 2 : Threads + Mutex
+
+## Exercice 2.1 : Le problème sans mutex
+
+### Objectif : Visualiser une race condition
+
+#### Consigne :
+- Crée une variable globale int counter = 0
+- Lance 5 threads
+- Chaque thread incrémente counter 10 000 fois
+- Le main affiche la valeur finale
+- Résultat attendu : 50 000
+- Résultat obtenu : ???
+
+#### Contraintes :
+- NE PAS utiliser de mutex (c'est le but !)
+- Lancer plusieurs fois le programme
+
+#### Fonctions nécessaires :
+`pthread_create`, `pthread_join`, `printf`
+
+#### À comprendre :
+- Pourquoi le résultat est différent à chaque fois ?
+- Qu'est-ce qu'une race condition ?
+
+## Exercice 2.2 : Résoudre avec un mutex
+
+### Objectif : Protéger une ressource partagée
+
+#### Consigne :
+- Reprends l'exercice 2.1
+- Ajoute un mutex pour protéger l'incrémentation
+- Le résultat doit toujours être 50 000
+
+#### Contraintes :
+- Utiliser `pthread_mutex_init()`
+- Utiliser `pthread_mutex_lock()` / `pthread_mutex_unlock()`
+- Utiliser `pthread_mutex_destroy()`
+- Toujours détruire le mutex à la fin
+
+#### Fonctions nécessaires :
+`pthread_create`, `pthread_join`, `pthread_mutex_init`, `pthread_mutex_lock`, `pthread_mutex_unlock`, `pthread_mutex_destroy`, `printf`
+
+#### À comprendre :
+```c
+// Section critique
+pthread_mutex_lock(&mutex);
+counter++;              // Une seule thread à la fois ici
+pthread_mutex_unlock(&mutex);
+```
+
+## Exercice 2.3 : Mutex et affichage
+
+### Objectif : Protéger les prints pour éviter les affichages mélangés
+
+#### Consigne :
+- Crée 5 threads
+- Chaque thread affiche 3 messages avec timestamp :
+  - [42ms] Thread 2: eating
+  - [43ms] Thread 2: sleeping
+  - [44ms] Thread 2: thinking
+- Les lignes ne doivent jamais être mélangées
+
+#### Contraintes :
+- Un mutex dédié uniquement pour les prints
+- Utiliser `gettimeofday()` pour le timestamp
+- Chaque printf complet doit être atomique
+
+#### Fonctions nécessaires :
+`pthread_create`, `pthread_join`, `pthread_mutex_init`, `pthread_mutex_lock`, `pthread_mutex_unlock`, `pthread_mutex_destroy`, `gettimeofday`, `printf`
+
+#### À comprendre :
+- Pourquoi même les prints ont besoin d'être protégés ?
+
+## Exercice 2.4 : Plusieurs mutex
+
+### Objectif : Gérer plusieurs ressources indépendantes
+
+#### Consigne :
+- Crée 5 fourchettes (5 mutex)
+- Lance 5 threads (philosophes)
+- Chaque philosophe a besoin de 2 fourchettes pour manger
+- Philosophe i prend la fourchette i et i+1
+- Chaque philosophe mange 3 fois puis termine
+- Affiche quand il prend/pose chaque fourchette
+
+#### Contraintes :
+- Un tableau de mutex : pthread_mutex_t forks[5]
+- Pas de deadlock (pour l'instant, ne pas y penser)
+- Utiliser `usleep()` pour simuler manger/penser
+
+#### Fonctions nécessaires :
+`pthread_create`, `pthread_join`, `pthread_mutex_init`, `pthread_mutex_lock`, `pthread_mutex_unlock`, `pthread_mutex_destroy`, `usleep`, `gettimeofday`, `printf`
+
+#### ⚠️ Piège :
+- Cet exercice peut provoquer un deadlock
+- Observer dans quelles conditions il apparaît
+- C'est exactement le problème de Philosophers !
+
+## Exercice 2.5 : Détecter et prévenir le deadlock
+
+### Objectif : Résoudre le deadlock de l'exercice 2.4
+
+#### Consigne :
+    Reprends l'exercice 2.4
+    Trouve une stratégie pour éviter le deadlock
+
+#### Piste :
+- Les philosophes pairs prennent gauche puis droite
+- Les philosophes impairs prennent droite puis gauche
+
+#### Fonctions nécessaires :
+`pthread_create`, `pthread_join`, `pthread_mutex_init`, `pthread_mutex_lock`, `pthread_mutex_unlock`, `pthread_mutex_destroy`, `usleep`, `gettimeofday`, `printf`
+
+#### À comprendre :
+- Pourquoi l'ordre de prise des mutex est crucial ?
+- Quelles autres stratégies existent ?
