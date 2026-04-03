@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 12:13:12 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/03 12:22:03 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 12:30:26 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,8 @@ int	main(int ac, char **av)
 		i++;
 	}
 	printf("Main finished\n");
+	// Clean
+	free(dt.philos);
+	free(dt.threads);
 	return (0);
 }
