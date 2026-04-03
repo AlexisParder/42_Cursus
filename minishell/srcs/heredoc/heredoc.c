@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:00:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/01 12:50:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 11:02:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-static void	write_heredoc(t_minishell *data, int fd, char *limiter, char quote)
+void	write_heredoc(t_minishell *data, int fd, char *limiter, char quote)
 {
 	char	*line;
 
@@ -38,29 +38,6 @@ static void	write_heredoc(t_minishell *data, int fd, char *limiter, char quote)
 	}
 }
 
-static int	init_heredoc(t_minishell *data, t_redirs *redir)
-{
-	int	pipe_fd[2];
-	int	fd_stdin_backup;
-
-	if (pipe(pipe_fd) < 0)
-	{
-		perror("minishell: pipe");
-		return (1);
-	}
-	fd_stdin_backup = dup(STDIN_FILENO);
-	manage_signals_heredoc();
-	write_heredoc(data, pipe_fd[1], redir->file, redir->quote);
-	dup2(fd_stdin_backup, STDIN_FILENO);
-	manage_signals();
-	close(fd_stdin_backup);
-	close(pipe_fd[1]);
-	redir->heredoc_fd = pipe_fd[0];
-	if (data->return_code == 130)
-		return (1);
-	return (0);
-}
-
 int	create_heredoc(t_minishell *data)
 {
 	t_cmd		*current_cmd;
@@ -76,7 +53,8 @@ int	create_heredoc(t_minishell *data)
 			{
 				if (init_heredoc(data, current_redir))
 				{
-					close(current_redir->heredoc_fd);
+					if (current_redir->heredoc_fd >= 0)
+						close(current_redir->heredoc_fd);
 					return (-1);
 				}
 			}

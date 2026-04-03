@@ -1,0 +1,16 @@
+*
+
+!*/
+
+*tester*/
+!srcs/**
+!libs/**
+!includes/**
+
+!.gitignore
+!Makefile
+!README.md
+!minishell.supp
+
+*.o
+*.a

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 12:14:18 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/19 09:21:32 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 10:00:29 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ char	**dup_envp(char **envp)
 	char	**dup_arr;
 
 	if (!envp)
-	{
-		dup_arr = ft_calloc(1, sizeof(char *));
-		return (dup_arr);
-	}
+		return (NULL);
 	size = count_envp(envp);
 	dup_arr = ft_calloc(size + 1, sizeof(char *));
 	if (!dup_arr)
@@ -77,7 +74,10 @@ char	*create_envp_line(char *key, char *value, int operator)
 	if (!key)
 		return (NULL);
 	if (!operator)
-		return (ft_strdup(key));
+	{
+		tmp = ft_strdup(key);
+		return (tmp);
+	}
 	tmp = ft_strjoin(key, "=");
 	if (!tmp)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:24:25 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/01 09:13:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 10:05:25 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,18 @@ void	exec_cmd(t_minishell *data, t_cmd *cmd)
 		cmd->err_path = check_access_cmd(data, cmd);
 		if (cmd->err_path)
 			err_path(data, cmd);
-		execve(cmd->path, cmd->args, data->envp);
-		ft_dprintf(2, "%s: command not found\n", cmd->args[0]);
-		data->return_code = 127;
+		if (cmd->path)
+			execve(cmd->path, cmd->args, data->envp);
+		if (cmd->path)
+			ft_dprintf(2, "%s: command not found\n", cmd->args[0]);
+		else
+			ft_dprintf(2, "Error\nFailure during allocation\n", cmd->args[0]);
+		if (cmd->path)
+			data->return_code = 127;
+		else
+			data->return_code = 2;
 		clean_main(data, NULL);
-		exit(127);
+		exit(data->return_code);
 	}
 }
 

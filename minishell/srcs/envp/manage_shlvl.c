@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 09:18:55 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/29 11:11:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 09:59:07 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	shlvlv_check_digit(char *arg)
 	return (1);
 }
 
-void	manage_shlvl(t_minishell *data)
+int	manage_shlvl(t_minishell *data)
 {
 	long	current_value_long;
 	char	*current_value_str;
@@ -83,9 +83,10 @@ void	manage_shlvl(t_minishell *data)
 	{
 		current_value_str = ft_strdup("1");
 		if (!current_value_str)
-			return ;
+			return (1);
 	}
 	data->exports = set_envp(data->exports, "SHLVL", current_value_str, 1);
 	data->envp = set_envp(data->envp, "SHLVL", current_value_str, 1);
 	free(current_value_str);
+	return (0);
 }

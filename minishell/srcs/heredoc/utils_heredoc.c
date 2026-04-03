@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 13:56:49 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/27 14:32:07 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 10:41:47 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,12 @@ void	manage_err_sig(t_minishell *data, char *line, char *limiter)
 		ft_dprintf(2, " by end-of-file (wanted `%s`)\n", limiter);
 	}
 	data->return_code = g_signal;
+}
+
+void	err_close_fd(int fd_stdin_backup, int *pipe_fd)
+{
+	if (fd_stdin_backup >= 0)
+		close(fd_stdin_backup);
+	close(pipe_fd[0]);
+	close(pipe_fd[1]);
 }

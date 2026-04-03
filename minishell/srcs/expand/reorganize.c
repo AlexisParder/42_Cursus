@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reorganize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 15:18:25 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/01 13:13:44 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/04/02 16:46:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-static void	free_reorg(t_reorg *reorg)
+void	free_reorg(t_reorg *reorg)
 {
 	if (reorg->args)
 		ft_free_arr(reorg->args);
@@ -31,29 +31,20 @@ static void	free_reorg(t_reorg *reorg)
 static int	create_new_args(t_cmd *cmd, t_reorg *reorg)
 {
 	cmd->nb_args = count_new_args(cmd);
+	reorg->quotes = NULL;
+	reorg->seps = NULL;
 	reorg->args = ft_calloc(cmd->nb_args + 1, sizeof(char *));
 	if (!reorg->args)
-		return (0);
+		return (1);
 	reorg->args_b = ft_calloc(cmd->nb_args + 1, sizeof(char *));
 	if (!reorg->args_b)
 	{
 		free_reorg(reorg);
-		return (0);
+		return (1);
 	}
-	reorg->quotes = ft_calloc(cmd->nb_args + 1, sizeof(char));
-	if (!reorg->quotes)
-	{
-		free_reorg(reorg);
-		return (0);
-	}
-	ft_memset(reorg->quotes, '\1', cmd->nb_args);
-	reorg->seps = ft_calloc(cmd->nb_args + 1, sizeof(int));
-	if (!reorg->seps)
-	{
-		free_reorg(reorg);
-		return (0);
-	}
-	return (1);
+	if (create_new_args_part_2(cmd, reorg))
+		return (1);
+	return (0);
 }
 
 static void	free_and_replace(t_cmd *cmd, t_reorg *reorg)
@@ -66,6 +57,8 @@ static void	free_and_replace(t_cmd *cmd, t_reorg *reorg)
 	cmd->args_backup = reorg->args_b;
 	cmd->quotes = reorg->quotes;
 	cmd->separators = reorg->seps;
+	ft_free_arr(cmd->args_backup);
+	cmd->args_backup = NULL;
 }
 
 static void	reorg_data(t_reorg *reorg, t_cmd *cmd, size_t *j, size_t i)
@@ -90,14 +83,14 @@ static void	reorg_data(t_reorg *reorg, t_cmd *cmd, size_t *j, size_t i)
 		(*j)++;
 }
 
-void	reorganize_args(t_cmd *cmd)
+int	reorganize_args(t_cmd *cmd)
 {
 	size_t	i;
 	size_t	j;
 	t_reorg	reorg;
 
-	if (!create_new_args(cmd, &reorg))
-		return ;
+	if (create_new_args(cmd, &reorg))
+		return (1);
 	i = 0;
 	j = 0;
 	while (cmd->args_backup[i])
@@ -114,7 +107,6 @@ void	reorganize_args(t_cmd *cmd)
 		i++;
 	}
 	free_and_replace(cmd, &reorg);
-	ft_free_arr(cmd->args_backup);
-	cmd->args_backup = NULL;
 	divide_args(cmd);
+	return (0);
 }

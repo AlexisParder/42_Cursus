@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 08:52:51 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/11 10:45:01 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/02 15:29:47 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ static int	cmd_alloc_sep(t_cmd *tmp_cmd, size_t nb_args)
 	return (0);
 }
 
+static	void	err_free(t_cmd *tmp_cmd)
+{
+	free(tmp_cmd->args);
+	free(tmp_cmd->args_backup);
+	free(tmp_cmd);
+}
+
 static t_cmd	*cmd_alloc(t_token	*tmp_token)
 {
 	t_cmd	*tmp_cmd;
@@ -58,15 +65,13 @@ static t_cmd	*cmd_alloc(t_token	*tmp_token)
 	tmp_cmd->args_backup = ft_calloc(nb_args + 1, sizeof(char *));
 	if (!tmp_cmd->args || !tmp_cmd->args_backup)
 	{
-		free(tmp_cmd);
+		err_free(tmp_cmd);
 		return (NULL);
 	}
 	tmp_cmd->quotes = ft_calloc(nb_args + 1, sizeof(char));
 	if (!tmp_cmd->quotes)
 	{
-		free(tmp_cmd->args);
-		free(tmp_cmd->args_backup);
-		free(tmp_cmd);
+		err_free(tmp_cmd);
 		return (NULL);
 	}
 	if (cmd_alloc_sep(tmp_cmd, nb_args))

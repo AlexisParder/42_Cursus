@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 13:28:43 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/29 11:24:03 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 10:22:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,18 @@ void	exec_builtin(t_minishell *data, t_cmd *cmd)
 	}
 }
 
-void	exec_builtin_with_redirs(t_minishell *data, t_cmd *cmd)
+int	exec_builtin_with_redirs(t_minishell *data, t_cmd *cmd)
 {
 	if (save_fd(data) < 0)
-		return ;
+		return (1);
 	if (apply_redirs(cmd->redirs) < 0)
 	{
-		restore_fd(data);
-		return ;
+		if (restore_fd(data))
+			return (1);
+		return (0);
 	}
 	exec_builtin(data, cmd);
-	restore_fd(data);
+	if (restore_fd(data))
+		return (1);
+	return (0);
 }

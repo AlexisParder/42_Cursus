@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 15:01:44 by tjourdai          #+#    #+#             */
-/*   Updated: 2026/03/26 10:02:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/02 16:38:56 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static char	*expand_dollar(t_minishell *data, char *file, size_t *j)
 static char	*build_expanded(char *file, size_t *j, char *exp, char *tmp)
 {
 	tmp = ft_calloc(2, sizeof(char));
+	if (!tmp)
+		return (NULL);
 	if (tmp)
 	{
 		tmp[0] = file[*j];
@@ -51,7 +53,17 @@ static char	*build_expanded(char *file, size_t *j, char *exp, char *tmp)
 	return (exp);
 }
 
-static void	expand_redir_file(t_minishell *data, t_redirs *redir, char *expand)
+static void	updt_redir_file(char *expand, t_redirs *redir)
+{
+	free(redir->file);
+	if (!expand)
+		redir->file = ft_strdup("");
+	else
+		redir->file = ft_strdup(expand);
+	free(expand);
+}
+
+static int	expand_redir_file(t_minishell *data, t_redirs *redir, char *expand)
 {
 	size_t	j;
 	char	*tmp;
@@ -70,17 +82,17 @@ static void	expand_redir_file(t_minishell *data, t_redirs *redir, char *expand)
 			}
 		}
 		else
+		{
 			expand = build_expanded(redir->file, &j, expand, NULL);
+			if (!expand)
+				return (1);
+		}
 	}
-	free(redir->file);
-	if (expand)
-		redir->file = ft_strdup(expand);
-	else
-		redir->file = ft_strdup("");
-	free(expand);
+	updt_redir_file(expand, redir);
+	return (0);
 }
 
-void	expand_redirs(t_minishell *data, t_cmd *cmd)
+int	expand_redirs(t_minishell *data, t_cmd *cmd)
 {
 	t_redirs	*redir;
 	char		*expand;
@@ -90,7 +102,11 @@ void	expand_redirs(t_minishell *data, t_cmd *cmd)
 	while (redir)
 	{
 		if (redir->type != HEREDOC && redir->file)
-			expand_redir_file(data, redir, expand);
+		{
+			if (expand_redir_file(data, redir, expand))
+				return (1);
+		}
 		redir = redir->next;
 	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 08:43:10 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/01 15:33:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 10:42:09 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,31 @@ int	save_fd(t_minishell *data)
 	return (0);
 }
 
-void	restore_fd(t_minishell *data)
+int	restore_fd(t_minishell *data)
 {
 	if (data->stdin_dup >= 0)
 	{
-		dup2(data->stdin_dup, STDIN_FILENO);
+		if (dup2(data->stdin_dup, STDIN_FILENO) == -1)
+		{
+			perror("dup2 stdin");
+			close(data->stdin_dup);
+			data->stdin_dup = -1;
+			return (1);
+		}
 		close(data->stdin_dup);
 		data->stdin_dup = -1;
 	}
 	if (data->stdout_dup >= 0)
 	{
-		dup2(data->stdout_dup, STDOUT_FILENO);
+		if (dup2(data->stdout_dup, STDOUT_FILENO) == -1)
+		{
+			perror("dup2 stdout");
+			close(data->stdout_dup);
+			data->stdout_dup = -1;
+			return (1);
+		}
 		close(data->stdout_dup);
 		data->stdout_dup = -1;
 	}
+	return (0);
 }

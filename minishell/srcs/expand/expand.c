@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 09:36:31 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/01 09:49:51 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/02 15:23:49 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ static void	expand(t_minishell *data, t_cmd *cmd, size_t arg_i)
 	cmd->args[arg_i] = NULL;
 	if (expanded_arg)
 		cmd->args[arg_i] = ft_strdup(expanded_arg);
-	else if (cmd->quotes[arg_i])
+	else
 		cmd->args[arg_i] = ft_strdup("");
 	free(expanded_arg);
 }
 
-void	expand_and_reorganize(t_minishell *data)
+int	expand_and_reorganize(t_minishell *data)
 {
 	size_t	i;
 	t_cmd	*current_cmd;
@@ -108,8 +108,15 @@ void	expand_and_reorganize(t_minishell *data)
 				expand(data, current_cmd, i);
 			i++;
 		}
-		expand_redirs(data, current_cmd);
-		reorganize_args(current_cmd);
+		if (expand_redirs(data, current_cmd))
+			return (1);
+		if (reorganize_args(current_cmd))
+		{
+			ft_free_arr(current_cmd->args);
+			current_cmd->args = NULL;
+			return (1);
+		}
 		current_cmd = current_cmd->next;
 	}
+	return (0);
 }

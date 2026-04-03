@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 14:48:05 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/29 14:43:08 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 09:50:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ char	*get_path_special(char **envp, t_cmd *cmd, size_t arg_len)
 		if (cd_check_path(path, 0))
 			return (NULL);
 		ft_printf("%s\n", path);
-		return (ft_strdup(path));
+		path = ft_strdup(path);
+		return (path);
 	}
 	return (NULL);
 }

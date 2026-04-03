@@ -13,6 +13,7 @@ OBJ_MAND_DIR = $(OBJ_DIR)
 
 SRC_DIR = srcs/
 SRC_FILES = $(SRC_DIR)main.c \
+			$(SRC_DIR)_utils/utils.c \
 			$(SRC_DIR)_utils/utils_main.c \
 			$(SRC_DIR)_utils/utils_builtin.c \
 			$(SRC_DIR)_utils/utils_clean.c \
@@ -35,6 +36,7 @@ SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)exec/redirs_and_signals.c \
 			$(SRC_DIR)exec/utils_exec.c \
 			$(SRC_DIR)exec/access_exec.c \
+			$(SRC_DIR)heredoc/init_heredoc.c \
 			$(SRC_DIR)heredoc/heredoc.c \
 			$(SRC_DIR)heredoc/utils_heredoc.c \
 			$(SRC_DIR)cmd/cd/cd.c \

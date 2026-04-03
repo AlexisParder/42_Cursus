@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 10:57:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/26 15:31:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 11:07:22 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,8 @@ static void	create_necessary_var(t_minishell *data)
 		data->exports = set_envp(data->exports, "PWD", tmp, 1);
 		free(tmp);
 	}
-	tmp = ft_strdup("/.nix-profile/bin:/nix/var/nix/profiles/default/bin:");
-	if (tmp)
-	{
-		tmp = ft_strjoin_free(tmp, "/usr/local/sbin:/usr/local/bin:/usr/sbin:");
-		if (!tmp)
-			return ;
-		tmp = ft_strjoin_free(tmp, "/usr/bin:/sbin:/bin");
-		if (!tmp)
-			return ;
-		data->envp = set_envp(data->envp, "PATH", tmp, 1);
-		data->exports = set_envp(data->exports, "PATH", tmp, 1);
-		free(tmp);
-	}
+	data->envp = set_envp(data->envp, "PATH", default_path(), 1);
+	data->exports = set_envp(data->exports, "PATH", default_path(), 1);
 	data->exports = set_envp(data->exports, "OLDPWD", NULL, 0);
 }
 
@@ -45,6 +34,11 @@ int	init_data(t_minishell *data, char **envp)
 {
 	data->envp = dup_envp(envp);
 	data->exports = dup_envp(envp);
+	if (!data->envp || !data->exports)
+	{
+		clean_err_init(data);
+		return (2);
+	}
 	data->tokens = NULL;
 	data->cmds = NULL;
 	data->return_code = 0;
@@ -52,10 +46,13 @@ int	init_data(t_minishell *data, char **envp)
 	data->pid = NULL;
 	data->pipefd = NULL;
 	data->nb_cmds = 0;
-	data->dev_null_fd = -1;
 	if (!data->envp[0] && !data->exports[0])
 		create_necessary_var(data);
-	manage_shlvl(data);
+	if (manage_shlvl(data))
+	{
+		clean_err_init(data);
+		return (2);
+	}
 	return (0);
 }
 
@@ -95,29 +92,4 @@ int	check_line_isspace(char *line)
 		i++;
 	}
 	return (1);
-}
-
-char	*readline_no_tty(t_minishell *data)
-{
-	int		saved_stderr;
-	char	*line;
-
-	if (data->dev_null_fd == -1)
-		data->dev_null_fd = open("/dev/null", O_WRONLY);
-	if (data->dev_null_fd == -1)
-		return (NULL);
-	saved_stderr = dup(STDERR_FILENO);
-	if (saved_stderr == -1)
-		return (NULL);
-	if (dup2(data->dev_null_fd, STDERR_FILENO) == -1)
-	{
-		close(saved_stderr);
-		return (NULL);
-	}
-	rl_outstream = stderr;
-	line = readline("");
-	dup2(saved_stderr, STDERR_FILENO);
-	close(saved_stderr);
-	rl_outstream = stdout;
-	return (line);
 }

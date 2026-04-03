@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 13:18:57 by tjourdai          #+#    #+#             */
-/*   Updated: 2026/04/01 15:34:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/03 11:09:09 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ typedef struct s_minishell
 	pid_t			*pid;
 	int				*status;
 	long			return_code;
-	int				dev_null_fd;
 }	t_minishell;
 
 typedef struct s_reorg
@@ -111,6 +110,7 @@ int			cmd_echo(t_minishell *data, t_cmd *cmd);
 int			cmd_cd(t_minishell *data, t_cmd *cmd);
 int			cmd_export(t_minishell *data, t_cmd *cmd);
 int			cmd_unset(t_minishell *data, t_cmd *cmd);
+char		*default_path(void);
 int			check_access_cmd(t_minishell *data, t_cmd *cmd);
 int			exec_parent(t_minishell *data);
 int			is_builtin(t_cmd *cmd);
@@ -120,6 +120,7 @@ int			create_pipes(t_minishell *data, size_t cmd_nb);
 int			create_heredoc(t_minishell *data);
 int			updt_pwd_manual(t_minishell *data, char *path);
 int			divide_args(t_cmd *cmd);
+int			init_heredoc(t_minishell *data, t_redirs *redir);
 
 char		*get_envp(char **envp, char *key);
 long		get_envp_index(char **envp, char *key);
@@ -150,18 +151,20 @@ void		free_all(t_minishell *data);
 void		err_path(t_minishell *data, t_cmd *cmd);
 void		close_other_heredocs(t_minishell *data, t_cmd *current_cmd);
 void		close_parent_heredocs(t_cmd *cmd);
-void		expand_and_reorganize(t_minishell *data);
-void		expand_redirs(t_minishell *data, t_cmd *cmd);
+int			expand_and_reorganize(t_minishell *data);
+int			expand_redirs(t_minishell *data, t_cmd *cmd);
 void		exec_cmd(t_minishell *data, t_cmd *cmd);
 void		exec_builtin(t_minishell *data, t_cmd *cmd);
-void		exec_builtin_with_redirs(t_minishell *data, t_cmd *cmd);
-void		restore_fd(t_minishell *data);
-void		reorganize_args(t_cmd *cmd);
+int			exec_builtin_with_redirs(t_minishell *data, t_cmd *cmd);
+int			restore_fd(t_minishell *data);
+int			reorganize_args(t_cmd *cmd);
 size_t		count_new_args(t_cmd *cmd);
 void		expand_heredoc(t_minishell *data, char *line, int fd);
 void		clean_main(t_minishell *data, char *line);
-void		manage_shlvl(t_minishell *data);
+int			manage_shlvl(t_minishell *data);
 void		exec_child_signals(t_cmd *cmd);
+void		clean_err_init(t_minishell *data);
+void		err_close_fd(int fd_stdin_backup, int *pipe_fd);
 
 char		*search_cdpath(char **envp, char *path);
 char		*get_path_special(char **envp, t_cmd *cmd, size_t arg_len);
@@ -176,11 +179,19 @@ char		**separate_key_value(char *var);
 void		display_exports(t_minishell *data, t_cmd *cmd);
 
 char		*get_var(t_minishell *data, char *arg, size_t *i);
-char		*readline_no_tty(t_minishell *data);
 
 void		manage_err_sig(t_minishell *data, char *line, char *limiter);
 
 int			is_overflow(const char *str);
 int			arg_is_digit(char *arg);
+
+int			check_init_data_token(t_minishell *data);
+
+void		free_and_signal(t_minishell *data, char *line);
+void		free_reorg(t_reorg *reorg);
+void		write_heredoc(t_minishell *data, int fd, char *limiter, char quote);
+char		*default_path(void);
+
+int			create_new_args_part_2(t_cmd *cmd, t_reorg *reorg);
 
 #endif

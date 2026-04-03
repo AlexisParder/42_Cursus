@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 08:48:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/27 16:37:53 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/04/03 10:54:37 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ static void	exit_with_arg(t_minishell *data, t_cmd *cmd)
 {
 	long	arg_long;
 
-	if (data->dev_null_fd != -1)
-		close(data->dev_null_fd);
 	rl_clear_history();
 	ft_free_arr(data->envp);
 	ft_free_arr(data->exports);
@@ -62,8 +60,6 @@ static void	free_and_close_exit(t_minishell *data, t_cmd *cmd)
 {
 	ft_dprintf(2, "minishell: exit: %s: numeric argument required\n",
 		cmd->args[1]);
-	if (data->dev_null_fd != -1)
-		close(data->dev_null_fd);
 	rl_clear_history();
 	ft_free_arr(data->envp);
 	ft_free_arr(data->exports);
@@ -73,12 +69,10 @@ static void	free_and_close_exit(t_minishell *data, t_cmd *cmd)
 
 int	cmd_exit(t_minishell *data, t_cmd *cmd)
 {
-	if (isatty(STDIN_FILENO) && (data->nb_cmds == 1 || !cmd))
+	if (data->nb_cmds == 1 || !cmd)
 		ft_dprintf(2, "exit\n");
 	if (!cmd || cmd->nb_args == 1)
 	{
-		if (data->dev_null_fd != -1)
-			close(data->dev_null_fd);
 		rl_clear_history();
 		ft_free_arr(data->envp);
 		ft_free_arr(data->exports);

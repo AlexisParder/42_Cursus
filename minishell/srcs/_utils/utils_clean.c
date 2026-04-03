@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_clean.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 10:23:52 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/01 13:30:16 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/04/03 10:55:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,18 @@ void	free_all(t_minishell *data)
 
 void	clean_main(t_minishell *data, char *line)
 {
-	if (data->dev_null_fd != -1)
-		close(data->dev_null_fd);
 	free(line);
 	rl_clear_history();
 	ft_free_arr(data->envp);
 	ft_free_arr(data->exports);
 	free_all(data);
+}
+
+void	clean_err_init(t_minishell *data)
+{
+	if (data->envp)
+		ft_free_arr(data->envp);
+	if (data->exports)
+		ft_free_arr(data->exports);
+	ft_dprintf(2, "Error\nFailure during allocation\n");
 }

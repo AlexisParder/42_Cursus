@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 09:16:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/29 14:43:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/02 16:55:13 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ static char	*get_path(char **envp, t_cmd *cmd, size_t arg_len)
 	char	*path;
 	char	*cdpath_result;
 
+	if (!cmd->args[1] && arg_len == 0)
+	{
+		path = get_envp(envp, "HOME");
+		if (!path)
+			ft_dprintf(2, "minishell: cd: HOME not set\n");
+		return (path);
+	}
 	path = get_path_special(envp, cmd, arg_len);
 	if (path || !cmd->args[1]
 		|| (arg_len == 1 && !ft_strncmp(cmd->args[1], "-", 1)))
