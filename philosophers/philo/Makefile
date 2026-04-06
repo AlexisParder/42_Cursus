@@ -10,6 +10,7 @@ OBJ_DIR = obj
 SRC_DIR = srcs/
 SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)init.c \
+			$(SRC_DIR)threads.c \
 			$(SRC_DIR)utils/error.c \
 			$(SRC_DIR)utils/time.c \
 			$(SRC_DIR)utils/philo_atol.c

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:18:08 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 10:17:39 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/06 13:44:55 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,21 @@
 # include <pthread.h>
 # include <sys/time.h>
 
+typedef struct s_data	t_data;
+
 typedef struct s_philo
 {
-	int				id;
+	long			id;
 	long			meals_eaten;
 	long			last_meal_time;
-	pthread_t		thread;
+	pthread_t		tid;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	meal_mutex;
+	t_data			*data;
 }	t_philo;
 
-typedef struct s_data
+struct s_data
 {
 	long			nb_philos;
 	long			time_to_die;
@@ -43,9 +46,10 @@ typedef struct s_data
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	death_mutex;
 	t_philo			*philos;
-}	t_data;
+};
 
 int		init_data(t_data *data, int ac, char **av);
+int		create_threads(t_data *data);
 
 long	philo_atol(const char *nptr);
 long	get_time_ms(void);

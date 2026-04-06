@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 09:17:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 10:17:47 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/06 13:43:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,25 @@ static int	init_mutex(t_data *data)
 {
 	long	i;
 
+	data->forks = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
+	if (!data->forks)
+		return (1);
+	i = 0;
+	while (i < data->nb_philos)
+	{
+		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
+		{
+			clean_mutex_forks(data->forks, i);
+			return (1);
+		}
+		i++;
+	}
 	if (pthread_mutex_init(&data->print_mutex, NULL) != 0)
 		return (1);
 	if (pthread_mutex_init(&data->death_mutex, NULL) != 0)
 	{
 		pthread_mutex_destroy(&data->print_mutex);
 		return (1);
-	}
-	data->forks = malloc(sizeof(pthread_mutex_t) * data->nb_philos);
-	if (!data->forks)
-	{
-		pthread_mutex_destroy(&data->print_mutex);
-		pthread_mutex_destroy(&data->death_mutex);
-		return (1);
-	}
-	i = 0;
-	while (i < data->nb_philos)
-	{
-		if (pthread_mutex_init(&data->forks[i], NULL) != 0)
-		{
-			pthread_mutex_destroy(&data->print_mutex);
-			pthread_mutex_destroy(&data->death_mutex);
-			clean_mutex_forks(data->forks, i);
-			return (1);
-		}
-		i++;
 	}
 	return (0);
 }
@@ -65,6 +59,7 @@ static int	init_philos(t_data *data)
 		data->philos[i].last_meal_time = data->start_time;
 		data->philos[i].left_fork = &data->forks[i];
 		data->philos[i].right_fork = &data->forks[(i + 1) % data->nb_philos];
+		data->philos[i].data = data;
 		if (pthread_mutex_init(&data->philos[i].meal_mutex, NULL) != 0)
 		{
 			pthread_mutex_destroy(&data->print_mutex);
