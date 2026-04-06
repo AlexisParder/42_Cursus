@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:17:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/03/11 09:47:28 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/06 09:56:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,30 +37,26 @@ static int	check_args(int ac, char **av)
 	return (1);
 }
 
-static void	init_data(t_philo *data, int ac, char **av)
-{
-	data->nb_philosophers = philo_atol(av[1]);
-	data->time_to_die = philo_atol(av[2]);
-	data->time_to_eat = philo_atol(av[3]);
-	data->time_to_sleep = philo_atol(av[4]);
-	if (ac == 6)
-		data->max_meals = philo_atol(av[5]);
-}
-
 int	main(int ac, char **av)
 {
-	t_philo	data;
+	t_data	data;
 
 	if (ac != 5 && ac != 6)
 	{
-		write(2, "Error: Wrong number of arguments\n", 34);
+		print_error("Error: wrong number of arguments\n");
 		return (1);
 	}
 	if (!check_args(ac, av))
 	{
-		write(2, "Error: please provide arguments greater than zero.\n", 52);
+		print_error("Error: please provide arguments greater than zero.\n");
 		return (1);
 	}
-	init_data(&data, ac, av);
+	if (init_data(&data, ac, av))
+	{
+		print_error("Error: failure during data initialization.\n");
+		clean_err(&data);
+		return (1);
+	}
+	clean_all(&data);
 	return (0);
 }

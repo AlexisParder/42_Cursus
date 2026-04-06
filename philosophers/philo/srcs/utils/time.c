@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_atol.c                                       :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 09:44:59 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 10:17:55 by achauvie         ###   ########.fr       */
+/*   Created: 2026/04/06 09:05:34 by achauvie          #+#    #+#             */
+/*   Updated: 2026/04/06 10:18:12 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philosophers.h>
 
-long	philo_atol(const char *nptr)
+long	get_time_ms(void)
 {
-	size_t	i;
-	long	nb;
-	long	sign;
+	struct timeval	tv;
+	long			time_ms;
 
-	i = 0;
-	nb = 0;
-	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] && (nptr[i] >= '0' && nptr[i] <= '9'))
-	{
-		nb *= 10;
-		nb += (nptr[i] - 48);
-		i++;
-	}
-	return (nb * sign);
+	gettimeofday(&tv, NULL);
+	time_ms = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	return (time_ms);
 }
