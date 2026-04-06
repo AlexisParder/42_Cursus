@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 09:17:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 13:43:42 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/06 14:14:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	init_data(t_data *data, int ac, char **av)
 	else
 		data->max_meals = -1;
 	data->start_time = get_time_ms();
-	data->someone_died = 0;
+	data->dead = 0;
 	data->forks = NULL;
 	data->philos = NULL;
 	if (init_mutex(data))

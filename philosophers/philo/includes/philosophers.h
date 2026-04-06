@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:18:08 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 13:44:55 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/06 14:19:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ struct s_data
 	long			time_to_sleep;
 	long			max_meals;
 	long			start_time;
-	int				someone_died;
+	int				dead;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	death_mutex;
@@ -49,7 +49,7 @@ struct s_data
 };
 
 int		init_data(t_data *data, int ac, char **av);
-int		create_threads(t_data *data);
+int		manage_threads(t_data *data);
 
 long	philo_atol(const char *nptr);
 long	get_time_ms(void);

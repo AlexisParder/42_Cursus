@@ -6,20 +6,20 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 08:58:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 10:18:07 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/06 15:09:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philosophers.h>
 
-void	print_error(char *err)
+void	write_fd(int fd, char *err)
 {
 	size_t	len;
 
 	len = 0;
 	while (err[len])
 		len++;
-	write(2, err, len);
+	write(fd, err, len);
 }
 
 void	clean_err(t_data *data)
