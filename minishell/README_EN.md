@@ -3,7 +3,7 @@
 # minishell
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
 ![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)
-<!-- [![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/minishell)<br> -->
+[![Score](https://img.shields.io/badge/score-99%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/minishell)<br>
 [🇫🇷 French](./README.md)
 - [minishell](#minishell)
 	- [Description](#description)
