@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:18:08 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 09:10:55 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 14:20:34 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ struct s_data
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	death_mutex;
 	t_philo			*philos;
+	pthread_t		monitor_tid;
 };
 
 int		init_data(t_data *data, int ac, char **av);
 int		manage_threads(t_data *data);
+int		is_dead(t_data *data);
 
 long	philo_atol(const char *nptr);
 long	get_time_ms(void);
@@ -59,5 +61,14 @@ void	clean_all(t_data *data);
 void	clean_err(t_data *data);
 void	clean_mutex_forks(pthread_mutex_t *forks, long last);
 void	clean_mutex_philos(t_data *data, long last);
+void	ft_usleep(long time_ms, t_data *data);
+void	print_action(t_philo *philo, char *msg);
+void	set_dead(t_data *data);
+
+void	philo_eat(t_philo *philo);
+void	philo_sleep(t_philo *philo);
+void	philo_think(t_philo *philo);
+
+void	*monitor(void *arg);
 
 #endif

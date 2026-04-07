@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 09:17:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 09:25:22 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 11:25:18 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	init_data(t_data *data, int ac, char **av)
 		data->max_meals = philo_atol(av[5]);
 	else
 		data->max_meals = -1;
-	data->start_time = get_time_ms();
+	data->start_time = 0;
 	data->dead = 0;
 	data->forks = NULL;
 	data->philos = NULL;

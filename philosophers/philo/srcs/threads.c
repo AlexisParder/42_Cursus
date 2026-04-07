@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 13:15:42 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 09:23:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 14:54:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,18 @@ static void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	data = philo->data;
-	pthread_mutex_lock(&data->print_mutex);
-	printf("Philo %ld has started routine\n", philo->id);
-	pthread_mutex_unlock(&data->print_mutex);
+	while (get_time_ms() < data->start_time)
+		ft_usleep(100, data);
+	if (philo->id % 2 == 0)
+		ft_usleep(data->time_to_eat / 2, data);
+	while (!is_dead(data))
+	{
+		if (data->max_meals != -1 && philo->meals_eaten >= data->max_meals)
+			break ;
+		philo_eat(philo);
+		philo_sleep(philo);
+		philo_think(philo);
+	}
 	return (NULL);
 }
 
@@ -32,12 +41,13 @@ static long	create_threads(t_data *data)
 	i = 0;
 	while (i < data->nb_philos)
 	{
+		pthread_mutex_lock(&data->philos[i].meal_mutex);
+		data->philos[i].last_meal_time = data->start_time;
+		pthread_mutex_unlock(&data->philos[i].meal_mutex);
 		if (pthread_create(&data->philos[i].tid, NULL,
 				routine, &data->philos[i]) != 0)
 		{
-			pthread_mutex_lock(&data->death_mutex);
-			data->dead = 1;
-			pthread_mutex_unlock(&data->death_mutex);
+			set_dead(data);
 			pthread_mutex_lock(&data->print_mutex);
 			write_fd(2, "Error: pthread_create failed\n");
 			pthread_mutex_unlock(&data->print_mutex);
@@ -53,6 +63,9 @@ int	manage_threads(t_data *data)
 	long	i;
 	long	j;
 
+	data->start_time = get_time_ms() + (data->nb_philos * 10);
+	if (pthread_create(&data->monitor_tid, NULL, monitor, data) != 0)
+		return (1);
 	i = create_threads(data);
 	j = 0;
 	while (j < i)
@@ -60,5 +73,6 @@ int	manage_threads(t_data *data)
 		pthread_join(data->philos[j].tid, NULL);
 		j++;
 	}
+	pthread_join(data->monitor_tid, NULL);
 	return (0);
 }
