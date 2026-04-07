@@ -9,8 +9,7 @@
 	- [Description](#description)
 	- [Instructions](#instructions)
 		- [Obligatoire](#obligatoire)
-		- [Bonus](#bonus)
-	- [Bonus](#bonus-1)
+	- [Bonus](#bonus)
 	- [Utilisation de l’IA](#utilisation-de-lia)
 	- [Resources](#resources)
 
@@ -21,10 +20,12 @@ Un projet axé sur la concurrence basé sur le problème classique des philosoph
 ### Obligatoire
 - Allez dans le dossier `philo` pour compiler le programme de base
 - Utilisez la commande `make` pour compiler le programme.
-<!-- - Utilisez la commande `./philo ...` pour lancer le programme. -->
-### Bonus
-- Allez dans le dossier `philo_bonus` pour compiler le programme avec les bonus
-- Utilisez la commande `make bonus` pour compiler le programme avec les bonus.
+- Utilisez la commande `./philo <nombre_de_philosophes> <temps_pour_mourir> <temps_pour_manger> <temps_pour_dormir> <nombre_de_repas_par_philosophe>` pour lancer le programme.
+	- Les temps sont en milliseconde (ms).
+	- le dernier parametre est optionnel.
+<!-- ### Bonus -->
+<!-- - Allez dans le dossier `philo_bonus` pour compiler le programme avec les bonus
+- Utilisez la commande `make bonus` pour compiler le programme avec les bonus. -->
 
 ## Bonus
 - [ ] Toutes les fourchettes sont placées au milieu de la table.
@@ -32,7 +33,8 @@ Un projet axé sur la concurrence basé sur le problème classique des philosoph
 - [ ] Chaque philosophe doit être représenté par un processus distinct. Cependant, le processus principal ne doit pas agir comme un philosophe.
 
 ## Utilisation de l’IA
-<!-- L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet, notamment les concepts de forks, pipes et autres mécanismes systèmes. -->
+L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet, notamment en créant une liste d’exercices afin d’apprendre à utiliser les threads et les mutex.
+- [Voir les exercices](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers/thread_exercices)
 
 ## Resources
 <!-- - [Les processus Unix en C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)

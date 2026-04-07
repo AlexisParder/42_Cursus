@@ -9,8 +9,7 @@
 	- [Description](#description)
 	- [Instructions](#instructions)
 		- [Mandatory](#mandatory)
-		- [Bonus](#bonus)
-	- [Bonus](#bonus-1)
+	- [Bonus](#bonus)
 	- [Use of AI](#use-of-ai)
 	- [Resources](#resources)
 
@@ -21,10 +20,12 @@ A concurrency-focused project based on the classic Dining Philosophers problem. 
 ### Mandatory
 - Go to the `philo` folder to compile the basic program.
 - Use the `make` command to compile the program.
-<!-- - Use the `./philo ...` command to run the program. -->
-### Bonus
-- Go to the `philo_bonus` folder to compile the program with the bonus features.
-- Use the `make bonus` command to compile the program with the bonus features
+- Use the `./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> <number_of_times_each_philosopher_must_eat>` command to run the program.
+	- The times are in milliseconds (ms).
+	- The last parameter is optional.
+<!-- ### Bonus -->
+<!-- - Go to the `philo_bonus` folder to compile the program with the bonus features.
+- Use the `make bonus` command to compile the program with the bonus features -->
 
 ## Bonus
 - [ ] All the forks are put in the middle of the table.
@@ -32,7 +33,8 @@ A concurrency-focused project based on the classic Dining Philosophers problem. 
 - [ ] Each philosopher must be represented as a separate process. However, the main process should not act as a philosopher.
 
 ## Use of AI
-<!-- Artificial intelligence was used as a support to understand and consolidate the key concepts of the project, notably forks, pipes, and other system mechanisms. -->
+Artificial intelligence was used as a support to understand and organize the key concepts of the project, notably by creating a list of exercises in order to learn how to use threads and mutexes.
+- [View the exercises (🇫🇷 French)](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers/thread_exercices)
 
 ## Resources
 <!-- - [Unix Processes in C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
