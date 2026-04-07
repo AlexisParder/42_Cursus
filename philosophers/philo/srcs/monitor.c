@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 10:54:26 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 15:01:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 15:56:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	*monitor(void *arg)
 			set_dead(data);
 			return (NULL);
 		}
-		ft_usleep(500, data);
+		ft_usleep(100, data);
 	}
 	return (NULL);
 }

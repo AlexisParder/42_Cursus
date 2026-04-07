@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 09:36:04 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 14:55:36 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 15:58:12 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void	start_eat(t_philo *philo)
 	pthread_mutex_t	*first;
 	pthread_mutex_t	*second;
 
-	if (philo->id - 1 < philo->data->nb_philos)
-	{
-		first = philo->left_fork;
-		second = philo->right_fork;
-	}
-	else
+	if (philo->id % 2 == 0)
 	{
 		first = philo->right_fork;
 		second = philo->left_fork;
+	}
+	else
+	{
+		first = philo->left_fork;
+		second = philo->right_fork;
 	}
 	pthread_mutex_lock(first);
 	print_action(philo, "has taken a fork");
@@ -66,7 +66,21 @@ void	philo_sleep(t_philo *philo)
 
 void	philo_think(t_philo *philo)
 {
-	if (is_dead(philo->data))
+    long	think_time;
+
+    if (is_dead(philo->data))
         return ;
-	print_action(philo, "is thinking");
+    print_action(philo, "is thinking");
+    if (philo->data->nb_philos % 2 == 0)
+        think_time = 0;
+    else
+    {
+        think_time = philo->data->time_to_eat * 2 - philo->data->time_to_sleep;
+        if (think_time < 0)
+            think_time = 0;
+        if (think_time > 600)
+            think_time = 200;
+    }
+    if (think_time > 0)
+        ft_usleep(think_time, philo->data);
 }
