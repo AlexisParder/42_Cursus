@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 09:17:30 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 14:14:22 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 09:25:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,16 @@ static int	init_mutex(t_data *data)
 	return (0);
 }
 
+static void	fill_philo(t_data *data, long i)
+{
+	data->philos[i].id = i + 1;
+	data->philos[i].meals_eaten = 0;
+	data->philos[i].last_meal_time = data->start_time;
+	data->philos[i].left_fork = &data->forks[i];
+	data->philos[i].right_fork = &data->forks[(i + 1) % data->nb_philos];
+	data->philos[i].data = data;
+}
+
 static int	init_philos(t_data *data)
 {
 	long	i;
@@ -54,12 +64,7 @@ static int	init_philos(t_data *data)
 	i = 0;
 	while (i < data->nb_philos)
 	{
-		data->philos[i].id = i + 1;
-		data->philos[i].meals_eaten = 0;
-		data->philos[i].last_meal_time = data->start_time;
-		data->philos[i].left_fork = &data->forks[i];
-		data->philos[i].right_fork = &data->forks[(i + 1) % data->nb_philos];
-		data->philos[i].data = data;
+		fill_philo(data, i);
 		if (pthread_mutex_init(&data->philos[i].meal_mutex, NULL) != 0)
 		{
 			pthread_mutex_destroy(&data->print_mutex);

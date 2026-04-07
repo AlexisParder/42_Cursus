@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 13:15:42 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 15:09:35 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 09:23:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static long	create_threads(t_data *data)
 	while (i < data->nb_philos)
 	{
 		if (pthread_create(&data->philos[i].tid, NULL,
-			routine, &data->philos[i]) != 0)
+				routine, &data->philos[i]) != 0)
 		{
 			pthread_mutex_lock(&data->death_mutex);
 			data->dead = 1;
