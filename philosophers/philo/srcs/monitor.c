@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 10:54:26 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 15:56:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 16:47:07 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 static int	check_time(t_data *data, long i, long last_meal)
 {
-    t_philo	*philo;
-    long	time;
+	t_philo	*philo;
+	long	time;
 
-    philo = &data->philos[i];
-    time = get_time_ms();
-    if (time - last_meal > data->time_to_die)
-    {
-        pthread_mutex_lock(&data->print_mutex);
-        // print_action(philo, "died");
+	philo = &data->philos[i];
+	time = get_time_ms();
+	if (time - last_meal > data->time_to_die)
+	{
+		pthread_mutex_lock(&data->print_mutex);
 		set_dead(data);
-        printf("%ld %ld died\n", time - data->start_time, philo->id);
+		printf("%ld %ld died\n", time - data->start_time, philo->id);
 		pthread_mutex_unlock(&data->print_mutex);
-        return (1);
-    }
-    return (0);
+		return (1);
+	}
+	return (0);
 }
 
 static int	check_philos(t_data *data, long *meals_done)

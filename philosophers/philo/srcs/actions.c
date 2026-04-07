@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 09:36:04 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 15:58:12 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/07 16:47:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,28 +59,28 @@ void	philo_eat(t_philo *philo)
 void	philo_sleep(t_philo *philo)
 {
 	if (is_dead(philo->data))
-        return ;
+		return ;
 	print_action(philo, "is sleeping");
 	ft_usleep(philo->data->time_to_sleep, philo->data);
 }
 
 void	philo_think(t_philo *philo)
 {
-    long	think_time;
+	long	think_time;
 
-    if (is_dead(philo->data))
-        return ;
-    print_action(philo, "is thinking");
-    if (philo->data->nb_philos % 2 == 0)
-        think_time = 0;
-    else
-    {
-        think_time = philo->data->time_to_eat * 2 - philo->data->time_to_sleep;
-        if (think_time < 0)
-            think_time = 0;
-        if (think_time > 600)
-            think_time = 200;
-    }
-    if (think_time > 0)
-        ft_usleep(think_time, philo->data);
+	if (is_dead(philo->data))
+		return ;
+	print_action(philo, "is thinking");
+	if (philo->data->nb_philos % 2 == 0)
+		think_time = 0;
+	else
+	{
+		think_time = philo->data->time_to_eat * 2 - philo->data->time_to_sleep;
+		if (think_time < 0)
+			think_time = 0;
+		if (think_time > 600)
+			think_time = 200;
+	}
+	if (think_time > 0)
+		ft_usleep(think_time, philo->data);
 }
