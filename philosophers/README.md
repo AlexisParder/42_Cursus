@@ -9,7 +9,6 @@
 	- [Description](#description)
 	- [Instructions](#instructions)
 		- [Obligatoire](#obligatoire)
-	- [Bonus](#bonus)
 	- [Utilisation de l’IA](#utilisation-de-lia)
 	- [Resources](#resources)
 
@@ -23,19 +22,12 @@ Un projet axé sur la concurrence basé sur le problème classique des philosoph
 - Utilisez la commande `./philo <nombre_de_philosophes> <temps_pour_mourir> <temps_pour_manger> <temps_pour_dormir> <nombre_de_repas_par_philosophe>` pour lancer le programme.
 	- Les temps sont en milliseconde (ms).
 	- le dernier parametre est optionnel.
-<!-- ### Bonus -->
-<!-- - Allez dans le dossier `philo_bonus` pour compiler le programme avec les bonus
-- Utilisez la commande `make bonus` pour compiler le programme avec les bonus. -->
-
-## Bonus
-- [ ] Toutes les fourchettes sont placées au milieu de la table.
-- [ ] Elles n’ont pas d’état en mémoire, mais le nombre de fourchettes disponibles est représenté par un sémaphore.
-- [ ] Chaque philosophe doit être représenté par un processus distinct. Cependant, le processus principal ne doit pas agir comme un philosophe.
 
 ## Utilisation de l’IA
 L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet, notamment en créant une liste d’exercices afin d’apprendre à utiliser les threads et les mutex.
 - [Voir les exercices](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers/thread_exercices)
 
 ## Resources
-<!-- - [Les processus Unix en C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
-- [Pipes, Forks & Dups par Roslyn McConnell](https://www.rozmichelle.com/pipes-forks-dups/) -->
+- [Tester 1](https://github.com/dantonik/42-philosophers-tester)
+- [Tester 2](https://github.com/Acholias/Philosophers_tester)
+- [Langage C #17 (les threads)](https://youtu.be/o_GbRujGCnM?list=PLdDeXINE1ViRkmBtqLmC_fu-tIJUl4-Sd)

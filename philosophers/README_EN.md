@@ -9,7 +9,6 @@
 	- [Description](#description)
 	- [Instructions](#instructions)
 		- [Mandatory](#mandatory)
-	- [Bonus](#bonus)
 	- [Use of AI](#use-of-ai)
 	- [Resources](#resources)
 
@@ -23,19 +22,12 @@ A concurrency-focused project based on the classic Dining Philosophers problem. 
 - Use the `./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> <number_of_times_each_philosopher_must_eat>` command to run the program.
 	- The times are in milliseconds (ms).
 	- The last parameter is optional.
-<!-- ### Bonus -->
-<!-- - Go to the `philo_bonus` folder to compile the program with the bonus features.
-- Use the `make bonus` command to compile the program with the bonus features -->
-
-## Bonus
-- [ ] All the forks are put in the middle of the table.
-- [ ] They have no states in memory, but the number of available forks is represented by a semaphore.
-- [ ] Each philosopher must be represented as a separate process. However, the main process should not act as a philosopher.
 
 ## Use of AI
 Artificial intelligence was used as a support to understand and organize the key concepts of the project, notably by creating a list of exercises in order to learn how to use threads and mutexes.
 - [View the exercises (🇫🇷 French)](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers/thread_exercices)
 
 ## Resources
-<!-- - [Unix Processes in C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
-- [Pipes, Forks & Dups by Roslyn McConnell](https://www.rozmichelle.com/pipes-forks-dups/) -->
+- [Tester 1](https://github.com/dantonik/42-philosophers-tester)
+- [Tester 2](https://github.com/Acholias/Philosophers_tester)
+- [(🇫🇷 French) C language #17 (threads)](https://youtu.be/o_GbRujGCnM?list=PLdDeXINE1ViRkmBtqLmC_fu-tIJUl4-Sd)
