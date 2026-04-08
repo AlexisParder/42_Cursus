@@ -6,35 +6,60 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:17:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/06 15:09:32 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/08 13:23:17 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philosophers.h>
 
+static int	check_args_digit(char **av)
+{
+	size_t	i;
+	size_t	j;
+	long	tmp_nbr;
+
+	i = 1;
+	while (av[i])
+	{
+		j = 0;
+		if (av[i][j] == '+' || av[i][j] == '-')
+			j++;
+		while (av[i][j])
+		{
+			if (!(av[i][j] >= '0' && av[i][j] <= '9'))
+				return (1);
+			j++;
+		}
+		tmp_nbr = philo_atol(av[i]);
+		if (tmp_nbr < -2147483648 || tmp_nbr > 2147483647)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 static int	check_args(int ac, char **av)
 {
-	long	value;
-
-	value = philo_atol(av[1]);
-	if (value <= 0)
-		return (0);
-	value = philo_atol(av[2]);
-	if (value <= 0)
-		return (0);
-	value = philo_atol(av[3]);
-	if (value <= 0)
-		return (0);
-	value = philo_atol(av[4]);
-	if (value <= 0)
-		return (0);
+	if (check_args_digit(av))
+	{
+		write_fd(2, "Error: arguments must be integers.\n");
+		return (1);
+	}
+	if (philo_atol(av[1]) <= 0 || philo_atol(av[2]) <= 0
+		|| philo_atol(av[3]) <= 0 || philo_atol(av[4]) <= 0)
+		{
+			write_fd(2, "Error: arguments must be positive integers.\n");
+			return (1);
+		}
 	if (ac == 6)
 	{
-		value = philo_atol(av[5]);
-		if (value < -1)
-			return (0);
+		if (philo_atol(av[5]) < -1)
+		{
+			write_fd(2, "Error: arguments must be positive integers.\n");
+			return (1);
+		}
 	}
-	return (1);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -46,11 +71,8 @@ int	main(int ac, char **av)
 		write_fd(2, "Error: invalid number of arguments.\n");
 		return (1);
 	}
-	if (!check_args(ac, av))
-	{
-		write_fd(2, "Error: arguments must be positive integers.\n");
+	if (check_args(ac, av))
 		return (1);
-	}
 	if (init_data(&data, ac, av))
 	{
 		write_fd(2, "Error: data initialization failed.\n");
