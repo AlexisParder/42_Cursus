@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 10:54:26 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/08 16:47:03 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/09 10:51:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	check_time(t_data *data, long i, long last_meal)
 	time = get_time_ms();
 	if (time - last_meal > data->time_to_die)
 	{
-		pthread_mutex_lock(&data->print_mutex);
 		set_dead(data);
+		pthread_mutex_lock(&data->print_mutex);
 		printf("%ld %ld died\n", time - data->start_time, philo->id);
 		pthread_mutex_unlock(&data->print_mutex);
 		return (1);
