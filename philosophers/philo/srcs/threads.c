@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 13:15:42 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/08 17:08:31 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/09 13:41:35 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	*routine(void *arg)
 		philo_eat(philo);
 		if (is_dead(data))
 			break ;
-		philo_sleep(philo);
+		print_action(philo, "is sleeping");
+		ft_usleep(philo->data->time_to_sleep);
 		philo_think(philo);
 	}
 	return (NULL);

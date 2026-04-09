@@ -16,7 +16,7 @@ SRC_FILES = $(SRC_DIR)main.c \
 			$(SRC_DIR)utils/error.c \
 			$(SRC_DIR)utils/time.c \
 			$(SRC_DIR)utils/philo_atol.c \
-			$(SRC_DIR)utils/utils_philo.c
+			$(SRC_DIR)utils/dead.c
 OBJ_FILES = $(SRC_FILES:srcs/%.c=$(OBJ_DIR)/%.o)
 
 # Colors

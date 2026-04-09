@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:18:08 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/08 16:32:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/09 13:23:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,10 @@ void	clean_err(t_data *data);
 void	clean_mutex_forks(pthread_mutex_t *forks, long last);
 void	clean_mutex_philos(t_data *data, long last);
 void	ft_usleep(long time_ms);
-void	print_action(t_philo *philo, char *msg);
 void	set_dead(t_data *data);
 
+void	print_action(t_philo *philo, char *msg);
 void	philo_eat(t_philo *philo);
-void	philo_sleep(t_philo *philo);
 void	philo_think(t_philo *philo);
 
 void	*monitor(void *arg);
