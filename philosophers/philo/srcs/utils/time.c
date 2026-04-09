@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 09:05:34 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 16:47:33 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/08 16:31:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@ long	get_time_ms(void)
 	return (time_ms);
 }
 
-void	ft_usleep(long time_ms, t_data *data)
+void	ft_usleep(long time_ms)
 {
 	long	start_time;
 
 	start_time = get_time_ms();
 	while (get_time_ms() - start_time < time_ms)
-	{
-		if (is_dead(data))
-			return ;
-		usleep(100);
-	}
+		usleep(50);
 }

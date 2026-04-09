@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 09:36:04 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 16:47:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/09 09:30:18 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	start_eat(t_philo *philo)
 	philo->last_meal_time = get_time_ms();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->meal_mutex);
-	ft_usleep(philo->data->time_to_eat, philo->data);
+	ft_usleep(philo->data->time_to_eat);
 	pthread_mutex_unlock(second);
 	pthread_mutex_unlock(first);
 }
@@ -47,10 +47,8 @@ void	philo_eat(t_philo *philo)
 	{
 		pthread_mutex_lock(philo->left_fork);
 		print_action(philo, "has taken a fork");
-		ft_usleep(philo->data->time_to_die, philo->data);
+		ft_usleep(philo->data->time_to_die);
 		pthread_mutex_unlock(philo->left_fork);
-		print_action(philo, "died");
-		set_dead(philo->data);
 		return ;
 	}
 	start_eat(philo);
@@ -58,18 +56,14 @@ void	philo_eat(t_philo *philo)
 
 void	philo_sleep(t_philo *philo)
 {
-	if (is_dead(philo->data))
-		return ;
 	print_action(philo, "is sleeping");
-	ft_usleep(philo->data->time_to_sleep, philo->data);
+	ft_usleep(philo->data->time_to_sleep);
 }
 
 void	philo_think(t_philo *philo)
 {
 	long	think_time;
 
-	if (is_dead(philo->data))
-		return ;
 	print_action(philo, "is thinking");
 	if (philo->data->nb_philos % 2 == 0)
 		think_time = 0;
@@ -82,5 +76,5 @@ void	philo_think(t_philo *philo)
 			think_time = 200;
 	}
 	if (think_time > 0)
-		ft_usleep(think_time, philo->data);
+		ft_usleep(think_time);
 }

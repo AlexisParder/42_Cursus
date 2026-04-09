@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 09:17:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/08 13:23:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/09 09:30:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ static int	check_args(int ac, char **av)
 	}
 	if (philo_atol(av[1]) <= 0 || philo_atol(av[2]) <= 0
 		|| philo_atol(av[3]) <= 0 || philo_atol(av[4]) <= 0)
-		{
-			write_fd(2, "Error: arguments must be positive integers.\n");
-			return (1);
-		}
+	{
+		write_fd(2, "Error: arguments must be positive integers.\n");
+		return (1);
+	}
 	if (ac == 6)
 	{
 		if (philo_atol(av[5]) < -1)

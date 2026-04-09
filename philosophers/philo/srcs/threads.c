@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 13:15:42 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 14:54:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/08 17:08:31 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,20 @@ static void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	data = philo->data;
-	while (get_time_ms() < data->start_time)
-		ft_usleep(100, data);
+	if (data->nb_philos == 1)
+	{
+		philo_eat(philo);
+		return (NULL);
+	}
 	if (philo->id % 2 == 0)
-		ft_usleep(data->time_to_eat / 2, data);
+		ft_usleep(data->time_to_eat / 2);
 	while (!is_dead(data))
 	{
 		if (data->max_meals != -1 && philo->meals_eaten >= data->max_meals)
 			break ;
 		philo_eat(philo);
+		if (is_dead(data))
+			break ;
 		philo_sleep(philo);
 		philo_think(philo);
 	}
@@ -41,9 +46,6 @@ static long	create_threads(t_data *data)
 	i = 0;
 	while (i < data->nb_philos)
 	{
-		pthread_mutex_lock(&data->philos[i].meal_mutex);
-		data->philos[i].last_meal_time = data->start_time;
-		pthread_mutex_unlock(&data->philos[i].meal_mutex);
 		if (pthread_create(&data->philos[i].tid, NULL,
 				routine, &data->philos[i]) != 0)
 		{
@@ -63,7 +65,6 @@ int	manage_threads(t_data *data)
 	long	i;
 	long	j;
 
-	data->start_time = get_time_ms() + (data->nb_philos * 10);
 	if (pthread_create(&data->monitor_tid, NULL, monitor, data) != 0)
 		return (1);
 	i = create_threads(data);

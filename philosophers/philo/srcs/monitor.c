@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 10:54:26 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/07 16:47:07 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/08 16:47:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void	*monitor(void *arg)
 	long	meals_done;
 
 	data = (t_data *)arg;
-	while (get_time_ms() < data->start_time)
-		ft_usleep(100, data);
 	while (!is_dead(data))
 	{
 		meals_done = 0;
@@ -70,7 +68,7 @@ void	*monitor(void *arg)
 			set_dead(data);
 			return (NULL);
 		}
-		ft_usleep(100, data);
+		usleep(100);
 	}
 	return (NULL);
 }
