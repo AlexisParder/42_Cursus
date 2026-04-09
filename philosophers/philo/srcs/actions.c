@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 09:36:04 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/09 14:51:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/09 16:08:19 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void	philo_eat(t_philo *philo)
 		return ;
 	}
 	take_forks(philo);
-	print_action(philo, "is eating");
 	pthread_mutex_lock(&philo->meal_mutex);
 	philo->last_meal_time = get_time_ms();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->meal_mutex);
+	print_action(philo, "is eating");
 	ft_usleep(philo->data->time_to_eat);
 	if (philo->id % 2 == 0)
 	{
