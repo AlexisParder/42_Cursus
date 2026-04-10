@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 10:54:26 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/09 16:00:50 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/10 09:09:00 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ static int	check_philos(t_data *data)
 		pthread_mutex_lock(&data->philos[i].meal_mutex);
 		eaten = data->philos[i].meals_eaten;
 		pthread_mutex_unlock(&data->philos[i].meal_mutex);
-		if (data->max_meals != -1 && eaten >= data->max_meals)
+		if (eaten >= data->max_meals)
 			meals_done++;
-		if (data->max_meals != -1 && meals_done >= data->nb_philos)
+		if (meals_done >= data->nb_philos)
 			break ;
 		i++;
 	}
-	if (data->max_meals != -1 && meals_done >= data->nb_philos)
+	if (meals_done >= data->nb_philos)
 	{
 		set_dead(data);
 		return (1);
