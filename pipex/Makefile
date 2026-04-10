@@ -66,19 +66,19 @@ banner_bonus: banner
 	@echo $(BANNER_BONUS)
 
 $(LIBFT):
-		@echo "$(BLUE)[LIBFT] Compilation de la libft...$(RESET)"
+		@echo "$(BLUE)[LIBFT] Compiling libft...$(RESET)"
 		@$(MAKE) -C libs/libft
-		@echo "$(GREEN)[LIBFT] libft compilée ✔$(RESET)"
+		@echo "$(GREEN)[LIBFT] libft compiled ✔$(RESET)"
 
 $(NAME): $(OBJ_FILES)
-		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
+		@echo "$(BLUE)[BUILD] Compiling $(NAME)...$(RESET)"
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $@ $^ $(LIBS)
-		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
+		@echo "$(GREEN)[OK] $(NAME) ready ✔$(RESET)"
 
 bonus: banner_bonus $(LIBFT) $(OBJ_BONUS_FILES)
-		@echo "$(BLUE)[BONUS] Compilation de $(NAME) (bonus)...$(RESET)"
+		@echo "$(BLUE)[BONUS] Compiling $(NAME) (bonus)...$(RESET)"
 		@$(CC) $(CFLAGS) $(INC_DIR) -o $(NAME) $(OBJ_BONUS_FILES) $(LIBS)
-		@echo "$(GREEN)[OK] $(NAME) (bonus) prêt ✓$(RESET)"
+		@echo "$(GREEN)[OK] $(NAME) (bonus) ready ✓$(RESET)"
 
 $(OBJ_MAND_DIR)/%.o: srcs/mandatory/%.c
 	@mkdir -p $(dir $@)
@@ -89,18 +89,18 @@ $(OBJ_BONUS_DIR)/%.o: srcs/bonus/%.c
 	@$(CC) $(CFLAGS) $(INC_DIR) -c $< -o $@
 
 clean:
-		@echo "$(YELLOW)[CLEAN] Suppression des objets...$(RESET)"
+		@echo "$(YELLOW)[CLEAN] Removing object files...$(RESET)"
 		@rm -rf $(OBJ_DIR)
 		@$(MAKE) -C libs/libft clean
 		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
 
 fclean: clean
-		@echo "$(RED)[FCLEAN] Suppression des binaires...$(RESET)"
+		@echo "$(RED)[FCLEAN] Removing binaries...$(RESET)"
 		@rm -rf $(NAME)
 		@rm -rf libs/libft/libft.a
 		@echo "$(GREEN)[FCLEAN] OK ✔$(RESET)"
 
 re: fclean all
-		@echo "$(GREEN)[RE] Rebuild terminé ✔$(RESET)"
+		@echo "$(GREEN)[RE] Rebuild finished ✔$(RESET)"
 
 .PHONY: all bonus clean fclean re

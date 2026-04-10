@@ -67,9 +67,9 @@ RESET	= \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-		@echo "$(BLUE)[BUILD] Compilation de $(NAME)...$(RESET)"
+		@echo "$(BLUE)[BUILD] Compiling $(NAME)...$(RESET)"
 		@ar rcs -o $(NAME) $(OBJ_FILES)
-		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
+		@echo "$(GREEN)[OK] $(NAME) ready ✔$(RESET)"
 
 %.o : %.c
 		@$(CC) $(CFLAGS) $(INC_FILES) -o $@ -c $<
@@ -78,20 +78,20 @@ bonus: $(OBJ_BONUS_FILES)
 		@echo "$(BLUE)[BUILD] Compilation de $(NAME) avec bonus...$(RESET)"
 		@ar rcs -o $(NAME) $(OBJ_FILES)
 		@ar rcs -o $(NAME) $(OBJ_BONUS_FILES)
-		@echo "$(GREEN)[OK] $(NAME) prêt ✔$(RESET)"
+		@echo "$(GREEN)[OK] $(NAME) ready ✔$(RESET)"
 
 clean:
-		@echo "$(YELLOW)[CLEAN] Suppression des objets...$(RESET)"
+		@echo "$(YELLOW)[CLEAN] Removing object files...$(RESET)"
 		@rm -rf $(OBJ_FILES)
 		@rm -rf $(OBJ_BONUS_FILES)
 		@echo "$(GREEN)[CLEAN] OK ✔$(RESET)"
 
 fclean: clean
-		@echo "$(RED)[FCLEAN] Suppression des binaires...$(RESET)"
+		@echo "$(RED)[FCLEAN] Removing binaries...$(RESET)"
 		@rm -rf $(NAME)
 		@echo "$(GREEN)[FCLEAN] OK ✔$(RESET)"
 
 re: fclean all
-		@echo "$(GREEN)[RE] Rebuild terminé ✔$(RESET)"
+		@echo "$(GREEN)[RE] Rebuild finished ✔$(RESET)"
 
 .PHONY: all bonus clean fclean re
