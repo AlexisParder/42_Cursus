@@ -14,6 +14,7 @@
 	- [pipex](#pipex)
 	- [philosophers](#philosophers)
 	- [minishell](#minishell)
+	- [cub3d](#cub3d)
 
 ## libf
 A foundational project from the 42 curriculum.
@@ -70,3 +71,10 @@ A concurrency-focused project based on the classic Dining Philosophers problem. 
 A comprehensive systems programming project that consists of recreating a simplified Unix shell from scratch. The program must parse and execute user commands, manage environment variables, handle built-in commands, support pipes and redirections, and correctly propagate exit statuses. The challenge lies in accurately tokenizing input, managing process creation, handling signals (Ctrl-C, Ctrl-D, Ctrl-\\), and reproducing Bash-like behavior within defined limits. This project builds strong expertise in process control, parsing logic, file descriptor management, signal handling, and robust error recovery in a low-level C environment.
 
 [Go to minishell](https://github.com/AlexisParder/42_Cursus/tree/main/minishell)
+
+## cub3d
+A graphics programming project inspired by early raycasting engines like Wolfenstein 3D. The objective is to build a pseudo-3D renderer using a 2D map and raycasting techniques to simulate a first-person perspective. The implementation involves parsing map files, handling player movement and camera rotation, performing real-time ray calculations, and rendering textured walls with correct depth and perspective.
+
+Additional challenges include managing sprites, collision detection, and optimizing performance for smooth rendering. This project develops strong skills in computer graphics fundamentals, trigonometry, real-time rendering, low-level optimization, and structured game engine design within a constrained C environment.
+
+[Go to cub3d](https://github.com/AlexisParder/42_Cursus/tree/main/cub3d)

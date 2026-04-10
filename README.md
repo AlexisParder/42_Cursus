@@ -14,6 +14,7 @@
 	- [pipex](#pipex)
 	- [philosophers](#philosophers)
 	- [minishell](#minishell)
+	- [cub3d](#cub3d)
 
 ## libf
 Un projet fondamental du cursus 42.
@@ -73,3 +74,10 @@ Un projet axé sur la concurrence basé sur le problème classique des philosoph
 Un projet complet de programmation système consistant à recréer un shell Unix simplifié à partir de zéro. Le programme doit analyser et exécuter les commandes utilisateur, gérer les variables d’environnement, prendre en charge les commandes intégrées (built-ins), supporter les pipes et les redirections, et propager correctement les codes de sortie. La difficulté réside dans la tokenisation précise de l’entrée, la gestion de la création des processus, le traitement des signaux (Ctrl-C, Ctrl-D, Ctrl-\\), ainsi que la reproduction d’un comportement proche de Bash dans des limites définies. Ce projet permet de développer une solide expertise en contrôle des processus, en logique de parsing, en gestion des descripteurs de fichiers, en gestion des signaux et en récupération d’erreurs robuste dans un environnement C bas niveau.
 
 [Voir minishell](https://github.com/AlexisParder/42_Cursus/tree/main/minishell)
+
+## cub3d
+Un projet de programmation graphique inspiré des premiers moteurs de raycasting comme Wolfenstein 3D. L’objectif est de construire un moteur de rendu pseudo-3D en utilisant une carte 2D et des techniques de raycasting afin de simuler une vue à la première personne. L’implémentation comprend le parsing de fichiers de carte, la gestion des déplacements du joueur et de la rotation de la caméra, le calcul des rayons en temps réel, ainsi que le rendu de murs texturés avec une profondeur et une perspective correctes.
+
+Les défis supplémentaires incluent la gestion des sprites, la détection des collisions et l’optimisation des performances pour un rendu fluide. Ce projet permet de développer de solides compétences en bases de l’infographie, en trigonométrie, en rendu temps réel, en optimisation bas niveau, ainsi qu’en conception structurée de moteur de jeu dans un environnement C contraint.
+
+[Voir cub3d](https://github.com/AlexisParder/42_Cursus/tree/main/cub3d)
