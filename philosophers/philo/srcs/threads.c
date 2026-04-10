@@ -6,11 +6,18 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 13:15:42 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/09 16:17:08 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/10 09:07:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philosophers.h>
+
+static void	set_last_meal_time(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->meal_mutex);
+	philo->last_meal_time = get_time_ms();
+	pthread_mutex_unlock(&philo->meal_mutex);
+}
 
 static void	*routine(void *arg)
 {
@@ -19,9 +26,7 @@ static void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	data = philo->data;
-	pthread_mutex_lock(&philo->meal_mutex);
-    philo->last_meal_time = get_time_ms();
-    pthread_mutex_unlock(&philo->meal_mutex);
+	set_last_meal_time(philo);
 	if (data->nb_philos == 1)
 	{
 		philo_eat(philo);
