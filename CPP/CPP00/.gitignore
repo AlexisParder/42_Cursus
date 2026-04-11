@@ -1,0 +1,13 @@
+*
+
+!*/
+
+!*/srcs/**
+!*/includes/**
+
+!.gitignore
+!Makefile
+!megaphone.cpp
+
+*.o
+*.a
