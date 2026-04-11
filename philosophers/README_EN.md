@@ -25,7 +25,7 @@ A concurrency-focused project based on the classic Dining Philosophers problem. 
 
 ## Use of AI
 Artificial intelligence was used as a support to understand and organize the key concepts of the project, notably by creating a list of exercises in order to learn how to use threads and mutexes.
-- [View the exercises (🇫🇷 French)](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers/thread_exercices)
+- [View the exercises](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers/thread_exercices/README_EN.md)
 
 ## Resources
 - [Tester 1](https://github.com/dantonik/42-philosophers-tester)

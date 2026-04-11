@@ -1,3 +1,4 @@
+[🇬🇧 English](./README_EN.md)
 - [📘 PARTIE 1 : Maîtriser les Threads](#-partie-1--maîtriser-les-threads)
   - [Exercice 1.1 : Mon premier thread](#exercice-11--mon-premier-thread)
     - [Objectif : Créer et attendre un thread simple](#objectif--créer-et-attendre-un-thread-simple)
