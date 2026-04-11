@@ -72,7 +72,7 @@ void	PhoneBook::search(void) const
 	i = std::atoi(input.c_str());
 	if (i < 0 || i >= _nbContacts)
 	{
-		std::cout << "Ce contact n'existe pas !" << std::endl;
+		std::cout << "That contact does not exist!" << std::endl;
 		return ;
 	}
 	std::cout << "Index: " << i << std::endl;
