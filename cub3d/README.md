@@ -29,6 +29,4 @@ Les défis supplémentaires incluent la gestion des sprites, la détection des c
 <!-- L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet. -->
 
 ## Resources
-<!-- - [Tester 1](https://github.com/dantonik/42-philosophers-tester)
-- [Tester 2](https://github.com/Acholias/Philosophers_tester)
-- [Langage C #17 (les threads)](https://youtu.be/o_GbRujGCnM?list=PLdDeXINE1ViRkmBtqLmC_fu-tIJUl4-Sd) -->
+- [Bibliothèque C maths (math.h)](https://www.w3schools.com/c/c_ref_math.php)

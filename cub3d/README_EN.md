@@ -29,6 +29,4 @@ Additional challenges include managing sprites, collision detection, and optimiz
 <!-- Artificial intelligence was used as a support to understand and organize the key concepts of the project. -->
 
 ## Resources
-<!-- - [Tester 1](https://github.com/dantonik/42-philosophers-tester)
-- [Tester 2](https://github.com/Acholias/Philosophers_tester)
-- [(🇫🇷 French) C language #17 (threads)](https://youtu.be/o_GbRujGCnM?list=PLdDeXINE1ViRkmBtqLmC_fu-tIJUl4-Sd) -->
+- [C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
