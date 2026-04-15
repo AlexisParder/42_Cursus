@@ -6,10 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:29 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/11 15:53:58 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:17:41 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
