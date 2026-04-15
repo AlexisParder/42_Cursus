@@ -6,24 +6,25 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 08:53:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/15 13:33:10 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:06:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Account.hpp>
+#include <iostream>
 
 Account::Account(void) {}
 
 Account::Account(int initial_deposit)
 {
-	
+	(void)initial_deposit;
 }
 
 Account::~Account(void){}
 
 void	Account::_displayTimestamp(void)
 {
-	
+	std::cout << "[" << time(NULL) << "] ";
 }
 
 int	Account::getNbAccounts(void)
@@ -48,22 +49,27 @@ int	Account::getNbWithdrawals(void)
 
 void	Account::displayAccountsInfos(void)
 {
-	
+	_displayTimestamp();
+	std::cout << "accounts:" << getNbAccounts() << ";";
+	std::cout << "total:" << getTotalAmount() << ";";
+	std::cout << "deposits:" << getNbDeposits() << ";";
+	std::cout << "withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
 void	Account::makeDeposit(int deposit)
 {
-	
+	(void)deposit;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
-	
+	(void)withdrawal;
+	return (0);
 }
 
 int	Account::checkAmount(void) const
 {
-	
+	return (1);
 }
 
 void	Account::displayStatus(void) const
