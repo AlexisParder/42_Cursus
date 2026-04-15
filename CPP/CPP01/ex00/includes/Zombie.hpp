@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 14:11:39 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/15 14:20:01 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:30:10 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Zombie
 		Zombie(void);
 		~Zombie(void);
 		void announce(void);
+		Zombie*	newZombie(std::string name);
 };
 
 #endif

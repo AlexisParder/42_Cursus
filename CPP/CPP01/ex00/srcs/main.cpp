@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 14:11:29 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/15 14:24:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/15 14:51:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(void)
 {
-	Zombie zombie;
 	
-	zombie.announce();
 	return (0);
 }
