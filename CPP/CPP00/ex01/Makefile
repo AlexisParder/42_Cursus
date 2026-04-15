@@ -21,18 +21,12 @@ RED		= \033[0;31m
 RESET	= \033[0m
 
 BANNER = \
-"\n  $(RESET)██████$(RED)╗$(RESET)██████$(RED)╗ $(RESET)██████$(RED)╗      $(RESET)██████$(RED)╗ \n" \
-"$(RESET)██$(RED)╔════╝$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)╔══$(RESET)██$(RED)╗    $(RESET)██$(RED)╔═$(RESET)████$(RED)╗ \n" \
-"$(RESET)██$(RED)║     $(RESET)██████$(RED)╔╝$(RESET)██████$(RED)╔╝    $(RESET)██$(RED)║$(RESET)██$(RED)╔$(RESET)██$(RED)║ \n" \
-"$(RESET)██$(RED)║     $(RESET)██$(RED)╔═══╝ $(RESET)██$(RED)╔═══╝     $(RESET)████$(RED)╔╝$(RESET)██$(RED)║ \n" \
-"╚$(RESET)██████$(RED)╗$(RESET)██$(RED)║     $(RESET)██$(RED)║         ╚$(RESET)██████$(RED)╔╝ \n" \
-"$(RED) ╚═════╝╚═╝     ╚═╝          ╚═════╝ $(RESET)\n" \
-"$(RESET)███████$(BLUE)╗$(RESET)██$(BLUE)╗  $(RESET)██$(BLUE)╗     $(RESET)██████$(BLUE)╗  $(RESET)██$(BLUE)╗ \n" \
-"$(RESET)██$(BLUE)╔════╝╚$(RESET)██$(BLUE)╗$(RESET)██$(BLUE)╔╝    $(RESET)██$(BLUE)╔═$(RESET)████$(BLUE)╗$(RESET)███$(BLUE)║ \n" \
-"$(RESET)█████$(BLUE)╗   ╚$(RESET)███$(BLUE)╔╝     $(RESET)██$(BLUE)║$(RESET)██$(BLUE)╔$(RESET)██$(BLUE)║╚$(RESET)██$(BLUE)║ \n" \
-"$(RESET)██$(BLUE)╔══╝   $(RESET)██$(BLUE)╔$(RESET)██$(BLUE)╗     $(RESET)████$(BLUE)╔╝$(RESET)██$(BLUE)║ $(RESET)██$(BLUE)║ \n" \
-"$(RESET)███████$(BLUE)╗$(RESET)██$(BLUE)╔╝ $(RESET)██$(BLUE)╗    ╚$(RESET)██████$(BLUE)╔╝ $(RESET)██$(BLUE)║ \n" \
-"$(BLUE)╚══════╝╚═╝  ╚═╝     ╚═════╝  ╚═╝ $(RESET)\n"
+"\n  $(RESET)██████$(RED)╗$(RESET)██████$(RED)╗ $(RESET)██████$(RED)╗ \n" \
+"$(RESET)██$(RED)╔════╝$(RESET)██$(RED)╔══$(RESET)██$(RED)╗$(RESET)██$(RED)╔══$(RESET)██$(RED)╗ \n" \
+"$(RESET)██$(RED)║     $(RESET)██████$(RED)╔╝$(RESET)██████$(RED)╔╝ \n" \
+"$(RESET)██$(RED)║     $(RESET)██$(RED)╔═══╝ $(RESET)██$(RED)╔═══╝\n" \
+"╚$(RESET)██████$(RED)╗$(RESET)██$(RED)║     $(RESET)██$(RED)║\n" \
+"$(RED) ╚═════╝╚═╝     ╚═╝ $(RESET)\n"
 
 all: banner $(NAME)
 
