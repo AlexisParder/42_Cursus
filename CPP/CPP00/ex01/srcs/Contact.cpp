@@ -6,16 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:33 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/11 15:57:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:38:23 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Contact.hpp>
 
-Contact::Contact(void)
-{
-	
-}
+Contact::Contact(void) {}
 
 std::string	Contact::getFirstName(void) const
 {
