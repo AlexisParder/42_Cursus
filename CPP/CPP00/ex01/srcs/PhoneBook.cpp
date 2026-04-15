@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/11 19:03:01 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:20:13 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	PhoneBook::search(void) const
 		std::cout << std::endl;
 		i++;
 	}
-
 	std::cout << "Enter index: ";
 	std::getline(std::cin, input);
 	i = std::atoi(input.c_str());
