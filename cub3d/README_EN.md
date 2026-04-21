@@ -9,6 +9,13 @@
 	- [Description](#description)
 	- [Instructions](#instructions)
 		- [Mandatory](#mandatory)
+		- [Bonus](#bonus)
+	- [Bonus](#bonus-1)
+	- [Controls](#controls)
+		- [Mandatory](#mandatory-1)
+		- [Bonus](#bonus-2)
+	- [Maps](#maps)
+	- [Example of .cub file](#example-of-cub-file)
 	- [Use of AI](#use-of-ai)
 	- [Resources](#resources)
 
@@ -19,14 +26,87 @@ Additional challenges include managing sprites, collision detection, and optimiz
 
 ## Instructions
 ### Mandatory
-<!-- - Go to the `philo` folder to compile the basic program.
 - Use the `make` command to compile the program.
-- Use the `./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> <number_of_times_each_philosopher_must_eat>` command to run the program.
-	- The times are in milliseconds (ms).
-	- The last parameter is optional. -->
+- Use the `./cub3D <path/map_file>.cub` command to start game.
+### Bonus
+- Use the `make bonus` command to compile the program with bonus.
+- Use the `./cub3D <path/map_file>.cub` command to start game.
+
+## Bonus
+- [ ] Wall collisions.
+- [ ] A minimap system.
+- [ ] Doors which can open and close.
+- [ ] Animated sprites.
+- [ ] Rotate the point of view with the mouse.
+
+## Controls
+### Mandatory
+| Key                   | Action Description           |
+|-----------------------|------------------------------|
+| **W**                 | Move up                      |
+| **A**                 | Move left                    |
+| **S**                 | Move down                    |
+| **D**                 | Move right                   |
+| **← (Left)**          | Turn camera left             |
+| **→ (Right)**         | Turn camera right            |
+| **ESCAPE**            | Quit game                    |
+### Bonus
+| Key                   | Action Description           |
+|-----------------------|------------------------------|
+| **MOUSE**             | Turn camera                  |
+
+## Maps
+The map must follow certain rules:
+- The map must be in the `.cub` format.
+- The map can be composed of only these 6 characters:
+  - **0**: empty space
+  - **1**: wall
+  - **N**: player starting position, facing North
+  - **S**: player starting position, facing South
+  - **E**: player starting position, facing East
+  - **W**: player starting position, facing West
+	<!-- - For the bonus, you can add
+		- **D**: door -->
+- To be valid, a map must contain 1 player starting position.
+- The map must be enclosed/surrounded by walls.
+
+## Example of .cub file
+```
+NO ./textures/wall.png
+SO ./textures/wall.jpg
+WE ./textures/wall.jpeg
+EA ./textures/wall.bmp
+
+F 220,100,0
+C 225,30,0
+
+           1111111111111111111111111
+           1000000000110000000000001
+           1011000001110000000000001
+           1001000000000000000000001
+111111111011000001110000000000001
+100000000011000001110111111111111
+11110111111111011100000010001
+11110111111111011101010010001
+11000000110101011100000010001
+10000000000000001100000010001
+10000000000000001101010010001
+11000001110101011111011110N0111
+11110111 1110101 101111010001
+11111111 1111111 111111111111
+```
+- **NO**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to the north face of the cubes.
+- **SO**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to the south face of the cubes.
+- **WE**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to the west face of the cubes.
+- **EA**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to the east face of the cubes.
+- **F**: floor color (format: `r`,`g`,`b`).
+- **C**: ceiling color (format: `r`,`g`,`b`).
+- **Note**: the parameters above can be specified in any order. However, the map must always be placed last.
 
 ## Use of AI
-<!-- Artificial intelligence was used as a support to understand and organize the key concepts of the project. -->
+Artificial intelligence was used as a support to understand and organize the key concepts of the project.
 
 ## Resources
 - [C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
+- [MacroLibX](https://macrolibx.kbz8.me/guides/getting_started/)
+- [(French) Mathematical Concepts of the Cub3D Project](https://docs.google.com/document/d/1tdNYHg3Mfqf8dr8W6Ajs3seUugwtmaQizZ7BzimkXog/edit)
