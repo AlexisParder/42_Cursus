@@ -35,7 +35,7 @@ Additional challenges include managing sprites, collision detection, and optimiz
 ## Bonus
 - [ ] Wall collisions.
 - [ ] A minimap system.
-- [ ] Doors which can open and close.
+- [X] Doors which can open and close.
 - [ ] Animated sprites.
 - [ ] Rotate the point of view with the mouse.
 
@@ -54,6 +54,8 @@ Additional challenges include managing sprites, collision detection, and optimiz
 | Key                   | Action Description           |
 |-----------------------|------------------------------|
 | **MOUSE**             | Turn camera                  |
+| **MOUSE WHEEL**       | Change FOV                   |
+| **E**                 | Interact                     |
 
 ## Maps
 The map must follow certain rules:
@@ -65,8 +67,8 @@ The map must follow certain rules:
   - **S**: player starting position, facing South
   - **E**: player starting position, facing East
   - **W**: player starting position, facing West
-	<!-- - For the bonus, you can add
-		- **D**: door -->
+  - For the bonus, you can add
+    - **D**: door
 - To be valid, a map must contain 1 player starting position.
 - The map must be enclosed/surrounded by walls.
 
@@ -101,6 +103,9 @@ C 225,30,0
 - **EA**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to the east face of the cubes.
 - **F**: floor color (format: `r`,`g`,`b`).
 - **C**: ceiling color (format: `r`,`g`,`b`).
+- **BONUS**
+  - **DO**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to door cubes.
+  - **I**: interact text color (format: `r`,`g`,`b`). This parameter is `optional`, if not specified, the `default` color is `white`.
 - **Note**: the parameters above can be specified in any order. However, the map must always be placed last.
 
 ## Use of AI
