@@ -6,18 +6,18 @@
 <!-- [![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/cub3d)<br> -->
 [🇫🇷 French](./README.md)
 - [cub3d](#cub3d)
-	- [Description](#description)
-	- [Instructions](#instructions)
-		- [Mandatory](#mandatory)
-		- [Bonus](#bonus)
-	- [Bonus](#bonus-1)
-	- [Controls](#controls)
-		- [Mandatory](#mandatory-1)
-		- [Bonus](#bonus-2)
-	- [Maps](#maps)
-	- [Example of .cub file](#example-of-cub-file)
-	- [Use of AI](#use-of-ai)
-	- [Resources](#resources)
+  - [Description](#description)
+  - [Instructions](#instructions)
+    - [Mandatory](#mandatory)
+    - [Bonus](#bonus)
+  - [Bonus](#bonus-1)
+  - [Controls](#controls)
+    - [Mandatory](#mandatory-1)
+    - [Bonus](#bonus-2)
+  - [Maps](#maps)
+  - [Example of .cub file](#example-of-cub-file)
+  - [Use of AI](#use-of-ai)
+  - [Resources](#resources)
 
 ## Description
 A graphics programming project inspired by early raycasting engines like Wolfenstein 3D. The objective is to build a pseudo-3D renderer using a 2D map and raycasting techniques to simulate a first-person perspective. The implementation involves parsing map files, handling player movement and camera rotation, performing real-time ray calculations, and rendering textured walls with correct depth and perspective. 
@@ -56,6 +56,7 @@ Additional challenges include managing sprites, collision detection, and optimiz
 | **MOUSE**             | Turn camera                  |
 | **MOUSE WHEEL**       | Change FOV                   |
 | **E**                 | Interact                     |
+| **F**                 | Show/Hide FPS                |
 
 ## Maps
 The map must follow certain rules:
