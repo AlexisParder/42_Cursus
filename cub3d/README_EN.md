@@ -105,7 +105,8 @@ C 225,30,0
 - **F**: floor color (format: `r`,`g`,`b`).
 - **C**: ceiling color (format: `r`,`g`,`b`).
 - **BONUS**
-  - **DO**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to door cubes.
+  - **DO**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to opened door cubes.
+  - **DC**: texture (format: `png`, `jpg`, `jpeg` or `bmp`) to apply to closed door cubes.
   - **I**: interact text color (format: `r`,`g`,`b`). This parameter is `optional`, if not specified, the `default` color is `white`.
 - **Note**: the parameters above can be specified in any order. However, the map must always be placed last.
 
