@@ -54,7 +54,6 @@ Additional challenges include managing sprites, collision detection, and optimiz
 | Key                   | Action Description           |
 |-----------------------|------------------------------|
 | **MOUSE**             | Turn camera                  |
-| **MOUSE WHEEL**       | Change FOV                   |
 | **E**                 | Interact                     |
 | **F**                 | Show/Hide FPS                |
 
