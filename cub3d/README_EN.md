@@ -33,11 +33,11 @@ Additional challenges include managing sprites, collision detection, and optimiz
 - Use the `./cub3D <path/map_file>.cub` command to start game.
 
 ## Bonus
-- [ ] Wall collisions.
-- [ ] A minimap system.
+- [X] Wall collisions.
+- [X] A minimap system.
 - [X] Doors which can open and close.
 - [ ] Animated sprites.
-- [ ] Rotate the point of view with the mouse.
+- [X] Rotate the point of view with the mouse.
 
 ## Controls
 ### Mandatory
@@ -56,6 +56,7 @@ Additional challenges include managing sprites, collision detection, and optimiz
 | **MOUSE**             | Turn camera                  |
 | **E**                 | Interact                     |
 | **F**                 | Show/Hide FPS                |
+| **TAB**               | Show/Hide settings           |
 
 ## Maps
 The map must follow certain rules:
