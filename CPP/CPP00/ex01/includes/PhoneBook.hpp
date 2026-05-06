@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:31 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/15 13:17:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/06 15:13:32 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class PhoneBook
 		std::string	_truncate(const std::string &str) const;
 	public:
 		PhoneBook(void);
+		~PhoneBook(void);
 		void	add(void);
 		void	search(void) const;
 };

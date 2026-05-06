@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/15 13:20:13 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/06 15:20:59 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ PhoneBook::PhoneBook(void)
 	_nbContacts = 0;
 }
 
+PhoneBook::~PhoneBook(void){}
+
 std::string	PhoneBook::_getField(const std::string &field) const
 {
 	std::string	value;
@@ -26,6 +28,11 @@ std::string	PhoneBook::_getField(const std::string &field) const
 	std::getline(std::cin, value);
 	while (value.empty())
 	{
+		if (std::cin.eof())
+        {
+            std::cout << std::endl;
+            std::exit(0);
+        }
 		std::cout << "Field cannot be empty!" << std::endl;
 		std::getline(std::cin, value);
 	}
@@ -68,6 +75,11 @@ void	PhoneBook::search(void) const
 	}
 	std::cout << "Enter index: ";
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		std::exit(0);
+	}
 	i = std::atoi(input.c_str());
 	if (i < 0 || i >= _nbContacts)
 	{

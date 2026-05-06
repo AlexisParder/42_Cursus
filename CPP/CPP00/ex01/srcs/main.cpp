@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:17 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/11 19:07:24 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/06 15:19:55 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int main(void)
 	{
 		std::cout << "> ";
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+        {
+            std::cout << std::endl;
+            break;
+        }
 		if (input == "ADD")
 			phonebook.add();
 		else if (input == "SEARCH")

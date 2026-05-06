@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:29 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/15 13:17:41 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/06 15:13:37 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Contact
 		std::string	_darkestSecret;
 	public:
 		Contact(void);
+		~Contact(void);
 		std::string getFirstName(void) const;
 		std::string getLastName(void) const;
 		std::string getNickName(void) const;
