@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 14:11:45 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/07 11:38:54 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:21:42 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Zombie::~Zombie(void)
 	std::cout << _name << " has been destroyed..." << std::endl;
 }
 
-void	Zombie::setName(std::string name)
+void	Zombie::setName(std::string &name)
 {
 	_name = name;
 }

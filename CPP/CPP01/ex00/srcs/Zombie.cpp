@@ -6,13 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 14:11:45 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/07 10:34:40 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:20:27 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Zombie.hpp>
 
-Zombie::Zombie(std::string name) 
+Zombie::Zombie(const std::string &name) 
 {
 	_name = name;
 }
