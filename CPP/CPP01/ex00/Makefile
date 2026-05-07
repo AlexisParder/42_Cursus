@@ -1,7 +1,7 @@
 NAME = ex00
 
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CPP = c++
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 INC_DIR = -I includes/
 
@@ -36,12 +36,12 @@ banner:
 
 $(NAME): $(OBJ_FILES)
 		@echo "$(BLUE)[BUILD] Compiling $(NAME)...$(RESET)"
-		@$(CXX) $(CXXFLAGS) $(INC_DIR) -o $@ $^
+		@$(CPP) $(CPPFLAGS) $(INC_DIR) -o $@ $^
 		@echo "$(GREEN)[OK] $(NAME) ready ✔$(RESET)"
 
 $(OBJ_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(dir $@)
-	@$(CXX) $(CXXFLAGS) $(INC_DIR) -c $< -o $@
+	@$(CPP) $(CPPFLAGS) $(INC_DIR) -c $< -o $@
 
 clean:
 		@echo "$(YELLOW)[CLEAN] Removing object files...$(RESET)"

@@ -1,14 +1,13 @@
-NAME = megaphone
+NAME = ex01
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-INC_DIR = -I includes/
-
 OBJ_DIR = obj
 
-SRC_FILES = megaphone.cpp
-OBJ_FILES = $(SRC_FILES:%.cpp=$(OBJ_DIR)/%.o)
+SRC_DIR = srcs/
+SRC_FILES = $(SRC_DIR)main.cpp
+OBJ_FILES = $(SRC_FILES:srcs/%.cpp=$(OBJ_DIR)/%.o)
 
 # Colors
 GREEN	= \033[0;32m
@@ -32,12 +31,12 @@ banner:
 
 $(NAME): $(OBJ_FILES)
 		@echo "$(BLUE)[BUILD] Compiling $(NAME)...$(RESET)"
-		@$(CPP) $(CPPFLAGS) $(INC_DIR) -o $@ $^
+		@$(CPP) $(CPPFLAGS) -o $@ $^
 		@echo "$(GREEN)[OK] $(NAME) ready ✔$(RESET)"
 
-$(OBJ_DIR)/%.o: %.cpp
+$(OBJ_DIR)/%.o: srcs/%.cpp
 	@mkdir -p $(dir $@)
-	@$(CPP) $(CPPFLAGS) $(INC_DIR) -c $< -o $@
+	@$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
 		@echo "$(YELLOW)[CLEAN] Removing object files...$(RESET)"
