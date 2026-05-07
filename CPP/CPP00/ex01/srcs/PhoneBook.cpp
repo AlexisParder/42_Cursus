@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/07 14:10:52 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/07 14:13:00 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ std::string	PhoneBook::_truncate(const std::string &str) const
 void	PhoneBook::search(void) const
 {
 	int	i = 0;
-	std::string	input;
 
 	while (i < _nbContacts)
 	{
@@ -74,20 +73,7 @@ void	PhoneBook::search(void) const
 		std::cout << std::endl;
 		i++;
 	}
-	std::cout << "Enter index: ";
-	std::getline(std::cin, input);
-	while (input.empty())
-	{
-		if (std::cin.eof())
-        {
-            std::cout << std::endl;
-            std::exit(0);
-        }
-		std::cout << "Field cannot be empty!" << std::endl;
-		std::cout << "Enter index: ";
-		std::getline(std::cin, input);
-	}
-	i = std::atoi(input.c_str());
+	i = std::atoi(_getField("Enter index: ").c_str());
 	if (i < 0 || i >= _nbContacts)
 	{
 		std::cout << "That contact does not exist!" << std::endl;
