@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/06 15:20:59 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/07 13:48:03 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	PhoneBook::search(void) const
 		std::cout << std::setw(10) << i << "|";
 		std::cout << std::setw(10) << _truncate(_contacts[i].getFirstName()) << "|";
 		std::cout << std::setw(10) << _truncate(_contacts[i].getLastName()) << "|";
-		std::cout << std::setw(10) << _truncate(_contacts[i].getNickName()) << "|";
+		std::cout << std::setw(10) << _truncate(_contacts[i].getNickName());
 		std::cout << std::endl;
 		i++;
 	}
