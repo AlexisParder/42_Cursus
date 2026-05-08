@@ -6,14 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/15 14:11:39 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/07 13:21:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:02:22 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
 #include <string>
 #include <iostream>
 
@@ -30,5 +27,3 @@ class Zombie
 };
 
 Zombie *zombieHorde(int N, std::string &name);
-
-#endif
