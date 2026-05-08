@@ -6,14 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:29 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/06 15:13:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:03:10 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
-
 # include <string>
 
 class Contact
@@ -38,5 +35,3 @@ class Contact
 		void setPhoneNumber(const std::string &value);
 		void setDarkestSecret(const std::string &value);
 };
-
-#endif

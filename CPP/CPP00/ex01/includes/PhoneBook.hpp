@@ -6,14 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 15:34:31 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/06 15:13:32 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:03:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-
 #include <Contact.hpp>
 #include <iostream>
 #include <iomanip>
@@ -33,5 +30,3 @@ class PhoneBook
 		void	add(void);
 		void	search(void) const;
 };
-
-#endif
