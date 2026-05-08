@@ -6,7 +6,7 @@
 /*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:17:10 by tjourdai          #+#    #+#             */
-/*   Updated: 2026/05/06 13:30:20 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:31:09 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -380,5 +380,7 @@ void		save_settings_in_file(t_data *data);
 void		apply_flashlight(t_data *data);
 
 void		destroy_sprites(t_data *data);
+
+void		set_saved_value(t_data *data, char *line);
 
 #endif

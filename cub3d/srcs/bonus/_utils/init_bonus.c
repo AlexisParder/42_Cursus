@@ -6,7 +6,7 @@
 /*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 09:30:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/06 14:01:38 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:16:32 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	init_data(t_data *data)
 	data->cl_interact.rgba = 0xFFFFFFFF;
 	data->battery = 100.0f;
 	data->buttons = NULL;
+	data->change_key = -1;
 }
 
 void	init_mlx(t_data *data)

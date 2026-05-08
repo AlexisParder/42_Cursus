@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+         #
+#    By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 12:38:43 by tjourdai          #+#    #+#              #
-#    Updated: 2026/05/05 15:59:49 by achauvie         ###   ########.fr        #
+#    Updated: 2026/05/08 11:32:05 by tjourdai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ SRC_FILES_BONUS := \
 	$(SRC_DIR_BONUS)settings/buttons_bonus.c \
 	$(SRC_DIR_BONUS)settings/keys_bonus.c \
 	$(SRC_DIR_BONUS)settings/utils_change_bonus.c \
+	$(SRC_DIR_BONUS)settings/init_saved_bonus.c \
 	$(SRC_DIR_BONUS)minimap/minimap_bonus.c \
 	$(SRC_DIR_BONUS)minimap/cells_bonus.c \
 	$(SRC_DIR_BONUS)sprites/init_sprites_bonus.c \

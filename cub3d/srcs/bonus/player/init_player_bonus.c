@@ -6,18 +6,25 @@
 /*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 13:17:18 by achauvie          #+#    #+#             */
-/*   Updated: 2026/04/29 11:12:55 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:14:54 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d_bonus.h>
 
+static void	init_jump_crouch(t_data *data)
+{
+	data->player.z = 0;
+	data->player.z_vel = 0;
+	data->player.jumping = 0;
+	data->player.bob_phase = 0;
+	data->player.bob_offset = 0;
+}
+
 static void	init_player_dir(t_data *data, char dir)
 {
 	data->player.pitch = 0.0;
-	data->player.z = 0.0;
-	data->player.z_vel = 0.0;
-	data->player.jumping = 0;
+	init_jump_crouch(data);
 	if (dir == 'N')
 	{
 		data->player.dir.x = 0;

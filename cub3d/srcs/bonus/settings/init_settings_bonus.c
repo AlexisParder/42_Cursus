@@ -6,29 +6,11 @@
 /*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 16:23:08 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/04 15:34:33 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:31:12 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d_bonus.h>
-
-static void	set_saved_value(t_data *data, char *line)
-{
-	if (!ft_strncmp(line, "DC=", 3))
-		data->settings.fov = ft_atoi(line + 3);
-	else if (!ft_strncmp(line, "MS=", 3))
-		data->settings.mouse_sensitivity = ft_atoi(line + 3) / 1000.0;
-	else if (!ft_strncmp(line, "BR=", 3))
-		data->settings.brightness = ft_atoi(line + 3);
-	else if (!ft_strncmp(line, "FW=", 3))
-		data->settings.key_forward = ft_atoi(line + 3);
-	else if (!ft_strncmp(line, "BW=", 3))
-		data->settings.key_backward = ft_atoi(line + 3);
-	else if (!ft_strncmp(line, "LW=", 3))
-		data->settings.key_left = ft_atoi(line + 3);
-	else if (!ft_strncmp(line, "RW=", 3))
-		data->settings.key_right = ft_atoi(line + 3);
-}
 
 static void	get_saved_file(t_data *data)
 {

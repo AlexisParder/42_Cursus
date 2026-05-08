@@ -3,42 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   sprites_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 09:10:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/06 09:08:34 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/08 11:32:58 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d_bonus.h>
 
-static void	blit_sprite_to_framebuffer(t_data *data,
+static void	blit_sprite_to_framebuffer(t_data *dt,
 	t_img_dt sprite, int x_off, int y_off)
 {
 	int			x;
 	int			y;
-	int			fb_x;
-	int			fb_y;
+	t_vec2		fb;
 	mlx_color	color;
 
-	y = -1;
-	while (y++ < sprite.h)
+	y = 0;
+	while (y < sprite.h)
 	{
 		x = 0;
 		while (x < sprite.w)
 		{
-			color = mlx_get_image_pixel(data->mlx, sprite.tex, x, y);
+			color = mlx_get_image_pixel(dt->mlx, sprite.tex, x, y);
 			if (color.a > 0)
 			{
-				fb_x = x_off + x;
-				fb_y = y_off + y;
-				if (fb_x >= 0 && fb_x < (int)data->win_w
-					&& fb_y >= 0 && fb_y < (int)data->win_h)
-					data->framebuffer[fb_y
-						* data->win_w + fb_x] = apply_brightness(data, color);
+				fb.x = x_off + x;
+				fb.y = y_off + y;
+				if (fb.x >= 0 && fb.x < (int)dt->win_w
+					&& fb.y >= 0 && fb.y < (int)dt->win_h)
+					dt->framebuffer[(int)fb.y
+						* dt->win_w + (int)fb.x] = apply_brightness(dt, color);
 			}
 			x++;
 		}
+		y++;
 	}
 }
 
