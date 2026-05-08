@@ -6,7 +6,7 @@
 /*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 14:00:00 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/06 14:28:06 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:35:28 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_collision(t_data *dt)
 {
 	size_t	i;
 
-	dt->coll_map = ft_calloc(dt->map_rows * dt->map_cols, sizeof(uint8_t));
+	dt->coll_map = ft_calloc(dt->map_rows * dt->map_cols, sizeof(char));
 	if (!dt->coll_map)
 	{
 		ft_dprintf(2, "Error\nFailure during collision map allocation\n");
@@ -100,7 +100,7 @@ static int	door_open_blocks(t_data *data, double nx, double ny)
 
 int	is_blocked(t_data *data, double nx, double ny)
 {
-	uint8_t	cell;
+	char	cell;
 
 	if (nx < 0 || ny < 0
 		|| (size_t)nx >= data->map_cols

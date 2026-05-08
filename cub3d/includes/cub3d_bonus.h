@@ -6,7 +6,7 @@
 /*   By: tjourdai <tjourdai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:17:10 by tjourdai          #+#    #+#             */
-/*   Updated: 2026/05/08 11:31:09 by tjourdai         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:38:50 by tjourdai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,7 +265,7 @@ struct s_data
 	int				keys[512];
 	int				old_keys[512];
 	mlx_color		*framebuffer;
-	uint8_t			*coll_map;
+	char			*coll_map;
 	int				draw_fps;
 	int				interact_door;
 	int				has_door;
