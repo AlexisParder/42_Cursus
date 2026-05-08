@@ -1,0 +1,20 @@
+NO ./textures/concrete/concrete.png
+SO ./textures/concrete/concrete.png
+WE ./textures/concrete/concrete.png
+EA ./textures/concrete/concrete.png
+DC ./textures/concrete/door_close.png
+DO ./textures/concrete/door_open.png
+
+F 15,24,38
+C 84,19,37
+I 54,74,158
+
+11111111111111111111111
+10000000000000000100001
+10110000000000000011101
+101000100111110000D0101
+100000000D0N0D000010001
+10100000011111001100101
+10110000000000001001101
+10000000000000001000001
+11111111111111111111111

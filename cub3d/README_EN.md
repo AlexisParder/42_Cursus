@@ -36,7 +36,7 @@ Additional challenges include managing sprites, collision detection, and optimiz
 - [X] Wall collisions.
 - [X] A minimap system.
 - [X] Doors which can open and close.
-- [ ] Animated sprites.
+- [X] Animated sprites.
 - [X] Rotate the point of view with the mouse.
 
 ## Controls
@@ -55,8 +55,12 @@ Additional challenges include managing sprites, collision detection, and optimiz
 |-----------------------|------------------------------|
 | **MOUSE**             | Turn camera                  |
 | **E**                 | Interact                     |
-| **F**                 | Show/Hide FPS                |
+| **Q**                 | Show/Hide FPS                |
+| **F**                 | Flashlight                   |
+| **R**                 | Battery charging             |
 | **TAB**               | Show/Hide settings           |
+| **SHIFT**             | Run                          |
+| **CTRL**              | Crouch                       |
 
 ## Maps
 The map must follow certain rules:
