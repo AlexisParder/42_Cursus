@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 13:04:23 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/08 14:42:22 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/11 09:09:32 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ HumanA::~HumanA(void) {}
 
 void HumanA::attack(void)
 {
-	
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }

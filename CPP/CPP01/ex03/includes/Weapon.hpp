@@ -6,12 +6,13 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 13:04:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/08 14:02:10 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/11 09:09:35 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
+#include <iostream>
 
 class Weapon
 {
