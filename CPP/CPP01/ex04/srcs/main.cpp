@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 09:22:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/11 10:31:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/13 11:34:12 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ int main(int ac, char **av)
 		outFile << line << "\n";
 	}
 	
+	inFile.close();
+	outFile.close();
 	return (0);
 }
