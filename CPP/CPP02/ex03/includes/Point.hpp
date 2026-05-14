@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 09:55:46 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/13 14:21:25 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:48:29 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,5 @@ class Point
 		Fixed getX(void) const;
 		Fixed getY(void) const;
 };
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);

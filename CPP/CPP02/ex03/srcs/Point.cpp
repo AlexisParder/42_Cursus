@@ -6,11 +6,11 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 09:55:31 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/13 11:24:37 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:49:24 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsp.hpp"
+#include "Point.hpp"
 
 Point::Point(void) : _x(0), _y(0)
 {}
