@@ -3,7 +3,7 @@
 # cub3d
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
 ![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)
-<!-- [![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/cub3d)<br> -->
+[![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus/tree/main/cub3d)<br>
 [🇬🇧 English](./README_EN.md)
 - [cub3d](#cub3d)
 	- [Description](#description)
@@ -90,7 +90,7 @@ C 225,30,0
            1111111111111111111111111
            1000000000110000000000001
            1011000001110000000000001
-           1001000000000000000000001
+           1001000000000000000000111
 111111111011000001110000000000001
 100000000011000001110111111111111
 11110111111111011100000010001
