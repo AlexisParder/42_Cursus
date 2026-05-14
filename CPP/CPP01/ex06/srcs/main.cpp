@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 10:44:59 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/11 12:58:36 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/14 12:58:29 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cout << "Usage: ./harlFilter <level>" << std::endl;
+		std::cerr << "Usage: ./harlFilter <level>" << std::endl;
 		return (1);
 	}
 	Harl harl;

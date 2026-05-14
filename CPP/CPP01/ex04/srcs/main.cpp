@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 09:22:35 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/13 11:35:27 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/14 12:57:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@ int main(int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cout << "Usage: ./ex04 filename s1 s2" << std::endl;
+		std::cerr << "Usage: ./ex04 filename s1 s2" << std::endl;
 		return (1);
 	}
 
 	if (std::string(av[2]).empty())
 	{
-		std::cout << "Error: s1 cannot be empty" << std::endl;
+		std::cerr << "Error: s1 cannot be empty" << std::endl;
 		return (1);
 	}
 
 	if (std::string(av[3]).empty())
 	{
-		std::cout << "Error: s2 cannot be empty" << std::endl;
+		std::cerr << "Error: s2 cannot be empty" << std::endl;
 		return (1);
 	}
 	
 	std::ifstream inFile(av[1]);
 	if (!inFile.is_open())
 	{
-		std::cout << "Error: cannot open infile" << std::endl;
+		std::cerr << "Error: cannot open infile" << std::endl;
 		return (1);
 	}
 
@@ -45,7 +45,7 @@ int main(int ac, char **av)
 	std::ofstream outFile(outFilename.c_str());
 	if (!outFile.is_open())
 	{
-		std::cout << "Error: cannot open outfile" << std::endl;
+		std::cerr << "Error: cannot open outfile" << std::endl;
 		inFile.close();
 		return (1);
 	}

@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 10:44:50 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/13 13:33:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:00:11 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void Harl::complain(std::string level)
 			error();
 			break;
 		default:
-			std::cout << "Invalid level!" << std::endl;
+			std::cerr << "Invalid level!" << std::endl;
 			break;
 	}
 }
