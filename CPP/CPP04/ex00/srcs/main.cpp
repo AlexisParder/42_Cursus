@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:46:51 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/14 12:22:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/14 12:27:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ int main(void)
 	const WrongAnimal* wrong = new WrongCat();
 	wrong->makeSound();
 
+	delete meta;
+	delete j;
+	delete i;
+	delete wrong;
 	return 0;
 }
