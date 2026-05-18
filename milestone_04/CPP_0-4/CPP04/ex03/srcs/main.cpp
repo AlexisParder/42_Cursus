@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:46:51 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/15 12:05:30 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:53:06 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int main(void)
     AMateria *a1 = src->createMateria("cure");
     AMateria *a2 = src->createMateria("ice");
     AMateria *a3 = src->createMateria("cure");
-    AMateria *a4 = src->createMateria("ice"); // ne sera pas équipée
+    AMateria *a4 = src->createMateria("ice");
     alice->equip(a0);
     alice->equip(a1);
     alice->equip(a2);
     alice->equip(a3);
-    alice->equip(a4); // inventaire plein
-    delete a4;        // on delete car non équipée
+    alice->equip(a4);
+    delete a4;
 
     alice->use(0, *bob);
     alice->use(1, *bob);
@@ -53,10 +53,10 @@ int main(void)
     alice->use(3, *bob);
 
     std::cout << "\n--- Unequip test ---" << std::endl;
-    AMateria *dropped = a0; // on sauvegarde avant unequip
+    AMateria *dropped = a0;
     alice->unequip(0);
-    alice->use(0, *bob);    // rien ne se passe
-    delete dropped;         // on delete la materia droppée
+    alice->use(0, *bob);
+    delete dropped;
 
     std::cout << "\n--- Unknown materia test ---" << std::endl;
     AMateria *unknown = src->createMateria("fire");
