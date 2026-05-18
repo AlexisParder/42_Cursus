@@ -24,24 +24,20 @@ Un projet d’introduction à la programmation orientée objet conçu pour effec
 
 [Voir CPP 00](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/cpp_0-4/CPP00)
 
-
 ## CPP module 01
 Un projet centré sur l’allocation mémoire, les références, les pointeurs et la gestion du cycle de vie des objets en C++. Les exercices explorent les différences entre l’allocation sur la pile et sur le tas, les références et les pointeurs, les structures switch, ainsi que l’utilisation des méthodes de classe dans des scénarios plus réalistes. Une attention particulière est portée aux constructeurs, destructeurs et à la sécurité mémoire. Ce module renforce la compréhension de la gestion des ressources et des pratiques fondamentales de programmation orientée objet en C++.
 
 [Voir CPP 01](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/cpp_0-4/CPP01)
-
 
 ## CPP module 02
 Un projet axé sur la surcharge d’opérateurs, l’arithmétique en virgule fixe et la forme canonique des classes. L’objectif est d’implémenter des classes avec une gestion correcte de la copie tout en reproduisant un comportement similaire aux types natifs du C++ grâce à la surcharge d’opérateurs. Les exercices introduisent des concepts tels que le polymorphisme ad hoc, la forme canonique orthodoxe et la manipulation précise des valeurs. Ce module permet d’approfondir la compréhension du comportement des classes, de l’abstraction et de la personnalisation des opérateurs en C++.
 
 [Voir CPP 02](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/cpp_0-4/CPP02)
 
-
 ## CPP module 03
 Un projet consacré à l’héritage et à la conception de hiérarchies orientées objet. Les exercices consistent à créer des classes de base et dérivées, gérer les chaînes de constructeurs/destructeurs et implémenter des comportements partagés grâce à l’héritage. Le module introduit également la redéfinition de méthodes (override) et explore la relation entre composition et héritage. Ce projet renforce la compréhension des hiérarchies de classes, de la réutilisation du code et d’une architecture orientée objet structurée en C++.
 
 [Voir CPP 03](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/cpp_0-4/CPP03)
-
 
 ## CPP module 04
 Un projet orienté polymorphisme centré sur les classes abstraites, les interfaces et la liaison dynamique. L’objectif est de concevoir des hiérarchies de classes extensibles à l’aide de fonctions virtuelles et de classes de base abstraites, tout en garantissant une gestion correcte de la mémoire grâce aux copies profondes et aux destructeurs virtuels. Le module introduit également le polymorphisme à l’exécution et les modèles de conception basés sur les interfaces. Ce projet développe des compétences avancées en programmation orientée objet ainsi qu’une solide compréhension de l’abstraction, de l’extensibilité et du comportement dynamique en C++.
