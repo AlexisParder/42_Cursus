@@ -6,6 +6,7 @@
 [🇫🇷 French](./README.md)<br>
 - [Milestone 4](#milestone-4)
 	- [cub3d](#cub3d)
+	- [NetPractice](#netpractice)
 	- [CPP module 00](#cpp-module-00)
 	- [CPP module 01](#cpp-module-01)
 	- [CPP module 02](#cpp-module-02)
@@ -18,6 +19,12 @@ A graphics programming project inspired by early raycasting engines like Wolfens
 Additional challenges include managing sprites, collision detection, and optimizing performance for smooth rendering. This project develops strong skills in computer graphics fundamentals, trigonometry, real-time rendering, low-level optimization, and structured game engine design within a constrained C environment.
 
 [Go to cub3d](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/cub3d)
+
+## NetPractice
+
+A networking-focused project designed to develop a practical understanding of TCP/IP addressing and network configuration. Through a series of progressively complex exercises, the goal is to correctly configure small network infrastructures by working with IP addresses, subnet masks, routing, and connectivity rules. The project emphasizes troubleshooting logical networking issues, understanding how devices communicate across subnets, and applying fundamental networking concepts without relying on automated tools. This project strengthens knowledge of computer networks, addressing schemes, routing logic, subnetting, and low-level network architecture fundamentals.
+
+[Go to netpractice](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/net_practice)
 
 ## CPP module 00
 An introductory object-oriented programming project designed to transition from procedural C programming to modern C++. The module focuses on the fundamentals of classes, member functions, namespaces, streams, initialization, and basic encapsulation. Through small practical exercises, the project introduces core C++ syntax and programming paradigms while emphasizing clean code structure and compilation discipline. This module builds foundational knowledge of object-oriented design and the differences between C and C++ development.
