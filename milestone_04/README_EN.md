@@ -21,7 +21,6 @@ Additional challenges include managing sprites, collision detection, and optimiz
 [Go to cub3d](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/cub3d)
 
 ## NetPractice
-
 A networking-focused project designed to develop a practical understanding of TCP/IP addressing and network configuration. Through a series of progressively complex exercises, the goal is to correctly configure small network infrastructures by working with IP addresses, subnet masks, routing, and connectivity rules. The project emphasizes troubleshooting logical networking issues, understanding how devices communicate across subnets, and applying fundamental networking concepts without relying on automated tools. This project strengthens knowledge of computer networks, addressing schemes, routing logic, subnetting, and low-level network architecture fundamentals.
 
 [Go to netpractice](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/net_practice)

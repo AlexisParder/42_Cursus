@@ -21,7 +21,6 @@ Les défis supplémentaires incluent la gestion des sprites, la détection des c
 [Voir cub3d](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/cub3d)
 
 ## NetPractice
-
 Un projet axé sur les réseaux conçu pour développer une compréhension pratique de l’adressage TCP/IP et de la configuration réseau. À travers une série d’exercices de difficulté progressive, l’objectif est de configurer correctement de petites infrastructures réseau en manipulant les adresses IP, les masques de sous-réseau, le routage et les règles de connectivité. Le projet met l’accent sur la résolution de problèmes logiques liés aux réseaux, la compréhension de la communication entre appareils à travers différents sous-réseaux, ainsi que l’application des concepts fondamentaux du réseau sans recourir à des outils automatisés. Ce projet renforce les connaissances en réseaux informatiques, en schémas d’adressage, en logique de routage, en subnetting et en bases de l’architecture réseau bas niveau.
 
 [Voir netpractice](https://github.com/AlexisParder/42_Cursus/tree/main/milestone_04/net_practice)
