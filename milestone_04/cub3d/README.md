@@ -1,4 +1,4 @@
-*Ce projet a été créé dans le cadre du cursus 42 par achauvie et tjourdai.*
+*Ce projet a été créé en groupe avec [Altixx](https://github.com/Altixx) dans le cadre du cursus 42.*
 
 # cub3d
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)

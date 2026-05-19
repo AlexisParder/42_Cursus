@@ -1,5 +1,3 @@
-*Ce projet a été créé dans le cadre du cursus 42 par achauvie.*
-
 # push_swap
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
 ![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)

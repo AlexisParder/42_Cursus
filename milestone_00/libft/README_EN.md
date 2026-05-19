@@ -1,5 +1,3 @@
-*This project has been created as part of the 42 curriculum by achauvie.*
-
 # libft
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
 ![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)

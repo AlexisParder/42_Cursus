@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by achauvie and tjourdai.*
+*This project was created collaboratively with [Altixx](https://github.com/Altixx) as part of the 42 curriculum.*
 
 # cub3d
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
