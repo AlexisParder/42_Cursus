@@ -9,13 +9,13 @@
 
 ## Milestones
 
-### [Milestone 0](./milestone_00)
+### [Milestone 0](./milestone_00/README_EN.md)
 | Project | Description |
 |---|---|
 | [libft](./milestone_00/libft) | Custom C standard library |
 ---
 
-### [Milestone 1](./milestone_01)
+### [Milestone 1](./milestone_01/README_EN.md)
 | Project | Description |
 |---|---|
 | [ft_printf](./milestone_01/ft_printf) | Reimplementation of printf |
@@ -23,7 +23,7 @@
 | [born2beroot](./milestone_01/born2beroot) | Linux system administration & security |
 ---
 
-### [Milestone 2](./milestone_02)
+### [Milestone 2](./milestone_02/README_EN.md)
 | Project | Description |
 |---|---|
 | [push_swap](./milestone_02/push_swap) | Sorting algorithm optimization |
@@ -31,14 +31,14 @@
 | [pipex](./milestone_02/pipex) | Unix pipe recreation |
 ---
 
-### [Milestone 3](./milestone_03)
+### [Milestone 3](./milestone_03/README_EN.md)
 | Project | Description |
 |---|---|
 | [philosophers](./milestone_03/philosophers) | Concurrency & synchronization |
 | [minishell](./milestone_03/minishell) | Unix shell recreation |
 ---
 
-### [Milestone 4](./milestone_04)
+### [Milestone 4](./milestone_04/README_EN.md)
 | Project | Description |
 |---|---|
 | [cub3d](./milestone_04/cub3d) | Raycasting engine inspired by Wolfenstein 3D |
