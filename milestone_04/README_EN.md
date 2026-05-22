@@ -1,8 +1,8 @@
 # Milestone 4
-[![Repo size](https://img.shields.io/github/repo-size/AlexisParder/42_Cursus?style=for-the-badge&logo=github)](https://github.com/AlexisParder/42_Cursus)
-[![Languages count](https://img.shields.io/github/languages/count/AlexisParder/42_Cursus?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus)
-[![Top language](https://img.shields.io/github/languages/top/AlexisParder/42_Cursus?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus)
-[![Last commit](https://img.shields.io/github/last-commit/AlexisParder/42_Cursus?style=for-the-badge)](https://github.com/AlexisParder/42_Cursus)<br>
+![Repo size](https://img.shields.io/github/repo-size/AlexisParder/42_Cursus?style=for-the-badge&logo=github)
+![Languages count](https://img.shields.io/github/languages/count/AlexisParder/42_Cursus?style=for-the-badge)
+![Top language](https://img.shields.io/github/languages/top/AlexisParder/42_Cursus?style=for-the-badge)
+![Last commit](https://img.shields.io/github/last-commit/AlexisParder/42_Cursus?style=for-the-badge)<br>
 [🇫🇷 French](./README.md)<br>
 - [Milestone 4](#milestone-4)
 	- [cub3d](#cub3d)
