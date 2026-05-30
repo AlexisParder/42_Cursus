@@ -6,16 +6,17 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:47:48 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/14 12:03:12 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:14:16 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Colors.hpp"
 
 Cat::Cat(void) 
 {
 	_type = "Cat";
-	std::cout << "Cat has been created!" << std::endl;
+	std::cout << CYAN << "Cat has been created!" << RESET << std::endl;
 }
 
 Cat::Cat(const Cat &other) : Animal(other)
@@ -34,7 +35,7 @@ Cat &Cat::operator=(const Cat &other)
 
 Cat::~Cat(void)
 {
-	std::cout << "Cat has been destroyed!" << std::endl;
+	std::cout << RED << "Cat has been destroyed!" << RESET << std::endl;
 }
 
 void Cat::makeSound(void) const

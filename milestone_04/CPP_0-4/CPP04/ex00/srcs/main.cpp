@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:46:51 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/15 11:55:49 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:11:37 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,14 @@ int main(void)
 
     std::cout << "\n--- WrongAnimal tests ---" << std::endl;
     const WrongAnimal *wrong = new WrongCat();
+    
+    std::cout << "\n--- WrongAnimal Types ---" << std::endl;
     std::cout << wrong->getType() << std::endl;
+
+    std::cout << "\n--- WrongAnimal Sounds ---" << std::endl;
     wrong->makeSound();
+
+    std::cout << "\n--- WrongAnimal Delete ---" << std::endl;
     delete wrong;
 
     return (0);
