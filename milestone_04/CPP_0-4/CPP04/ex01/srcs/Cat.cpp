@@ -6,24 +6,25 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:47:48 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/15 09:58:04 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:25:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Colors.hpp"
 
 Cat::Cat(void) 
 {
 	_type = "Cat";
 	_brain = new Brain();
-	std::cout << "Cat has been created!" << std::endl;
+	std::cout << CYAN << "Cat has been created!" << RESET << std::endl;
 }
 
 Cat::Cat(const Cat &other) : Animal(other)
 {
 	_brain = new Brain();
 	*this = other;
-	std::cout << "Cat has been copied!" << std::endl;
+	std::cout << GREEN << "Cat has been copied!" << RESET << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other)
@@ -33,14 +34,14 @@ Cat &Cat::operator=(const Cat &other)
 		_type = other._type;
 		*_brain = *other._brain;
 	}
-	std::cout << "Cat has been assigned!" << std::endl;
+	std::cout << MAGENTA << "Cat has been assigned!" << RESET << std::endl;
 	return (*this);
 }
 
 Cat::~Cat(void)
 {
 	delete _brain;
-	std::cout << "Cat has been destroyed!" << std::endl;
+	std::cout << RED << "Cat has been destroyed!" << RESET << std::endl;
 }
 
 void Cat::makeSound(void) const

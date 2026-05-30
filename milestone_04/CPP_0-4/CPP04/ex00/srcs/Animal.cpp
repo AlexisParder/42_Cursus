@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:45:15 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/30 08:14:11 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:27:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ Animal::Animal(void)
 Animal::Animal(const Animal &other)
 {
 	*this = other;
-	std::cout << "Animal has been copied!" << std::endl;
+	std::cout << GREEN << "Animal has been copied!" << RESET << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &other)
 {
 	if (this != &other)
 		_type = other._type;
-	std::cout << "Animal has been assigned!" << std::endl;
+	std::cout << MAGENTA << "Animal has been assigned!" << RESET << std::endl;
 	return (*this);
 }
 

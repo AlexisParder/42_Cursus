@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 12:21:16 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/30 08:14:26 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:29:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ WrongAnimal::WrongAnimal(void)
 WrongAnimal::WrongAnimal(const WrongAnimal &other)
 {
 	*this = other;
-	std::cout << "WrongAnimal has been copied!" << std::endl;
+	std::cout << GREEN << "WrongAnimal has been copied!" << RESET << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
 {
 	if (this != &other)
 		_type = other._type;
-	std::cout << "WrongAnimal has been assigned!" << std::endl;
+	std::cout << MAGENTA << "WrongAnimal has been assigned!" << RESET << std::endl;
 	return (*this);
 }
 

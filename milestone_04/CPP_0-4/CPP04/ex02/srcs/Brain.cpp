@@ -6,21 +6,22 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 09:47:09 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/15 11:36:56 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:31:57 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include "Colors.hpp"
 
 Brain::Brain(void)
 {
-	std::cout << "Brain has been created!" << std::endl;
+	std::cout << BLUE << "Brain has been created!" << RESET << std::endl;
 }
 
 Brain::Brain(const Brain &other)
 {
 	*this = other;
-	std::cout << "Brain has been copied!" << std::endl;
+	std::cout << GREEN << "Brain has been copied!" << RESET << std::endl;
 }
 
 Brain &Brain::operator=(const Brain &other)
@@ -30,11 +31,11 @@ Brain &Brain::operator=(const Brain &other)
 		for (int i = 0; i < 100; i++)
 			_ideas[i] = other._ideas[i];
 	}
-	std::cout << "Brain has been assigned!" << std::endl;
+	std::cout << MAGENTA << "Brain has been assigned!" << RESET << std::endl;
 	return (*this);
 }
 
 Brain::~Brain(void)
 {
-	std::cout << "Brain has been destroyed!" << std::endl;
+	std::cout << RED << "Brain has been destroyed!" << RESET << std::endl;
 }

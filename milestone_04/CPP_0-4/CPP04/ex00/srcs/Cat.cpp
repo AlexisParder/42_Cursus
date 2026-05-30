@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:47:48 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/30 08:14:16 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:28:25 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ Cat::Cat(void)
 Cat::Cat(const Cat &other) : Animal(other)
 {
 	*this = other;
-	std::cout << "Cat has been copied!" << std::endl;
+	std::cout << GREEN << "Cat has been copied!" << RESET << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other)
 {
 	if (this != &other)
 		_type = other._type;
-	std::cout << "Cat has been assigned!" << std::endl;
+	std::cout << MAGENTA << "Cat has been assigned!" << RESET << std::endl;
 	return (*this);
 }
 

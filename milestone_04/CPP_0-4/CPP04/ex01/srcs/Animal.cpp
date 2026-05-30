@@ -6,34 +6,35 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:45:15 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/14 11:59:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:24:49 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "Colors.hpp"
 
 Animal::Animal(void) 
 {
-	std::cout << "Animal has been created!" << std::endl;
+	std::cout << BLUE << "Animal has been created!" << RESET << std::endl;
 }
 
 Animal::Animal(const Animal &other)
 {
 	*this = other;
-	std::cout << "Animal has been copied!" << std::endl;
+	std::cout << GREEN << "Animal has been copied!" << RESET << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &other)
 {
 	if (this != &other)
 		_type = other._type;
-	std::cout << "Animal has been assigned!" << std::endl;
+	std::cout << MAGENTA << "Animal has been assigned!" << RESET << std::endl;
 	return (*this);
 }
 
 Animal::~Animal(void)
 {
-	std::cout << "Animal has been destroyed!" << std::endl;
+	std::cout << RED << "Animal has been destroyed!" << RESET << std::endl;
 }
 
 void Animal::makeSound(void) const
