@@ -6,17 +6,18 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 11:48:58 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/15 12:09:54 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:53:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "Colors.hpp"
 
 MateriaSource::MateriaSource(void)
 {
 	for (int i = 0; i < 4; i++)
 		_learned[i] = NULL;
-	std::cout << "MateriaSource has been created!" << std::endl;
+	std::cout << BLUE << "MateriaSource has been created!" << RESET << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other)
@@ -24,7 +25,7 @@ MateriaSource::MateriaSource(const MateriaSource &other)
 	for (int i = 0; i < 4; i++)
         _learned[i] = NULL;
 	*this = other;
-	std::cout << "MateriaSource has been copied!" << std::endl;
+	std::cout << GREEN << "MateriaSource has been copied!" << RESET << std::endl;
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &other)
@@ -41,7 +42,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 				_learned[i] = NULL;
 		}
 	}
-	std::cout << "MateriaSource has been assigned!" << std::endl;
+	std::cout << MAGENTA << "MateriaSource has been assigned!" << RESET << std::endl;
 	return (*this);
 }
 
@@ -52,7 +53,7 @@ MateriaSource::~MateriaSource(void)
 		if (_learned[i])
 			delete _learned[i];
 	}
-	std::cout << "MateriaSource has been destroyed!" << std::endl;
+	std::cout << RED << "MateriaSource has been destroyed!" << RESET << std::endl;
 }
 
 void MateriaSource::learnMateria(AMateria *m)

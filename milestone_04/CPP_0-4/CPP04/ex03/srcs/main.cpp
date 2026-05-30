@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 11:46:51 by achauvie          #+#    #+#             */
-/*   Updated: 2026/05/18 14:53:06 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/05/30 08:51:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include "Ice.hpp"
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+#include "Colors.hpp"
 
 int main(void)
 {
-    std::cout << "--- Basic test from subject ---" << std::endl;
+    std::cout << YELLOW << "--- Basic test from subject ---" << RESET << std::endl;
     IMateriaSource *src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -33,7 +34,7 @@ int main(void)
     me->use(0, *bob);
     me->use(1, *bob);
 
-    std::cout << "\n--- Full inventory test ---" << std::endl;
+    std::cout << YELLOW << "\n--- Full inventory test ---" << RESET << std::endl;
     ICharacter *alice = new Character("alice");
     AMateria *a0 = src->createMateria("ice");
     AMateria *a1 = src->createMateria("cure");
@@ -52,24 +53,24 @@ int main(void)
     alice->use(2, *bob);
     alice->use(3, *bob);
 
-    std::cout << "\n--- Unequip test ---" << std::endl;
+    std::cout << YELLOW << "\n--- Unequip test ---" << RESET << std::endl;
     AMateria *dropped = a0;
     alice->unequip(0);
     alice->use(0, *bob);
     delete dropped;
 
-    std::cout << "\n--- Unknown materia test ---" << std::endl;
+    std::cout << YELLOW << "\n--- Unknown materia test ---" << RESET << std::endl;
     AMateria *unknown = src->createMateria("fire");
     if (!unknown)
         std::cout << "Unknown materia type!" << std::endl;
 
-    std::cout << "\n--- Deep copy test ---" << std::endl;
+    std::cout << YELLOW << "\n--- Deep copy test ---" << RESET << std::endl;
     Character orig("original");
     orig.equip(src->createMateria("ice"));
     Character copy(orig);
     copy.use(0, *bob);
 
-    std::cout << "\n--- Delete ---" << std::endl;
+    std::cout << YELLOW << "\n--- Delete ---" << RESET << std::endl;
     delete bob;
     delete me;
     delete alice;
