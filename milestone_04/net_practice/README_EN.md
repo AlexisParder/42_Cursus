@@ -31,7 +31,7 @@ A networking-focused project designed to develop a practical understanding of TC
 
 ## Resources
 ### TCP/IP Addressing
-TCP/IP is the common language of the Internet.
+`TCP/IP` is the common language of the Internet.
 - IP (`Internet Protocol`) handles addressing — every machine on a network has a unique IP address (e.g. `192.168.1.10`), like a postal address.
 - TCP (`Transmission Control Protocol`) handles delivery — it splits data into packets, sends them, and ensures they all arrive at their destination in the correct order.
 

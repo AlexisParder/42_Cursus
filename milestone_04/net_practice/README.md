@@ -31,7 +31,7 @@ Un projet axé sur les réseaux conçu pour développer une compréhension prati
 
 ## Ressources
 ### Adressage TCP/IP
-TCP/IP est le langage commun d'Internet. 
+`TCP/IP` est le langage commun d'Internet. 
 - IP (`Internet Protocol`) s'occupe de l'adressage, chaque machine sur un réseau possède une adresse IP unique (exemple: 192.168.1.10), comme une adresse postale. 
 - TCP (`Transmission Control Protocol`) s'occupe de la livraison, il découpe les données en paquets, les envoie, et s'assure qu'ils arrivent tous à destination dans le bon ordre.
 
