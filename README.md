@@ -48,3 +48,14 @@
 | [CPP02](./milestone_04/cpp_0-4/CPP02) | Forme canonique et opérateurs |
 | [CPP03](./milestone_04/cpp_0-4/CPP03) | Héritage |
 | [CPP04](./milestone_04/cpp_0-4/CPP04) | Polymorphisme et classes abstraites |
+
+### [Milestone 5](./milestone_05)
+| Projet | Description |
+|---|---|
+| [CPP05](./milestone_05/cpp_5-9/CPP05) | Exceptions |
+| [CPP06](./milestone_05/cpp_5-9/CPP06) | Casts |
+| [CPP07](./milestone_05/cpp_5-9/CPP07) | Templates |
+| [CPP08](./milestone_05/cpp_5-9/CPP08) | Conteneurs STL |
+| [CPP09](./milestone_05/cpp_5-9/CPP09) | Algorithmes STL |
+| [inception](./milestone_05/inception) | Virtualisation avec Docker |
+| [WebServ / IRC](./milestone_05/) | Serveur HTTP ou client IRC (en cours de choix) |
