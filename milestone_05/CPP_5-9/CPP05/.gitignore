@@ -1,0 +1,12 @@
+*
+
+!*/
+
+!*/srcs/**
+!*/includes/**
+
+!.gitignore
+!Makefile
+
+*.o
+*.a
