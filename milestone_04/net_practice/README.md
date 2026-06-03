@@ -46,7 +46,7 @@ La `passerelle par défaut` est l'adresse du routeur à qui une machine envoie s
 - Un `routeur`, relie plusieurs réseaux différents entre eux. Il lit les adresses `IP` et décide par quel chemin faire passer un paquet pour qu'il atteigne sa destination, en s'appuyant sur une table de routage.
 
 ### Couches OSI
-Le `couches OSI` découpe la communication réseau en 7 couches, chacune ayant un rôle précis:
+Les `couches OSI` découpent la communication réseau en 7 couches, chacune ayant un rôle précis:
 
 - `Couche 1 — Physique` : Elle s'occupe de la transmission brute des bits sur le support physique (câble Ethernet, fibre optique, Wi-Fi).
 - `Couche 2 — Liaison de données` : Elle organise les bits en trames et gère la communication entre deux machines directement connectées. C'est ici qu'interviennent les adresses MAC et les switches.
