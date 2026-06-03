@@ -49,7 +49,7 @@
 | [CPP03](./milestone_04/cpp_0-4/CPP03) | Inheritance |
 | [CPP04](./milestone_04/cpp_0-4/CPP04) | Polymorphism & abstract classes |
 
-### [Milestone 5](./milestone_05)
+### [Milestone 5](./milestone_05/README_EN.md)
 | Project | Description |
 |---|---|
 | [CPP05](./milestone_05/cpp_5-9/CPP05) | Exceptions |
