@@ -11,7 +11,7 @@
     - [Masques de sous-réseau](#masques-de-sous-réseau)
     - [Passerelle par défaut](#passerelle-par-défaut)
     - [Routeurs et switches](#routeurs-et-switches)
-    - [Modèle OSI](#modèle-osi)
+    - [Couches OSI](#couches-osi)
     - [Routage IP statique](#routage-ip-statique)
     - [Liens Utils](#liens-utils)
 
@@ -45,8 +45,8 @@ La `passerelle par défaut` est l'adresse du routeur à qui une machine envoie s
 - Un `switch` relie des machines au sein d'un même réseau local (`LAN (Local Area Network)`). Il connaît les `adresses MAC` de chaque appareil connecté et fait suivre les trames au bon destinataire.
 - Un `routeur`, relie plusieurs réseaux différents entre eux. Il lit les adresses `IP` et décide par quel chemin faire passer un paquet pour qu'il atteigne sa destination, en s'appuyant sur une table de routage.
 
-### Modèle OSI
-Le `modèle OSI` découpe la communication réseau en 7 couches, chacune ayant un rôle précis:
+### Couches OSI
+Le `couches OSI` découpe la communication réseau en 7 couches, chacune ayant un rôle précis:
 
 - `Couche 1 — Physique` : Elle s'occupe de la transmission brute des bits sur le support physique (câble Ethernet, fibre optique, Wi-Fi).
 - `Couche 2 — Liaison de données` : Elle organise les bits en trames et gère la communication entre deux machines directement connectées. C'est ici qu'interviennent les adresses MAC et les switches.

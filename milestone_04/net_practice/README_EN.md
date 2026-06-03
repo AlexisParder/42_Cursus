@@ -11,7 +11,7 @@
     - [Subnet Masks](#subnet-masks)
     - [Default Gateway](#default-gateway)
     - [Routers and Switches](#routers-and-switches)
-    - [OSI Model](#osi-model)
+    - [OSI Layers](#osi-layers)
     - [Static IP Routing](#static-ip-routing)
     - [Useful Links](#useful-links)
 
@@ -45,8 +45,8 @@ The `default gateway` is the address of the router to which a machine sends its 
 - A `switch` connects machines within the same local network (`LAN — Local Area Network`). It knows the `MAC address` of each connected device and forwards frames to the correct recipient.
 - A `router` connects multiple different networks together. It reads `IP` addresses and decides which path a packet should take to reach its destination, using a routing table.
 
-### OSI Model
-The `OSI model` breaks down network communication into 7 layers, each with a specific role:
+### OSI Layers
+The `OSI layers` breaks down network communication into 7 layers, each with a specific role:
 
 - `Layer 1 — Physical`: Handles the raw transmission of bits over a physical medium (Ethernet cable, fiber optic, Wi-Fi).
 - `Layer 2 — Data Link`: Organizes bits into frames and manages communication between two directly connected machines. This is where MAC addresses and switches come in.
