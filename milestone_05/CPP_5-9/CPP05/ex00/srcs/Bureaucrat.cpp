@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 13:23:28 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 12:03:20 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/04 12:49:35 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
 	if (grade < 1)
-		throw GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
 	std::cout << "Bureaucrat " << _name << " was created with grade " << _grade << std::endl;
 }
@@ -53,7 +53,7 @@ void Bureaucrat::promote(void)
 {
 	int oldGrade = _grade;
 	if (_grade - 1 < 1)
-		throw GradeTooHighException();
+		throw Bureaucrat::GradeTooHighException();
 	_grade--;
 	std::cout << "Promote " << _name << ", old grade: " << oldGrade << ", new grade: " << _grade << std::endl;
 }
@@ -62,7 +62,7 @@ void Bureaucrat::demote(void)
 {
 	int oldGrade = _grade;
 	if (_grade + 1 > 150)
-		throw GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	_grade++;
 	std::cout << "Demote " << _name << ", old grade: " << oldGrade << ", new grade: " << _grade << std::endl;
 }
