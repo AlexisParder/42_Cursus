@@ -6,11 +6,17 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 11:37:46 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 13:50:23 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:19:15 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+Form::Form(void) : _name("Default"), _gradeToSign(150), _gradeToExec(150)
+{
+	_isSigned = false;
+	std::cout << "[Default Form] " << _name << " was created!" << std::endl;
+}
 
 Form::Form(const std::string &name, const int gradeToSign, const int gradeToExec) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {

@@ -6,12 +6,17 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:00:07 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 15:32:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:23:40 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
+
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("Default", 72, 45), _target("Default target")
+{
+	std::cout << "[Default RobotomyRequestForm] " << _target << " was created!" << std::endl;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm(target, 72, 45), _target(target)
 {

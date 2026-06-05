@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:00:01 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/05 09:27:04 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:25:05 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class RobotomyRequestForm : public AForm
 	private:
 		const std::string _target;
 	public:
+		RobotomyRequestForm(void);
 		RobotomyRequestForm(const std::string &target);
 		RobotomyRequestForm(const RobotomyRequestForm &other);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &other);

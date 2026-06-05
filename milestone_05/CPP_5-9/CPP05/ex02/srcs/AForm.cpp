@@ -6,11 +6,17 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 11:37:46 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 14:50:24 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:21:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+
+AForm::AForm(void) : _name("Default"), _gradeToSign(150), _gradeToExec(150)
+{
+	_isSigned = false;
+	std::cout << "[Default AForm] " << _name << " was created!" << std::endl;
+}
 
 AForm::AForm(const std::string &name, const int gradeToSign, const int gradeToExec) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {

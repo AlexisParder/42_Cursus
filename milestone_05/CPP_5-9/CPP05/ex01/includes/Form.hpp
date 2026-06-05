@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 11:37:32 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 13:15:04 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:18:46 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Form
 		const int _gradeToSign;
 		const int _gradeToExec;
 	public:
+		Form(void);
 		Form(const std::string &name, const int gradeToSign, const int gradeToExec);
 		Form(const Form &other);
 		Form &operator=(const Form &other);

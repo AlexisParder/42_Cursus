@@ -6,11 +6,16 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:00:24 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 16:09:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:23:04 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("Default", 25, 5), _target("Default target")
+{
+	std::cout << "[Default PresidentialPardonForm] " << _target << " was created!" << std::endl;
+}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm(target, 25, 5), _target(target)
 {

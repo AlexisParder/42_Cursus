@@ -6,12 +6,17 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 13:59:49 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 15:32:07 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 15:26:34 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 145, 137), _target("Default target")
+{
+	std::cout << "[Default ShrubberyCreationForm] " << _target << " was created!" << std::endl;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(target, 145, 137), _target(target)
 {
