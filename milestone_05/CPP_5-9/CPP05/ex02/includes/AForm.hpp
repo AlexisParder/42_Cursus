@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 11:37:32 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 14:49:59 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 09:24:52 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AForm
 		AForm(const std::string &name, const int gradeToSign, const int gradeToExec);
 		AForm(const AForm &other);
 		AForm &operator=(const AForm &other);
-		~AForm(void);
+		virtual ~AForm(void);
 		void beSigned(Bureaucrat &bureaucrat);
 		class GradeTooHighException : public std::exception
 		{

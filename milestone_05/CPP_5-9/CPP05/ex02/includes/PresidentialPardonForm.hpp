@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 14:00:18 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 14:18:45 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 09:28:14 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const std::string &target);
 		PresidentialPardonForm(const PresidentialPardonForm &other);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
-		~PresidentialPardonForm(void);
+		virtual ~PresidentialPardonForm(void);
 		void execute(Bureaucrat const &executor) const;
 };
