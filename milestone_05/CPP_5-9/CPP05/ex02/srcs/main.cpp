@@ -6,16 +6,19 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 13:23:40 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/04 16:12:35 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/05 08:25:02 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int main(void)
 {
+	std::srand(std::time(NULL));
 	// Shrubbery
 	{
 		std::cout << "--- Error Shrubbery (No Signed) ---" << std::endl;
