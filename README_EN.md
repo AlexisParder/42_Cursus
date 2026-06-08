@@ -52,10 +52,10 @@
 ### [Milestone 5](./milestone_05/README_EN.md)
 | Project | Description |
 |---|---|
-| [CPP05](./milestone_05/cpp_5-9/CPP05) | Exceptions |
-| [CPP06](./milestone_05/cpp_5-9/CPP06) | Casts |
-| [CPP07](./milestone_05/cpp_5-9/CPP07) | Templates |
-| [CPP08](./milestone_05/cpp_5-9/CPP08) | STL Containers |
-| [CPP09](./milestone_05/cpp_5-9/CPP09) | STL Algorithms |
+| [CPP05](./milestone_05/CPP_5-9/CPP05) | Exceptions |
+| [CPP06](./milestone_05/CPP_5-9/CPP06) | Casts |
+| [CPP07](./milestone_05/CPP_5-9/CPP07) | Templates |
+| [CPP08](./milestone_05/CPP_5-9/CPP08) | STL Containers |
+| [CPP09](./milestone_05/CPP_5-9/CPP09) | STL Algorithms |
 | [inception](./milestone_05/inception) | Containerization with Docker |
 | [WebServ / IRC](./milestone_05/) | HTTP server or IRC client (choice pending) |
