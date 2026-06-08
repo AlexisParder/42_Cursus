@@ -1,10 +1,10 @@
-# Types de cast
-- Types numériques → `static_cast`
-- Pas sûr du type → `dynamic_cast`
-- Pointeur ↔ entier brut → `reinterpret_cast`
-- Retirer/ajouter const → `const_cast`
-  
-# Ressources
+# Types of Casts
+Numeric type conversions → `static_cast`
+Not sure of the type → `dynamic_cast`
+Pointer ↔ raw integer → `reinterpret_cast`
+Remove/add const qualifier → `const_cast`
+
+# Resources
 - [static_cast](https://learn.microsoft.com/fr-fr/cpp/cpp/static-cast-operator?view=msvc-170)
 - [dynamic_cast](https://learn.microsoft.com/fr-fr/cpp/cpp/dynamic-cast-operator?view=msvc-170)
 - [reinterpret_cast](https://learn.microsoft.com/fr-fr/cpp/cpp/reinterpret-cast-operator?view=msvc-170)
