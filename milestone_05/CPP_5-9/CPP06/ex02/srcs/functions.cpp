@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:16:52 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/09 08:59:46 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/09 09:00:33 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	try {
+	try 
+	{
 		A &a = dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 		(void)a;
@@ -46,7 +47,8 @@ void identify(Base& p)
 		(void)e;
 	}
 
-	try {
+	try 
+	{
 		B &b = dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
 		(void)b;
@@ -56,7 +58,8 @@ void identify(Base& p)
 		(void)e;
 	}
 
-	try {
+	try 
+	{
 		C &c = dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
 		(void)c;
