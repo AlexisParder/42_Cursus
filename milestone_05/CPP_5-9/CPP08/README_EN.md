@@ -29,3 +29,6 @@ std::sort(v.begin(), v.end());     // sorts v
 ```
 
 > These three concepts are closely related: `algorithms` take `iterators`, which point to elements inside `containers`.
+
+# Resources
+- [Containers in C++ STL](https://www.geeksforgeeks.org/cpp/containers-cpp-stl/)

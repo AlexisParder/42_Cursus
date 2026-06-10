@@ -28,3 +28,6 @@ std::sort(v.begin(), v.end());     // trie v
 ```
 
 > Ces trois concepts sont liés : les `algorithmes` prennent des `itérateurs` qui pointent sur des `conteneurs`.
+
+# Ressources
+- [Conteneurs STL en C++](https://www.geeksforgeeks.org/cpp/containers-cpp-stl/)
