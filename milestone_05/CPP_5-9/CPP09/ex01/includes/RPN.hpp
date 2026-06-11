@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 08:59:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/11 10:56:42 by achauvie         ###   ########.fr       */
+/*   Created: 2026/06/11 10:27:17 by achauvie          #+#    #+#             */
+/*   Updated: 2026/06/11 12:05:17 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#pragma once
+#include <iostream>
+#include <stack>
+#include <cctype>
+#include <cstring>
+#include <cstdlib>
 
-int main(int ac, char **av)
+class RPN
 {
-	if (ac != 2)
-	{
-		std::cerr << "Error: Invalid cmd, format:\n./RPN '<expr>'" << std::endl;
-		return 1;
-	}
-
-	RPN rpn;
-	try
-	{
-		rpn.processCalc(av[1]);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	return 0;
-}
+	private:
+		std::stack<int> _arr;
+	public:
+		RPN(void);
+		RPN(const RPN &other);
+		RPN &operator=(const RPN &other);
+		~RPN(void);
+		void processCalc(const std::string &expr);
+};
