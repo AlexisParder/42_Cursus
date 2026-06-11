@@ -1,4 +1,4 @@
-NAME = ex00
+NAME = btc
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -8,7 +8,8 @@ INC_DIR = -I includes/
 OBJ_DIR = obj
 
 SRC_DIR = srcs/
-SRC_FILES = $(SRC_DIR)main.cpp
+SRC_FILES = $(SRC_DIR)main.cpp \
+			$(SRC_DIR)BitcoinExchange.cpp
 			
 OBJ_FILES = $(SRC_FILES:srcs/%.cpp=$(OBJ_DIR)/%.o)
 
