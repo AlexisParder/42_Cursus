@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 08:59:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/11 10:25:17 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/11 10:56:47 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int main(int ac, char **av)
 		std::cerr << "Error: Invalid cmd, format:\n./btc <input_file>" << std::endl;
 		return 1;
 	}
+	
 	BitcoinExchange btc;
-
 	try
 	{
 		btc.chargeCSV("./data.csv");
