@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:02:47 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/12 11:24:57 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/12 13:50:39 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,51 +47,6 @@ void PmergeMe::parseArgs(int ac, char **av)
 		_arrDeq.push_back(arg);
 	}
 	
-}
-
-template <typename T>
-T mergeInsert(T container)
-{
-	T big, small;
-	long leftovers = -1;
-	bool hasLeftovers = false;
-
-	if (container.size() <= 1)
-    	return container;
-
-	if (container.size() % 2 != 0)
-	{
-		leftovers = container.back();
-		hasLeftovers = true;
-		container.pop_back();
-	}
-
-	for (size_t i = 0; i < container.size(); i += 2)
-	{
-		if (container[i] > container[i + 1])
-		{
-			big.push_back(container[i]);
-			small.push_back(container[i + 1]);
-		}
-		else
-		{
-			big.push_back(container[i + 1]);
-			small.push_back(container[i]);
-		}
-	}
-	container = mergeInsert(big);
-
-	for (size_t i = 0; i < small.size(); i++)
-	{
-		typename T::iterator pos = std::lower_bound(container.begin(), container.end(), small[i]);
-		container.insert(pos, small[i]);
-	}
-	if (hasLeftovers)
-	{
-		typename T::iterator pos = std::lower_bound(container.begin(), container.end(), leftovers);
-		container.insert(pos, leftovers);
-	}
-	return container;
 }
 
 void PmergeMe::runProcess(void)
