@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 08:59:56 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/12 11:25:01 by achauvie         ###   ########.fr       */
+/*   Created: 2026/06/11 15:02:34 by achauvie          #+#    #+#             */
+/*   Updated: 2026/06/12 11:25:00 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#pragma once
+#include <iostream>
+#include <cstring>
+#include <climits>
+#include <cstdlib>
+#include <vector>
+#include <deque>
 
-int main(int ac, char **av)
+class PmergeMe
 {
-	if (ac < 2)
-	{
-		std::cerr << "Error: Invalid command\n./PmergeMe <list of positive integer>" << std::endl;
-		return 1;
-	}
-	
-	try
-	{
-		PmergeMe merge;
-
-		merge.parseArgs(ac, av);
-		merge.runProcess();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	return 0;
-}
+	private:
+		std::vector<long> _arrVec;
+		std::deque<long> _arrDeq;
+	public:
+		PmergeMe(void);
+		PmergeMe(const PmergeMe &other);
+		PmergeMe &operator=(const PmergeMe &other);
+		~PmergeMe(void);
+		void parseArgs(int ac, char **av);
+		void runProcess(void);
+};
