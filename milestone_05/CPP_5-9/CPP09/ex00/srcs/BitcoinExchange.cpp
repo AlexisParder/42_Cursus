@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 09:03:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/11 10:25:19 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/15 13:21:21 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,18 @@ bool isValidDate(const std::string &date)
 		int year = std::atoi(date.substr(0, 4).c_str());
 		int month = std::atoi(date.substr(5, 2).c_str());
 		int day = std::atoi(date.substr(8, 2).c_str());
-		
-		int maxFeb = 28;
-		if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
-			maxFeb = 29;
 
-		if (month == 2 && (day < 1 || day > maxFeb))
+		int maxDaysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		
+		if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+			maxDaysInMonth[1] = 29;
+
+		if (month < 1 || month > 12)
 			valid = false;
-		else if (month != 2)
+
+		if (valid)
 		{
-			if (month < 1 || month > 12 || day < 1 || day > 31)
+			if (day < 1 || day > maxDaysInMonth[month - 1])
 				valid = false;
 		}
 	}	
@@ -111,7 +113,12 @@ void BitcoinExchange::processInput(const std::string &file)
 	while (std::getline(inFile, line))
 	{
 		std::size_t	pos = line.find('|');
-		if (pos != std::string::npos)
+		if (pos == std::string::npos || pos == 0 || pos + 1 >= line.size() || line[pos - 1] != ' ' || line[pos + 1] != ' ')
+		{
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+		else
 		{
 			if (pos > 0)
 			{
@@ -151,8 +158,6 @@ void BitcoinExchange::processInput(const std::string &file)
 				}
 			}
 		}
-		else
-			std::cerr << "Error: bad input => " << line << std::endl;
 	}
 	
 	inFile.close();
