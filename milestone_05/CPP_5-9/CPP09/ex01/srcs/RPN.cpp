@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 10:27:24 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/11 13:05:43 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/15 12:25:28 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,18 @@ void RPN::processCalc(const std::string &expr)
 			long res = 0;
 			switch (expr[i])
 			{
-				case '+': 
+				case '+':
 					res = a + b; 
 					break;
-				case '-': 
+				case '-':
 					res = a - b; 
 					break;
-				case '*': 
+				case '*':
 					res = a * b; 
 					break;
-				case '/': 
+				case '/':
+					if (b == 0)
+						throw std::runtime_error("Error: division by zero.");
 					res = a / b; 
 					break;
 			}
