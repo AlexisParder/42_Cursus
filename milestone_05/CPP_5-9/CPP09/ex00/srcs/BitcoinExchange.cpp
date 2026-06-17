@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 09:03:21 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/15 13:21:21 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/17 14:13:45 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 
 BitcoinExchange::~BitcoinExchange(void) {}
 
+std::string trim(const std::string &str)
+{
+	size_t start = str.find_first_not_of(" \t");
+	size_t end = str.find_last_not_of(" \t");
+
+	if (start == std::string::npos)
+		return "";
+    return str.substr(start, end - start + 1);
+}
+
 void BitcoinExchange::chargeCSV(const std::string &file)
 {
 	std::ifstream inFile(file.c_str());
@@ -36,6 +46,8 @@ void BitcoinExchange::chargeCSV(const std::string &file)
 
 	std::string line;
 	std::getline(inFile, line);
+	if (trim(line) != "date,exchange_rate")
+    	throw std::runtime_error("invalid CSV header!\nFirst line need to be 'date,exchange_rate'");
 	while (std::getline(inFile, line))
 	{
 		std::size_t	pos = line.find(',');
@@ -51,16 +63,6 @@ void BitcoinExchange::chargeCSV(const std::string &file)
 	}
 	
 	inFile.close();
-}
-
-std::string trim(const std::string &str)
-{
-	size_t start = str.find_first_not_of(" \t");
-	size_t end = str.find_last_not_of(" \t");
-
-	if (start == std::string::npos)
-		return "";
-    return str.substr(start, end - start + 1);
 }
 
 bool isValidDate(const std::string &date)
@@ -110,6 +112,8 @@ void BitcoinExchange::processInput(const std::string &file)
 
 	std::string line;
 	std::getline(inFile, line);
+	if (trim(line) != "date | value")
+    	throw std::runtime_error("invalid input header!\nFirst line need to be 'date | value'");
 	while (std::getline(inFile, line))
 	{
 		std::size_t	pos = line.find('|');
