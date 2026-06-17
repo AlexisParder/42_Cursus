@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:02:47 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/17 13:34:53 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/17 13:38:50 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,15 +135,15 @@ std::vector<long> mergeInsertVec(std::vector<long> container)
 		}
 	}
 
-	std::vector<long> chain;
+	std::vector<long> main;
 	std::vector<long> pend;
 	for (size_t i = 0; i < sortedPairs.size(); i++)
 	{
-		chain.push_back(sortedPairs[i].first);
+		main.push_back(sortedPairs[i].first);
 		pend.push_back(sortedPairs[i].second);
 	}
 
-	chain.insert(chain.begin(), pend[0]);
+	main.insert(main.begin(), pend[0]);
 	size_t pendSize = pend.size() - 1;
 	if (pendSize > 0)
 	{
@@ -154,18 +154,18 @@ std::vector<long> mergeInsertVec(std::vector<long> container)
 			long val = pend[pendIdx];
 			long partnerBig = sortedPairs[pendIdx].first;
 
-			std::vector<long>::iterator limit = std::find(chain.begin(), chain.end(), partnerBig);
-			std::vector<long>::iterator pos = std::lower_bound(chain.begin(), limit, val);
-			chain.insert(pos, val);
+			std::vector<long>::iterator limit = std::find(main.begin(), main.end(), partnerBig);
+			std::vector<long>::iterator pos = std::lower_bound(main.begin(), limit, val);
+			main.insert(pos, val);
 		}
 	}
 
 	if (hasLeftovers)
 	{
-		std::vector<long>::iterator pos = std::lower_bound(chain.begin(), chain.end(), leftovers);
-		chain.insert(pos, leftovers);
+		std::vector<long>::iterator pos = std::lower_bound(main.begin(), main.end(), leftovers);
+		main.insert(pos, leftovers);
 	}
-	return chain;
+	return main;
 }
 
 std::deque<long> mergeInsertDeq(std::deque<long> container)
@@ -215,15 +215,15 @@ std::deque<long> mergeInsertDeq(std::deque<long> container)
 		}
 	}
 
-	std::deque<long> chain;
+	std::deque<long> main;
 	std::deque<long> pend;
 	for (size_t i = 0; i < sortedPairs.size(); i++)
 	{
-		chain.push_back(sortedPairs[i].first);
+		main.push_back(sortedPairs[i].first);
 		pend.push_back(sortedPairs[i].second);
 	}
 
-	chain.push_front(pend[0]);
+	main.push_front(pend[0]);
 	size_t pendSize = pend.size() - 1;
 	if (pendSize > 0)
 	{
@@ -234,19 +234,19 @@ std::deque<long> mergeInsertDeq(std::deque<long> container)
 			long val = pend[pendIdx];
 			long partnerBig = sortedPairs[pendIdx].first;
 
-			std::deque<long>::iterator limit = std::find(chain.begin(), chain.end(), partnerBig);
-			std::deque<long>::iterator pos = std::lower_bound(chain.begin(), limit, val);
-			chain.insert(pos, val);
+			std::deque<long>::iterator limit = std::find(main.begin(), main.end(), partnerBig);
+			std::deque<long>::iterator pos = std::lower_bound(main.begin(), limit, val);
+			main.insert(pos, val);
 		}
 	}
 
 	if (hasLeftovers)
 	{
-		std::deque<long>::iterator pos = std::lower_bound(chain.begin(), chain.end(), leftovers);
-		chain.insert(pos, leftovers);
+		std::deque<long>::iterator pos = std::lower_bound(main.begin(), main.end(), leftovers);
+		main.insert(pos, leftovers);
 	}
 
-	return chain;
+	return main;
 }
 
 
