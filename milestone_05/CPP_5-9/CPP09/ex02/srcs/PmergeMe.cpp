@@ -6,7 +6,7 @@
 /*   By: achauvie <achauvie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:02:47 by achauvie          #+#    #+#             */
-/*   Updated: 2026/06/16 19:49:15 by achauvie         ###   ########.fr       */
+/*   Updated: 2026/06/17 13:34:53 by achauvie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void PmergeMe::parseArgs(int ac, char **av)
 	}
 }
 
-std::vector<size_t> PmergeMe::jacobsthalOrder(size_t n)
+std::vector<size_t> jacobsthalOrder(size_t n)
 {
 	std::vector<size_t> jacobsthal;
 	jacobsthal.push_back(0);
@@ -89,7 +89,7 @@ std::vector<size_t> PmergeMe::jacobsthalOrder(size_t n)
 	return order;
 }
 
-std::vector<long> PmergeMe::mergeInsertVec(std::vector<long> container)
+std::vector<long> mergeInsertVec(std::vector<long> container)
 {
 	if (container.size() <= 1)
 		return container;
@@ -168,7 +168,7 @@ std::vector<long> PmergeMe::mergeInsertVec(std::vector<long> container)
 	return chain;
 }
 
-std::deque<long> PmergeMe::mergeInsertDeq(std::deque<long> container)
+std::deque<long> mergeInsertDeq(std::deque<long> container)
 {
 	if (container.size() <= 1)
 		return container;
