@@ -8,7 +8,7 @@
 	- [Instructions](#instructions)
 		- [Obligatoire](#obligatoire)
 	- [Utilisation de l’IA](#utilisation-de-lia)
-	- [Resources](#resources)
+	- [Ressources](#ressources)
 
 ## Description
 Un projet axé sur la concurrence basé sur le problème classique des philosophes mangeurs. L’objectif est de simuler plusieurs philosophes partageant des ressources limitées tout en évitant les interblocages (deadlocks), la famine (starvation) et les conditions de course (race conditions). L’implémentation repose sur l’utilisation de threads (ou de processus), de mutex, d’une gestion précise du temps et d’un accès synchronisé aux données partagées. Le projet exige un contrôle rigoureux des contraintes temporelles, une gestion propre du cycle de vie des threads et une journalisation précise des états. Il permet de développer une compréhension approfondie du multithreading, des primitives de synchronisation, des pièges de la programmation concurrente et de la logique sensible aux performances sous des contraintes strictes de temps réel.
@@ -25,7 +25,7 @@ Un projet axé sur la concurrence basé sur le problème classique des philosoph
 L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet, notamment en créant une liste d’exercices afin d’apprendre à utiliser les threads et les mutex.
 - [Voir les exercices](https://github.com/AlexisParder/42_Cursus/tree/main/philosophers/thread_exercices)
 
-## Resources
+## Ressources
 - [Tester 1](https://github.com/dantonik/42-philosophers-tester)
 - [Tester 2](https://github.com/Acholias/Philosophers_tester)
 - [Langage C #17 (les threads)](https://youtu.be/o_GbRujGCnM?list=PLdDeXINE1ViRkmBtqLmC_fu-tIJUl4-Sd)

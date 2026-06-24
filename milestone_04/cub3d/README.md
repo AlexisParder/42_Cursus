@@ -17,7 +17,7 @@
 	- [Cartes](#cartes)
 	- [Exemple de fichier .cub](#exemple-de-fichier-cub)
 	- [Utilisation de l’IA](#utilisation-de-lia)
-	- [Resources](#resources)
+	- [Ressources](#ressources)
 
 ## Description
 Un projet de programmation graphique inspiré des premiers moteurs de raycasting comme Wolfenstein 3D. L’objectif est de construire un moteur de rendu pseudo-3D en utilisant une carte 2D et des techniques de raycasting afin de simuler une vue à la première personne. L’implémentation comprend le parsing de fichiers de carte, la gestion des déplacements du joueur et de la rotation de la caméra, le calcul des rayons en temps réel, ainsi que le rendu de murs texturés avec une profondeur et une perspective correctes.
@@ -117,7 +117,7 @@ C 225,30,0
 ## Utilisation de l’IA
 L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet.
 
-## Resources
+## Ressources
 - [Bibliothèque C maths (math.h)](https://www.w3schools.com/c/c_ref_math.php)
 - [MacroLibX](https://macrolibx.kbz8.me/guides/getting_started/)
 - [Notions mathématiques du projet Cub3D](https://docs.google.com/document/d/1tdNYHg3Mfqf8dr8W6Ajs3seUugwtmaQizZ7BzimkXog/edit)

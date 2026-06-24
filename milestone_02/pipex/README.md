@@ -10,7 +10,7 @@
 		- [Bonus](#bonus)
 	- [Bonus](#bonus-1)
 	- [Utilisation de l’IA](#utilisation-de-lia)
-	- [Resources](#resources)
+	- [Ressources](#ressources)
 
 ## Description
 Un projet visant à reproduire le comportement des pipelines Unix en redirigeant les flux d’entrée et de sortie entre plusieurs commandes. Le programme doit créer correctement des processus avec fork, mettre en place des pipes, gérer les descripteurs de fichiers et exécuter les commandes via la résolution du PATH, tout en garantissant une gestion stricte des erreurs et une sécurité mémoire totale.
@@ -41,7 +41,7 @@ Ce projet renforce la maîtrise des processus, des appels système, de la redire
 ## Utilisation de l’IA
 L’intelligence artificielle a été utilisée comme support pour comprendre et regrouper les notions clés du projet, notamment les concepts de forks, pipes et autres mécanismes systèmes.
 
-## Resources
+## Ressources
 - [Les processus Unix en C](https://www.youtube.com/playlist?list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY)
 - [Pipes, Forks & Dups par Roslyn McConnell](https://www.rozmichelle.com/pipes-forks-dups/)
 - [libft](https://github.com/AlexisParder/42_Cursus/tree/main/libft)
