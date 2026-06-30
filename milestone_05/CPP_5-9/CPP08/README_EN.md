@@ -1,4 +1,4 @@
-[🇫🇷 French](./README.md)
+[🇫🇷 Français](./README.md)
 # Essential Concepts for This Module
 
 `std::vector` is a dynamic array that automatically grows as needed:

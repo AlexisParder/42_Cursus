@@ -2,7 +2,7 @@
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
 ![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)
 ![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)<br>
-[🇫🇷 French](./README.md)
+[🇫🇷 Français](./README.md)
 - [get\_next\_line](#get_next_line)
 	- [Description](#description)
 	- [Example of usage](#example-of-usage)

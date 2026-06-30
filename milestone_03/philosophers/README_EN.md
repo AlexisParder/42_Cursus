@@ -2,7 +2,7 @@
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
 ![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)
 ![Score](https://img.shields.io/badge/score-100%20%2F%20100-success?style=for-the-badge)<br>
-[🇫🇷 French](./README.md)
+[🇫🇷 Français](./README.md)
 - [philosophers](#philosophers)
 	- [Description](#description)
 	- [Instructions](#instructions)
@@ -28,4 +28,4 @@ Artificial intelligence was used as a support to understand and organize the key
 ## Resources
 - [Tester 1](https://github.com/dantonik/42-philosophers-tester)
 - [Tester 2](https://github.com/Acholias/Philosophers_tester)
-- [(🇫🇷 French) C language #17 (threads)](https://youtu.be/o_GbRujGCnM?list=PLdDeXINE1ViRkmBtqLmC_fu-tIJUl4-Sd)
+- [(🇫🇷 Français) C language #17 (threads)](https://youtu.be/o_GbRujGCnM?list=PLdDeXINE1ViRkmBtqLmC_fu-tIJUl4-Sd)

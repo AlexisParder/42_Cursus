@@ -4,7 +4,7 @@
 ![42 Cursus](https://img.shields.io/badge/42-Cursus-blue?style=for-the-badge)
 ![Projects](https://img.shields.io/badge/Projects-Common_Core-success?style=for-the-badge)
 ![Score](https://img.shields.io/badge/score-125%20%2F%20100-success?style=for-the-badge)<br>
-[🇫🇷 French](./README.md)
+[🇫🇷 Français](./README.md)
 - [cub3d](#cub3d)
   - [Description](#description)
   - [Instructions](#instructions)
@@ -120,4 +120,4 @@ Artificial intelligence was used as a support to understand and organize the key
 ## Resources
 - [C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
 - [MacroLibX](https://macrolibx.kbz8.me/guides/getting_started/)
-- [(French) Mathematical Concepts of the Cub3D Project](https://docs.google.com/document/d/1tdNYHg3Mfqf8dr8W6Ajs3seUugwtmaQizZ7BzimkXog/edit)
+- [(Français) Mathematical Concepts of the Cub3D Project](https://docs.google.com/document/d/1tdNYHg3Mfqf8dr8W6Ajs3seUugwtmaQizZ7BzimkXog/edit)

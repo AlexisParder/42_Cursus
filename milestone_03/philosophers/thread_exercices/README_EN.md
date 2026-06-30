@@ -1,4 +1,4 @@
-[🇫🇷 French](./README.md)
+[🇫🇷 Français](./README.md)
 - [📘 PART 1: Mastering Threads](#-part-1-mastering-threads)
   - [Exercise 1.1: My first thread](#exercise-11-my-first-thread)
     - [Goal: Create and wait for a simple thread](#goal-create-and-wait-for-a-simple-thread)

@@ -3,7 +3,7 @@
 ![Languages count](https://img.shields.io/github/languages/count/AlexisParder/42_Cursus?style=for-the-badge)
 ![Top language](https://img.shields.io/github/languages/top/AlexisParder/42_Cursus?style=for-the-badge)
 ![Last commit](https://img.shields.io/github/last-commit/AlexisParder/42_Cursus?style=for-the-badge)<br>
-[🇫🇷 French](./README.md)<br>
+[🇫🇷 Français](./README.md)<br>
 - [Milestone 0](#milestone-0)
 	- [libft](#libft)
 
